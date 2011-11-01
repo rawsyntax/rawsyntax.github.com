@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Start Using html5 - Raw Syntax</title>
+  <meta name="author" content="Eric Himmelreich">
+
+  
+  <meta name="description" content="There&#8217;s a lot of hype going on about html5 nowadays. If you&#8217;re not using html5 yet, the whole thing can be somewhat overwhelming. After &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rawsyntax.github.com/blog/start-using-html5">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Raw Syntax" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22677496-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Raw Syntax</a></h1>
+  
+    <h2>The stuff programs are made of</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rawsyntax.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Start Using Html5</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2010-09-25T00:00:00-04:00" pubdate>Sep 25<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>There&#8217;s a lot of hype going on about html5 nowadays. If you&#8217;re not using html5 yet, the whole thing can be somewhat overwhelming. After reading this blogpost you&#8217;ll be ready to upgrade your current project (or start a new one) using html5.</p>
+
+<h2>Understanding html5</h2>
+
+<p>I went to the <a href="http://www.meetup.com/bocaruby/">bocaruby</a> ruby users group earlier this month. I had some understanding of what html5 is capable of, but Diego Scataglini&#8217;s presentation <a href="http://diegoscataglini.com/2010/09/14/232/html-5-a-gentle-introduction/">html5 a gentle introduction</a> definitely expanded my knowledge. I recommend it as a solid introduction to what is different about html5.</p>
+
+<h2>Using html5</h2>
+
+<p>Often times after learning about a new technology a lot of programmers get stuck. This new functionality is great, but how I do I get started using it? It really helps to have something that gives you a little push.</p>
+
+<p><a href="http://html5boilerplate.com/">enter html5-boilerplate</a></p>
+
+<p>Its a frontend template written in html5 with a lot of goodness baked in from the start. Between the css, html, various server configuration files, javascript libraries and profiling, its a huge collection of sane defaults for any web project.</p>
+
+<p>Some of its many features</p>
+
+<ul>
+<li><a href="http://www.modernizr.com/">Modernizr</a></li>
+<li><a href="http://html5doctor.com/html-5-reset-stylesheet/">html5 css reset</a></li>
+<li>cross-browser compatible</li>
+<li>cdn hosted jquery with local fallback</li>
+<li>javascript profiling I particularly like how it handles ie specific styles.</li>
+</ul>
+
+
+<div><script src='https://gist.github.com/595804.js?file='></script>
+<noscript><pre><code>&lt;!doctype html&gt;
+&lt;!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --&gt;
+&lt;!--[if lt IE 7 ]&gt; &lt;html lang=&quot;en&quot; class=&quot;no-js ie6&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie7&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie8&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 9 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie9&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt; &lt;html lang=&quot;en&quot; class=&quot;no-js&quot;&gt; &lt;!--&lt;![endif]--&gt;
+</code></pre></noscript></div>
+
+
+<p>You end up with a ie-version class applied to the html tag, which allows you to do ie targeted css all in the same file. For example:</p>
+
+<div><script src='https://gist.github.com/595820.js?file='></script>
+<noscript><pre><code>.ie6 body {
+     background-attachment: fixed;
+}
+
+//all in the same file!! no more additional files for ie!
+
+.ie7 body {
+     background-attachment: scroll;
+}
+</code></pre></noscript></div>
+
+
+<h2>Getting the code</h2>
+
+<p>You can get html5-boilerplate on the <a href="http://html5boilerplate.com">official site</a> or <a href="http://github.com/paulirish/html5-boilerplate">github</a></p>
+
+<p>I&#8217;ve been maintaining a fork with HAML and SASS versions of the html5-boilerplate <a href="http://github.com/rawsyntax/html5-boilerplate">get my code</a></p>
+
+<p><a href="http://github.com/sporkd">sporkd</a> has created a compass plugin for html5-boilerplate <a href="http://github.com/sporkd/compass-html5-boilerplate">get the code here</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
+
+      
+
+
+
+
+  
+
+<time datetime="2010-09-25T00:00:00-04:00" pubdate>Sep 25<span>th</span>, 2010</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.github.com/blog/start-using-html5/" data-via="rawsyntax" data-counturl="http://rawsyntax.github.com/blog/start-using-html5/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/rewriting-github-badges/" title="Previous Post: Rewriting github-badges">&laquo; Rewriting github-badges</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/puncher-the-simple-file-watcher-for-os-x/" title="next Post: Puncher the simple file watcher for OS X">Puncher the simple file watcher for OS X &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload with Rails for faster development</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/learn-bash-remove-commands-from-your-history/">Learn Bash: Remove Commands from your History</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/host-your-side-project-for-free/">Host your side project for free</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/rawsyntax">@rawsyntax</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'rawsyntax',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("rawsyntax", 0, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @rawsyntax</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - Eric Himmelreich -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'rawsyntax';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

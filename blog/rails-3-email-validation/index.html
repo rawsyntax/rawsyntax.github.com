@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Rails 3 Email Validation - Raw Syntax</title>
+  <meta name="author" content="Eric Himmelreich">
+
+  
+  <meta name="description" content="Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (rfc 822) in a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rawsyntax.github.com/blog/rails-3-email-validation">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Raw Syntax" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22677496-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Raw Syntax</a></h1>
+  
+    <h2>The stuff programs are made of</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rawsyntax.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Rails 3 Email Validation</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-04-21T00:00:00-04:00" pubdate>Apr 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only is this task difficult and error prone, but there are functional email addresses out there that do not conform to the spec. Not to mention the resulting regex often looks like <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
+
+<p>When I do email validation I use a simple regex:</p>
+
+<div><script src='https://gist.github.com/934791.js?file='></script>
+<noscript><pre><code>/^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
+</code></pre></noscript></div>
+
+
+<p>Which I took from the <a href="http://github.com/platformatec/devise">Devise</a> codebase. It means:</p>
+
+<ul>
+<li>begins with one or more word characters, period, percent, plus, or dashes</li>
+<li>then one at symbol</li>
+<li>then one or more word characters, dashes, and then a period</li>
+<li>ends with 2 or more word characters</li>
+<li>case-insensitive</li>
+</ul>
+
+
+<p>This regex ensures a reasonably close to valid email address, without enumerating and worrying about .com vs .co.uk vs .musem and a host of other issues.</p>
+
+<p>At this point, I have the application send an email to the address, and require the user to click a confirmation link. That&#8217;s good enough, and very simple to implement.</p>
+
+<p><a href="http://rubular.com/r/YTzbCkatJy">Try this regex out on Rubular</a> it&#8217;s an interactive web based ruby regex engine.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
+
+      
+
+
+
+
+  
+
+<time datetime="2011-04-21T00:00:00-04:00" pubdate>Apr 21<span>st</span>, 2011</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.github.com/blog/rails-3-email-validation/" data-via="rawsyntax" data-counturl="http://rawsyntax.github.com/blog/rails-3-email-validation/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/quicksilver-lockscreen/" title="Previous Post: Quicksilver Lockscreen">&laquo; Quicksilver Lockscreen</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/20337-available-alliterative-com-domain-names/" title="next Post: 20337 Available Alliterative .com domain names">20337 Available Alliterative .com domain names &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload with Rails for faster development</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/learn-bash-remove-commands-from-your-history/">Learn Bash: Remove Commands from your History</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/host-your-side-project-for-free/">Host your side project for free</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/rawsyntax">@rawsyntax</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'rawsyntax',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("rawsyntax", 0, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @rawsyntax</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - Eric Himmelreich -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'rawsyntax';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

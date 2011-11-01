@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Raw Syntax</title>
+  <title>Host your side project for free - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working &hellip;">
+  <meta name="description" content="In this post I explain how to host your side project on Heroku for free. There are some limits of course. I&#8217;m assuming your side project is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.github.com">
+  <link rel="canonical" href="http://rawsyntax.github.com/blog/host-your-side-project-for-free">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -72,266 +72,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-10-25T00:00:00-04:00" pubdate>Oct 25<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working directory (from any previous tabs). I found this feature to be annoying, as I already have a command that will do it when I want it, and I prefer the old 10.6 behavior.</p>
-
-<p>Luckily, this is a preference in Terminal.app and can be easily changed.</p>
-
-<p><img src="http://media.tumblr.com/tumblr_ltmvs87NgE1qfdxjm.png"></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-28T00:00:00-04:00" pubdate>Aug 28<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>An emacs keyboard macro is just a recording of user input into emacs, which means that most anything you can do in emacs can be recorded as a macro. Read that again. Pretty powerful.</p>
-
-<p>Here&#8217;s how it works. To start recording, type</p>
-
-<pre><code>C-x (
-</code></pre>
-
-<p>and input the commands in your macro. Then type</p>
-
-<pre><code>C-x )
-</code></pre>
-
-<p>to stop recording. Then type</p>
-
-<pre><code>C-x e
-</code></pre>
-
-<p>to apply the macro once, or</p>
-
-<pre><code>C-u 0 C-x e
-</code></pre>
-
-<p>to apply the macro until the bell rings or end of buffer is reached</p>
-
-<p>Keep in mind that you must not ring the bell when defining a keyboard macro (by accident, or with C-g). If you do, you&#8217;ll have to start all over defining your keyboard macro</p>
-
-<p>Typically I use a keyboard macro when I have a file full of data that needs slight altering, for example a non-standard CSV-like file. I&#8217;ll define a macro in terms of what needs changing on each line and then apply the macro for each line (until the end of the buffer).</p>
-
-<h3>Further Reading</h3>
-
-<ul>
-<li><a href="http://www.emacswiki.org/emacs/KeyboardMacros">emacs wiki on keyboard macros</a></li>
-<li><a href="http://www.emacswiki.org/emacs/KeyboardMacrosTricks">keyboard macros tricks</a></li>
-<li><a href="http://www.gnu.org/s/libtool/manual/emacs/Keyboard-Macros.html">emacs manual entry on keyboard macros</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload With Rails for Faster Development</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-15T00:00:00-04:00" pubdate>Aug 15<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>LiveReload applies CSS/JS changes to Safari or Chrome without reloading the page, and automatically reloads when the html changes. Let that soak in for a minute. In this post I&#8217;ll go over how to get it installed and working on your Rails projects.</p>
-
-<p>The installation process has two steps. First we install a browser extension that listens for livereload events. Then we use guard to listen for  system events and send information to the browser.</p>
-
-<p>First install the livereload addon for <a href="https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei">chrome</a> or <a href="https://github.com/downloads/mockko/livereload/LiveReload-1.6.2.safariextz">safari</a>.</p>
-
-<p>In your rails project gemfile add</p>
-
-<pre><code>gem 'rb-fsevent'
-gem 'guard-livereload'
-</code></pre>
-
-<p>Run</p>
-
-<pre><code>bundle install
-</code></pre>
-
-<p>Then run</p>
-
-<pre><code>guard init livereload &amp;&amp; guard
-</code></pre>
-
-<p>To setup guard for livereload and start monitoring for file system events. The last step is to activate the browser extension. You will need to click the LiveReload button:</p>
-
-<p><img src="http://media.tumblr.com/tumblr_lpzehwqgO41qfdxjm.png"></p>
-
-<p>Now when you change a file in your view, Safari / Chrome will load the new content automatically.</p>
-
-<h2>Notes on RubyCocoa</h2>
-
-<p>The notes on the <a href="https://github.com/mockko/livereload">livereload repo</a> are a little confusing. Livereload can also work via RubyCocoa (instead of guard- livereload). If you&#8217;re running ruby 1.9.2 you cannot install RubyCocoa on it. RubyCocoa is not 1.9.x compatible. So I opt to use the browser extension and guard.</p>
-
-<p>More info <a href="http://livereload.com/">here</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-bash-remove-commands-from-your-history/">Learn Bash: Remove Commands From Your History</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-11T00:00:00-04:00" pubdate>Aug 11<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Occasionally I type a password or other sensitive information into a shell
-prompt. Using bash history, the command can be removed.</p>
-
-<div><script src='https://gist.github.com/1330991.js?file='></script>
-<noscript><pre><code># say we start with an empty bash command history
-bash-3.2$ history
-    1  history
-
-
-# enter a command that requires a password
-bash-3.2$ sudo rm -i some_file
-Password:
-# accidentally ^C and type your password
-# into the prompt and hit enter
-bash-3.2$ secret_password
-bash: secret_password: command not found
-
-
-# your password is now there for all to
-# see in your bash history
-bash-3.2$ history
-    1  history
-    2  sudo rm -i some_file
-    3  secret_password
-    4  history
-
-
-# first option to fix it, delete the numbered entry from
-# history and write to your ~/.bash_history file
-bash-3.2$ history -d 3
-bash-3.2$ history -w
-
-
-# entry 3 will be removed entirely from your command history
-bash-3.2$ history
-    1  history
-    2  sudo rm -i some_file
-    3  history
-    4  history -d 3
-    5  history -w
-    6  history
-
-
-# the second option is to clear the entire history
-# and write the changes to disk
-bash-3.2$ history -c
-bash-3.2$ history -w
-
-
-# it's now pretty obvious that your history has been
-# scrubbed clean, but at least your password is history!
-bash-3.2$ history
-    1  history -w
-    2  history</code></pre></noscript></div>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/host-your-side-project-for-free/">Host Your Side Project for Free</a></h1>
+      <h1 class="entry-title">Host Your Side Project for Free</h1>
     
     
       <p class="meta">
@@ -349,7 +95,7 @@ bash-3.2$ history
   </header>
 
 
-  <div class="entry-content"><p>In this post I explain how to host your side project on Heroku for free. There are some limits of course. I&#8217;m assuming your side project is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m assuming you&#8217;re using git for version control (heroku uses git push for deploys). I&#8217;ll also discuss storage limitations (database, web assets, etc).</p>
+<div class="entry-content"><p>In this post I explain how to host your side project on Heroku for free. There are some limits of course. I&#8217;m assuming your side project is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m assuming you&#8217;re using git for version control (heroku uses git push for deploys). I&#8217;ll also discuss storage limitations (database, web assets, etc).</p>
 
 <p>Looking for inspiration for a side project? <a href="http://rawsyntax.com/post/5982784556/importance-of-side-projects">Read my post about side projects</a></p>
 
@@ -946,284 +692,54 @@ I think you should use an
 
 <p>Heroku, with these addons is enough to get any side project off the ground. And there&#8217;s always the option to scale up with Heroku, or move it to your  paid host once it starts to grow.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/rails-authentication-plugins/">Rails Authentication Plugins</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
   
 
-<time datetime="2011-07-30T00:00:00-04:00" pubdate>Jul 30<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
 
-
-  <div class="entry-content"><p>Considering which authentication plugin to use for rails? I have some recommendations.</p>
-
-<h2>Devise</h2>
-
-<p>Devise is a full featured authentication plugin. Featuring, remember me, forgot password, last seen timestamps, email confirmation, lockouts, and a slew of other features. They have pretty much anything you could ask for.</p>
-
-<p>Devise supports activerecord and mongoid. I used it recently on a mongoid based rails 3 project. It worked wonderfully. I’ll post a code example of how I did it, in the next few weeks.</p>
-
-<p>Check out their very helpful <a href="https://github.com/plataformatec/devise/wiki/_pages">wiki</a>, and their <a href="https://github.com/plataformatec/devise/wiki/Extensions">long list of extensions</a>.</p>
-
-<h2>Warden</h2>
-
-<p>Devise is actually built on top of warden. And warden is descendant from merb-auth <a href="http://merbivore.com">(merb)</a>. So, if you’re like me and quite familiar with merb-auth and it’s flexibility, you’ll feel right at home with warden. I use warden when I need just the basics, login / logout / signup. Also, if you happen to be doing some custom work when logging in, such as interfacing with an API or another system, warden is built to handle it.</p>
-
-<p>See Mike Thomas’ post about <a href="http://finite.posterous.com/how-to-use-warden-authentication-with-rails-3">getting up and running with rails and warden</a></p>
-
-<p><a href="https://github.com/hassox/warden">check out the code in github</a></p>
-
-<p><a href="https://github.com/hassox/rails_warden">and the rails plugin</a></p>
-
-<h2>Roll your own</h2>
-
-<p>Some people prefer to write their own authentication system. Personally, I avoid reinventing the wheel when flexible solutions like warden and devise exist. However, there are some railscasts covering this topic in detail, if you’re interested to see how authentication works.</p>
-
-<p><a href="http://railscasts.com/episodes/250-authentication-from-scratch">railscasts: authentication from scratch</a></p>
-
-<p><a href="http://railscasts.com/episodes/270-authentication-in-rails-3-1">railscasts: rails 3.1 authentication</a></p>
-
-<h2>Recommendations</h2>
-
-<p>Use devise if you’re running a standard rails stack with activerecord or mongoid (or couch or datamapper if you try their extensions).</p>
-
-<p>If you need to do some particularly strange things with authentication, I’d recommend warden. It’ll also work with any rack compatible web app (sinatra, and others).</p>
-
-<p>Don’t bother rolling your own, warden and devise do a fine (and flexible) job, and there’s plenty of other authentication plugins not mentioned here.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-use-defadvice-modify-functions/">Learn Emacs: Use Defadvice to Modify Functions</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
 
   
 
-<time datetime="2011-06-22T00:00:00-04:00" pubdate>Jun 22<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
-
-<div><script src='https://gist.github.com/1038120.js?file='></script>
-<noscript><pre><code>;; make zap-to-char act like zap-up-to-char
-(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
-  &quot;Kill up to the ARG'th occurence of CHAR, and leave CHAR.
-  The CHAR is replaced and the point is put before CHAR.&quot;
-  (insert char)
-  (forward-char -1))
-</code></pre></noscript></div>
-
-
-<p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2011-08-10T00:00:00-04:00" pubdate>Aug 10<span>th</span>, 2011</time>
       
-  <header>
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/learn-emacs-delete-file-and-buffer/">Learn Emacs: Delete-file-and-buffer</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
+      <div class="sharing">
   
-
-<time datetime="2011-06-21T00:00:00-04:00" pubdate>Jun 21<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>From my ~/.emacs.d</p>
-
-<div><script src='https://gist.github.com/1035862.js?file='></script>
-<noscript><pre><code>(defun delete-file-and-buffer ()
-  &quot;Deletes the current file and buffer, assumes file exists&quot;
-  (interactive)
-  (delete-file buffer-file-name)
-  (kill-buffer (buffer-name)))
-</code></pre></noscript></div>
-
-
-<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge&#8217;s .emacs file (rename-file-and-buffer)</a></p>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.github.com/blog/host-your-side-project-for-free/" data-via="rawsyntax" data-counturl="http://rawsyntax.github.com/blog/host-your-side-project-for-free/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/make-your-rails-3-app-run-faster/">Make Your Rails 3 App Run Faster</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Profile it with <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a></p>
-
-<p>It will issue growl alerts for slow actions (configurable)</p>
-
-<p><img src="/images/rails-profile.png"></p>
-
-<p>See <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a> for configuration options.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+        <a class="basic-alignment left" href="/blog/rails-authentication-plugins/" title="Previous Post: Rails Authentication Plugins">&laquo; Rails Authentication Plugins</a>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-align-regexp/">Learn Emacs: Align-regexp</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
-
-<h4>From the Emacs Manual:</h4>
-
-<p>align-regexp is an interactive autoloaded Lisp function in `align.el&#8217;.</p>
-
-<p>It is bound to C-x .</p>
-
-<p>(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</p>
-
-<p>Align the current region using an ad-hoc rule read from the minibuffer. BEG and END mark the limits of the region. This function will prompt for the REGEXP to align with. If no prefix arg was specified, you only need to supply the characters to be lined up and any preceding whitespace is replaced. If a prefix arg was specified, the full regexp with parenthesized whitespace should be supplied; it will also prompt for which parenthesis GROUP within REGEXP to modify, the amount of SPACING to use, and whether or not to REPEAT the rule throughout the line. See `align-rules-list&#8217; for more information about these options.</p>
-
-<p>For example, let&#8217;s say you had a list of phone numbers, and wanted to align them so that the opening parentheses would line up:</p>
-
-<pre><code>Fred (123) 456-7890
-
-Alice (123) 456-7890
-
-Mary-Anne (123) 456-7890
-
-Joe (123) 456-7890
-</code></pre>
-
-<p>There is no predefined rule to handle this, but you could easily do it using a
-REGEXP like &#8220;(&#8220;. All you would have to do is to mark the region, call `align-
-regexp&#8217; and type in that regular expression.</p>
-
-<h2>What I use align-regexp for</h2>
-
-<div><script src='https://gist.github.com/1035839.js?file='></script>
-<noscript><pre><code># before align-regexp, not super easy to read
-
-var = 5
-another_value = 10
-assignment = 5
-very_long_var_name = 25
-
-# after align-regexp =, readability improved!
-
-var                = 5
-another_value      = 10
-assignment         = 5
-very_long_var_name = 25
-</code></pre></noscript></div>
-
-
+      
+        <a class="basic-alignment right" href="/blog/learn-bash-remove-commands-from-your-history/" title="next Post: Learn Bash: Remove Commands from your History">Learn Bash: Remove Commands from your History &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -1256,7 +772,7 @@ very_long_var_name = 25
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/rawsyntax">@rawsyntax</a> on Github
@@ -1286,7 +802,7 @@ very_long_var_name = 25
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -1305,6 +821,7 @@ very_long_var_name = 25
 
   
 </aside>
+
 
     </div>
   </div>

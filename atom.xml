@@ -1,139 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Raw Syntax</title>
-  <meta name="author" content="Eric Himmelreich">
-
-  
-  <meta name="description" content="In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><![CDATA[Raw Syntax]]></title>
+  <link href="http://rawsyntax.github.com/atom.xml" rel="self"/>
+  <link href="http://rawsyntax.github.com/"/>
+  <updated>2011-11-01T12:27:11-04:00</updated>
+  <id>http://rawsyntax.github.com/</id>
+  <author>
+    <name><![CDATA[Eric Himmelreich]]></name>
+    <email><![CDATA[eric@rawsyntax.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-  <link rel="canonical" href="http://rawsyntax.github.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="Raw Syntax" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-22677496-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Raw Syntax</a></h1>
-  
-    <h2>The stuff programs are made of</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:rawsyntax.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-10-25T00:00:00-04:00" pubdate>Oct 25<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working directory (from any previous tabs). I found this feature to be annoying, as I already have a command that will do it when I want it, and I prefer the old 10.6 behavior.</p>
+  <entry>
+    <title type="html"><![CDATA[OS X Lion New Tab in Terminal Changes Directory]]></title>
+    <link href="http://rawsyntax.github.com/blog/os-x-lion-new-tab-in-terminal-changes-directory/"/>
+    <updated>2011-10-25T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/os-x-lion-new-tab-in-terminal-changes-directory</id>
+    <content type="html"><![CDATA[<p>In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working directory (from any previous tabs). I found this feature to be annoying, as I already have a command that will do it when I want it, and I prefer the old 10.6 behavior.</p>
 
 <p>Luckily, this is a preference in Terminal.app and can be easily changed.</p>
 
 <p><img src="http://media.tumblr.com/tumblr_ltmvs87NgE1qfdxjm.png"></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-28T00:00:00-04:00" pubdate>Aug 28<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>An emacs keyboard macro is just a recording of user input into emacs, which means that most anything you can do in emacs can be recorded as a macro. Read that again. Pretty powerful.</p>
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Keyboard Macros]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-keyboard-macros/"/>
+    <updated>2011-08-28T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-keyboard-macros</id>
+    <content type="html"><![CDATA[<p>An emacs keyboard macro is just a recording of user input into emacs, which means that most anything you can do in emacs can be recorded as a macro. Read that again. Pretty powerful.</p>
 
 <p>Here&#8217;s how it works. To start recording, type</p>
 
@@ -169,37 +67,15 @@
 <li><a href="http://www.gnu.org/s/libtool/manual/emacs/Keyboard-Macros.html">emacs manual entry on keyboard macros</a></li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload With Rails for Faster Development</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-15T00:00:00-04:00" pubdate>Aug 15<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>LiveReload applies CSS/JS changes to Safari or Chrome without reloading the page, and automatically reloads when the html changes. Let that soak in for a minute. In this post I&#8217;ll go over how to get it installed and working on your Rails projects.</p>
+  <entry>
+    <title type="html"><![CDATA[Use LiveReload with Rails for faster development]]></title>
+    <link href="http://rawsyntax.github.com/blog/use-livereload-with-rails-for-faster-development/"/>
+    <updated>2011-08-15T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/use-livereload-with-rails-for-faster-development</id>
+    <content type="html"><![CDATA[<p>LiveReload applies CSS/JS changes to Safari or Chrome without reloading the page, and automatically reloads when the html changes. Let that soak in for a minute. In this post I&#8217;ll go over how to get it installed and working on your Rails projects.</p>
 
 <p>The installation process has two steps. First we install a browser extension that listens for livereload events. Then we use guard to listen for  system events and send information to the browser.</p>
 
@@ -232,37 +108,15 @@ gem 'guard-livereload'
 <p>The notes on the <a href="https://github.com/mockko/livereload">livereload repo</a> are a little confusing. Livereload can also work via RubyCocoa (instead of guard- livereload). If you&#8217;re running ruby 1.9.2 you cannot install RubyCocoa on it. RubyCocoa is not 1.9.x compatible. So I opt to use the browser extension and guard.</p>
 
 <p>More info <a href="http://livereload.com/">here</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-bash-remove-commands-from-your-history/">Learn Bash: Remove Commands From Your History</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-11T00:00:00-04:00" pubdate>Aug 11<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Occasionally I type a password or other sensitive information into a shell
+  <entry>
+    <title type="html"><![CDATA[Learn Bash: Remove Commands from your History]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-bash-remove-commands-from-your-history/"/>
+    <updated>2011-08-11T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-bash-remove-commands-from-your-history</id>
+    <content type="html"><![CDATA[<p>Occasionally I type a password or other sensitive information into a shell
 prompt. Using bash history, the command can be removed.</p>
 
 <div><script src='https://gist.github.com/1330991.js?file='></script>
@@ -319,37 +173,15 @@ bash-3.2$ history
 
 
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/host-your-side-project-for-free/">Host Your Side Project for Free</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-10T00:00:00-04:00" pubdate>Aug 10<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post I explain how to host your side project on Heroku for free. There are some limits of course. I&#8217;m assuming your side project is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m assuming you&#8217;re using git for version control (heroku uses git push for deploys). I&#8217;ll also discuss storage limitations (database, web assets, etc).</p>
+  <entry>
+    <title type="html"><![CDATA[Host your side project for free]]></title>
+    <link href="http://rawsyntax.github.com/blog/host-your-side-project-for-free/"/>
+    <updated>2011-08-10T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/host-your-side-project-for-free</id>
+    <content type="html"><![CDATA[<p>In this post I explain how to host your side project on Heroku for free. There are some limits of course. I&#8217;m assuming your side project is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m assuming you&#8217;re using git for version control (heroku uses git push for deploys). I&#8217;ll also discuss storage limitations (database, web assets, etc).</p>
 
 <p>Looking for inspiration for a side project? <a href="http://rawsyntax.com/post/5982784556/importance-of-side-projects">Read my post about side projects</a></p>
 
@@ -945,37 +777,15 @@ I think you should use an
 <p>Note that your app slug (application files deployed to heroku) is limited to 100mb, but I have yet to run anywhere close to that. My side projects generally run around 10mb. Heroku recommends you use an asset host for any js/css/images.</p>
 
 <p>Heroku, with these addons is enough to get any side project off the ground. And there&#8217;s always the option to scale up with Heroku, or move it to your  paid host once it starts to grow.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/rails-authentication-plugins/">Rails Authentication Plugins</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-07-30T00:00:00-04:00" pubdate>Jul 30<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Considering which authentication plugin to use for rails? I have some recommendations.</p>
+  <entry>
+    <title type="html"><![CDATA[Rails Authentication Plugins]]></title>
+    <link href="http://rawsyntax.github.com/blog/rails-authentication-plugins/"/>
+    <updated>2011-07-30T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/rails-authentication-plugins</id>
+    <content type="html"><![CDATA[<p>Considering which authentication plugin to use for rails? I have some recommendations.</p>
 
 <h2>Devise</h2>
 
@@ -1010,37 +820,15 @@ I think you should use an
 <p>If you need to do some particularly strange things with authentication, I’d recommend warden. It’ll also work with any rack compatible web app (sinatra, and others).</p>
 
 <p>Don’t bother rolling your own, warden and devise do a fine (and flexible) job, and there’s plenty of other authentication plugins not mentioned here.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-use-defadvice-modify-functions/">Learn Emacs: Use Defadvice to Modify Functions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-22T00:00:00-04:00" pubdate>Jun 22<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: use defadvice to modify functions]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-use-defadvice-modify-functions/"/>
+    <updated>2011-06-22T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-use-defadvice-modify-functions</id>
+    <content type="html"><![CDATA[<p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
 
 <div><script src='https://gist.github.com/1038120.js?file='></script>
 <noscript><pre><code>;; make zap-to-char act like zap-up-to-char
@@ -1053,37 +841,15 @@ I think you should use an
 
 
 <p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-delete-file-and-buffer/">Learn Emacs: Delete-file-and-buffer</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-21T00:00:00-04:00" pubdate>Jun 21<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>From my ~/.emacs.d</p>
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: delete-file-and-buffer]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-delete-file-and-buffer/"/>
+    <updated>2011-06-21T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-delete-file-and-buffer</id>
+    <content type="html"><![CDATA[<p>From my ~/.emacs.d</p>
 
 <div><script src='https://gist.github.com/1035862.js?file='></script>
 <noscript><pre><code>(defun delete-file-and-buffer ()
@@ -1095,74 +861,30 @@ I think you should use an
 
 
 <p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge&#8217;s .emacs file (rename-file-and-buffer)</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/make-your-rails-3-app-run-faster/">Make Your Rails 3 App Run Faster</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Profile it with <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a></p>
+  <entry>
+    <title type="html"><![CDATA[Make your Rails 3 app run faster]]></title>
+    <link href="http://rawsyntax.github.com/blog/make-your-rails-3-app-run-faster/"/>
+    <updated>2011-06-20T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/make-your-rails-3-app-run-faster</id>
+    <content type="html"><![CDATA[<p>Profile it with <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a></p>
 
 <p>It will issue growl alerts for slow actions (configurable)</p>
 
-<p><img src="/images/rails-profile.png"></p>
+<p><img src="http://rawsyntax.github.com/images/rails-profile.png"></p>
 
 <p>See <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a> for configuration options.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-align-regexp/">Learn Emacs: Align-regexp</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: align-regexp]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-align-regexp/"/>
+    <updated>2011-06-20T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-align-regexp</id>
+    <content type="html"><![CDATA[<p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
 
 <h4>From the Emacs Manual:</h4>
 
@@ -1209,162 +931,419 @@ very_long_var_name = 25
 
 
 
-</div>
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[How to get a Programming Interview]]></title>
+    <link href="http://rawsyntax.github.com/blog/how-to-get-a-programming-interview/"/>
+    <updated>2011-06-06T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/how-to-get-a-programming-interview</id>
+    <content type="html"><![CDATA[<p>Before I get into the details, remember that persistence is critical in this. In my last job search, I lost count how many jobs I applied to. I also had one where I was sure I got the job, and they called to tell me why I didn&#8217;t get it. I got really discouraged for a couple days, and then resumed the job search. Keep at it. Remember, you only need one big hit.</p>
+
+<h2>Figure out what your ideal job is</h2>
+
+<p>Make a list of the qualities you want in a job. For me these qualities were telecommuting, ruby web development, small company. It&#8217;s not necessarily important to find the ideal job, but you need to come up with a way of scoring job opportunities.</p>
+
+<h2>Ask friends / colleagues</h2>
+
+<p>The easiest way to get a new job is through a friend. So exhaust those resources first. However, when you get the interview don&#8217;t assume you have the job in the bag because you&#8217;ve got a friend at the company. Still give it your best shot.</p>
+
+<h2>Use the right job sites</h2>
+
+<p>Figure out where the good jobs are getting posted. Personally, I was looking for a telecommute ruby job with a small company. The best sites for me were <a href="http://jobs.rubynow.com/">http://jobs.rubynow.com/</a>, <a href="http://toprubyjobs.com/,">http://toprubyjobs.com/,</a> and craigslist.</p>
+
+<h2>Sell yourself in your cover letter</h2>
+
+<p>I know a few developers that hate writing cover letters. This is more common in experienced developers. The more they know about programming, the more they realize they don&#8217;t know, and that can lead to a situation where they have a hard time selling themselves to companies. If you have trouble with this, start making an objective list of your accomplishments. Flesh them out a bit and you&#8217;ve got a good start.</p>
+
+<h2>Tailor your cover letter for each job</h2>
+
+<p>I keep a standard cover letter targeting ruby web developer jobs in my email. I then edit and tailor it specifically to the job ad. This saves a lot of time, as opposed to writing a cover letter from scratch every time. Saving time means you can apply for more jobs, and get more interviews.</p>
+
+<h2>What to put in a cover letter</h2>
+
+<p>I write about how my experience has made me a good candidate for the job listing, and I link to source code and running websites that I&#8217;ve built. It&#8217;s important to signal to the employer ASAP that you are not bullshitting, and you really can code.</p>
+
+<h2>Tailor your resumé</h2>
+
+<p>I also keep a standard detailed resume on my computer. For each job I may highlight some experience or detail certain areas more than others. Be careful here. Be sure that everything you write on there is rock solid, and that you can back it up. I spend less time on tweaking the resume and more time tweaking the cover letter.</p>
+
+<h2>I got the interview, what now?</h2>
+
+<p><a href="http://rawsyntax.github.com/blog/interviewing-for-programmers">Read my earlier post on interviewing for a programming job</a></p>
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[Interviewing for Programmers]]></title>
+    <link href="http://rawsyntax.github.com/blog/interviewing-for-programmers/"/>
+    <updated>2011-06-02T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/interviewing-for-programmers</id>
+    <content type="html"><![CDATA[<p>Interviewing is a funny thing. In order to get hired for a programming job it&#8217;s most important to interview well. Getting hired usually doesn&#8217;t have much to do with programming skills. This is typically a pain point for programmers. Many of us feel that the hiring process should be changed. Personally, I&#8217;m ok with the hiring process as it is. It could be improved, but I&#8217;m going to tell you how to get a job anyway.</p>
 
+<h2>It&#8217;s a skill</h2>
 
-    </article>
+<p>Treat interviewing like a skill. It&#8217;s going to require some practice. It&#8217;s quite different from programming. Something I&#8217;ve noticed about  over the years is that the inexperienced naive ones tend to think that they know everything whereas experienced programmers know more what they don&#8217;t know. So as you grow as a programmer, you may even think of yourself as  worse programmer because you grow aware of what you don&#8217;t know. This is problematic when interviewing because you are essentially selling yourself to the company. If you don&#8217;t feel the product is good how can you sell it effectively? The next step is to figure out how to sell yourself.</p>
+
+<h2>Practice your pitch</h2>
+
+<p>I firmly believe that you have to have a game plan for the interview. Be familiar with everything you wrote on your resume. Have answers for the most common questions. Be able to relate specific experiences in your career in away that shows your strengths. Have your own pitch ready in the case that the interviewer doesn&#8217;t have much to say. I&#8217;ve had interviews where the interviewer simply asked open ended questions. It&#8217;s good to have your pitch ready to hit these questions out of the park.</p>
+
+<h2>Code Examples</h2>
+
+<p>Programming during the interview is silly. It&#8217;s not an accurate evaluation of a programmer&#8217;s skills, and I&#8217;m not sure what it serves to show the interviewer. I find that an easy way to avoid doing coding during the interview is to have some code examples ready for the interviewer to see. It&#8217;s important for the interviewer to both see the code and be able to run the app. Personally, I&#8217;ll build a side project in rails and host it on heroku, which allows the interviewer to review code and easily try out the app.</p>
+
+<p><a href="http://rawsyntax.github.com/blog/importance-of-side-projects">More on side projects here</a>.</p>
+
+<h2>All interviews are practice</h2>
+
+<p>Many programmers get nervous during interviews. I calm my nerves by remembering that all interviews are practice. If you don&#8217;t get the job it&#8217;s not a big deal. Simply apply for another job and interview for that one. In the meantime, I get real practice to hone my interview skills. However, before that next interview it&#8217;s important to try to learn from the interview you just had.</p>
+
+<h2>Evaluate your performance</h2>
+
+<p>What went wrong in the last interview? Where could you have improved? What went well? It&#8217;s important to critique your performance shortly after your interview. That way you won&#8217;t miss anything since everything will be fresh in your mind.</p>
+
+<h2>But how do I GET an interview?</h2>
+
+<p>That&#8217;s the subject of my next post. I&#8217;ll go over resume and cover letter writing, and some other topics. <a href="http://rawsyntax.github.com/blog/how-to-get-a-programming-interview">Read it here</a></p>
+]]></content>
+  </entry>
   
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
+  <entry>
+    <title type="html"><![CDATA[Importance of Side Projects]]></title>
+    <link href="http://rawsyntax.github.com/blog/importance-of-side-projects/"/>
+    <updated>2011-05-29T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/importance-of-side-projects</id>
+    <content type="html"><![CDATA[<p>Side projects are important for a few reasons. Programming is a creative process. Side projects allow programming without deadlines or restraints. Side projects allow programming in an exploratory way.</p>
+
+<h2>Explore new technologies</h2>
+
+<p>Every day there are more and more bleeding edge technologies coming out. A side project is a great place to try them out. There&#8217;s no reason to worry about bugs or performance issues because it&#8217;s just a side project. You&#8217;re not depending on the project to pay your bills. It&#8217;s ok if the website crashes.</p>
+
+<h2>Creating from scratch</h2>
+
+<p>Most jobs I&#8217;ve had so far were mostly maintenance work. Adding new features, fixing bugs, troubleshooting performance problems, refactoring existing code. Though I&#8217;ve built more than a few applications from scratch, it only takes me a couple months to lay the foundation, and then I&#8217;m in maintenance mode again.</p>
+
+<p>Side projects require creating from scratch on a regular basis. I love this step because I get to step back and take everything I&#8217;ve learned and put that into creating a new (and improved) project.</p>
+
+<h2>Good enough to launch</h2>
+
+<p>Working on a side project is also an exercise in avoiding analysis paralysis. If you&#8217;re starting from scratch, the possibilities are endless. A good way to avoid this is to make your short list of must have features, and then launch a beta when you have those features. A so called <a href="http://en.wikipedia.org/wiki/Minimum_viable_product">minimum viable product</a>.</p>
+
+<h2>Staving off burnout</h2>
+
+<p>Work on your passion. Work on something that is fun. If you&#8217;re a developer who is about to burnout because you don&#8217;t enjoy what you&#8217;re working on, try creating your own side project. It will remind you why programming is fun.</p>
+
+<h2>Keeping your skillset current</h2>
+
+<p>Maybe you&#8217;re working with old technology at your day job. Maybe you&#8217;re bored with your current skillset and want to learn some new skills. Side  are a great way to keep current with emerging trends in software. Never tried node.js? Great, make a small side project using it. All of a sudden you have something to show off as proof of your newly acquired skills.</p>
+
+<h2>Complete your side project</h2>
+
+<p>One of the problems with side projects is that they can remain incomplete. You may start on a project with all the gusto in the world, but then it&#8217;s two months later and you can&#8217;t remember the last time you worked on the side project. Nevertheless it&#8217;s important to push forward and complete the project. On that note, I&#8217;m off to do some work on my side project.</p>
+]]></content>
+  </entry>
   
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload with Rails for faster development</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/learn-bash-remove-commands-from-your-history/">Learn Bash: Remove Commands from your History</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/host-your-side-project-for-free/">Host your side project for free</a>
-      </li>
-    
-  </ul>
-</section>
+  <entry>
+    <title type="html"><![CDATA[20337 Available Alliterative .com domain names]]></title>
+    <link href="http://rawsyntax.github.com/blog/20337-available-alliterative-com-domain-names/"/>
+    <updated>2011-04-22T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/20337-available-alliterative-com-domain-names</id>
+    <content type="html"><![CDATA[<p>Save this file <a href="http://dl.dropbox.com/u/2814426/domains.txt.zip">domains.txt.zip</a></p>
 
-<section>
-  <h1>Github Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
+<p>Here&#8217;s my <a href="http://www.namecheap.com?aff=18181">namecheap affiliate link</a> if you find any worth registering.</p>
+
+<h2>The Code</h2>
+
+<p>Checkout the <a href="https://gist.github.com/e58c31f2d5d393800853">gist</a> and run it.</p>
+
+<p>It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a whois query to check if it&#8217;s available. Feel free to tweak it to your own needs. It also has some sleep calls to avoid flooding the whois server. Let it run for a couple days, see what comes out.</p>
+
+<p>I actually generated <a href="http://rawsyntax.com">rawsyntax.com</a> using this script.</p>
+
+<p>Inspiration to post the code and other domains here goes to <a href="http://kevinohashi.com">kevin ohashi</a></p>
+]]></content>
+  </entry>
   
-  <a href="https://github.com/rawsyntax">@rawsyntax</a> on Github
+  <entry>
+    <title type="html"><![CDATA[Rails 3 Email Validation]]></title>
+    <link href="http://rawsyntax.github.com/blog/rails-3-email-validation/"/>
+    <updated>2011-04-21T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/rails-3-email-validation</id>
+    <content type="html"><![CDATA[<p>Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only is this task difficult and error prone, but there are functional email addresses out there that do not conform to the spec. Not to mention the resulting regex often looks like <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
+
+<p>When I do email validation I use a simple regex:</p>
+
+<div><script src='https://gist.github.com/934791.js?file='></script>
+<noscript><pre><code>/^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
+</code></pre></noscript></div>
+
+
+<p>Which I took from the <a href="http://github.com/platformatec/devise">Devise</a> codebase. It means:</p>
+
+<ul>
+<li>begins with one or more word characters, period, percent, plus, or dashes</li>
+<li>then one at symbol</li>
+<li>then one or more word characters, dashes, and then a period</li>
+<li>ends with 2 or more word characters</li>
+<li>case-insensitive</li>
+</ul>
+
+
+<p>This regex ensures a reasonably close to valid email address, without enumerating and worrying about .com vs .co.uk vs .musem and a host of other issues.</p>
+
+<p>At this point, I have the application send an email to the address, and require the user to click a confirmation link. That&#8217;s good enough, and very simple to implement.</p>
+
+<p><a href="http://rubular.com/r/YTzbCkatJy">Try this regex out on Rubular</a> it&#8217;s an interactive web based ruby regex engine.</p>
+]]></content>
+  </entry>
   
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
+  <entry>
+    <title type="html"><![CDATA[Quicksilver Lockscreen]]></title>
+    <link href="http://rawsyntax.github.com/blog/quicksilver-lockscreen/"/>
+    <updated>2011-04-13T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/quicksilver-lockscreen</id>
+    <content type="html"><![CDATA[<p><img src="http://rawsyntax.github.com/images/quicksilver-lockscreen.png"></p>
 
-        github.showRepos({
-            user: 'rawsyntax',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
+<p>I&#8217;ve recently started locking my screen on OSX. However I found that <a href="http://qsapp.com">Quicksilver&#8217;s</a> LockScreen script did not work. I believe it was designed for Leopard.</p>
 
+<p>The workaround I&#8217;ve found is to start ScreenSaverEngine with Quicksilver, and set my Security.prefs to require a password.</p>
 
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("rawsyntax", 0, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+<p>UPDATE: In OS X Lion, I&#8217;ve found that ScreenSaverEngine is nowhere to be found.  So I just use the LockScreen button in the menu bar.</p>
+]]></content>
+  </entry>
   
-    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @rawsyntax</a>
+  <entry>
+    <title type="html"><![CDATA[How to Negotiate Salary]]></title>
+    <link href="http://rawsyntax.github.com/blog/how-to-negotiate-salary/"/>
+    <updated>2011-04-13T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/how-to-negotiate-salary</id>
+    <content type="html"><![CDATA[<p>Over the past couple weeks, I&#8217;ve seen a number of posts on <a href="http://news.ycombinator.com">hacker news</a> talking about <a href="http://news.ycombinator.com/item?id=2309317">salary</a> <a href="http://news.ycombinator.com/item?id=2438980">negotiation</a>.</p>
+
+<p>There are even authors who make a living writing books about salary negotiation. Salary negotiation is not complicated. I can explain how I do it in one sentence. I haven&#8217;t read any of these negotiation books by the way.</p>
+
+<h2>The Secret to Salary Negotation</h2>
+
+<p>Figure out what salary you are happy with, and apply for jobs until you can find an employer that will pay you that amount.</p>
+
+<p>I won&#8217;t disclose my current salary, but I will say that in my recent job search I&#8217;ve had a few employers turn me down, and a few employers offer a job at my salary.</p>
+]]></content>
+  </entry>
   
-</section>
+  <entry>
+    <title type="html"><![CDATA[URL Validation in Rails 3 (and ruby in general)]]></title>
+    <link href="http://rawsyntax.github.com/blog/url-validation-in-rails-3-and-ruby-in-general/"/>
+    <updated>2011-01-20T00:00:00-05:00</updated>
+    <id>http://rawsyntax.github.com/blog/url-validation-in-rails-3-and-ruby-in-general</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve seen some approaches, most notably <a href="http://www.igvita.com/2006/09/07/validating-url-in-ruby-on-rails/">here on igvita</a>. Though the reference on igvita is quite dated (2006 ??? being more or less the beginning of the epoch in rails-years), I&#8217;ve seen plenty of code using the validate-a-uri-by-regex approach.</p>
+
+<p>It doesn&#8217;t work and pretty much always ends up excluding valid urls. This is why I prefer to use the parsing approach. If the url can be parsed, and the scheme seems reasonably valid, good enough.</p>
+
+<h2>An Interesting URL Problem</h2>
+
+<p>Recently I ran into a situation where I needed to be able to validate and handle unicode / internationalized links. One such link would be <a href="http://%D0%BA%D1%86.%D1%80%D1%84">the russian tld registrar кц.рф</a>. The typical approach of parsing with URI fails below</p>
+
+<div><script src='https://gist.github.com/789195.js?file='></script>
+<noscript><pre><code>#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'uri'
+
+URI.parse(&quot;кц.рф&quot;)
+
+# fails with the following error
+#
+#/Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:156:in `split': bad URI(is not
+# URI?): кц.рф (URI::InvalidURIError)
+#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:174:in `parse'
+#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:628:in `parse'
+#   from ./uri-parse.rb:6:in `&lt;main&gt;'
+</code></pre></noscript></div>
+
+
+<h2>The Solution</h2>
+
+<p>At this point, I happened to remember there is another library for parsing URIs. It&#8217;s called <a href="https://github.com/sporkmonger/addressable">Addressable::URI</a>. Its aim is to be a full replacement of the ruby standard library&#8217;s URI module.</p>
+
+<p>More importantly, it successfully parses unicode urls.</p>
+
+<div><script src='https://gist.github.com/789235.js?file='></script>
+<noscript><pre><code>#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'addressable/uri'
+
+Addressable::URI.parse(&quot;кц.рф&quot;)
+
+# no problem at all</code></pre></noscript></div>
+
+
+<p>Here&#8217;s how I do URL validation in rails 3, using ActiveModel and Addressable::URI.</p>
+
+<div><script src='https://gist.github.com/789162.js?file='></script>
+<noscript><pre><code>class Example
+  include ActiveModel::Validations
+
+  ##
+  # Validates a URL
+  #
+  # If the URI library can parse the value, and the scheme is valid
+  # then we assume the url is valid
+  #
+  class UrlValidator &lt; ActiveModel::EachValidator
+    def validate_each(record, attribute, value)
+      begin
+        uri = Addressable::URI.parse(value)
+
+        if ![&quot;http&quot;,&quot;https&quot;,&quot;ftp&quot;].include?(uri.scheme)
+          raise Addressable::URI::InvalidURIError
+        end
+      rescue Addressable::URI::InvalidURIError
+        record.errors[attribute] &lt;&lt; &quot;Invalid URL&quot;
+      end
+    end
+  end
+
+  validates :field, :url =&gt; true
+end</code></pre></noscript></div>
 
 
 
-
-
+]]></content>
+  </entry>
   
-</aside>
+  <entry>
+    <title type="html"><![CDATA[Freelancing on oDesk]]></title>
+    <link href="http://rawsyntax.github.com/blog/freelancing-on-odesk/"/>
+    <updated>2010-12-06T00:00:00-05:00</updated>
+    <id>http://rawsyntax.github.com/blog/freelancing-on-odesk</id>
+    <content type="html"><![CDATA[<p>Since the start of my career as a professional programmer, I&#8217;ve been interested in doing contract work online. Over the years I&#8217;ve half-heartedly tried to get jobs on sites like <a href="http://www.elance.com/">elance</a>, <a href="http://rentacoder.com">rentacoder</a>, and <a href="http://www.guru.com">guru</a>. I never had any success. All I found was employers / providers offering $200 fixed-bid contracts for building <a href="http://facebook.com">facebook</a> / <a href="http://ebay.com">ebay</a> clones, and workers willing to work for way less than I would or even could. In November 2010, after reading enough posts on <a href="http://news.ycombinator.com">hacker news</a> I decided to give <a href="http://odesk.com">oDesk</a> an honest try.</p>
 
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - Eric Himmelreich -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
+<h2>Trying oDesk for a Full Month</h2>
 
-</footer>
+<p>I committed myself to trying get jobs on <a href="http://www.odesk.com">oDesk</a> for a full month. I found the usual unrealistic jobs (demanding everything for nothing). I focused narrowly on <a href="http://www.ruby-lang.org/">ruby</a> and <a href="http://rubyonrails.org">rails</a> since that&#8217;s been the focus of my skill-set the past few years.</p>
+
+<h2>Fixed-bid Projects</h2>
+
+<p>After a few days of applying to 2-3 jobs per day, I finally got an acceptance. It should be noted that for each of these jobs I wrote a detailed and specially tailored cover letter selling myself to the employer. I believe this is crucial. Writing cover letters is worth getting good at.</p>
+
+<p>The job was to modify the
+<a href="https://github.com/Shopify/active_merchant">ActiveMerchant</a> gem to add support for a new payment gateway. I wrote <a href="https://jadedpixel.lighthouseapp.com/projects/11599/tickets/199-patch-added-merchant-warrior-gateway">this patch</a> for <a href="http://merchantwarrior.com">MerchantWarrior</a> in about 8 hours start to finish. It was a fixed bid project and the employer paid me promptly.</p>
+
+<p>I got this project after only a few days, and I was ready for more. The next job I did was basically rails troubleshooting for another developer over skype. It consisted of a few small bugs, each of which were small fixed-bid projects. The guy would skype me, name his price, then I&#8217;d fix his bugs in his rails applications, explain why, and he&#8217;d pay me. It wasn&#8217;t much money, but these were small bugs, and it boosted my feedback rating on <a href="http://odesk.com">oDesk</a>.</p>
+
+<p>On to the next job! November was turning out to be a good month for trying out online contracting. At this point I had only done fixed-bid contracts. I wanted something bigger. I wanted hourly work on <a href="http://odesk.com">oDesk</a>. Hourly work is special because <a href="http://odesk.com">oDesk</a> guarantees payment for hours worked. They have an application that you run on your desktop that tracks hours worked, takes screenshots, and lists average keystrokes and mouse actions.</p>
+
+<h2>Hourly Work</h2>
+
+<p>The first hourly project I got was a small ruby integration with <a href="http://ifbyphone.com">ifbyphone</a>. I had used ifbyphone before, so I wrote a cover letter selling myself hard (knowing ruby, having used ifbyphone before). I was also asked to justify my hourly rate, since it was higher than the typical hourly rate on <a href="http://odesk.com">oDesk</a>. This was easy enough.</p>
+
+<p>As soon as I delivered the code for this project, the employer offered me some work building a ruby gem. It&#8217;s basically a simplistic template-based email parser. It&#8217;s rather fragile, but given the employer&#8217;s time constraints, it does what he wants. Check out the code at <a href="http://github.com/himmel/text_parser">my github repo</a>. I ended up codifying the employer&#8217;s requirements into <a href="http://rspec.info">rspec</a> tests.</p>
+
+<p>Once I finished that project, the same employer offered me some more hourly work in the form of a rails project. It&#8217;s a microsite for people who play farmville. For the record, I do not play farmville. There are plenty of other more interesting video games to play. The site is basically a lookup table for some farmville data. It&#8217;s sortable and can be filtered to the user&#8217;s specifications. I&#8217;m not yet finished with this project.</p>
+
+<h2>Hire Me!</h2>
+
+<p>When I do finish my current hourly project, I&#8217;ll be looking for more hourly work. Feel free to <a href="mailto:eric@rawsyntax.com">contact me</a> with any projects involving:</p>
+
+<ul>
+<li>ruby webdev (sinatra, rails, merb …)</li>
+<li>rails 3 (haml, sass, compass, mongoid, datamapper, rspec …)</li>
+<li>jquery / javascript</li>
+<li>css / frontend design work (I use compass-style and sass)</li>
+<li>native iPhone apps (I use Titanium Appcelerator to build them in javascript)</li>
+</ul>
+
+
+<p><a href="http://www.odesk.com/users/~~d0ebf468e66ceacd">here&#8217;s my odesk profile</a></p>
+
+<h2>Inspiration</h2>
+
+<p>This post has been inspired by <a href="http://www.kreci.net/">kreci&#8217;s</a>, 5 part series onfreelancing <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-1/">1</a>, <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-%E2%80%93-income-report-2/">2</a>, <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-3/">3</a>, <a href="http://www.kreci.net/reports/android-developer-income-report/">4</a>, <a href="http://www.kreci.net/reports/developer-income-report-5/">5</a>, <a href="http://gilesbowkett.blogspot.com/2010/10/current-status-of-entrepreneurial.html">giles bowkett</a>, and various posts about freelancing on <a href="http://news.ycombinator.com">hacker news</a></p>
+]]></content>
+  </entry>
   
+  <entry>
+    <title type="html"><![CDATA[Puncher the simple file watcher for OS X]]></title>
+    <link href="http://rawsyntax.github.com/blog/puncher-the-simple-file-watcher-for-os-x/"/>
+    <updated>2010-09-29T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/puncher-the-simple-file-watcher-for-os-x</id>
+    <content type="html"><![CDATA[<p>Why another file watcher for OS X?</p>
 
-<script type="text/javascript">
-      var disqus_shortname = 'rawsyntax';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
+<p>There&#8217;s already <a href="http://github.com/alloy/kicker">kicker</a>, and many ruby programs that need file watching, already have solutions built in. For example <a href="http://github.com/seattlerb/zentest">ZenTest</a>, <a href="http://compass-style.org">compass</a> etc..</p>
 
+<p>The problem with file watchers on OS X is that they depend on <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a>. If <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> isn&#8217;t available most of them fallback to <a href="http://bit.ly/dDnkCu">file-system polling</a>, which kills my cpu. If you&#8217;re using the system ruby that comes with OS X, you&#8217;re fine because <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> is already built in.</p>
 
+<p>I use <a href="http://rvm.beginrescueend.com/">rvm</a>, which makes it super easy for me to install multiple separate and self-contained versions of ruby. I could for instance, maintain an old project that was written against ruby-1.8.6 while on the same machine starting a new project using ruby-1.9.2.</p>
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<p>You&#8217;ll only run into <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> problems if you use <a href="http://rvm.beginrescueend.com/">rvm</a>. Have a quick <a href="http://www.google.com/search?&amp;q=rubycocoa+rvm">google for rvm and rubycocoa</a>, and you&#8217;ll see a huge list of people having issues installing rubycocoa with rvm.</p>
 
+<p>Typically the code to fix this problem goes something like this</p>
 
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
+<div><script src='https://gist.github.com/289868.js?file='></script>
+<noscript><pre><code>~$ ARCHFLAGS='-arch i386 -arch x86_64'
+~$ rvm install 1.8.7 --debug --reconfigure -C --enable-shared=yes
+~$ wget http://sourceforge.net/projects/rubycocoa/files/RubyCocoa/1.0.0/RubyCocoa-1.0.0.tar.gz/download
+~$ tar xzf RubyCocoa-1.0.0.tar.gz &amp;&amp; rm RubyCocoa-1.0.0.tar.gz &amp;&amp; cd RubyCocoa-1.0.0
+~/RubyCocoa-1.0.0$ ruby install.rb config --build-universal=yes
+~/RubyCocoa-1.0.0$ ruby install.rb setup
+~/RubyCocoa-1.0.0$ sudo ruby install.rb install</code></pre></noscript></div>
 
 
+<p>Eventually, I got tired of having to install rubycocoa just to use osx&#8217;s fsevents. I discovered <a href="http://github.com/sandro/ruby-fsevent">ruby-fsevent</a> when I went looking for solutions to this problem. It&#8217;s a file watcher gem with a C extension that uses fsevents. For me this means I don&#8217;t have to fuss with recompiling my ruby version and and making rvm and rubycocoa happy to get fsevents.</p>
 
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
+<p>However, there still was a problem. <a href="http://compass-style.org">Compass</a> doesn&#8217;t use ruby-fsevent. I needed a file watcher that uses ruby-fsevent and does not depend on rubycocoa, and can execute arbitrary commands. I wanted a tool that I could use like below.</p>
+
+<p><code>puncher 'command' files_in_dir/*</code></p>
+
+<p>And that&#8217;s what I built. It&#8217;s incredibly simple. The code is only 29 lines.</p>
+
+<div><script src='https://gist.github.com/603206.js?file='></script>
+<noscript><pre><code>begin
+  require 'fsevent'
+rescue LoadError
+  require 'rubygems'
+  require 'fsevent'
+end
+
+class Puncher &lt; FSEvent
+
+  def initialize(command, files)
+    @command, @files, @latency, @last_sec = command, files, 0.2, Time.now
+
+    start
+  end
+
+  def start
+    watch_directories((@files.collect { |f| File.dirname(f) }).uniq)
+    super
+  end
+
+  def on_change(directories)
+    time = @last_sec
+
+    @files.each { |f| @last_sec = File.mtime(f) if File.mtime(f) &gt; @last_sec }
+
+    system @command unless time == @last_sec
+  end
+
+end
+</code></pre></noscript></div>
 
 
+<p>Today I mostly use it like below</p>
 
+<p><code>screen -S compass_punch puncher 'bundle exec compass -c config/compass.rb' app/sass/*</code></p>
 
+<p>This creates a screen, which runs a puncher instance, that runs a compass command to compile all my sass code, whenever a sass file is modified. Even though compass requires rubycocoa for using fsevents, I can wrap it with my puncher gem and use fsevents without rubycocoa.</p>
 
-</body>
-</html>
+<p>I wrap it in a screen so I can check on the output occasionally. My next enhancement is to add growl notifications to puncher, then I can simply background the process, instead of spawning a screen for it. Problem solved.</p>
+
+<p>PS if you have any interest in seeing a version of puncher that works on linux or windows, send me a message, comment, or create an issue on the github issue tracker.</p>
+
+<p>UPDATE: I heartily recommend <a href="https://github.com/guard">guard</a> for general purpose file watching</p>
+]]></content>
+  </entry>
+  
+</feed>
