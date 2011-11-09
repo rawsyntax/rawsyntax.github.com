@@ -9,7 +9,9 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working &hellip;">
+  <meta name="description" content="I have a running series of blog posts on
+learning emacs. It is a life-long
+endeavor. In this post I&#8217;m going to share some of the emacs &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +69,7 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="mailto:eric@rawsyntax.com">Contact</a></li>
 </ul>
 
 </nav>
@@ -74,6 +77,78 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learn-emacs-useful-links/">Learn Emacs: Useful Links</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-11-08T23:02:00-05:00" pubdate>Nov 8<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have a running series of blog posts on
+<a href="/blog/categories/learn-emacs/">learning emacs</a>.  It is a life-long
+endeavor.  In this post I&#8217;m going to share some of the emacs resources
+that I have come across over the years.</p>
+
+<h3><a href="http://www.emacswiki.org/">EmacsWiki</a></h3>
+
+<p>This is the definitive source for emacs information (aside from the emacs manual).  There&#8217;s a ton of information there, some of it is outdated, but it&#8217;s still worth your time.</p>
+
+<h3>Steve Yegge&#8217;s Emacs Posts &#8211; <a href="https://sites.google.com/site/steveyegge2/blog-rants">old blog</a> and <a href="http://steve-yegge.blogspot.com/search?q=emacs">new blog</a></h3>
+
+<p>All I can say is that Steve Yegge has written a lot about emacs, and has made some awesome elisp contributions.  I&#8217;m a huge fan of js2-mode.  Just do a search for emacs on his old and new blogs. <a href="https://sites.google.com/site/steveyegge2/effective-emacs">Effective Emacs</a>
+is a good post to start with.</p>
+
+<h3><a href="http://avdi.org/devblog/category/emacs-reboot/">Avdi Grimm&#8217;s Emacs Reboot</a></h3>
+
+<p>Avdi Grimm is writing about re-doing his emacs config from scratch.
+It&#8217;s very informative and super easy to follow.  I&#8217;ve used some ideas
+from his posts.  His <a href="https://github.com/avdi/.emacs24.d">emacs config is on github</a>.</p>
+
+<h3><a href="http://emacsrookie.com/">emacsrookie</a></h3>
+
+<p>This site is relatively new, and there are only a few posts on it
+right now, but it is quality emacs content.</p>
+
+<h3><a href="http://emacsrocks.com/">emacsrocks</a></h3>
+
+<p>Emacs screencasts.  It&#8217;s another new site, but I can&#8217;t argue with free content.</p>
+
+<h3><a href="http://emacsformacosx.com/">EmacsForMacOSX</a></h3>
+
+<p>This site is very convenient for getting the latest os x builds of
+emacs.  Or you can run the build-script yourself
+(<a href="https://github.com/caldwell/build-emacs">source on github</a>).</p>
+
+<h3><a href="https://github.com/search?&amp;q=emacs&amp;type=Everything&amp;repo=&amp;langOverride=&amp;start_value=1">Github</a></h3>
+
+<p>Search emacs on github.  You will find many other emacs users&#8217; configs
+hosted there.  Read their configs, and you will learn emacs.  I keep
+<a href="https://github.com/rawsyntax/emacs.d">my emacs config there</a>.</p>
+
+<p>Did I miss any useful emacs resources?</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1139,83 +1214,6 @@ I think you should use an
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-align-regexp/">Learn Emacs: Align-regexp</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
-
-<h4>From the Emacs Manual:</h4>
-
-<p>align-regexp is an interactive autoloaded Lisp function in `align.el&#8217;.</p>
-
-<p>It is bound to C-x .</p>
-
-<p>(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</p>
-
-<p>Align the current region using an ad-hoc rule read from the minibuffer. BEG and END mark the limits of the region. This function will prompt for the REGEXP to align with. If no prefix arg was specified, you only need to supply the characters to be lined up and any preceding whitespace is replaced. If a prefix arg was specified, the full regexp with parenthesized whitespace should be supplied; it will also prompt for which parenthesis GROUP within REGEXP to modify, the amount of SPACING to use, and whether or not to REPEAT the rule throughout the line. See `align-rules-list&#8217; for more information about these options.</p>
-
-<p>For example, let&#8217;s say you had a list of phone numbers, and wanted to align them so that the opening parentheses would line up:</p>
-
-<pre><code>Fred (123) 456-7890
-
-Alice (123) 456-7890
-
-Mary-Anne (123) 456-7890
-
-Joe (123) 456-7890
-</code></pre>
-
-<p>There is no predefined rule to handle this, but you could easily do it using a
-REGEXP like &#8220;(&#8220;. All you would have to do is to mark the region, call `align-
-regexp&#8217; and type in that regular expression.</p>
-
-<h2>What I use align-regexp for</h2>
-
-<div><script src='https://gist.github.com/1035839.js?file='></script>
-<noscript><pre><code># before align-regexp, not super easy to read
-
-var = 5
-another_value = 10
-assignment = 5
-very_long_var_name = 25
-
-# after align-regexp =, readability improved!
-
-var                = 5
-another_value      = 10
-assignment         = 5
-very_long_var_name = 25
-</code></pre></noscript></div>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1231,6 +1229,10 @@ very_long_var_name = 25
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learn-emacs-useful-links/">Learn Emacs: Useful Links</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a>
       </li>
     
@@ -1244,10 +1246,6 @@ very_long_var_name = 25
     
       <li class="post">
         <a href="/blog/learn-bash-remove-commands-from-your-history/">Learn Bash: Remove Commands from your History</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/host-your-side-project-for-free/">Host your side project for free</a>
       </li>
     
   </ul>

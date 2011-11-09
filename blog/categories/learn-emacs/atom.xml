@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
+  <link href="http://rawsyntax.github.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
+  <link href="http://rawsyntax.github.com/"/>
+  <updated>2011-11-08T23:51:43-05:00</updated>
+  <id>http://rawsyntax.github.com/</id>
+  <author>
+    <name><![CDATA[Eric Himmelreich]]></name>
+    <email><![CDATA[eric@rawsyntax.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Useful Links]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-useful-links/"/>
+    <updated>2011-11-08T23:02:00-05:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-useful-links</id>
+    <content type="html"><![CDATA[<p>I have a running series of blog posts on
+<a href="/blog/categories/learn-emacs/">learning emacs</a>.  It is a life-long
+endeavor.  In this post I'm going to share some of the emacs resources
+that I have come across over the years.</p>
+
+<h3><a href="http://www.emacswiki.org/">EmacsWiki</a></h3>
+
+<p>This is the definitive source for emacs information (aside from the emacs manual).  There's a ton of information there, some of it is outdated, but it's still worth your time.</p>
+
+<h3>Steve Yegge's Emacs Posts -- <a href="https://sites.google.com/site/steveyegge2/blog-rants">old blog</a> and <a href="http://steve-yegge.blogspot.com/search?q=emacs">new blog</a></h3>
+
+<p>All I can say is that Steve Yegge has written a lot about emacs, and has made some awesome elisp contributions.  I'm a huge fan of js2-mode.  Just do a search for emacs on his old and new blogs. <a href="https://sites.google.com/site/steveyegge2/effective-emacs">Effective Emacs</a>
+is a good post to start with.</p>
+
+<h3><a href="http://avdi.org/devblog/category/emacs-reboot/">Avdi Grimm's Emacs Reboot</a></h3>
+
+<p>Avdi Grimm is writing about re-doing his emacs config from scratch.
+It's very informative and super easy to follow.  I've used some ideas
+from his posts.  His <a href="https://github.com/avdi/.emacs24.d">emacs config is on github</a>.</p>
+
+<h3><a href="http://emacsrookie.com/">emacsrookie</a></h3>
+
+<p>This site is relatively new, and there are only a few posts on it
+right now, but it is quality emacs content.</p>
+
+<h3><a href="http://emacsrocks.com/">emacsrocks</a></h3>
+
+<p>Emacs screencasts.  It's another new site, but I can't argue with free content.</p>
+
+<h3><a href="http://emacsformacosx.com/">EmacsForMacOSX</a></h3>
+
+<p>This site is very convenient for getting the latest os x builds of
+emacs.  Or you can run the build-script yourself
+(<a href="https://github.com/caldwell/build-emacs">source on github</a>).</p>
+
+<h3><a href="https://github.com/search?&amp;q=emacs&amp;type=Everything&amp;repo=&amp;langOverride=&amp;start_value=1">Github</a></h3>
+
+<p>Search emacs on github.  You will find many other emacs users' configs
+hosted there.  Read their configs, and you will learn emacs.  I keep
+<a href="https://github.com/rawsyntax/emacs.d">my emacs config there</a>.</p>
+
+<p>Did I miss any useful emacs resources?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Keyboard Macros]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-keyboard-macros/"/>
+    <updated>2011-08-28T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-keyboard-macros</id>
+    <content type="html"><![CDATA[<p>An emacs keyboard macro is just a recording of user input into emacs, which means that most anything you can do in emacs can be recorded as a macro. Read that again. Pretty powerful.</p>
+
+<p>Here's how it works. To start recording, type</p>
+
+<pre><code>C-x (
+</code></pre>
+
+<p>and input the commands in your macro. Then type</p>
+
+<pre><code>C-x )
+</code></pre>
+
+<p>to stop recording. Then type</p>
+
+<pre><code>C-x e
+</code></pre>
+
+<p>to apply the macro once, or</p>
+
+<pre><code>C-u 0 C-x e
+</code></pre>
+
+<p>to apply the macro until the bell rings or end of buffer is reached</p>
+
+<p>Keep in mind that you must not ring the bell when defining a keyboard macro (by accident, or with C-g). If you do, you'll have to start all over defining your keyboard macro</p>
+
+<p>Typically I use a keyboard macro when I have a file full of data that needs slight altering, for example a non-standard CSV-like file. I'll define a macro in terms of what needs changing on each line and then apply the macro for each line (until the end of the buffer).</p>
+
+<h3>Further Reading</h3>
+
+<ul>
+<li><a href="http://www.emacswiki.org/emacs/KeyboardMacros">emacs wiki on keyboard macros</a></li>
+<li><a href="http://www.emacswiki.org/emacs/KeyboardMacrosTricks">keyboard macros tricks</a></li>
+<li><a href="http://www.gnu.org/s/libtool/manual/emacs/Keyboard-Macros.html">emacs manual entry on keyboard macros</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: use defadvice to modify functions]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-use-defadvice-modify-functions/"/>
+    <updated>2011-06-22T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-use-defadvice-modify-functions</id>
+    <content type="html"><![CDATA[<p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
+
+<p><div><script src='https://gist.github.com/1038120.js?file='></script>
+<noscript><pre><code>;; make zap-to-char act like zap-up-to-char
+(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
+  &quot;Kill up to the ARG'th occurence of CHAR, and leave CHAR.
+  The CHAR is replaced and the point is put before CHAR.&quot;
+  (insert char)
+  (forward-char -1))
+</code></pre></noscript></div>
+</p>
+
+<p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: delete-file-and-buffer]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-delete-file-and-buffer/"/>
+    <updated>2011-06-21T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-delete-file-and-buffer</id>
+    <content type="html"><![CDATA[<p>From my ~/.emacs.d</p>
+
+<p><div><script src='https://gist.github.com/1035862.js?file='></script>
+<noscript><pre><code>(defun delete-file-and-buffer ()
+  &quot;Deletes the current file and buffer, assumes file exists&quot;
+  (interactive)
+  (delete-file buffer-file-name)
+  (kill-buffer (buffer-name)))
+</code></pre></noscript></div>
+</p>
+
+<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge's .emacs file (rename-file-and-buffer)</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: align-regexp]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-align-regexp/"/>
+    <updated>2011-06-20T00:00:00-04:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-align-regexp</id>
+    <content type="html"><![CDATA[<p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
+
+<h4>From the Emacs Manual:</h4>
+
+<p>align-regexp is an interactive autoloaded Lisp function in `align.el'.</p>
+
+<p>It is bound to C-x .</p>
+
+<p>(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</p>
+
+<p>Align the current region using an ad-hoc rule read from the minibuffer. BEG and END mark the limits of the region. This function will prompt for the REGEXP to align with. If no prefix arg was specified, you only need to supply the characters to be lined up and any preceding whitespace is replaced. If a prefix arg was specified, the full regexp with parenthesized whitespace should be supplied; it will also prompt for which parenthesis GROUP within REGEXP to modify, the amount of SPACING to use, and whether or not to REPEAT the rule throughout the line. See `align-rules-list' for more information about these options.</p>
+
+<p>For example, let's say you had a list of phone numbers, and wanted to align them so that the opening parentheses would line up:</p>
+
+<pre><code>Fred (123) 456-7890
+
+Alice (123) 456-7890
+
+Mary-Anne (123) 456-7890
+
+Joe (123) 456-7890
+</code></pre>
+
+<p>There is no predefined rule to handle this, but you could easily do it using a
+REGEXP like "(". All you would have to do is to mark the region, call `align-
+regexp' and type in that regular expression.</p>
+
+<h2>What I use align-regexp for</h2>
+
+<p><div><script src='https://gist.github.com/1035839.js?file='></script>
+<noscript><pre><code># before align-regexp, not super easy to read
+
+var = 5
+another_value = 10
+assignment = 5
+very_long_var_name = 25
+
+# after align-regexp =, readability improved!
+
+var                = 5
+another_value      = 10
+assignment         = 5
+very_long_var_name = 25
+</code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
+  
+</feed>

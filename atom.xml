@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.github.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.github.com/"/>
-  <updated>2011-11-01T12:43:03-04:00</updated>
+  <updated>2011-11-08T23:51:43-05:00</updated>
   <id>http://rawsyntax.github.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Useful Links]]></title>
+    <link href="http://rawsyntax.github.com/blog/learn-emacs-useful-links/"/>
+    <updated>2011-11-08T23:02:00-05:00</updated>
+    <id>http://rawsyntax.github.com/blog/learn-emacs-useful-links</id>
+    <content type="html"><![CDATA[<p>I have a running series of blog posts on
+<a href="http://rawsyntax.github.com/blog/categories/learn-emacs/">learning emacs</a>.  It is a life-long
+endeavor.  In this post I&#8217;m going to share some of the emacs resources
+that I have come across over the years.</p>
+
+<h3><a href="http://www.emacswiki.org/">EmacsWiki</a></h3>
+
+<p>This is the definitive source for emacs information (aside from the emacs manual).  There&#8217;s a ton of information there, some of it is outdated, but it&#8217;s still worth your time.</p>
+
+<h3>Steve Yegge&#8217;s Emacs Posts &#8211; <a href="https://sites.google.com/site/steveyegge2/blog-rants">old blog</a> and <a href="http://steve-yegge.blogspot.com/search?q=emacs">new blog</a></h3>
+
+<p>All I can say is that Steve Yegge has written a lot about emacs, and has made some awesome elisp contributions.  I&#8217;m a huge fan of js2-mode.  Just do a search for emacs on his old and new blogs. <a href="https://sites.google.com/site/steveyegge2/effective-emacs">Effective Emacs</a>
+is a good post to start with.</p>
+
+<h3><a href="http://avdi.org/devblog/category/emacs-reboot/">Avdi Grimm&#8217;s Emacs Reboot</a></h3>
+
+<p>Avdi Grimm is writing about re-doing his emacs config from scratch.
+It&#8217;s very informative and super easy to follow.  I&#8217;ve used some ideas
+from his posts.  His <a href="https://github.com/avdi/.emacs24.d">emacs config is on github</a>.</p>
+
+<h3><a href="http://emacsrookie.com/">emacsrookie</a></h3>
+
+<p>This site is relatively new, and there are only a few posts on it
+right now, but it is quality emacs content.</p>
+
+<h3><a href="http://emacsrocks.com/">emacsrocks</a></h3>
+
+<p>Emacs screencasts.  It&#8217;s another new site, but I can&#8217;t argue with free content.</p>
+
+<h3><a href="http://emacsformacosx.com/">EmacsForMacOSX</a></h3>
+
+<p>This site is very convenient for getting the latest os x builds of
+emacs.  Or you can run the build-script yourself
+(<a href="https://github.com/caldwell/build-emacs">source on github</a>).</p>
+
+<h3><a href="https://github.com/search?&amp;q=emacs&amp;type=Everything&amp;repo=&amp;langOverride=&amp;start_value=1">Github</a></h3>
+
+<p>Search emacs on github.  You will find many other emacs users&#8217; configs
+hosted there.  Read their configs, and you will learn emacs.  I keep
+<a href="https://github.com/rawsyntax/emacs.d">my emacs config there</a>.</p>
+
+<p>Did I miss any useful emacs resources?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OS X Lion New Tab in Terminal Changes Directory]]></title>
@@ -1261,88 +1311,6 @@ end</code></pre></noscript></div>
 <h2>Inspiration</h2>
 
 <p>This post has been inspired by <a href="http://www.kreci.net/">kreci&#8217;s</a>, 5 part series onfreelancing <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-1/">1</a>, <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-%E2%80%93-income-report-2/">2</a>, <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-3/">3</a>, <a href="http://www.kreci.net/reports/android-developer-income-report/">4</a>, <a href="http://www.kreci.net/reports/developer-income-report-5/">5</a>, <a href="http://gilesbowkett.blogspot.com/2010/10/current-status-of-entrepreneurial.html">giles bowkett</a>, and various posts about freelancing on <a href="http://news.ycombinator.com">hacker news</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Puncher the simple file watcher for OS X]]></title>
-    <link href="http://rawsyntax.github.com/blog/puncher-the-simple-file-watcher-for-os-x/"/>
-    <updated>2010-09-29T00:00:00-04:00</updated>
-    <id>http://rawsyntax.github.com/blog/puncher-the-simple-file-watcher-for-os-x</id>
-    <content type="html"><![CDATA[<p>Why another file watcher for OS X?</p>
-
-<p>There&#8217;s already <a href="http://github.com/alloy/kicker">kicker</a>, and many ruby programs that need file watching, already have solutions built in. For example <a href="http://github.com/seattlerb/zentest">ZenTest</a>, <a href="http://compass-style.org">compass</a> etc..</p>
-
-<p>The problem with file watchers on OS X is that they depend on <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a>. If <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> isn&#8217;t available most of them fallback to <a href="http://bit.ly/dDnkCu">file-system polling</a>, which kills my cpu. If you&#8217;re using the system ruby that comes with OS X, you&#8217;re fine because <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> is already built in.</p>
-
-<p>I use <a href="http://rvm.beginrescueend.com/">rvm</a>, which makes it super easy for me to install multiple separate and self-contained versions of ruby. I could for instance, maintain an old project that was written against ruby-1.8.6 while on the same machine starting a new project using ruby-1.9.2.</p>
-
-<p>You&#8217;ll only run into <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> problems if you use <a href="http://rvm.beginrescueend.com/">rvm</a>. Have a quick <a href="http://www.google.com/search?&amp;q=rubycocoa+rvm">google for rvm and rubycocoa</a>, and you&#8217;ll see a huge list of people having issues installing rubycocoa with rvm.</p>
-
-<p>Typically the code to fix this problem goes something like this</p>
-
-<div><script src='https://gist.github.com/289868.js?file='></script>
-<noscript><pre><code>~$ ARCHFLAGS='-arch i386 -arch x86_64'
-~$ rvm install 1.8.7 --debug --reconfigure -C --enable-shared=yes
-~$ wget http://sourceforge.net/projects/rubycocoa/files/RubyCocoa/1.0.0/RubyCocoa-1.0.0.tar.gz/download
-~$ tar xzf RubyCocoa-1.0.0.tar.gz &amp;&amp; rm RubyCocoa-1.0.0.tar.gz &amp;&amp; cd RubyCocoa-1.0.0
-~/RubyCocoa-1.0.0$ ruby install.rb config --build-universal=yes
-~/RubyCocoa-1.0.0$ ruby install.rb setup
-~/RubyCocoa-1.0.0$ sudo ruby install.rb install</code></pre></noscript></div>
-
-
-<p>Eventually, I got tired of having to install rubycocoa just to use osx&#8217;s fsevents. I discovered <a href="http://github.com/sandro/ruby-fsevent">ruby-fsevent</a> when I went looking for solutions to this problem. It&#8217;s a file watcher gem with a C extension that uses fsevents. For me this means I don&#8217;t have to fuss with recompiling my ruby version and and making rvm and rubycocoa happy to get fsevents.</p>
-
-<p>However, there still was a problem. <a href="http://compass-style.org">Compass</a> doesn&#8217;t use ruby-fsevent. I needed a file watcher that uses ruby-fsevent and does not depend on rubycocoa, and can execute arbitrary commands. I wanted a tool that I could use like below.</p>
-
-<p><code>puncher 'command' files_in_dir/*</code></p>
-
-<p>And that&#8217;s what I built. It&#8217;s incredibly simple. The code is only 29 lines.</p>
-
-<div><script src='https://gist.github.com/603206.js?file='></script>
-<noscript><pre><code>begin
-  require 'fsevent'
-rescue LoadError
-  require 'rubygems'
-  require 'fsevent'
-end
-
-class Puncher &lt; FSEvent
-
-  def initialize(command, files)
-    @command, @files, @latency, @last_sec = command, files, 0.2, Time.now
-
-    start
-  end
-
-  def start
-    watch_directories((@files.collect { |f| File.dirname(f) }).uniq)
-    super
-  end
-
-  def on_change(directories)
-    time = @last_sec
-
-    @files.each { |f| @last_sec = File.mtime(f) if File.mtime(f) &gt; @last_sec }
-
-    system @command unless time == @last_sec
-  end
-
-end
-</code></pre></noscript></div>
-
-
-<p>Today I mostly use it like below</p>
-
-<p><code>screen -S compass_punch puncher 'bundle exec compass -c config/compass.rb' app/sass/*</code></p>
-
-<p>This creates a screen, which runs a puncher instance, that runs a compass command to compile all my sass code, whenever a sass file is modified. Even though compass requires rubycocoa for using fsevents, I can wrap it with my puncher gem and use fsevents without rubycocoa.</p>
-
-<p>I wrap it in a screen so I can check on the output occasionally. My next enhancement is to add growl notifications to puncher, then I can simply background the process, instead of spawning a screen for it. Problem solved.</p>
-
-<p>PS if you have any interest in seeing a version of puncher that works on linux or windows, send me a message, comment, or create an issue on the github issue tracker.</p>
-
-<p>UPDATE: I heartily recommend <a href="https://github.com/guard">guard</a> for general purpose file watching</p>
 ]]></content>
   </entry>
   
