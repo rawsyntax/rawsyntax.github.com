@@ -41,3 +41,6 @@ hosted there.  Read their configs, and you will learn emacs.  I keep
 [my emacs config there](https://github.com/rawsyntax/emacs.d).
 
 Did I miss any useful emacs resources?
+
+UPDATE:  The users at [emacs reddit](http://reddit.com/r/emacs/) let
+me know I forgot a big one.  Check out [emacs-fu](http://emacs-fu.blogspot.com)
