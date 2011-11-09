@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Learn Emacs: delete-file-and-buffer"
+categories: [learn-emacs]
 ---
 
 From my ~/.emacs.d

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Learn Emacs: align-regexp"
+categories: [learn-emacs]
 ---
 
 In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.

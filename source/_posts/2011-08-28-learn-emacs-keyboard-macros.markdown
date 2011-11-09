@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Learn Emacs: Keyboard Macros"
+categories: [learn-emacs]
 ---
 
 An emacs keyboard macro is just a recording of user input into emacs, which means that most anything you can do in emacs can be recorded as a macro. Read that again. Pretty powerful.
