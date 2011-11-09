@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.github.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.github.com/"/>
-  <updated>2011-11-08T23:51:43-05:00</updated>
+  <updated>2011-11-09T14:26:56-05:00</updated>
   <id>http://rawsyntax.github.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -60,6 +60,9 @@ hosted there.  Read their configs, and you will learn emacs.  I keep
 <a href="https://github.com/rawsyntax/emacs.d">my emacs config there</a>.</p>
 
 <p>Did I miss any useful emacs resources?</p>
+
+<p>UPDATE:  The users at <a href="http://reddit.com/r/emacs/">emacs reddit</a> let
+me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">emacs-fu</a></p>
 ]]></content>
   </entry>
   
