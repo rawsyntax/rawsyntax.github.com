@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
-  <link href="http://rawsyntax.github.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
-  <link href="http://rawsyntax.github.com/"/>
-  <updated>2011-11-09T21:33:17-05:00</updated>
-  <id>http://rawsyntax.github.com/</id>
+  <link href="http://rawsyntax.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
+  <link href="http://rawsyntax.com/"/>
+  <updated>2011-11-10T08:15:31-05:00</updated>
+  <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
     <email><![CDATA[eric@rawsyntax.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Useful Links]]></title>
-    <link href="http://rawsyntax.github.com/blog/learn-emacs-useful-links/"/>
+    <link href="http://rawsyntax.com/blog/learn-emacs-useful-links/"/>
     <updated>2011-11-08T23:02:00-05:00</updated>
-    <id>http://rawsyntax.github.com/blog/learn-emacs-useful-links</id>
+    <id>http://rawsyntax.com/blog/learn-emacs-useful-links</id>
     <content type="html"><![CDATA[<p>I have a running series of blog posts on
 <a href="/blog/categories/learn-emacs/">learning emacs</a>.  It is a life-long
 endeavor.  In this post I'm going to share some of the emacs resources
@@ -68,9 +68,9 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Keyboard Macros]]></title>
-    <link href="http://rawsyntax.github.com/blog/learn-emacs-keyboard-macros/"/>
+    <link href="http://rawsyntax.com/blog/learn-emacs-keyboard-macros/"/>
     <updated>2011-08-28T00:00:00-04:00</updated>
-    <id>http://rawsyntax.github.com/blog/learn-emacs-keyboard-macros</id>
+    <id>http://rawsyntax.com/blog/learn-emacs-keyboard-macros</id>
     <content type="html"><![CDATA[<p>An emacs keyboard macro is just a recording of user input into emacs, which means that most anything you can do in emacs can be recorded as a macro. Read that again. Pretty powerful.</p>
 
 <p>Here's how it works. To start recording, type</p>
@@ -112,9 +112,9 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: use defadvice to modify functions]]></title>
-    <link href="http://rawsyntax.github.com/blog/learn-emacs-use-defadvice-modify-functions/"/>
+    <link href="http://rawsyntax.com/blog/learn-emacs-use-defadvice-modify-functions/"/>
     <updated>2011-06-22T00:00:00-04:00</updated>
-    <id>http://rawsyntax.github.com/blog/learn-emacs-use-defadvice-modify-functions</id>
+    <id>http://rawsyntax.com/blog/learn-emacs-use-defadvice-modify-functions</id>
     <content type="html"><![CDATA[<p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
 
 <p><div><script src='https://gist.github.com/1038120.js?file='></script>
@@ -133,9 +133,9 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: delete-file-and-buffer]]></title>
-    <link href="http://rawsyntax.github.com/blog/learn-emacs-delete-file-and-buffer/"/>
+    <link href="http://rawsyntax.com/blog/learn-emacs-delete-file-and-buffer/"/>
     <updated>2011-06-21T00:00:00-04:00</updated>
-    <id>http://rawsyntax.github.com/blog/learn-emacs-delete-file-and-buffer</id>
+    <id>http://rawsyntax.com/blog/learn-emacs-delete-file-and-buffer</id>
     <content type="html"><![CDATA[<p>From my ~/.emacs.d</p>
 
 <p><div><script src='https://gist.github.com/1035862.js?file='></script>
@@ -153,9 +153,9 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: align-regexp]]></title>
-    <link href="http://rawsyntax.github.com/blog/learn-emacs-align-regexp/"/>
+    <link href="http://rawsyntax.com/blog/learn-emacs-align-regexp/"/>
     <updated>2011-06-20T00:00:00-04:00</updated>
-    <id>http://rawsyntax.github.com/blog/learn-emacs-align-regexp</id>
+    <id>http://rawsyntax.com/blog/learn-emacs-align-regexp</id>
     <content type="html"><![CDATA[<p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
 
 <h4>From the Emacs Manual:</h4>
