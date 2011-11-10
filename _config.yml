@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://rawsyntax.github.com
+url: http://rawsyntax.com
 title: "Raw Syntax"
 subtitle: "The stuff programs are made of"
 author: "Eric Himmelreich"
@@ -14,7 +14,7 @@ simple_search: http://google.com/search
 date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
+subscribe_rss: http://feeds.feedburner.com/RawSyntax
 subscribe_email:
 # RSS feeds can list your email address if you like
 email: eric@rawsyntax.com
@@ -57,7 +57,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 
 # Github repositories
 github_user: rawsyntax
-github_repo_count: 0
+github_repo_count: 3
 github_show_profile_link: true
 github_skip_forks: true
 
