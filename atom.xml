@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2011-11-11T11:26:53-05:00</updated>
+  <updated>2011-11-11T11:33:54-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,21 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[How to Form Good Habits in Emacs]]></title>
-    <link href="http://rawsyntax.com/blog/how-to-form-good-habits-in-emacs/"/>
-    <updated>2011-11-10T12:14:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/how-to-form-good-habits-in-emacs</id>
-    <content type="html"><![CDATA[<h2>Unbind keys</h2>
-
-<h2>make note of painful or inefficient things</h2>
-
-<h2>make time to fix / improve them</h2>
-
-<h2>slowly force new habits</h2>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Useful Links]]></title>
@@ -1278,6 +1263,57 @@ end</code></pre></noscript></div>
 
 
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Freelancing on oDesk]]></title>
+    <link href="http://rawsyntax.com/blog/freelancing-on-odesk/"/>
+    <updated>2010-12-06T00:00:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/freelancing-on-odesk</id>
+    <content type="html"><![CDATA[<p>Since the start of my career as a professional programmer, I&#8217;ve been interested in doing contract work online. Over the years I&#8217;ve half-heartedly tried to get jobs on sites like <a href="http://www.elance.com/">elance</a>, <a href="http://rentacoder.com">rentacoder</a>, and <a href="http://www.guru.com">guru</a>. I never had any success. All I found was employers / providers offering $200 fixed-bid contracts for building <a href="http://facebook.com">facebook</a> / <a href="http://ebay.com">ebay</a> clones, and workers willing to work for way less than I would or even could. In November 2010, after reading enough posts on <a href="http://news.ycombinator.com">hacker news</a> I decided to give <a href="http://odesk.com">oDesk</a> an honest try.</p>
+
+<h2>Trying oDesk for a Full Month</h2>
+
+<p>I committed myself to trying get jobs on <a href="http://www.odesk.com">oDesk</a> for a full month. I found the usual unrealistic jobs (demanding everything for nothing). I focused narrowly on <a href="http://www.ruby-lang.org/">ruby</a> and <a href="http://rubyonrails.org">rails</a> since that&#8217;s been the focus of my skill-set the past few years.</p>
+
+<h2>Fixed-bid Projects</h2>
+
+<p>After a few days of applying to 2-3 jobs per day, I finally got an acceptance. It should be noted that for each of these jobs I wrote a detailed and specially tailored cover letter selling myself to the employer. I believe this is crucial. Writing cover letters is worth getting good at.</p>
+
+<p>The job was to modify the
+<a href="https://github.com/Shopify/active_merchant">ActiveMerchant</a> gem to add support for a new payment gateway. I wrote <a href="https://jadedpixel.lighthouseapp.com/projects/11599/tickets/199-patch-added-merchant-warrior-gateway">this patch</a> for <a href="http://merchantwarrior.com">MerchantWarrior</a> in about 8 hours start to finish. It was a fixed bid project and the employer paid me promptly.</p>
+
+<p>I got this project after only a few days, and I was ready for more. The next job I did was basically rails troubleshooting for another developer over skype. It consisted of a few small bugs, each of which were small fixed-bid projects. The guy would skype me, name his price, then I&#8217;d fix his bugs in his rails applications, explain why, and he&#8217;d pay me. It wasn&#8217;t much money, but these were small bugs, and it boosted my feedback rating on <a href="http://odesk.com">oDesk</a>.</p>
+
+<p>On to the next job! November was turning out to be a good month for trying out online contracting. At this point I had only done fixed-bid contracts. I wanted something bigger. I wanted hourly work on <a href="http://odesk.com">oDesk</a>. Hourly work is special because <a href="http://odesk.com">oDesk</a> guarantees payment for hours worked. They have an application that you run on your desktop that tracks hours worked, takes screenshots, and lists average keystrokes and mouse actions.</p>
+
+<h2>Hourly Work</h2>
+
+<p>The first hourly project I got was a small ruby integration with <a href="http://ifbyphone.com">ifbyphone</a>. I had used ifbyphone before, so I wrote a cover letter selling myself hard (knowing ruby, having used ifbyphone before). I was also asked to justify my hourly rate, since it was higher than the typical hourly rate on <a href="http://odesk.com">oDesk</a>. This was easy enough.</p>
+
+<p>As soon as I delivered the code for this project, the employer offered me some work building a ruby gem. It&#8217;s basically a simplistic template-based email parser. It&#8217;s rather fragile, but given the employer&#8217;s time constraints, it does what he wants. Check out the code at <a href="http://github.com/himmel/text_parser">my github repo</a>. I ended up codifying the employer&#8217;s requirements into <a href="http://rspec.info">rspec</a> tests.</p>
+
+<p>Once I finished that project, the same employer offered me some more hourly work in the form of a rails project. It&#8217;s a microsite for people who play farmville. For the record, I do not play farmville. There are plenty of other more interesting video games to play. The site is basically a lookup table for some farmville data. It&#8217;s sortable and can be filtered to the user&#8217;s specifications. I&#8217;m not yet finished with this project.</p>
+
+<h2>Hire Me!</h2>
+
+<p>When I do finish my current hourly project, I&#8217;ll be looking for more hourly work. Feel free to <a href="mailto:eric@rawsyntax.com">contact me</a> with any projects involving:</p>
+
+<ul>
+<li>ruby webdev (sinatra, rails, merb …)</li>
+<li>rails 3 (haml, sass, compass, mongoid, datamapper, rspec …)</li>
+<li>jquery / javascript</li>
+<li>css / frontend design work (I use compass-style and sass)</li>
+<li>native iPhone apps (I use Titanium Appcelerator to build them in javascript)</li>
+</ul>
+
+
+<p><a href="http://www.odesk.com/users/~~d0ebf468e66ceacd">here&#8217;s my odesk profile</a></p>
+
+<h2>Inspiration</h2>
+
+<p>This post has been inspired by <a href="http://www.kreci.net/">kreci&#8217;s</a>, 5 part series onfreelancing <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-1/">1</a>, <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-%E2%80%93-income-report-2/">2</a>, <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-3/">3</a>, <a href="http://www.kreci.net/reports/android-developer-income-report/">4</a>, <a href="http://www.kreci.net/reports/developer-income-report-5/">5</a>, <a href="http://gilesbowkett.blogspot.com/2010/10/current-status-of-entrepreneurial.html">giles bowkett</a>, and various posts about freelancing on <a href="http://news.ycombinator.com">hacker news</a></p>
 ]]></content>
   </entry>
   

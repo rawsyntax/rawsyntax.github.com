@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2011-11-11T11:26:53-05:00</updated>
+  <updated>2011-11-11T11:33:54-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,21 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[How to Form Good Habits in Emacs]]></title>
-    <link href="http://rawsyntax.com/blog/how-to-form-good-habits-in-emacs/"/>
-    <updated>2011-11-10T12:14:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/how-to-form-good-habits-in-emacs</id>
-    <content type="html"><![CDATA[<h2>Unbind keys</h2>
-
-<h2>make note of painful or inefficient things</h2>
-
-<h2>make time to fix / improve them</h2>
-
-<h2>slowly force new habits</h2>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Useful Links]]></title>
@@ -163,6 +148,59 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
 </p>
 
 <p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge's .emacs file (rename-file-and-buffer)</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: align-regexp]]></title>
+    <link href="http://rawsyntax.com/blog/learn-emacs-align-regexp/"/>
+    <updated>2011-06-20T00:00:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/learn-emacs-align-regexp</id>
+    <content type="html"><![CDATA[<p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
+
+<h4>From the Emacs Manual:</h4>
+
+<p>align-regexp is an interactive autoloaded Lisp function in `align.el'.</p>
+
+<p>It is bound to C-x .</p>
+
+<p>(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</p>
+
+<p>Align the current region using an ad-hoc rule read from the minibuffer. BEG and END mark the limits of the region. This function will prompt for the REGEXP to align with. If no prefix arg was specified, you only need to supply the characters to be lined up and any preceding whitespace is replaced. If a prefix arg was specified, the full regexp with parenthesized whitespace should be supplied; it will also prompt for which parenthesis GROUP within REGEXP to modify, the amount of SPACING to use, and whether or not to REPEAT the rule throughout the line. See `align-rules-list' for more information about these options.</p>
+
+<p>For example, let's say you had a list of phone numbers, and wanted to align them so that the opening parentheses would line up:</p>
+
+<pre><code>Fred (123) 456-7890
+
+Alice (123) 456-7890
+
+Mary-Anne (123) 456-7890
+
+Joe (123) 456-7890
+</code></pre>
+
+<p>There is no predefined rule to handle this, but you could easily do it using a
+REGEXP like "(". All you would have to do is to mark the region, call `align-
+regexp' and type in that regular expression.</p>
+
+<h2>What I use align-regexp for</h2>
+
+<p><div><script src='https://gist.github.com/1035839.js?file='></script>
+<noscript><pre><code># before align-regexp, not super easy to read
+
+var = 5
+another_value = 10
+assignment = 5
+very_long_var_name = 25
+
+# after align-regexp =, readability improved!
+
+var                = 5
+another_value      = 10
+assignment         = 5
+very_long_var_name = 25
+</code></pre></noscript></div>
+</p>
 ]]></content>
   </entry>
   
