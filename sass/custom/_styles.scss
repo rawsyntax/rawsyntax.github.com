@@ -1,2 +1,17 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+#blog_links.section {
+  a {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #555555;
+    text-decoration: none;
+    }
+  #rss {
+    display: inline-block;
+    padding-right: 30px;
+    background: image-url("rss-subscribe.png") no-repeat right center; }
+  #archive {
+    display: inline-block;
+    border-left: 1px solid #c6c6c6;
+    padding-left: 8px; } }
