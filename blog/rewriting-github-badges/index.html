@@ -9,8 +9,8 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="In building rawsyntax I wanted to be able to link to
-my github profile. After a little searching I found drnic&#8217;s github-badges. It looked great &hellip;">
+  <meta name="description" content="In building rawsyntax I wanted to be able to
+link to my github profile. After a little searching I found drnic&#8217;s github-badges. It looked great &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -97,13 +97,13 @@ my github profile. After a little searching I found drnic&#8217;s github-badges.
   </header>
 
 
-<div class="entry-content"><p>In building <a href="http://rawsyntax.com">rawsyntax</a> I wanted to be able to link to
-my <a href="http://github.com/rawsyntax">github profile</a>.</p>
+<div class="entry-content"><p>In building <a href="http://rawsyntax.com">rawsyntax</a> I wanted to be able to
+link to my <a href="http://github.com/rawsyntax">github profile</a>.</p>
 
 <p>After a little searching I found <a href="http://drnicjavascript.rubyforge.org/github_badge/">drnic&#8217;s github-badges</a>. It looked great, and I put it on the sidebar of my site. However, when I went to do crossbrowser testing (I develop in firefox, and crossbrowser test before deploying to production) I found that it caused IE[6,7,8] to crash.</p>
 
-<p>This is a big problem. I believe strongly in <a href="http://en.wikipedia.org/wiki/Progressive_enhancement">graceful degradation / progressive
-enhancement</a>. It&#8217;s one thing if IE isn&#8217;t getting the full experience, but crashing the browser is unacceptable.</p>
+<p>This is a big problem. I believe strongly in
+<a href="http://en.wikipedia.org/wiki/Progressive_enhancement">graceful degradation / progressive enhancement</a>. It&#8217;s one thing if IE isn&#8217;t getting the full experience, but crashing the browser is unacceptable.</p>
 
 <p>At this point, I had to have github-badges on my site. It&#8217;s simply too cool to
 do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_badge/">github-badges project site</a> and the source code. I figured it&#8217;d be easier to re-implement than to debug the current code (mostly because I&#8217;d rather not debug on IE[6,7,8]).</p>
@@ -130,6 +130,12 @@ do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_
 
 <time datetime="2010-08-25T00:00:00-04:00" pubdate>Aug 25<span>th</span>, 2010</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>
+  
+</span>
 
 
     </p>
@@ -211,7 +217,7 @@ do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_
 
         github.showRepos({
             user: 'rawsyntax',
-            count: 3,
+            count: 1,
             skip_forks: true,
             target: '#gh_repos'
         });
@@ -233,11 +239,20 @@ do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_
   </script>
   <script src="/javascripts/twitter.js" type="text/javascript"> </script>
   
-    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @rawsyntax</a>
+    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @rawsyntax</a>
   
 </section>
 
 
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/101134845820398279714?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
 
 
 

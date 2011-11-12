@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: tools | Raw Syntax]]></title>
+  <link href="http://rawsyntax.com/blog/categories/tools/atom.xml" rel="self"/>
+  <link href="http://rawsyntax.com/"/>
+  <updated>2011-11-11T23:48:53-05:00</updated>
+  <id>http://rawsyntax.com/</id>
+  <author>
+    <name><![CDATA[Eric Himmelreich]]></name>
+    <email><![CDATA[eric@rawsyntax.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Bash: Remove Commands from your History]]></title>
+    <link href="http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history/"/>
+    <updated>2011-08-11T00:00:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history</id>
+    <content type="html"><![CDATA[<p>Occasionally I type a password or other sensitive information into a shell
+prompt. Using bash history, the command can be removed.</p>
+
+<p><div><script src='https://gist.github.com/1330991.js?file='></script>
+<noscript><pre><code># say we start with an empty bash command history
+bash-3.2$ history
+    1  history
+
+
+# enter a command that requires a password
+bash-3.2$ sudo rm -i some_file
+Password:
+# accidentally ^C and type your password
+# into the prompt and hit enter
+bash-3.2$ secret_password
+bash: secret_password: command not found
+
+
+# your password is now there for all to
+# see in your bash history
+bash-3.2$ history
+    1  history
+    2  sudo rm -i some_file
+    3  secret_password
+    4  history
+
+
+# first option to fix it, delete the numbered entry from
+# history and write to your ~/.bash_history file
+bash-3.2$ history -d 3
+bash-3.2$ history -w
+
+
+# entry 3 will be removed entirely from your command history
+bash-3.2$ history
+    1  history
+    2  sudo rm -i some_file
+    3  history
+    4  history -d 3
+    5  history -w
+    6  history
+
+
+# the second option is to clear the entire history
+# and write the changes to disk
+bash-3.2$ history -c
+bash-3.2$ history -w
+
+
+# it's now pretty obvious that your history has been
+# scrubbed clean, but at least your password is history!
+bash-3.2$ history
+    1  history -w
+    2  history</code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Quicksilver Lockscreen]]></title>
+    <link href="http://rawsyntax.com/blog/quicksilver-lockscreen/"/>
+    <updated>2011-04-13T00:00:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/quicksilver-lockscreen</id>
+    <content type="html"><![CDATA[<p><img src="/images/quicksilver-lockscreen.png"></p>
+
+<p>I've recently started locking my screen on OSX. However I found that <a href="http://qsapp.com">Quicksilver's</a> LockScreen script did not work. I believe it was designed for Leopard.</p>
+
+<p>The workaround I've found is to start ScreenSaverEngine with Quicksilver, and set my Security.prefs to require a password.</p>
+
+<p>UPDATE: This also works in OSX Lion.</p>
+]]></content>
+  </entry>
+  
+</feed>

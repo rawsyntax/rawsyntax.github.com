@@ -335,7 +335,7 @@ very_long_var_name = 25
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/20337-available-alliterative-com-domain-names/">20337 Available Alliterative .com Domain Names</a></h1>
+      <h1 class="entry-title"><a href="/blog/generating-available-domain-names/">Generating Available Domain Names</a></h1>
     
     
       <p class="meta">
@@ -353,19 +353,61 @@ very_long_var_name = 25
   </header>
 
 
-  <div class="entry-content"><p>Save this file <a href="http://dl.dropbox.com/u/2814426/domains.txt.zip">domains.txt.zip</a></p>
-
-<p>Here&#8217;s my <a href="http://www.namecheap.com?aff=18181">namecheap affiliate link</a> if you find any worth registering.</p>
-
-<h2>The Code</h2>
-
-<p>Checkout the <a href="https://gist.github.com/e58c31f2d5d393800853">gist</a> and run it.</p>
-
-<p>It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a whois query to check if it&#8217;s available. Feel free to tweak it to your own needs. It also has some sleep calls to avoid flooding the whois server. Let it run for a couple days, see what comes out.</p>
+  <div class="entry-content"><p>It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a whois query to check if it&#8217;s available. Feel free to tweak it to your own needs. It also has some sleep calls to avoid flooding the whois server. Let it run for a couple days, see what comes out.</p>
 
 <p>I actually generated <a href="http://rawsyntax.com">rawsyntax.com</a> using this script.</p>
 
-<p>Inspiration to post the code and other domains here goes to <a href="http://kevinohashi.com">kevin ohashi</a></p>
+<div><script src='https://gist.github.com/1360029.js?file='></script>
+<noscript><pre><code>#!/usr/bin/env ruby
+require 'rubygems'
+require 'whois'
+
+module Domaing
+  def self.alliterative?(first_word, second_word)
+    first_word[0] == second_word[0]
+  end
+
+  def self.generate_names(words)
+    first  = words[rand(words.size)].strip.downcase
+    second = words[rand(words.size)].strip.downcase
+
+    &quot;#{first}#{second}.com&quot; if alliterative?(first, second)
+  end
+
+  def self.generate_domains
+    words = []
+
+    File.open(&quot;2of12.txt&quot;, &quot;r&quot;).each_line do |l|
+      words &lt;&lt; l if l.length &gt; 4 &amp;&amp;  l.length &lt; 7
+    end
+
+    domains = []
+
+    while domains.count &lt; 30000
+      domain = generate_names(words)
+      domains &lt;&lt; domain if domain
+    end
+
+    domains.each  do |d|
+      sleep 5
+      begin
+        if Whois.whois(d).available?
+          File.open(&quot;domains.txt&quot;, &quot;a&quot;) do |f|
+            f.write &quot;#{d}\n&quot;
+          end
+        end
+      rescue
+        sleep 100 # to avoid overloading whois servers
+      end
+    end
+  end
+end
+
+Domaing.generate_domains
+</code></pre></noscript></div>
+
+
+
 </div>
   
   
@@ -457,46 +499,7 @@ very_long_var_name = 25
 
 <p>The workaround I&#8217;ve found is to start ScreenSaverEngine with Quicksilver, and set my Security.prefs to require a password.</p>
 
-<p>UPDATE: In OS X Lion, I&#8217;ve found that ScreenSaverEngine is nowhere to be found.  So I just use the LockScreen button in the menu bar.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/how-to-negotiate-salary/">How to Negotiate Salary</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-04-13T00:00:00-04:00" pubdate>Apr 13<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Over the past couple weeks, I&#8217;ve seen a number of posts on <a href="http://news.ycombinator.com">hacker news</a> talking about <a href="http://news.ycombinator.com/item?id=2309317">salary</a> <a href="http://news.ycombinator.com/item?id=2438980">negotiation</a>.</p>
-
-<p>There are even authors who make a living writing books about salary negotiation. Salary negotiation is not complicated. I can explain how I do it in one sentence. I haven&#8217;t read any of these negotiation books by the way.</p>
-
-<h2>The Secret to Salary Negotation</h2>
-
-<p>Figure out what salary you are happy with, and apply for jobs until you can find an employer that will pay you that amount.</p>
-
-<p>I won&#8217;t disclose my current salary, but I will say that in my recent job search I&#8217;ve had a few employers turn me down, and a few employers offer a job at my salary.</p>
+<p>UPDATE: This also works in OSX Lion.</p>
 </div>
   
   
@@ -652,28 +655,113 @@ end</code></pre></noscript></div>
 
 <p>The first hourly project I got was a small ruby integration with <a href="http://ifbyphone.com">ifbyphone</a>. I had used ifbyphone before, so I wrote a cover letter selling myself hard (knowing ruby, having used ifbyphone before). I was also asked to justify my hourly rate, since it was higher than the typical hourly rate on <a href="http://odesk.com">oDesk</a>. This was easy enough.</p>
 
-<p>As soon as I delivered the code for this project, the employer offered me some work building a ruby gem. It&#8217;s basically a simplistic template-based email parser. It&#8217;s rather fragile, but given the employer&#8217;s time constraints, it does what he wants. Check out the code at <a href="http://github.com/himmel/text_parser">my github repo</a>. I ended up codifying the employer&#8217;s requirements into <a href="http://rspec.info">rspec</a> tests.</p>
+<p>As soon as I delivered the code for this project, the employer offered me some work building a ruby gem. It&#8217;s basically a simplistic template-based email parser. It&#8217;s rather fragile, but given the employer&#8217;s time constraints, it does what he wants. I ended up codifying the employer&#8217;s requirements into <a href="http://rspec.info">rspec</a> tests.</p>
 
 <p>Once I finished that project, the same employer offered me some more hourly work in the form of a rails project. It&#8217;s a microsite for people who play farmville. For the record, I do not play farmville. There are plenty of other more interesting video games to play. The site is basically a lookup table for some farmville data. It&#8217;s sortable and can be filtered to the user&#8217;s specifications. I&#8217;m not yet finished with this project.</p>
-
-<h2>Hire Me!</h2>
-
-<p>When I do finish my current hourly project, I&#8217;ll be looking for more hourly work. Feel free to <a href="mailto:eric@rawsyntax.com">contact me</a> with any projects involving:</p>
-
-<ul>
-<li>ruby webdev (sinatra, rails, merb …)</li>
-<li>rails 3 (haml, sass, compass, mongoid, datamapper, rspec …)</li>
-<li>jquery / javascript</li>
-<li>css / frontend design work (I use compass-style and sass)</li>
-<li>native iPhone apps (I use Titanium Appcelerator to build them in javascript)</li>
-</ul>
+</div>
+  
+  
 
 
-<p><a href="http://www.odesk.com/users/~~d0ebf468e66ceacd">here&#8217;s my odesk profile</a></p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/puncher-the-simple-file-watcher-for-os-x/">Puncher the Simple File Watcher for OS X</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<h2>Inspiration</h2>
 
-<p>This post has been inspired by <a href="http://www.kreci.net/">kreci&#8217;s</a>, 5 part series onfreelancing <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-1/">1</a>, <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-%E2%80%93-income-report-2/">2</a>, <a href="http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-3/">3</a>, <a href="http://www.kreci.net/reports/android-developer-income-report/">4</a>, <a href="http://www.kreci.net/reports/developer-income-report-5/">5</a>, <a href="http://gilesbowkett.blogspot.com/2010/10/current-status-of-entrepreneurial.html">giles bowkett</a>, and various posts about freelancing on <a href="http://news.ycombinator.com">hacker news</a></p>
+
+
+  
+
+<time datetime="2010-09-29T00:00:00-04:00" pubdate>Sep 29<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Why another file watcher for OS X?</p>
+
+<p>There&#8217;s already <a href="http://github.com/alloy/kicker">kicker</a>, and many ruby programs that need file watching, already have solutions built in. For example <a href="http://github.com/seattlerb/zentest">ZenTest</a>, <a href="http://compass-style.org">compass</a> etc..</p>
+
+<p>The problem with file watchers on OS X is that they depend on <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a>. If <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> isn&#8217;t available most of them fallback to <a href="http://bit.ly/dDnkCu">file-system polling</a>, which kills my cpu. If you&#8217;re using the system ruby that comes with OS X, you&#8217;re fine because <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> is already built in.</p>
+
+<p>I use <a href="http://rvm.beginrescueend.com/">rvm</a>, which makes it super easy for me to install multiple separate and self-contained versions of ruby. I could for instance, maintain an old project that was written against ruby-1.8.6 while on the same machine starting a new project using ruby-1.9.2.</p>
+
+<p>You&#8217;ll only run into <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> problems if you use <a href="http://rvm.beginrescueend.com/">rvm</a>. Have a quick <a href="http://www.google.com/search?&amp;q=rubycocoa+rvm">google for rvm and rubycocoa</a>, and you&#8217;ll see a huge list of people having issues installing rubycocoa with rvm.</p>
+
+<p>Typically the code to fix this problem goes something like this</p>
+
+<div><script src='https://gist.github.com/289868.js?file='></script>
+<noscript><pre><code>~$ ARCHFLAGS='-arch i386 -arch x86_64'
+~$ rvm install 1.8.7 --debug --reconfigure -C --enable-shared=yes
+~$ wget http://sourceforge.net/projects/rubycocoa/files/RubyCocoa/1.0.0/RubyCocoa-1.0.0.tar.gz/download
+~$ tar xzf RubyCocoa-1.0.0.tar.gz &amp;&amp; rm RubyCocoa-1.0.0.tar.gz &amp;&amp; cd RubyCocoa-1.0.0
+~/RubyCocoa-1.0.0$ ruby install.rb config --build-universal=yes
+~/RubyCocoa-1.0.0$ ruby install.rb setup
+~/RubyCocoa-1.0.0$ sudo ruby install.rb install</code></pre></noscript></div>
+
+
+<p>Eventually, I got tired of having to install rubycocoa just to use osx&#8217;s fsevents. I discovered <a href="http://github.com/sandro/ruby-fsevent">ruby-fsevent</a> when I went looking for solutions to this problem. It&#8217;s a file watcher gem with a C extension that uses fsevents. For me this means I don&#8217;t have to fuss with recompiling my ruby version and and making rvm and rubycocoa happy to get fsevents.</p>
+
+<p>However, there still was a problem. <a href="http://compass-style.org">Compass</a> doesn&#8217;t use ruby-fsevent. I needed a file watcher that uses ruby-fsevent and does not depend on rubycocoa, and can execute arbitrary commands. I wanted a tool that I could use like below.</p>
+
+<p><code>puncher 'command' files_in_dir/*</code></p>
+
+<p>And that&#8217;s what I built. It&#8217;s incredibly simple. The code is only 29 lines.</p>
+
+<div><script src='https://gist.github.com/603206.js?file='></script>
+<noscript><pre><code>begin
+  require 'fsevent'
+rescue LoadError
+  require 'rubygems'
+  require 'fsevent'
+end
+
+class Puncher &lt; FSEvent
+
+  def initialize(command, files)
+    @command, @files, @latency, @last_sec = command, files, 0.2, Time.now
+
+    start
+  end
+
+  def start
+    watch_directories((@files.collect { |f| File.dirname(f) }).uniq)
+    super
+  end
+
+  def on_change(directories)
+    time = @last_sec
+
+    @files.each { |f| @last_sec = File.mtime(f) if File.mtime(f) &gt; @last_sec }
+
+    system @command unless time == @last_sec
+  end
+
+end
+</code></pre></noscript></div>
+
+
+<p>Today I mostly use it like below</p>
+
+<p><code>screen -S compass_punch puncher 'bundle exec compass -c config/compass.rb' app/sass/*</code></p>
+
+<p>This creates a screen, which runs a puncher instance, that runs a compass command to compile all my sass code, whenever a sass file is modified. Even though compass requires rubycocoa for using fsevents, I can wrap it with my puncher gem and use fsevents without rubycocoa.</p>
+
+<p>I wrap it in a screen so I can check on the output occasionally. My next enhancement is to add growl notifications to puncher, then I can simply background the process, instead of spawning a screen for it. Problem solved.</p>
+
+<p>PS if you have any interest in seeing a version of puncher that works on linux or windows, send me a message, comment, or create an issue on the github issue tracker.</p>
+
+<p>UPDATE: I heartily recommend <a href="https://github.com/guard">guard</a> for general purpose file watching</p>
 </div>
   
   
@@ -744,7 +832,7 @@ end</code></pre></noscript></div>
 
         github.showRepos({
             user: 'rawsyntax',
-            count: 3,
+            count: 1,
             skip_forks: true,
             target: '#gh_repos'
         });
@@ -766,11 +854,20 @@ end</code></pre></noscript></div>
   </script>
   <script src="/javascripts/twitter.js" type="text/javascript"> </script>
   
-    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @rawsyntax</a>
+    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @rawsyntax</a>
   
 </section>
 
 
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/101134845820398279714?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
 
 
 
