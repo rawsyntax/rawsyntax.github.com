@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to Negotiate Salary
+published: false
 ---
 
 Over the past couple weeks, I've seen a number of posts on [hacker news](http://news.ycombinator.com) talking about [salary](http://news.ycombinator.com/item?id=2309317) [negotiation](http://news.ycombinator.com/item?id=2438980).

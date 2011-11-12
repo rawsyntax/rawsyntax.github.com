@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Freelancing on oDesk
+categories: ["ruby", "code"]
 ---
 
 Since the start of my career as a professional programmer, I've been interested in doing contract work online. Over the years I've half-heartedly tried to get jobs on sites like [elance](http://www.elance.com/), [rentacoder](http://rentacoder.com), and [guru](http://www.guru.com). I never had any success. All I found was employers / providers offering $200 fixed-bid contracts for building [facebook](http://facebook.com) / [ebay](http://ebay.com) clones, and workers willing to work for way less than I would or even could. In November 2010, after reading enough posts on [hacker news](http://news.ycombinator.com) I decided to give [oDesk](http://odesk.com) an honest try.
@@ -24,23 +25,6 @@ On to the next job! November was turning out to be a good month for trying out o
 
 The first hourly project I got was a small ruby integration with [ifbyphone](http://ifbyphone.com). I had used ifbyphone before, so I wrote a cover letter selling myself hard (knowing ruby, having used ifbyphone before). I was also asked to justify my hourly rate, since it was higher than the typical hourly rate on [oDesk](http://odesk.com). This was easy enough.
 
-As soon as I delivered the code for this project, the employer offered me some work building a ruby gem. It's basically a simplistic template-based email parser. It's rather fragile, but given the employer's time constraints, it does what he wants. Check out the code at [my github repo](http://github.com/himmel/text_parser). I ended up codifying the employer's requirements into [rspec](http://rspec.info) tests.
+As soon as I delivered the code for this project, the employer offered me some work building a ruby gem. It's basically a simplistic template-based email parser. It's rather fragile, but given the employer's time constraints, it does what he wants. I ended up codifying the employer's requirements into [rspec](http://rspec.info) tests.
 
 Once I finished that project, the same employer offered me some more hourly work in the form of a rails project. It's a microsite for people who play farmville. For the record, I do not play farmville. There are plenty of other more interesting video games to play. The site is basically a lookup table for some farmville data. It's sortable and can be filtered to the user's specifications. I'm not yet finished with this project.
-
-## Hire Me!
-
-When I do finish my current hourly project, I'll be looking for more hourly work. Feel free to [contact me](mailto:eric@rawsyntax.com) with any projects involving:
-
-* ruby webdev (sinatra, rails, merb …)
-* rails 3 (haml, sass, compass, mongoid, datamapper, rspec …)
-* jquery / javascript
-* css / frontend design work (I use compass-style and sass)
-* native iPhone apps (I use Titanium Appcelerator to build them in javascript)
-
-[here's my odesk profile](http://www.odesk.com/users/~~d0ebf468e66ceacd)
-
-## Inspiration
-
-This post has been inspired by [kreci's](http://www.kreci.net/), 5 part series onfreelancing [1](http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-1/), [2](http://www.kreci.net/reports/gave-up-a-day-job-now-what-%E2%80%93-income-report-2/), [3](http://www.kreci.net/reports/gave-up-a-day-job-now-what-income-report-3/), [4](http://www.kreci.net/reports/android-developer-income-report/), [5](http://www.kreci.net/reports/developer-income-report-5/), [giles bowkett](http://gilesbowkett.blogspot.com/2010/10/current-status-of-entrepreneurial.html), and various posts about freelancing on [hacker news](http://news.ycombinator.com)
-

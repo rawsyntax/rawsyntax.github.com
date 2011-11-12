@@ -35,6 +35,4 @@ You end up with a ie-version class applied to the html tag, which allows you to 
 
 You can get html5-boilerplate on the [official site](http://html5boilerplate.com) or [github](http://github.com/paulirish/html5-boilerplate)
 
-I've been maintaining a fork with HAML and SASS versions of the html5-boilerplate [get my code](http://github.com/rawsyntax/html5-boilerplate)
-
 [sporkd](http://github.com/sporkd) has created a compass plugin for html5-boilerplate [get the code here](http://github.com/sporkd/compass-html5-boilerplate)

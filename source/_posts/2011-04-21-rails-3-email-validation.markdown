@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Rails 3 Email Validation
+categories: ["ruby", "code"]
 ---
 
 Most email validation I've encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec ([rfc 822](http://www.ietf.org/rfc/rfc0822.txt)) in a regex. Not only is this task difficult and error prone, but there are functional email addresses out there that do not conform to the spec. Not to mention the resulting regex often looks like [this](http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html).

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Make your Rails 3 app run faster
+categories: ["ruby"]
 ---
 
 Profile it with [slowgrowl](https://github.com/igrigorik/slowgrowl)

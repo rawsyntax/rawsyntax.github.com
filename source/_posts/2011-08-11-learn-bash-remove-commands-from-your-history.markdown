@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Learn Bash: Remove Commands from your History"
+categories: ["code", "tools"]
 ---
 
 Occasionally I type a password or other sensitive information into a shell
