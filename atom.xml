@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2011-11-27T11:15:59-05:00</updated>
+  <updated>2011-11-27T12:37:10-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Problem with &#xb5;-Frameworks]]></title>
+    <link href="http://rawsyntax.com/blog/the-problem-with-micro-frameworks/"/>
+    <updated>2011-11-27T11:34:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/the-problem-with-micro-frameworks</id>
+    <content type="html"><![CDATA[<p>There are plenty of micro-frameworks out there for web development.
+Some ruby based ones are Sinatra, Padrino, and Camping.  There&#8217;s also
+Flask and web.py for python.  These frameworks promise quick ramp up
+time and simplicity.  They are small and do not provide much
+functionality, which is sold as &#8220;not getting in your way&#8221;.</p>
+
+<h3>Great! What&#8217;s not to like?</h3>
+
+<p>In theory this sounds super, and if you have a project that has a very
+limited scope it works very well.  I&#8217;m not going to talk much about
+that case.  I find the more common case is that the project grows beyond its
+original specification.  Then suddenly you may need some of those
+features that were stripped out in order for the framework not to get
+in your way.  You&#8217;re left with two options: write the feature yourself
+or find a plugin that implements it.</p>
+
+<h3>Missing Features for Managing Complexity</h3>
+
+<p>It can be argued that software development is all about managing
+complexity.  Often micro-frameworks strip out useful features in the name
+of simplicity.  For example, Sinatra does not come with an acceptable
+partials implementation.  Its implementation allows you to render
+partials so long as there are no instance variables to be passed in.
+It is only useful for static html partials.  This omission just makes
+programming with sinatra harder.  Partial Rendering is a feature that helps reduce complexity.  It serves to break up large complex views into smaller manageable pieces and also DRY up the code.</p>
+
+<h3>Fat App on a Thin Framework</h3>
+
+<p>Pretty soon you find yourself managing a project on a micro-framework
+with 10 external plugins for the various functionality that was not
+included out of the box.  So now you&#8217;re using a micro-framework that
+is no longer so simple.  Its intent to stay out of your way has
+actually made things harder now since your upgrade path is more
+complex.  When you upgrade the micro-framework how many of your
+plugins will still work?  How does the complexity of a micro-framework
+and 10 plugins compare to a regular framework (rails in the case of
+sinatra)?  You also have to be sure that the combination of plugins
+you are using do not conflict with eachother and cause unintended side-effects.</p>
+
+<h3>A Thin App on Top of a Fat Framework</h3>
+
+<p>For the project that grows beyond its initial scope, I prefer to start
+with a thin application on top of a fat framework.  There&#8217;s just less
+for me to maintain and to test.  In the early days of the project its a really small app, and then when it grows larger it doesn&#8217;t
+start working against the framework.</p>
+
+<h3>Micro-Frameworks are Only Good for Micro-Projects</h3>
+
+<p>This is not meant to disparage all the micro-frameworks out there.  I
+believe they solve a specific problem.  I use micro-frameworks when
+the project is a good fit for them.  However, knowing a
+micro-framework really well is not a good excuse for not knowing a
+more powerful framework.  Sometimes the more powerful framework is
+what is needed.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Useful Links]]></title>
@@ -1320,88 +1382,6 @@ end</code></pre></noscript></div>
 <p>As soon as I delivered the code for this project, the employer offered me some work building a ruby gem. It&#8217;s basically a simplistic template-based email parser. It&#8217;s rather fragile, but given the employer&#8217;s time constraints, it does what he wants. I ended up codifying the employer&#8217;s requirements into <a href="http://rspec.info">rspec</a> tests.</p>
 
 <p>Once I finished that project, the same employer offered me some more hourly work in the form of a rails project. It&#8217;s a microsite for people who play farmville. For the record, I do not play farmville. There are plenty of other more interesting video games to play. The site is basically a lookup table for some farmville data. It&#8217;s sortable and can be filtered to the user&#8217;s specifications. I&#8217;m not yet finished with this project.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Puncher the simple file watcher for OS X]]></title>
-    <link href="http://rawsyntax.com/blog/puncher-the-simple-file-watcher-for-os-x/"/>
-    <updated>2010-09-29T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/puncher-the-simple-file-watcher-for-os-x</id>
-    <content type="html"><![CDATA[<p>Why another file watcher for OS X?</p>
-
-<p>There&#8217;s already <a href="http://github.com/alloy/kicker">kicker</a>, and many ruby programs that need file watching, already have solutions built in. For example <a href="http://github.com/seattlerb/zentest">ZenTest</a>, <a href="http://compass-style.org">compass</a> etc..</p>
-
-<p>The problem with file watchers on OS X is that they depend on <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a>. If <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> isn&#8217;t available most of them fallback to <a href="http://bit.ly/dDnkCu">file-system polling</a>, which kills my cpu. If you&#8217;re using the system ruby that comes with OS X, you&#8217;re fine because <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> is already built in.</p>
-
-<p>I use <a href="http://rvm.beginrescueend.com/">rvm</a>, which makes it super easy for me to install multiple separate and self-contained versions of ruby. I could for instance, maintain an old project that was written against ruby-1.8.6 while on the same machine starting a new project using ruby-1.9.2.</p>
-
-<p>You&#8217;ll only run into <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> problems if you use <a href="http://rvm.beginrescueend.com/">rvm</a>. Have a quick <a href="http://www.google.com/search?&amp;q=rubycocoa+rvm">google for rvm and rubycocoa</a>, and you&#8217;ll see a huge list of people having issues installing rubycocoa with rvm.</p>
-
-<p>Typically the code to fix this problem goes something like this</p>
-
-<div><script src='https://gist.github.com/289868.js?file='></script>
-<noscript><pre><code>~$ ARCHFLAGS='-arch i386 -arch x86_64'
-~$ rvm install 1.8.7 --debug --reconfigure -C --enable-shared=yes
-~$ wget http://sourceforge.net/projects/rubycocoa/files/RubyCocoa/1.0.0/RubyCocoa-1.0.0.tar.gz/download
-~$ tar xzf RubyCocoa-1.0.0.tar.gz &amp;&amp; rm RubyCocoa-1.0.0.tar.gz &amp;&amp; cd RubyCocoa-1.0.0
-~/RubyCocoa-1.0.0$ ruby install.rb config --build-universal=yes
-~/RubyCocoa-1.0.0$ ruby install.rb setup
-~/RubyCocoa-1.0.0$ sudo ruby install.rb install</code></pre></noscript></div>
-
-
-<p>Eventually, I got tired of having to install rubycocoa just to use osx&#8217;s fsevents. I discovered <a href="http://github.com/sandro/ruby-fsevent">ruby-fsevent</a> when I went looking for solutions to this problem. It&#8217;s a file watcher gem with a C extension that uses fsevents. For me this means I don&#8217;t have to fuss with recompiling my ruby version and and making rvm and rubycocoa happy to get fsevents.</p>
-
-<p>However, there still was a problem. <a href="http://compass-style.org">Compass</a> doesn&#8217;t use ruby-fsevent. I needed a file watcher that uses ruby-fsevent and does not depend on rubycocoa, and can execute arbitrary commands. I wanted a tool that I could use like below.</p>
-
-<p><code>puncher 'command' files_in_dir/*</code></p>
-
-<p>And that&#8217;s what I built. It&#8217;s incredibly simple. The code is only 29 lines.</p>
-
-<div><script src='https://gist.github.com/603206.js?file='></script>
-<noscript><pre><code>begin
-  require 'fsevent'
-rescue LoadError
-  require 'rubygems'
-  require 'fsevent'
-end
-
-class Puncher &lt; FSEvent
-
-  def initialize(command, files)
-    @command, @files, @latency, @last_sec = command, files, 0.2, Time.now
-
-    start
-  end
-
-  def start
-    watch_directories((@files.collect { |f| File.dirname(f) }).uniq)
-    super
-  end
-
-  def on_change(directories)
-    time = @last_sec
-
-    @files.each { |f| @last_sec = File.mtime(f) if File.mtime(f) &gt; @last_sec }
-
-    system @command unless time == @last_sec
-  end
-
-end
-</code></pre></noscript></div>
-
-
-<p>Today I mostly use it like below</p>
-
-<p><code>screen -S compass_punch puncher 'bundle exec compass -c config/compass.rb' app/sass/*</code></p>
-
-<p>This creates a screen, which runs a puncher instance, that runs a compass command to compile all my sass code, whenever a sass file is modified. Even though compass requires rubycocoa for using fsevents, I can wrap it with my puncher gem and use fsevents without rubycocoa.</p>
-
-<p>I wrap it in a screen so I can check on the output occasionally. My next enhancement is to add growl notifications to puncher, then I can simply background the process, instead of spawning a screen for it. Problem solved.</p>
-
-<p>PS if you have any interest in seeing a version of puncher that works on linux or windows, send me a message, comment, or create an issue on the github issue tracker.</p>
-
-<p>UPDATE: I heartily recommend <a href="https://github.com/guard">guard</a> for general purpose file watching</p>
 ]]></content>
   </entry>
   
