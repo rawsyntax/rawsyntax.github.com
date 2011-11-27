@@ -6,6 +6,8 @@ comments: true
 categories: ["tools"]
 ---
 
+<img src="/images/simple-spaghetti.jpg" class ="center"/>
+
 There are plenty of micro-frameworks out there for web development.
 Some ruby based ones are Sinatra, Padrino, and Camping.  There's also
 Flask and web.py for python.  These frameworks promise quick ramp up
@@ -34,6 +36,8 @@ programming with sinatra harder.  Partial Rendering is a feature that helps redu
 
 ### Fat App on a Thin Framework
 
+<img src="/images/complex-spaghetti.jpg" class ="center"/>
+
 Pretty soon you find yourself managing a project on a micro-framework
 with 10 external plugins for the various functionality that was not
 included out of the box.  So now you're using a micro-framework that
@@ -45,7 +49,7 @@ and 10 plugins compare to a regular framework (rails in the case of
 sinatra)?  You also have to be sure that the combination of plugins
 you are using do not conflict with eachother and cause unintended side-effects.
 
-### A Thin App on Top of a Fat Framework
+### Thin App on Fat Framework
 
 For the project that grows beyond its initial scope, I prefer to start
 with a thin application on top of a fat framework.  There's just less
