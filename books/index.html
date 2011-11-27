@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Puncher the simple file watcher for OS X - Raw Syntax</title>
+  <title>Books I like - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Why another file watcher for OS X? There&#8217;s already kicker, and many ruby programs that need file watching, already have solutions built in. For &hellip;">
+  <meta name="description" content="Books I Like The Tao of Programming Tweet Subscribe Recent Posts Learn Emacs: Useful Links OS X Lion New Tab in Terminal Changes Directory Learn &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/puncher-the-simple-file-watcher-for-os-x">
+  <link rel="canonical" href="http://rawsyntax.com/books">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,134 +74,42 @@
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Puncher the Simple File Watcher for OS X</h1>
-    
-    
+    <h1 class="entry-title">Books I Like</h1>
+    <p class="meta">
+
+
+
+
+  
+
+<time datetime="2011-11-27T10:49:00-05:00" pubdate></time></p>
+  </header>
+  
+  <h3>The Tao of Programming</h3>
+
+<p><a href="http://www.amazon.com/gp/product/0931137071/ref=as_li_tf_il?ie=UTF8&tag=binar04-20&linkCode=as2&camp=217145&creative=399369&creativeASIN=0931137071"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=0931137071&MarketPlace=US&ID=AsinImage&WS=1&tag=binar04-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=binar04-20&l=as2&o=1&a=0931137071&camp=217145&creative=399369" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+  
+    <footer>
       <p class="meta">
         
+        
 
 
 
 
   
 
-<time datetime="2010-09-29T00:00:00-04:00" pubdate>Sep 29<span>th</span>, 2010</time>
+<time datetime="2011-11-27T10:49:00-05:00" pubdate></time>
         
       </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>Why another file watcher for OS X?</p>
-
-<p>There&#8217;s already <a href="http://github.com/alloy/kicker">kicker</a>, and many ruby programs that need file watching, already have solutions built in. For example <a href="http://github.com/seattlerb/zentest">ZenTest</a>, <a href="http://compass-style.org">compass</a> etc..</p>
-
-<p>The problem with file watchers on OS X is that they depend on <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a>. If <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> isn&#8217;t available most of them fallback to <a href="http://bit.ly/dDnkCu">file-system polling</a>, which kills my cpu. If you&#8217;re using the system ruby that comes with OS X, you&#8217;re fine because <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> is already built in.</p>
-
-<p>I use <a href="http://rvm.beginrescueend.com/">rvm</a>, which makes it super easy for me to install multiple separate and self-contained versions of ruby. I could for instance, maintain an old project that was written against ruby-1.8.6 while on the same machine starting a new project using ruby-1.9.2.</p>
-
-<p>You&#8217;ll only run into <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> problems if you use <a href="http://rvm.beginrescueend.com/">rvm</a>. Have a quick <a href="http://www.google.com/search?&amp;q=rubycocoa+rvm">google for rvm and rubycocoa</a>, and you&#8217;ll see a huge list of people having issues installing rubycocoa with rvm.</p>
-
-<p>Typically the code to fix this problem goes something like this</p>
-
-<div><script src='https://gist.github.com/289868.js?file='></script>
-<noscript><pre><code>~$ ARCHFLAGS='-arch i386 -arch x86_64'
-~$ rvm install 1.8.7 --debug --reconfigure -C --enable-shared=yes
-~$ wget http://sourceforge.net/projects/rubycocoa/files/RubyCocoa/1.0.0/RubyCocoa-1.0.0.tar.gz/download
-~$ tar xzf RubyCocoa-1.0.0.tar.gz &amp;&amp; rm RubyCocoa-1.0.0.tar.gz &amp;&amp; cd RubyCocoa-1.0.0
-~/RubyCocoa-1.0.0$ ruby install.rb config --build-universal=yes
-~/RubyCocoa-1.0.0$ ruby install.rb setup
-~/RubyCocoa-1.0.0$ sudo ruby install.rb install</code></pre></noscript></div>
-
-
-<p>Eventually, I got tired of having to install rubycocoa just to use osx&#8217;s fsevents. I discovered <a href="http://github.com/sandro/ruby-fsevent">ruby-fsevent</a> when I went looking for solutions to this problem. It&#8217;s a file watcher gem with a C extension that uses fsevents. For me this means I don&#8217;t have to fuss with recompiling my ruby version and and making rvm and rubycocoa happy to get fsevents.</p>
-
-<p>However, there still was a problem. <a href="http://compass-style.org">Compass</a> doesn&#8217;t use ruby-fsevent. I needed a file watcher that uses ruby-fsevent and does not depend on rubycocoa, and can execute arbitrary commands. I wanted a tool that I could use like below.</p>
-
-<p><code>puncher 'command' files_in_dir/*</code></p>
-
-<p>And that&#8217;s what I built. It&#8217;s incredibly simple. The code is only 29 lines.</p>
-
-<div><script src='https://gist.github.com/603206.js?file='></script>
-<noscript><pre><code>begin
-  require 'fsevent'
-rescue LoadError
-  require 'rubygems'
-  require 'fsevent'
-end
-
-class Puncher &lt; FSEvent
-
-  def initialize(command, files)
-    @command, @files, @latency, @last_sec = command, files, 0.2, Time.now
-
-    start
-  end
-
-  def start
-    watch_directories((@files.collect { |f| File.dirname(f) }).uniq)
-    super
-  end
-
-  def on_change(directories)
-    time = @last_sec
-
-    @files.each { |f| @last_sec = File.mtime(f) if File.mtime(f) &gt; @last_sec }
-
-    system @command unless time == @last_sec
-  end
-
-end
-</code></pre></noscript></div>
-
-
-<p>Today I mostly use it like below</p>
-
-<p><code>screen -S compass_punch puncher 'bundle exec compass -c config/compass.rb' app/sass/*</code></p>
-
-<p>This creates a screen, which runs a puncher instance, that runs a compass command to compile all my sass code, whenever a sass file is modified. Even though compass requires rubycocoa for using fsevents, I can wrap it with my puncher gem and use fsevents without rubycocoa.</p>
-
-<p>I wrap it in a screen so I can check on the output occasionally. My next enhancement is to add growl notifications to puncher, then I can simply background the process, instead of spawning a screen for it. Problem solved.</p>
-
-<p>PS if you have any interest in seeing a version of puncher that works on linux or windows, send me a message, comment, or create an issue on the github issue tracker.</p>
-
-<p>UPDATE: I heartily recommend <a href="https://github.com/guard">guard</a> for general purpose file watching</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
       
+        <div class="sharing">
   
-
-<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
-
-      
-
-
-
-
-  
-
-<time datetime="2010-09-29T00:00:00-04:00" pubdate>Sep 29<span>th</span>, 2010</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/puncher-the-simple-file-watcher-for-os-x/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/puncher-the-simple-file-watcher-for-os-x/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/books/index.html" data-via="rawsyntax" data-counturl="http://rawsyntax.com/books/index.html" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -211,16 +119,9 @@ end
   
 </div>
 
-    
-    <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/start-using-html5/" title="Previous Post: Start Using html5">&laquo; Start Using html5</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/freelancing-on-odesk/" title="next Post: Freelancing on oDesk">Freelancing on oDesk &raquo;</a>
-      
-    </p>
-  </footer>
+    </footer>
+  
 </article>
 
 </div>
@@ -334,19 +235,6 @@ end
 
 </footer>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'rawsyntax';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 
