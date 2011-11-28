@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rails 3 Email Validation - Raw Syntax</title>
+  <title>Solving the General Case - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (rfc 822) in a &hellip;">
+  <meta name="description" content="This XKCD comic struck a chord with me. I feel that it presents a
+false dichotomy. Either miss deadlines to design it right or go wild
+west cowboy &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/rails-3-email-validation">
+  <link rel="canonical" href="http://rawsyntax.com/blog/solving-the-general-case">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Rails 3 Email Validation</h1>
+      <h1 class="entry-title">Solving the General Case</h1>
     
     
       <p class="meta">
@@ -89,38 +91,81 @@
 
   
 
-<time datetime="2011-04-21T00:00:00-04:00" pubdate>Apr 21<span>st</span>, 2011</time>
+<time datetime="2011-11-28T16:05:00-05:00" pubdate>Nov 28<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only is this task difficult and error prone, but there are functional email addresses out there that do not conform to the spec. Not to mention the resulting regex often looks like <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
+<div class="entry-content"><p><a href="http://xkcd.com/974">
+<img src="/images/the_general_problem.png" class ="center"/>
+</a></p>
 
-<p>When I do email validation I use a simple regex:</p>
+<p>This XKCD comic struck a chord with me.  I feel that it presents a
+false dichotomy.  Either miss deadlines to design it right or go wild
+west cowboy coding and meet deadlines.  I think there&#8217;s a middle ground between
+those options.  Design it correctly, but deliver less functionality,
+and add the rest of the functionality at a later date.  While that&#8217;s a
+simple solution, this comic touches on other related issues.</p>
 
-<div><script src='https://gist.github.com/934791.js?file='></script>
-<noscript><pre><code>/^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
-</code></pre></noscript></div>
+<h3>Analysis Paralysis</h3>
+
+<p><img src="/images/analysis-paralysis.jpg" class ="center"/></p>
+
+<p>This affliction is pretty common largely as a result of all the
+choices we have nowadays when designing software.  Which language?
+Which Framework? How about a
+<a href="/blog/the-problem-with-micro-frameworks/">Micro-Framework</a>?  Which
+<a href="/blog/categories/learn-emacs/">Text Editor</a>?  Nevermind questions
+about how to actually solve the problem at hand.  If a simple flexible
+design is not readily coming to mind, I find it helpful to write some
+code that implements the very basics of the functionality needed, and
+then re-evaluate to figure out a design.  Its a more iterative
+approach.  Write a little code. Refactor.  Hopefully a good design
+will emerge.  If not try something else.</p>
+
+<h3>Deadline is not a Bad Word</h3>
+
+<p>Growing up my dad would always tell me: &#8220;There is no time&#8221;, but I
+didn&#8217;t understand what he meant until I got a job at 15 years old.
+Deadlines are part of life, and furthermore they are not bad.  A
+deadline is just a constraint.  Without deadlines we developers could
+work on software design forever and never actually get to
+implementation!  Deadlines can actually help cure analysis paralysis
+by reducing the number of options available to us.  Rewriting the
+whole project in python suddenly isn&#8217;t an option.  Deadlines force
+value judgements to be made.</p>
+
+<h3>Why the General Case Takes so Long</h3>
+
+<p>As you begin implementing your perfect design you may find holes.
+This is one of the reasons for the shift from waterfall development to
+agile (or even just shorter iterative processes).  Once your design is
+implemented to 90% you are constrained with all these implementation
+details.</p>
+
+<p>To paraphrase Albert Einstein:</p>
+
+<blockquote><p>&#8220;At design-time, design and implementation are the same.  At implementation-time, they are not.&#8221;</p></blockquote>
 
 
-<p>Which I took from the <a href="http://github.com/platformatec/devise">Devise</a> codebase. It means:</p>
+<p>The following quote is about ruby implementation, but it can be applied to any hard general case problem.</p>
 
-<ul>
-<li>begins with one or more word characters, period, percent, plus, or dashes</li>
-<li>then one at symbol</li>
-<li>then one or more word characters, dashes, and then a period</li>
-<li>ends with 2 or more word characters</li>
-<li>case-insensitive</li>
-</ul>
+<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there&#8217;s some crazy stuff in that last 10% or 5% that totally blindsides you if you&#8217;re not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong><cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
 
 
-<p>This regex ensures a reasonably close to valid email address, without enumerating and worrying about .com vs .co.uk vs .musem and a host of other issues.</p>
+<p>When he talks about getting blindsided by that last 10%, that is
+potentially a missed deadline.</p>
 
-<p>At this point, I have the application send an email to the address, and require the user to click a confirmation link. That&#8217;s good enough, and very simple to implement.</p>
+<h3>Solving the Problem of Solving the General Case</h3>
 
-<p><a href="http://rubular.com/r/YTzbCkatJy">Try this regex out on Rubular</a> it&#8217;s an interactive web based ruby regex engine.</p>
+<p>  Ask yourself if you can live with a 90% solution.  Do you really need to solve the general case?  If 90% is not enough, break the general
+case down into many smaller pieces of functionality and many smaller
+deadlines.  You may still run into missed deadlines and problems, but
+they will have smaller and more predictable impact.  This doesn&#8217;t
+really solve the overall problem of software that takes too long to
+develop, but it makes the problems easier to manage.</p>
 </div>
 
 
@@ -138,12 +183,12 @@
 
   
 
-<time datetime="2011-04-21T00:00:00-04:00" pubdate>Apr 21<span>st</span>, 2011</time>
+<time datetime="2011-11-28T16:05:00-05:00" pubdate>Nov 28<span>th</span>, 2011</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/programming/'>programming</a>
   
 </span>
 
@@ -152,7 +197,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/rails-3-email-validation/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/rails-3-email-validation/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/solving-the-general-case/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/solving-the-general-case/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -165,14 +210,18 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/quicksilver-lockscreen/" title="Previous Post: Quicksilver Lockscreen">&laquo; Quicksilver Lockscreen</a>
+        <a class="basic-alignment left" href="/blog/the-problem-with-micro-frameworks/" title="Previous Post: The Problem with &#xb5;-Frameworks">&laquo; The Problem with &#xb5;-Frameworks</a>
       
-      
-        <a class="basic-alignment right" href="/blog/generating-available-domain-names/" title="next Post: Generating Available Domain Names">Generating Available Domain Names &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -290,7 +339,10 @@
       var disqus_shortname = 'rawsyntax';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rawsyntax.com/blog/solving-the-general-case';
+        var disqus_url = 'http://rawsyntax.com/blog/solving-the-general-case';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

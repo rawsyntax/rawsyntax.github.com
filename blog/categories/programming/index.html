@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rails 3 Email Validation - Raw Syntax</title>
+  <title>Category: programming - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (rfc 822) in a &hellip;">
+  <meta name="description" content="Category: programming">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/rails-3-email-validation">
+  <link rel="canonical" href="http://rawsyntax.comblog/categories/programming">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,104 +74,35 @@
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Rails 3 Email Validation</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-04-21T00:00:00-04:00" pubdate>Apr 21<span>st</span>, 2011</time>
-        
-      </p>
+    <h1 class="entry-title">Category: Programming</h1>
     
   </header>
+  
+  <div id="blog-archives" class="category">
 
 
-<div class="entry-content"><p>Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only is this task difficult and error prone, but there are functional email addresses out there that do not conform to the spec. Not to mention the resulting regex often looks like <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
 
-<p>When I do email validation I use a simple regex:</p>
+  
+  <h2>2011</h2>
 
-<div><script src='https://gist.github.com/934791.js?file='></script>
-<noscript><pre><code>/^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
-</code></pre></noscript></div>
+<article>
+  
+<h1><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
+<time datetime="2011-11-28T16:05:00-05:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2011</span></time>
 
-
-<p>Which I took from the <a href="http://github.com/platformatec/devise">Devise</a> codebase. It means:</p>
-
-<ul>
-<li>begins with one or more word characters, period, percent, plus, or dashes</li>
-<li>then one at symbol</li>
-<li>then one or more word characters, dashes, and then a period</li>
-<li>ends with 2 or more word characters</li>
-<li>case-insensitive</li>
-</ul>
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
+</footer>
 
 
-<p>This regex ensures a reasonably close to valid email address, without enumerating and worrying about .com vs .co.uk vs .musem and a host of other issues.</p>
+</article>
 
-<p>At this point, I have the application send an email to the address, and require the user to click a confirmation link. That&#8217;s good enough, and very simple to implement.</p>
-
-<p><a href="http://rubular.com/r/YTzbCkatJy">Try this regex out on Rubular</a> it&#8217;s an interactive web based ruby regex engine.</p>
 </div>
 
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
-
-      
-
-
-
-
-  
-
-<time datetime="2011-04-21T00:00:00-04:00" pubdate>Apr 21<span>st</span>, 2011</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/rails-3-email-validation/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/rails-3-email-validation/" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/quicksilver-lockscreen/" title="Previous Post: Quicksilver Lockscreen">&laquo; Quicksilver Lockscreen</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/generating-available-domain-names/" title="next Post: Generating Available Domain Names">Generating Available Domain Names &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
 </div>

@@ -9,9 +9,9 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="There are plenty of micro-frameworks out there for web development.
-Some ruby based ones are Sinatra, Padrino, and Camping. There&#8217;s also
-Flask &hellip;">
+  <meta name="description" content="This XKCD comic struck a chord with me. I feel that it presents a
+false dichotomy. Either miss deadlines to design it right or go wild
+west cowboy &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,104 @@ Flask &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-11-28T16:05:00-05:00" pubdate>Nov 28<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://xkcd.com/974">
+<img src="/images/the_general_problem.png" class ="center"/>
+</a></p>
+
+<p>This XKCD comic struck a chord with me.  I feel that it presents a
+false dichotomy.  Either miss deadlines to design it right or go wild
+west cowboy coding and meet deadlines.  I think there&#8217;s a middle ground between
+those options.  Design it correctly, but deliver less functionality,
+and add the rest of the functionality at a later date.  While that&#8217;s a
+simple solution, this comic touches on other related issues.</p>
+
+<h3>Analysis Paralysis</h3>
+
+<p><img src="/images/analysis-paralysis.jpg" class ="center"/></p>
+
+<p>This affliction is pretty common largely as a result of all the
+choices we have nowadays when designing software.  Which language?
+Which Framework? How about a
+<a href="/blog/the-problem-with-micro-frameworks/">Micro-Framework</a>?  Which
+<a href="/blog/categories/learn-emacs/">Text Editor</a>?  Nevermind questions
+about how to actually solve the problem at hand.  If a simple flexible
+design is not readily coming to mind, I find it helpful to write some
+code that implements the very basics of the functionality needed, and
+then re-evaluate to figure out a design.  Its a more iterative
+approach.  Write a little code. Refactor.  Hopefully a good design
+will emerge.  If not try something else.</p>
+
+<h3>Deadline is not a Bad Word</h3>
+
+<p>Growing up my dad would always tell me: &#8220;There is no time&#8221;, but I
+didn&#8217;t understand what he meant until I got a job at 15 years old.
+Deadlines are part of life, and furthermore they are not bad.  A
+deadline is just a constraint.  Without deadlines we developers could
+work on software design forever and never actually get to
+implementation!  Deadlines can actually help cure analysis paralysis
+by reducing the number of options available to us.  Rewriting the
+whole project in python suddenly isn&#8217;t an option.  Deadlines force
+value judgements to be made.</p>
+
+<h3>Why the General Case Takes so Long</h3>
+
+<p>As you begin implementing your perfect design you may find holes.
+This is one of the reasons for the shift from waterfall development to
+agile (or even just shorter iterative processes).  Once your design is
+implemented to 90% you are constrained with all these implementation
+details.</p>
+
+<p>To paraphrase Albert Einstein:</p>
+
+<blockquote><p>&#8220;At design-time, design and implementation are the same.  At implementation-time, they are not.&#8221;</p></blockquote>
+
+
+<p>The following quote is about ruby implementation, but it can be applied to any hard general case problem.</p>
+
+<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there&#8217;s some crazy stuff in that last 10% or 5% that totally blindsides you if you&#8217;re not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong><cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
+
+
+<p>When he talks about getting blindsided by that last 10%, that is
+potentially a missed deadline.</p>
+
+<h3>Solving the Problem of Solving the General Case</h3>
+
+<p>  Ask yourself if you can live with a 90% solution.  Do you really need to solve the general case?  If 90% is not enough, break the general
+case down into many smaller pieces of functionality and many smaller
+deadlines.  You may still run into missed deadlines and problems, but
+they will have smaller and more predictable impact.  This doesn&#8217;t
+really solve the overall problem of software that takes too long to
+develop, but it makes the problems easier to manage.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1226,48 +1324,6 @@ I think you should use an
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-delete-file-and-buffer/">Learn Emacs: Delete-file-and-buffer</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-21T00:00:00-04:00" pubdate>Jun 21<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>From my ~/.emacs.d</p>
-
-<div><script src='https://gist.github.com/1035862.js?file='></script>
-<noscript><pre><code>(defun delete-file-and-buffer ()
-  &quot;Deletes the current file and buffer, assumes file exists&quot;
-  (interactive)
-  (delete-file buffer-file-name)
-  (kill-buffer (buffer-name)))
-</code></pre></noscript></div>
-
-
-<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge&#8217;s .emacs file (rename-file-and-buffer)</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1287,6 +1343,10 @@ I think you should use an
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/solving-the-general-case/">Solving the General Case</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/the-problem-with-micro-frameworks/">The Problem with &#xb5;-Frameworks</a>
       </li>
     
@@ -1300,10 +1360,6 @@ I think you should use an
     
       <li class="post">
         <a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload with Rails for faster development</a>
       </li>
     
   </ul>
