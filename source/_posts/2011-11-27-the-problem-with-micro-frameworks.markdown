@@ -3,7 +3,7 @@ layout: post
 title: "The Problem with &#xb5;-Frameworks"
 date: 2011-11-27 11:34
 comments: true
-categories: ["tools"]
+categories: ["rants"]
 ---
 
 <img src="/images/simple-spaghetti.jpg" class ="center"/>
