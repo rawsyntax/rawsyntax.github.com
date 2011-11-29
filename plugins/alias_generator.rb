@@ -52,13 +52,12 @@ module Jekyll
       alias_paths.compact!
 
       alias_paths.flatten.each do |alias_path|
-        path       = File.join(@site.dest, alias_path)
-        index_path = File.join(path, "index.html")
+        path             = File.join(@site.dest, alias_path)
         alias_index_path = File.join(alias_path, "index.html")
 
         FileUtils.mkdir_p(path)
 
-        File.open(index_path, 'w') do |file|
+        File.open(File.join(path, "index.html"), 'w') do |file|
           file.write(alias_template(destination_path))
         end
 

@@ -2,6 +2,7 @@
 layout: post
 title: Quicksilver Lockscreen
 categories: ["tools"]
+alias: [/post/4617980454/ive-recently-started-locking-my-screen-on-osx, /post/4617980454]
 ---
 
 {% img /images/quicksilver-lockscreen.png %}

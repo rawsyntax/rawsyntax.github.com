@@ -2,6 +2,7 @@
 layout: post
 title: Puncher the simple file watcher for OS X
 categories: ["ruby","code"]
+alias: [/post/4543965752/puncher-the-simple-file-watcher-for-os-x, /post/4543965752]
 ---
 
 Why another file watcher for OS X?

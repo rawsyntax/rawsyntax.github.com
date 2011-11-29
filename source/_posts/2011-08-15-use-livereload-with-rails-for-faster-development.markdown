@@ -2,6 +2,7 @@
 layout: post
 title: Use LiveReload with Rails for faster development
 categories: ["ruby", "code"]
+alias: [/post/8958871921/use-livereload-with-rails-for-faster-development, /post/8958871921]
 ---
 
 LiveReload applies CSS/JS changes to Safari or Chrome without reloading the page, and automatically reloads when the html changes. Let that soak in for a minute. In this post I'll go over how to get it installed and working on your Rails projects.

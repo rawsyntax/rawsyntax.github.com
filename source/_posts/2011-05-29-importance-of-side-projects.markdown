@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Importance of Side Projects
+alias: [/post/5982784556/importance-of-side-projects,/post/5982784556]
 ---
 
 Side projects are important for a few reasons. Programming is a creative process. Side projects allow programming without deadlines or restraints. Side projects allow programming in an exploratory way.

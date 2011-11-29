@@ -2,6 +2,7 @@
 layout: post
 title: Rewriting github-badges
 categories: ["code", "javascript"]
+alias: [/post/4542511982/rewriting-github-badges, /post/4542511982]
 ---
 
 In building [rawsyntax](http://rawsyntax.com) I wanted to be able to

@@ -2,6 +2,7 @@
 layout: post
 title: URL Validation in Rails 3 (and ruby in general)
 categories: ["ruby", "code"]
+alias: [/post/4544397323/url-validation-in-rails-3-and-ruby-in-general, /post/4544397323]
 ---
 
 I've seen some approaches, most notably [here on igvita](http://www.igvita.com/2006/09/07/validating-url-in-ruby-on-rails/). Though the reference on igvita is quite dated (2006 ??? being more or less the beginning of the epoch in rails-years), I've seen plenty of code using the validate-a-uri-by-regex approach.
