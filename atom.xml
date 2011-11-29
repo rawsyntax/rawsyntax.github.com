@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2011-11-29T00:35:58-05:00</updated>
+  <updated>2011-11-29T15:16:26-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,84 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Blogging on Jekyll: URL Redirects]]></title>
+    <link href="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/"/>
+    <updated>2011-11-29T14:32:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects</id>
+    <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted on github-pages.  I migrated because of Tumblr&#8217;s slow page loads and frequent downtime.  I picked Octopress because it is built on top of Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is a static site generator, which ensures I can deploy my blog on any old server in the future, and continue to use these same old tools (because I have them, rather than tumblr having them).</p>
+
+<h3>Migrating broke my URL Structure</h3>
+
+<p><img src="http://rawsyntax.com/images/urls_not_found.png" class ="center"/></p>
+
+<p>Running my site through Google&#8217;s Webmaster Tools showed that many sites are still linking to my old Tumblr blogpost urls.  Tumblr&#8217;s url structure is another reason I migrated away from it.  I should be in full control of the urls on my blog.  Never the less, I need to support redirects from the old URLs to my new URL structure <code>/blog/:post_title</code>.</p>
+
+<p>However Jekyll is just a static site, so there&#8217;s no ruby server to handle redirects.  Other Jekyll users deploy to Heroku and use a small Sinatra app to handle redirects, but I feel like that is complicating my simple setup.  If I were on a regular server I could setup an <code>.htaccess</code> file to handle the redirects, but github-pages does not support <code>.htaccess</code>.</p>
+
+<h3>Jekyll Plugins to the Rescue</h3>
+
+<p>One of the great things about Jekyll is its simple plugin system.  On
+<a href="https://github.com/mojombo/jekyll/wiki/Plugins">Jekyll&#8217;s Wiki</a> I
+found the
+<a href="https://github.com/tsmango/jekyll_alias_generator">Alias Generator</a>.
+It allows you to specify aliases on a per blogpost basis, in the YAML
+front matter.</p>
+
+<p>This post&#8217;s YAML is:</p>
+
+<pre><code>---
+layout: post
+title: "Blogging on Jekyll: URL Redirects"
+date: 2011-11-29 14:32
+comments: true
+categories: ["programming", "blogging"]
+alias: [/blog/blogging-on-redirects]
+---
+</code></pre>
+
+<p>Now when I <code>rake generate</code> my site, the Alias Generator will create
+another static html file for this post at
+<code>/blog/blogging-on-redirects/index.html</code>:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
+&lt;meta http-equiv="refresh" content="0;url=/blog/blogging-on-jekyll-url-redirects/" /&gt;
+&lt;/head&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Which will redirect here. Try it: <a href="http://rawsyntax.com/blog/blogging-on-redirects">/blog/blogging-on-redirects</a></p>
+
+<p>It was almost that simple.  The Alias Generator actually broke when I
+provided some of my old Tumblr urls. However, I
+<a href="https://github.com/rawsyntax/jekyll_alias_generator">forked it here</a>
+and fixed it so it handles nested aliases properly now.  I also opened
+a <a href="https://github.com/tsmango/jekyll_alias_generator/pull/1">pull request</a> to the owner to get this change merged in.</p>
+
+<h3>Jekyll&#8217;s Strengths</h3>
+
+<p>That experience is Jekyll&#8217;s strength as a blogging platform.  The
+output is so simple any web server can serve it so it doesn&#8217;t matter
+where you deploy to.  Its generation system is open source, hackable,
+and has a great plugin system.</p>
+
+<p>But most importantly, even if the Jekyll project implodes tomorrow.  I
+still have all my blog&#8217;s content versioned, and have all the tools
+necessary to maintain my blog.  I am not relying on a hosted service
+to back up my blog&#8217;s content, or maintain the tools I edit it with.</p>
+
+<h3>Try Octopress</h3>
+
+<p>If you haven&#8217;t tried <a href="http://octopress.org">Octopress</a> yet, I highly
+recommend it.  It&#8217;s Jekyll based, but it has a decent default
+stylesheet, so it&#8217;s very easy to install and immediately start
+blogging.  No programming or tweaking CSS to get in the way of writing content.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Solving the General Case]]></title>
@@ -1348,88 +1426,6 @@ Domaing.generate_domains
 <p>The workaround I&#8217;ve found is to start ScreenSaverEngine with Quicksilver, and set my Security.prefs to require a password.</p>
 
 <p>UPDATE: This also works in OSX Lion.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[URL Validation in Rails 3 (and ruby in general)]]></title>
-    <link href="http://rawsyntax.com/blog/url-validation-in-rails-3-and-ruby-in-general/"/>
-    <updated>2011-01-20T00:00:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/url-validation-in-rails-3-and-ruby-in-general</id>
-    <content type="html"><![CDATA[<p>I&#8217;ve seen some approaches, most notably <a href="http://www.igvita.com/2006/09/07/validating-url-in-ruby-on-rails/">here on igvita</a>. Though the reference on igvita is quite dated (2006 ??? being more or less the beginning of the epoch in rails-years), I&#8217;ve seen plenty of code using the validate-a-uri-by-regex approach.</p>
-
-<p>It doesn&#8217;t work and pretty much always ends up excluding valid urls. This is why I prefer to use the parsing approach. If the url can be parsed, and the scheme seems reasonably valid, good enough.</p>
-
-<h2>An Interesting URL Problem</h2>
-
-<p>Recently I ran into a situation where I needed to be able to validate and handle unicode / internationalized links. One such link would be <a href="http://%D0%BA%D1%86.%D1%80%D1%84">the russian tld registrar кц.рф</a>. The typical approach of parsing with URI fails below</p>
-
-<div><script src='https://gist.github.com/789195.js?file='></script>
-<noscript><pre><code>#!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
-
-require 'uri'
-
-URI.parse(&quot;кц.рф&quot;)
-
-# fails with the following error
-#
-#/Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:156:in `split': bad URI(is not
-# URI?): кц.рф (URI::InvalidURIError)
-#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:174:in `parse'
-#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:628:in `parse'
-#   from ./uri-parse.rb:6:in `&lt;main&gt;'
-</code></pre></noscript></div>
-
-
-<h2>The Solution</h2>
-
-<p>At this point, I happened to remember there is another library for parsing URIs. It&#8217;s called <a href="https://github.com/sporkmonger/addressable">Addressable::URI</a>. Its aim is to be a full replacement of the ruby standard library&#8217;s URI module.</p>
-
-<p>More importantly, it successfully parses unicode urls.</p>
-
-<div><script src='https://gist.github.com/789235.js?file='></script>
-<noscript><pre><code>#!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
-
-require 'addressable/uri'
-
-Addressable::URI.parse(&quot;кц.рф&quot;)
-
-# no problem at all</code></pre></noscript></div>
-
-
-<p>Here&#8217;s how I do URL validation in rails 3, using ActiveModel and Addressable::URI.</p>
-
-<div><script src='https://gist.github.com/789162.js?file='></script>
-<noscript><pre><code>class Example
-  include ActiveModel::Validations
-
-  ##
-  # Validates a URL
-  #
-  # If the URI library can parse the value, and the scheme is valid
-  # then we assume the url is valid
-  #
-  class UrlValidator &lt; ActiveModel::EachValidator
-    def validate_each(record, attribute, value)
-      begin
-        uri = Addressable::URI.parse(value)
-
-        if ![&quot;http&quot;,&quot;https&quot;,&quot;ftp&quot;].include?(uri.scheme)
-          raise Addressable::URI::InvalidURIError
-        end
-      rescue Addressable::URI::InvalidURIError
-        record.errors[attribute] &lt;&lt; &quot;Invalid URL&quot;
-      end
-    end
-  end
-
-  validates :field, :url =&gt; true
-end</code></pre></noscript></div>
-
-
-
 ]]></content>
   </entry>
   

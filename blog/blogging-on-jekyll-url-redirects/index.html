@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>OS X Lion New Tab in Terminal Changes Directory - Raw Syntax</title>
+  <title>Blogging on Jekyll: URL Redirects - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working &hellip;">
+  <meta name="description" content="About a month ago I migrated my blog from Tumblr to Octopress hosted on github-pages. I migrated because of Tumblr&#8217;s slow page loads and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/post/11913450132">
+  <link rel="canonical" href="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">OS X Lion New Tab in Terminal Changes Directory</h1>
+      <h1 class="entry-title">Blogging on Jekyll: URL Redirects</h1>
     
     
       <p class="meta">
@@ -87,18 +87,85 @@
 
 
 
+  
 
+<time datetime="2011-11-29T14:32:00-05:00" pubdate>Nov 29<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working directory (from any previous tabs). I found this feature to be annoying, as I already have a command that will do it when I want it, and I prefer the old 10.6 behavior.</p>
+<div class="entry-content"><p>About a month ago I migrated my blog from Tumblr to Octopress hosted on github-pages.  I migrated because of Tumblr&#8217;s slow page loads and frequent downtime.  I picked Octopress because it is built on top of Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is a static site generator, which ensures I can deploy my blog on any old server in the future, and continue to use these same old tools (because I have them, rather than tumblr having them).</p>
 
-<p>Luckily, this is a preference in Terminal.app and can be easily changed.</p>
+<h3>Migrating broke my URL Structure</h3>
 
-<p><img src="http://media.tumblr.com/tumblr_ltmvs87NgE1qfdxjm.png"></p>
+<p><img src="/images/urls_not_found.png" class ="center"/></p>
+
+<p>Running my site through Google&#8217;s Webmaster Tools showed that many sites are still linking to my old Tumblr blogpost urls.  Tumblr&#8217;s url structure is another reason I migrated away from it.  I should be in full control of the urls on my blog.  Never the less, I need to support redirects from the old URLs to my new URL structure <code>/blog/:post_title</code>.</p>
+
+<p>However Jekyll is just a static site, so there&#8217;s no ruby server to handle redirects.  Other Jekyll users deploy to Heroku and use a small Sinatra app to handle redirects, but I feel like that is complicating my simple setup.  If I were on a regular server I could setup an <code>.htaccess</code> file to handle the redirects, but github-pages does not support <code>.htaccess</code>.</p>
+
+<h3>Jekyll Plugins to the Rescue</h3>
+
+<p>One of the great things about Jekyll is its simple plugin system.  On
+<a href="https://github.com/mojombo/jekyll/wiki/Plugins">Jekyll&#8217;s Wiki</a> I
+found the
+<a href="https://github.com/tsmango/jekyll_alias_generator">Alias Generator</a>.
+It allows you to specify aliases on a per blogpost basis, in the YAML
+front matter.</p>
+
+<p>This post&#8217;s YAML is:</p>
+
+<pre><code>---
+layout: post
+title: "Blogging on Jekyll: URL Redirects"
+date: 2011-11-29 14:32
+comments: true
+categories: ["programming", "blogging"]
+alias: [/blog/blogging-on-redirects]
+---
+</code></pre>
+
+<p>Now when I <code>rake generate</code> my site, the Alias Generator will create
+another static html file for this post at
+<code>/blog/blogging-on-redirects/index.html</code>:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
+&lt;meta http-equiv="refresh" content="0;url=/blog/blogging-on-jekyll-url-redirects/" /&gt;
+&lt;/head&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Which will redirect here. Try it: <a href="/blog/blogging-on-redirects">/blog/blogging-on-redirects</a></p>
+
+<p>It was almost that simple.  The Alias Generator actually broke when I
+provided some of my old Tumblr urls. However, I
+<a href="https://github.com/rawsyntax/jekyll_alias_generator">forked it here</a>
+and fixed it so it handles nested aliases properly now.  I also opened
+a <a href="https://github.com/tsmango/jekyll_alias_generator/pull/1">pull request</a> to the owner to get this change merged in.</p>
+
+<h3>Jekyll&#8217;s Strengths</h3>
+
+<p>That experience is Jekyll&#8217;s strength as a blogging platform.  The
+output is so simple any web server can serve it so it doesn&#8217;t matter
+where you deploy to.  Its generation system is open source, hackable,
+and has a great plugin system.</p>
+
+<p>But most importantly, even if the Jekyll project implodes tomorrow.  I
+still have all my blog&#8217;s content versioned, and have all the tools
+necessary to maintain my blog.  I am not relying on a hosted service
+to back up my blog&#8217;s content, or maintain the tools I edit it with.</p>
+
+<h3>Try Octopress</h3>
+
+<p>If you haven&#8217;t tried <a href="http://octopress.org">Octopress</a> yet, I highly
+recommend it.  It&#8217;s Jekyll based, but it has a decent default
+stylesheet, so it&#8217;s very easy to install and immediately start
+blogging.  No programming or tweaking CSS to get in the way of writing content.</p>
 </div>
 
 
@@ -114,12 +181,14 @@
 
 
 
+  
 
+<time datetime="2011-11-29T14:32:00-05:00" pubdate>Nov 29<span>th</span>, 2011</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/tools/'>tools</a>
+    <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/programming/'>programming</a>
   
 </span>
 
@@ -128,7 +197,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/post/11913450132/index.html" data-via="rawsyntax" data-counturl="http://rawsyntax.com/post/11913450132/index.html" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -141,10 +210,18 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/solving-the-general-case/" title="Previous Post: Solving the General Case">&laquo; Solving the General Case</a>
+      
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -157,6 +234,10 @@
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/blogging-on-jekyll-url-redirects/">Blogging on Jekyll: URL Redirects</a>
+      </li>
     
       <li class="post">
         <a href="/blog/solving-the-general-case/">Solving the General Case</a>
@@ -172,10 +253,6 @@
     
       <li class="post">
         <a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a>
       </li>
     
   </ul>
@@ -262,7 +339,10 @@
       var disqus_shortname = 'rawsyntax';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects';
+        var disqus_url = 'http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
