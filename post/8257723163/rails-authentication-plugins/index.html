@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: programming - Raw Syntax</title>
+  <title>Rails Authentication Plugins - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Category: programming">
+  <meta name="description" content="Considering which authentication plugin to use for rails? I have some recommendations. Devise Devise is a full featured authentication plugin. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.comblog/categories/programming">
+  <link rel="canonical" href="http://rawsyntax.com/post/8257723163/rails-authentication-plugins">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,63 +74,106 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Programming</h1>
+    
+      <h1 class="entry-title">Rails Authentication Plugins</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Considering which authentication plugin to use for rails? I have some recommendations.</p>
 
-  
-  <h2>2011</h2>
+<h2>Devise</h2>
 
-<article>
-  
-<h1><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
-<time datetime="2011-11-28T16:05:00-05:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2011</span></time>
+<p>Devise is a full featured authentication plugin. Featuring, remember me, forgot password, last seen timestamps, email confirmation, lockouts, and a slew of other features. They have pretty much anything you could ask for.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+<p>Devise supports activerecord and mongoid. I used it recently on a mongoid based rails 3 project. It worked wonderfully. I’ll post a code example of how I did it, in the next few weeks.</p>
 
+<p>Check out their very helpful <a href="https://github.com/plataformatec/devise/wiki/_pages">wiki</a>, and their <a href="https://github.com/plataformatec/devise/wiki/Extensions">long list of extensions</a>.</p>
 
-</article>
+<h2>Warden</h2>
 
+<p>Devise is actually built on top of warden. And warden is descendant from merb-auth <a href="http://merbivore.com">(merb)</a>. So, if you’re like me and quite familiar with merb-auth and it’s flexibility, you’ll feel right at home with warden. I use warden when I need just the basics, login / logout / signup. Also, if you happen to be doing some custom work when logging in, such as interfacing with an API or another system, warden is built to handle it.</p>
 
+<p>See Mike Thomas’ post about <a href="http://finite.posterous.com/how-to-use-warden-authentication-with-rails-3">getting up and running with rails and warden</a></p>
 
-<article>
-  
-<h1><a href="/blog/interviewing-for-programmers/">Interviewing for Programmers</a></h1>
-<time datetime="2011-06-02T00:00:00-04:00" pubdate><span class='month'>Jun</span> <span class='day'>02</span> <span class='year'>2011</span></time>
+<p><a href="https://github.com/hassox/warden">check out the code in github</a></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+<p><a href="https://github.com/hassox/rails_warden">and the rails plugin</a></p>
 
+<h2>Roll your own</h2>
 
-</article>
+<p>Some people prefer to write their own authentication system. Personally, I avoid reinventing the wheel when flexible solutions like warden and devise exist. However, there are some railscasts covering this topic in detail, if you’re interested to see how authentication works.</p>
 
+<p><a href="http://railscasts.com/episodes/250-authentication-from-scratch">railscasts: authentication from scratch</a></p>
 
+<p><a href="http://railscasts.com/episodes/270-authentication-in-rails-3-1">railscasts: rails 3.1 authentication</a></p>
 
-<article>
-  
-<h1><a href="/blog/importance-of-side-projects/">Importance of Side Projects</a></h1>
-<time datetime="2011-05-29T00:00:00-04:00" pubdate><span class='month'>May</span> <span class='day'>29</span> <span class='year'>2011</span></time>
+<h2>Recommendations</h2>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+<p>Use devise if you’re running a standard rails stack with activerecord or mongoid (or couch or datamapper if you try their extensions).</p>
 
+<p>If you need to do some particularly strange things with authentication, I’d recommend warden. It’ll also work with any rack compatible web app (sinatra, and others).</p>
 
-</article>
-
+<p>Don’t bother rolling your own, warden and devise do a fine (and flexible) job, and there’s plenty of other authentication plugins not mentioned here.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
+
+      
+
+
+
+
+
+      
+
+<span class="categories">
+  
+    Liquid error: undefined method `sort!' for nil:NilClass
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/post/8257723163/rails-authentication-plugins/index.html" data-via="rawsyntax" data-counturl="http://rawsyntax.com/post/8257723163/rails-authentication-plugins/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

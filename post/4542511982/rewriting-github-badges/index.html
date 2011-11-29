@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: programming - Raw Syntax</title>
+  <title>Rewriting github-badges - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Category: programming">
+  <meta name="description" content="In building rawsyntax I wanted to be able to
+link to my github profile. After a little searching I found drnic&#8217;s github-badges. It looked great &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.comblog/categories/programming">
+  <link rel="canonical" href="http://rawsyntax.com/post/4542511982/rewriting-github-badges">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,63 +75,85 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Programming</h1>
+    
+      <h1 class="entry-title">Rewriting Github-badges</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>In building <a href="http://rawsyntax.com">rawsyntax</a> I wanted to be able to
+link to my <a href="http://github.com/rawsyntax">github profile</a>.</p>
 
-  
-  <h2>2011</h2>
+<p>After a little searching I found <a href="http://drnicjavascript.rubyforge.org/github_badge/">drnic&#8217;s github-badges</a>. It looked great, and I put it on the sidebar of my site. However, when I went to do crossbrowser testing (I develop in firefox, and crossbrowser test before deploying to production) I found that it caused IE[6,7,8] to crash.</p>
 
-<article>
-  
-<h1><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
-<time datetime="2011-11-28T16:05:00-05:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2011</span></time>
+<p>This is a big problem. I believe strongly in
+<a href="http://en.wikipedia.org/wiki/Progressive_enhancement">graceful degradation / progressive enhancement</a>. It&#8217;s one thing if IE isn&#8217;t getting the full experience, but crashing the browser is unacceptable.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+<p>At this point, I had to have github-badges on my site. It&#8217;s simply too cool to
+do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_badge/">github-badges project site</a> and the source code. I figured it&#8217;d be easier to re-implement than to debug the current code (mostly because I&#8217;d rather not debug on IE[6,7,8]).</p>
 
+<p>In searching around for other github-badges alternatives, I didn&#8217;t anything that looked good and actually worked in all browsers. I did happen upon <a href="http://blog.darkhax.com/2010/03/04/make-your-own-badge-with-jquery-and-jaml">darkhax&#8217;s make-your-own-badge-with-jquery-and-jaml</a> post. Between this and <a href="http://github.com/drnic/github-badges">drnic&#8217;s github-badges</a> I cobbled together a solution that works in all browsers, and has the same features as drnic&#8217;s github-badges. It also has user configurable parameters. Check out the code on <a href="http://github.com/rawsyntax/github-badge">github</a>.</p>
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/interviewing-for-programmers/">Interviewing for Programmers</a></h1>
-<time datetime="2011-06-02T00:00:00-04:00" pubdate><span class='month'>Jun</span> <span class='day'>02</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/importance-of-side-projects/">Importance of Side Projects</a></h1>
-<time datetime="2011-05-29T00:00:00-04:00" pubdate><span class='month'>May</span> <span class='day'>29</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
-
-
-</article>
-
+<p>UPDATE: I&#8217;ve since removed the github-badges, and added a link to my profile instead</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
+
+      
+
+
+
+
+
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/post/4542511982/rewriting-github-badges/index.html" data-via="rawsyntax" data-counturl="http://rawsyntax.com/post/4542511982/rewriting-github-badges/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

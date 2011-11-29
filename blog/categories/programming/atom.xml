@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2011-11-28T22:13:45-05:00</updated>
+  <updated>2011-11-29T00:11:25-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -83,6 +83,76 @@ deadlines.  You may still run into missed deadlines and problems, but
 they will have smaller and more predictable impact.  This doesn't
 really solve the overall problem of software that takes too long to
 develop, but it makes the problems easier to manage.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Interviewing for Programmers]]></title>
+    <link href="http://rawsyntax.com/blog/interviewing-for-programmers/"/>
+    <updated>2011-06-02T00:00:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/interviewing-for-programmers</id>
+    <content type="html"><![CDATA[<p>Interviewing is a funny thing. In order to get hired for a programming job it's most important to interview well. Getting hired usually doesn't have much to do with programming skills. This is typically a pain point for programmers. Many of us feel that the hiring process should be changed. Personally, I'm ok with the hiring process as it is. It could be improved, but I'm going to tell you how to get a job anyway.</p>
+
+<h2>It's a skill</h2>
+
+<p>Treat interviewing like a skill. It's going to require some practice. It's quite different from programming. Something I've noticed about  over the years is that the inexperienced naive ones tend to think that they know everything whereas experienced programmers know more what they don't know. So as you grow as a programmer, you may even think of yourself as  worse programmer because you grow aware of what you don't know. This is problematic when interviewing because you are essentially selling yourself to the company. If you don't feel the product is good how can you sell it effectively? The next step is to figure out how to sell yourself.</p>
+
+<h2>Practice your pitch</h2>
+
+<p>I firmly believe that you have to have a game plan for the interview. Be familiar with everything you wrote on your resume. Have answers for the most common questions. Be able to relate specific experiences in your career in away that shows your strengths. Have your own pitch ready in the case that the interviewer doesn't have much to say. I've had interviews where the interviewer simply asked open ended questions. It's good to have your pitch ready to hit these questions out of the park.</p>
+
+<h2>Code Examples</h2>
+
+<p>Programming during the interview is silly. It's not an accurate evaluation of a programmer's skills, and I'm not sure what it serves to show the interviewer. I find that an easy way to avoid doing coding during the interview is to have some code examples ready for the interviewer to see. It's important for the interviewer to both see the code and be able to run the app. Personally, I'll build a side project in rails and host it on heroku, which allows the interviewer to review code and easily try out the app.</p>
+
+<p><a href="/blog/importance-of-side-projects">More on side projects here</a>.</p>
+
+<h2>All interviews are practice</h2>
+
+<p>Many programmers get nervous during interviews. I calm my nerves by remembering that all interviews are practice. If you don't get the job it's not a big deal. Simply apply for another job and interview for that one. In the meantime, I get real practice to hone my interview skills. However, before that next interview it's important to try to learn from the interview you just had.</p>
+
+<h2>Evaluate your performance</h2>
+
+<p>What went wrong in the last interview? Where could you have improved? What went well? It's important to critique your performance shortly after your interview. That way you won't miss anything since everything will be fresh in your mind.</p>
+
+<h2>But how do I GET an interview?</h2>
+
+<p>That's the subject of my next post. I'll go over resume and cover letter writing, and some other topics. <a href="/blog/how-to-get-a-programming-interview">Read it here</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Importance of Side Projects]]></title>
+    <link href="http://rawsyntax.com/blog/importance-of-side-projects/"/>
+    <updated>2011-05-29T00:00:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/importance-of-side-projects</id>
+    <content type="html"><![CDATA[<p>Side projects are important for a few reasons. Programming is a creative process. Side projects allow programming without deadlines or restraints. Side projects allow programming in an exploratory way.</p>
+
+<h2>Explore new technologies</h2>
+
+<p>Every day there are more and more bleeding edge technologies coming out. A side project is a great place to try them out. There's no reason to worry about bugs or performance issues because it's just a side project. You're not depending on the project to pay your bills. It's ok if the website crashes.</p>
+
+<h2>Creating from scratch</h2>
+
+<p>Most jobs I've had so far were mostly maintenance work. Adding new features, fixing bugs, troubleshooting performance problems, refactoring existing code. Though I've built more than a few applications from scratch, it only takes me a couple months to lay the foundation, and then I'm in maintenance mode again.</p>
+
+<p>Side projects require creating from scratch on a regular basis. I love this step because I get to step back and take everything I've learned and put that into creating a new (and improved) project.</p>
+
+<h2>Good enough to launch</h2>
+
+<p>Working on a side project is also an exercise in avoiding analysis paralysis. If you're starting from scratch, the possibilities are endless. A good way to avoid this is to make your short list of must have features, and then launch a beta when you have those features. A so called <a href="http://en.wikipedia.org/wiki/Minimum_viable_product">minimum viable product</a>.</p>
+
+<h2>Staving off burnout</h2>
+
+<p>Work on your passion. Work on something that is fun. If you're a developer who is about to burnout because you don't enjoy what you're working on, try creating your own side project. It will remind you why programming is fun.</p>
+
+<h2>Keeping your skillset current</h2>
+
+<p>Maybe you're working with old technology at your day job. Maybe you're bored with your current skillset and want to learn some new skills. Side  are a great way to keep current with emerging trends in software. Never tried node.js? Great, make a small side project using it. All of a sudden you have something to show off as proof of your newly acquired skills.</p>
+
+<h2>Complete your side project</h2>
+
+<p>One of the problems with side projects is that they can remain incomplete. You may start on a project with all the gusto in the world, but then it's two months later and you can't remember the last time you worked on the side project. Nevertheless it's important to push forward and complete the project. On that note, I'm off to do some work on my side project.</p>
 ]]></content>
   </entry>
   

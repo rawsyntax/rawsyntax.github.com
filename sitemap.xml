@@ -6,7 +6,7 @@
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/start-using-html5/</loc>
-        <lastmod>2011-11-11T23:23:20-05:00</lastmod>
+        <lastmod>2011-11-28T23:37:43-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/puncher-the-simple-file-watcher-for-os-x/</loc>
@@ -34,11 +34,11 @@
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/importance-of-side-projects/</loc>
-        <lastmod>2011-11-01T09:25:36-04:00</lastmod>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/interviewing-for-programmers/</loc>
-        <lastmod>2011-11-01T12:19:05-04:00</lastmod>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/how-to-get-a-programming-interview/</loc>
@@ -50,7 +50,7 @@
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/make-your-rails-3-app-run-faster/</loc>
-        <lastmod>2011-11-11T23:46:21-05:00</lastmod>
+        <lastmod>2011-11-28T23:38:55-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-delete-file-and-buffer/</loc>
@@ -62,7 +62,7 @@
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/rails-authentication-plugins/</loc>
-        <lastmod>2011-11-01T09:36:51-04:00</lastmod>
+        <lastmod>2011-11-28T23:38:53-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/host-your-side-project-for-free/</loc>
@@ -98,7 +98,7 @@
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/archives/</loc>
-        <lastmod>2011-11-28T22:07:53-05:00</lastmod>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/books/</loc>
@@ -106,6 +106,102 @@
     </url>
     <url>
         <loc>http://rawsyntax.com/</loc>
-        <lastmod>2011-11-28T22:07:53-05:00</lastmod>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/4542511982/rewriting-github-badges/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/4542811266/start-using-html5/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/4543965752/puncher-the-simple-file-watcher-for-os-x/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/4544143273/freelancing-on-odesk/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://rawsyntax.com/post/4544397323/url-validation-in-rails-3-and-ruby-in-general/
+        </loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/4580647418/how-to-negotiate-salary/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://rawsyntax.com/post/4617980454/ive-recently-started-locking-my-screen-on-osx/
+        </loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/4807844270/rails-3-email-validation/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://rawsyntax.com/post/4839370351/20337-available-alliterative-com-domain-names/
+        </loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/5982784556/importance-of-side-projects/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/6112439871/interviewing-for-programmers/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/6249655944/how-to-get-a-programming-interview/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/6724439481/learn-emacs-align-regexp/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/6732983659/make-your-rails-3-app-run-faster/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/6756157015/learn-emacs-delete-file-and-buffer/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://rawsyntax.com/post/6789934951/learn-emacs-use-defadvice-to-modify-functions/
+        </loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/8257723163/rails-authentication-plugins/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/8737142015/host-your-side-project-for-free/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://rawsyntax.com/post/8778534130/learn-bash-remove-commands-from-your-history/
+        </loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://rawsyntax.com/post/8958871921/use-livereload-with-rails-for-faster-development/
+        </loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/post/9516476783/learn-emacs-keyboard-macros/</loc>
+        <lastmod>2011-11-29T00:10:27-05:00</lastmod>
     </url>
 </urlset>

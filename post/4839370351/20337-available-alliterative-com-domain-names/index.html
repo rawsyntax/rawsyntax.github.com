@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: programming - Raw Syntax</title>
+  <title>Generating Available Domain Names - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Category: programming">
+  <meta name="description" content="It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.comblog/categories/programming">
+  <link rel="canonical" href="http://rawsyntax.com/post/4839370351/20337-available-alliterative-com-domain-names">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,63 +74,126 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Programming</h1>
+    
+      <h1 class="entry-title">Generating Available Domain Names</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a whois query to check if it&#8217;s available. Feel free to tweak it to your own needs. It also has some sleep calls to avoid flooding the whois server. Let it run for a couple days, see what comes out.</p>
 
-  
-  <h2>2011</h2>
+<p>I actually generated <a href="http://rawsyntax.com">rawsyntax.com</a> using this script.</p>
 
-<article>
-  
-<h1><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
-<time datetime="2011-11-28T16:05:00-05:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2011</span></time>
+<div><script src='https://gist.github.com/1360029.js?file='></script>
+<noscript><pre><code>#!/usr/bin/env ruby
+require 'rubygems'
+require 'whois'
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+module Domaing
+  def self.alliterative?(first_word, second_word)
+    first_word[0] == second_word[0]
+  end
+
+  def self.generate_names(words)
+    first  = words[rand(words.size)].strip.downcase
+    second = words[rand(words.size)].strip.downcase
+
+    &quot;#{first}#{second}.com&quot; if alliterative?(first, second)
+  end
+
+  def self.generate_domains
+    words = []
+
+    File.open(&quot;2of12.txt&quot;, &quot;r&quot;).each_line do |l|
+      words &lt;&lt; l if l.length &gt; 4 &amp;&amp;  l.length &lt; 7
+    end
+
+    domains = []
+
+    while domains.count &lt; 30000
+      domain = generate_names(words)
+      domains &lt;&lt; domain if domain
+    end
+
+    domains.each  do |d|
+      sleep 5
+      begin
+        if Whois.whois(d).available?
+          File.open(&quot;domains.txt&quot;, &quot;a&quot;) do |f|
+            f.write &quot;#{d}\n&quot;
+          end
+        end
+      rescue
+        sleep 100 # to avoid overloading whois servers
+      end
+    end
+  end
+end
+
+Domaing.generate_domains
+</code></pre></noscript></div>
 
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/interviewing-for-programmers/">Interviewing for Programmers</a></h1>
-<time datetime="2011-06-02T00:00:00-04:00" pubdate><span class='month'>Jun</span> <span class='day'>02</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/importance-of-side-projects/">Importance of Side Projects</a></h1>
-<time datetime="2011-05-29T00:00:00-04:00" pubdate><span class='month'>May</span> <span class='day'>29</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
-
-
-</article>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
+
+      
+
+
+
+
+
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/post/4839370351/20337-available-alliterative-com-domain-names/index.html" data-via="rawsyntax" data-counturl="http://rawsyntax.com/post/4839370351/20337-available-alliterative-com-domain-names/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

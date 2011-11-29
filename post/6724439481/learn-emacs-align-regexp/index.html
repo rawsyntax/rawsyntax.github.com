@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: programming - Raw Syntax</title>
+  <title>Learn Emacs: align-regexp - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Category: programming">
+  <meta name="description" content="In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable. From the Emacs Manual: align-regexp is an &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.comblog/categories/programming">
+  <link rel="canonical" href="http://rawsyntax.com/post/6724439481/learn-emacs-align-regexp">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,63 +74,118 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Programming</h1>
+    
+      <h1 class="entry-title">Learn Emacs: Align-regexp</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
 
-  
-  <h2>2011</h2>
+<h4>From the Emacs Manual:</h4>
 
-<article>
-  
-<h1><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
-<time datetime="2011-11-28T16:05:00-05:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2011</span></time>
+<p>align-regexp is an interactive autoloaded Lisp function in `align.el&#8217;.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+<p>It is bound to C-x .</p>
+
+<p>(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</p>
+
+<p>Align the current region using an ad-hoc rule read from the minibuffer. BEG and END mark the limits of the region. This function will prompt for the REGEXP to align with. If no prefix arg was specified, you only need to supply the characters to be lined up and any preceding whitespace is replaced. If a prefix arg was specified, the full regexp with parenthesized whitespace should be supplied; it will also prompt for which parenthesis GROUP within REGEXP to modify, the amount of SPACING to use, and whether or not to REPEAT the rule throughout the line. See `align-rules-list&#8217; for more information about these options.</p>
+
+<p>For example, let&#8217;s say you had a list of phone numbers, and wanted to align them so that the opening parentheses would line up:</p>
+
+<pre><code>Fred (123) 456-7890
+
+Alice (123) 456-7890
+
+Mary-Anne (123) 456-7890
+
+Joe (123) 456-7890
+</code></pre>
+
+<p>There is no predefined rule to handle this, but you could easily do it using a
+REGEXP like &#8220;(&#8220;. All you would have to do is to mark the region, call `align-
+regexp&#8217; and type in that regular expression.</p>
+
+<h2>What I use align-regexp for</h2>
+
+<div><script src='https://gist.github.com/1035839.js?file='></script>
+<noscript><pre><code># before align-regexp, not super easy to read
+
+var = 5
+another_value = 10
+assignment = 5
+very_long_var_name = 25
+
+# after align-regexp =, readability improved!
+
+var                = 5
+another_value      = 10
+assignment         = 5
+very_long_var_name = 25
+</code></pre></noscript></div>
 
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/interviewing-for-programmers/">Interviewing for Programmers</a></h1>
-<time datetime="2011-06-02T00:00:00-04:00" pubdate><span class='month'>Jun</span> <span class='day'>02</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/importance-of-side-projects/">Importance of Side Projects</a></h1>
-<time datetime="2011-05-29T00:00:00-04:00" pubdate><span class='month'>May</span> <span class='day'>29</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
-
-
-</article>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
+
+      
+
+
+
+
+
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/learn-emacs/'>learn-emacs</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/post/6724439481/learn-emacs-align-regexp/index.html" data-via="rawsyntax" data-counturl="http://rawsyntax.com/post/6724439481/learn-emacs-align-regexp/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: programming - Raw Syntax</title>
+  <title>Learn Emacs: delete-file-and-buffer - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Category: programming">
+  <meta name="description" content="From my ~/.emacs.d (defun delete-file-and-buffer () &quot;Deletes the current file and buffer, assumes file exists&quot; (interactive) (delete-file &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.comblog/categories/programming">
+  <link rel="canonical" href="http://rawsyntax.com/post/6756157015/learn-emacs-delete-file-and-buffer">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,63 +74,83 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Programming</h1>
+    
+      <h1 class="entry-title">Learn Emacs: Delete-file-and-buffer</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>From my ~/.emacs.d</p>
 
-  
-  <h2>2011</h2>
-
-<article>
-  
-<h1><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
-<time datetime="2011-11-28T16:05:00-05:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+<div><script src='https://gist.github.com/1035862.js?file='></script>
+<noscript><pre><code>(defun delete-file-and-buffer ()
+  &quot;Deletes the current file and buffer, assumes file exists&quot;
+  (interactive)
+  (delete-file buffer-file-name)
+  (kill-buffer (buffer-name)))
+</code></pre></noscript></div>
 
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/interviewing-for-programmers/">Interviewing for Programmers</a></h1>
-<time datetime="2011-06-02T00:00:00-04:00" pubdate><span class='month'>Jun</span> <span class='day'>02</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/importance-of-side-projects/">Importance of Side Projects</a></h1>
-<time datetime="2011-05-29T00:00:00-04:00" pubdate><span class='month'>May</span> <span class='day'>29</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
-
-
-</article>
-
+<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge&#8217;s .emacs file (rename-file-and-buffer)</a></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
+
+      
+
+
+
+
+
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/learn-emacs/'>learn-emacs</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/post/6756157015/learn-emacs-delete-file-and-buffer/index.html" data-via="rawsyntax" data-counturl="http://rawsyntax.com/post/6756157015/learn-emacs-delete-file-and-buffer/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

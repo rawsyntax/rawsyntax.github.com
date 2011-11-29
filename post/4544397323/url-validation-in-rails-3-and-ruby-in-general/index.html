@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: programming - Raw Syntax</title>
+  <title>URL Validation in Rails 3 (and ruby in general) - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Category: programming">
+  <meta name="description" content="I&#8217;ve seen some approaches, most notably here on igvita. Though the reference on igvita is quite dated (2006 ??? being more or less the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.comblog/categories/programming">
+  <link rel="canonical" href="http://rawsyntax.com/post/4544397323/url-validation-in-rails-3-and-ruby-in-general">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,63 +74,145 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Programming</h1>
+    
+      <h1 class="entry-title">URL Validation in Rails 3 (and Ruby in General)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>I&#8217;ve seen some approaches, most notably <a href="http://www.igvita.com/2006/09/07/validating-url-in-ruby-on-rails/">here on igvita</a>. Though the reference on igvita is quite dated (2006 ??? being more or less the beginning of the epoch in rails-years), I&#8217;ve seen plenty of code using the validate-a-uri-by-regex approach.</p>
 
-  
-  <h2>2011</h2>
+<p>It doesn&#8217;t work and pretty much always ends up excluding valid urls. This is why I prefer to use the parsing approach. If the url can be parsed, and the scheme seems reasonably valid, good enough.</p>
 
-<article>
-  
-<h1><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
-<time datetime="2011-11-28T16:05:00-05:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2011</span></time>
+<h2>An Interesting URL Problem</h2>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+<p>Recently I ran into a situation where I needed to be able to validate and handle unicode / internationalized links. One such link would be <a href="http://%D0%BA%D1%86.%D1%80%D1%84">the russian tld registrar кц.рф</a>. The typical approach of parsing with URI fails below</p>
 
+<div><script src='https://gist.github.com/789195.js?file='></script>
+<noscript><pre><code>#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
 
-</article>
+require 'uri'
 
+URI.parse(&quot;кц.рф&quot;)
 
-
-<article>
-  
-<h1><a href="/blog/interviewing-for-programmers/">Interviewing for Programmers</a></h1>
-<time datetime="2011-06-02T00:00:00-04:00" pubdate><span class='month'>Jun</span> <span class='day'>02</span> <span class='year'>2011</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+# fails with the following error
+#
+#/Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:156:in `split': bad URI(is not
+# URI?): кц.рф (URI::InvalidURIError)
+#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:174:in `parse'
+#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:628:in `parse'
+#   from ./uri-parse.rb:6:in `&lt;main&gt;'
+</code></pre></noscript></div>
 
 
-</article>
+<h2>The Solution</h2>
+
+<p>At this point, I happened to remember there is another library for parsing URIs. It&#8217;s called <a href="https://github.com/sporkmonger/addressable">Addressable::URI</a>. Its aim is to be a full replacement of the ruby standard library&#8217;s URI module.</p>
+
+<p>More importantly, it successfully parses unicode urls.</p>
+
+<div><script src='https://gist.github.com/789235.js?file='></script>
+<noscript><pre><code>#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'addressable/uri'
+
+Addressable::URI.parse(&quot;кц.рф&quot;)
+
+# no problem at all</code></pre></noscript></div>
 
 
+<p>Here&#8217;s how I do URL validation in rails 3, using ActiveModel and Addressable::URI.</p>
 
-<article>
-  
-<h1><a href="/blog/importance-of-side-projects/">Importance of Side Projects</a></h1>
-<time datetime="2011-05-29T00:00:00-04:00" pubdate><span class='month'>May</span> <span class='day'>29</span> <span class='year'>2011</span></time>
+<div><script src='https://gist.github.com/789162.js?file='></script>
+<noscript><pre><code>class Example
+  include ActiveModel::Validations
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/programming/'>programming</a></span>
-</footer>
+  ##
+  # Validates a URL
+  #
+  # If the URI library can parse the value, and the scheme is valid
+  # then we assume the url is valid
+  #
+  class UrlValidator &lt; ActiveModel::EachValidator
+    def validate_each(record, attribute, value)
+      begin
+        uri = Addressable::URI.parse(value)
+
+        if ![&quot;http&quot;,&quot;https&quot;,&quot;ftp&quot;].include?(uri.scheme)
+          raise Addressable::URI::InvalidURIError
+        end
+      rescue Addressable::URI::InvalidURIError
+        record.errors[attribute] &lt;&lt; &quot;Invalid URL&quot;
+      end
+    end
+  end
+
+  validates :field, :url =&gt; true
+end</code></pre></noscript></div>
 
 
-</article>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
+
+      
+
+
+
+
+
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/post/4544397323/url-validation-in-rails-3-and-ruby-in-general/index.html" data-via="rawsyntax" data-counturl="http://rawsyntax.com/post/4544397323/url-validation-in-rails-3-and-ruby-in-general/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
