@@ -9,9 +9,8 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="&lt;rant&gt; Recently I read
-Derek Webber&#8217;s post about Spotify,
-in which he says: I am paid $0.00029 per stream of a song on Spotify, and even &hellip;">
+  <meta name="description" content="Always verify your assumptions. It will save you time and headache.
+I&#8217;ll explain now. Building a PC I recently built a PC from parts I bought &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +76,81 @@ in which he says: I am paid $0.00029 per stream of a song on Spotify, and even &
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/verify-your-assumptions/">Verify Your Assumptions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-12-07T09:41:00-05:00" pubdate>Dec 7<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/ram.jpg" class ="center"/></p>
+
+<p>Always verify your assumptions.  It will save you time and headache.
+I&#8217;ll explain now.</p>
+
+<h3>Building a PC</h3>
+
+<p>I recently built a PC from parts I bought online.  It had been 5 years
+since I&#8217;ve built a PC at the time so I&#8217;d forgotten my good habits.  I
+put everything together: RAM, CPU, HDD, GPU, motherboard etc&#8230;  and
+it booted up and POST&#8217;ed no problems.  I thought I was good to go at
+this point.  I managed to install windows and a bunch of drivers, but
+then I started getting random freeze ups.</p>
+
+<h3>Troubleshooting</h3>
+
+<p>I thought perhaps it was one of the drivers or something specific to
+windows 7 (this is a gaming box, not for work).  So I did a little
+digging and actually ended up reinstalling windows bare to rule out
+any driver issues.  Long story short, while the box would work fine
+for about 10 minutes, shortly thereafter the box would freeze up.</p>
+
+<p>It was at this point that I decided to get a boot CD with some
+troubleshooting utilities.  I chose
+<a href="http://www.ultimatebootcd.com/">Ultimate Boot CD</a> because it&#8217;s free
+and has almost everything you could need for diagnostics.</p>
+
+<h3>Testing</h3>
+
+<p>For whatever reason, when I built the PC I did it wrong.  I skipped
+the testing phase.  I didn&#8217;t test first.  So now I was in a situation
+where I was digging through everything to get to the root of the
+problem (and hopefully there&#8217;s only one!).  First I tested the HDD
+using HDAT2.  Many hours later, it came back clean.  Then I tested
+using Memtest86.  Within a couple of minutes it detected an error.  So
+I pulled the 2 RAM sticks, and tested each individually, and
+determined that I had 1 bad stick of RAM.</p>
+
+<h3>The Point is</h3>
+
+<p>If I had built my system right: plug in as little as possible to get
+it to boot and run diagnostics before installing software, I would
+have found my problem much faster and saved hours of time.  My problem
+here was that I assumed my RAM was good.  So even when you&#8217;re not
+programming it&#8217;s important to verify your assumptions and don&#8217;t forget to test.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -856,632 +930,6 @@ bash-3.2$ history
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/host-your-side-project-for-free/">Host Your Side Project for Free</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-10T00:00:00-04:00" pubdate>Aug 10<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post I explain how to host your side project on Heroku for free. There are some limits of course. I&#8217;m assuming your side project is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m assuming you&#8217;re using git for version control (heroku uses git push for deploys). I&#8217;ll also discuss storage limitations (database, web assets, etc).</p>
-
-<p>Looking for inspiration for a side project? <a href="http://rawsyntax.com/post/5982784556/importance-of-side-projects">Read my post about side projects</a></p>
-
-<h2>Sign up for Heroku</h2>
-
-<p><img src="http://media.tumblr.com/tumblr_lpp3jgSnE31qfdxjm.png"></p>
-
-<h2>Create a Project on Heroku</h2>
-
-<p>First install the heroku gem.</p>
-
-<div><script src='https://gist.github.com/9.js?file='></script>
-<noscript><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset='utf-8'&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;chrome=1&quot;&gt;
-        &lt;title&gt;404 - GitHub&lt;/title&gt;
-    &lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/opensearch.xml&quot; title=&quot;GitHub&quot; /&gt;
-    &lt;link rel=&quot;fluid-icon&quot; href=&quot;https://github.com/fluidicon.png&quot; title=&quot;GitHub&quot; /&gt;
-
-    
-    
-
-    &lt;meta content=&quot;authenticity_token&quot; name=&quot;csrf-param&quot; /&gt;
-&lt;meta name=&quot;csrf-token&quot; /&gt;
-
-    &lt;link href=&quot;https://a248.e.akamai.net/assets.github.com/stylesheets/bundle_github.css?b4b7d3dfc591909dc4259677aecf00c2b4bdd58c&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
-    
-
-    &lt;script src=&quot;https://a248.e.akamai.net/assets.github.com/javascripts/bundle_jquery.js?1cda878e9113acce74087d5ff1a5e1c49fb94eeb&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;https://a248.e.akamai.net/assets.github.com/javascripts/bundle_github.js?2997c5a0a3d531e02e04654f1adfd1772604c882&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-    
-
-    
-  &lt;/head&gt;
-
-
-  &lt;body class=&quot;logged_out   env-production &quot;&gt;
-    
-
-
-    
-
-    &lt;div id=&quot;main&quot;&gt;
-      &lt;div id=&quot;header&quot; class=&quot;true&quot;&gt;
-          &lt;a class=&quot;logo&quot; href=&quot;https://github.com&quot;&gt;
-            &lt;img alt=&quot;github&quot; class=&quot;default svg&quot; height=&quot;45&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6.svg&quot; /&gt;
-            &lt;img alt=&quot;github&quot; class=&quot;default png&quot; height=&quot;45&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6.png&quot; /&gt;
-            &lt;!--[if (gt IE 8)|!(IE)]&gt;&lt;!--&gt;
-            &lt;img alt=&quot;github&quot; class=&quot;hover svg&quot; height=&quot;45&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6-hover.svg&quot; /&gt;
-            &lt;img alt=&quot;github&quot; class=&quot;hover png&quot; height=&quot;45&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/header/logov6-hover.png&quot; /&gt;
-            &lt;!--&lt;![endif]--&gt;
-          &lt;/a&gt;
-
-        &lt;div class=&quot;topsearch&quot;&gt;
-    &lt;!--
-      make sure to use fully qualified URLs here since this nav
-      is used on error pages on other domains
-    --&gt;
-    &lt;ul class=&quot;nav logged_out&quot;&gt;
-        &lt;li class=&quot;pricing&quot;&gt;&lt;a href=&quot;https://github.com/plans&quot;&gt;Signup and Pricing&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&quot;explore&quot;&gt;&lt;a href=&quot;https://github.com/explore&quot;&gt;Explore GitHub&lt;/a&gt;&lt;/li&gt;
-      &lt;li class=&quot;features&quot;&gt;&lt;a href=&quot;https://github.com/features&quot;&gt;Features&lt;/a&gt;&lt;/li&gt;
-        &lt;li class=&quot;blog&quot;&gt;&lt;a href=&quot;https://github.com/blog&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;
-      &lt;li class=&quot;login&quot;&gt;&lt;a href=&quot;https://github.com/login?return_to=%2Fgist%2F9%2F&quot;&gt;Login&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-
-      &lt;/div&gt;
-
-      
-        &lt;div class=&quot;site&quot;&gt;
-          
-
-&lt;style type=&quot;text/css&quot;&gt;
-    * {
-        margin: 0px;
-        padding: 0px;
-    }
-    #parallax_illustration {
-        display:block;
-        width: 940px;
-        height: 375px;
-        margin: 20px 0 0 20px;
-        position: relative;
-        overflow: hidden;
-    }
-    #parallax_illustration #parallax_error_text {
-        position: absolute;
-        top: 72px;
-        left: 72px;
-        z-index: 10;
-    }
-    #parallax_illustration #parallax_octocat {
-        position: absolute;
-        top: 94px;
-        left: 356px;
-        z-index: 9;
-    }
-    #parallax_illustration #parallax_speeder {
-        position: absolute;
-        top: 150px;
-        left: 432px;
-        z-index: 8;
-    }
-    #parallax_illustration #parallax_octocatshadow {
-        position: absolute;
-        top: 297px;
-        left: 371px;
-        z-index: 7;
-    }
-    #parallax_illustration #parallax_speedershadow {
-        position: absolute;
-        top: 263px;
-        left: 442px;
-        z-index: 6;
-    }
-    #parallax_illustration #parallax_building_1 {
-        position: absolute;
-        top: 73px;
-        left: 467px;
-        z-index: 5;
-    }
-    #parallax_illustration #parallax_building_2 {
-        position: absolute;
-        top: 113px;
-        left: 762px;
-        z-index: 4;
-    }
-    #parallax_illustration #parallax_bg {
-        position: absolute;
-        top: -20px;
-        left: -20px;
-        z-index: 1;
-    }
-&lt;/style&gt;
-
-
-
-&lt;div id=&quot;parallax_illustration&quot;&gt;
-  &lt;img alt=&quot;404 | &amp;ldquo;This is not the web page you are looking for&amp;rdquo;&quot; class=&quot;js-plaxify&quot; data-xrange=&quot;20&quot; data-yrange=&quot;10&quot; height=&quot;249&quot; id=&quot;parallax_error_text&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/404/parallax_errortext.png&quot; width=&quot;271&quot; /&gt;
-  &lt;img alt=&quot;Octobi Wan Catnobi&quot; class=&quot;js-plaxify&quot; data-xrange=&quot;10&quot; data-yrange=&quot;10&quot; height=&quot;230&quot; id=&quot;parallax_octocat&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/404/parallax_octocat.png&quot; width=&quot;188&quot; /&gt;
-  &lt;img alt=&quot;land speeder&quot; class=&quot;js-plaxify&quot; data-xrange=&quot;10&quot; data-yrange=&quot;10&quot; height=&quot;156&quot; id=&quot;parallax_speeder&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/404/parallax_speeder.png&quot; width=&quot;440&quot; /&gt;
-  &lt;img alt=&quot;Octobi Wan Catnobi's shadow&quot; class=&quot;js-plaxify&quot; data-xrange=&quot;10&quot; data-yrange=&quot;10&quot; height=&quot;49&quot; id=&quot;parallax_octocatshadow&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/404/parallax_octocatshadow.png&quot; width=&quot;166&quot; /&gt;
-  &lt;img alt=&quot;land speeder's shadow&quot; class=&quot;js-plaxify&quot; data-xrange=&quot;10&quot; data-yrange=&quot;10&quot; height=&quot;75&quot; id=&quot;parallax_speedershadow&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/404/parallax_speedershadow.png&quot; width=&quot;430&quot; /&gt;
-  &lt;img alt=&quot;building&quot; class=&quot;js-plaxify&quot; data-invert=&quot;true&quot; data-xrange=&quot;50&quot; data-yrange=&quot;20&quot; height=&quot;123&quot; id=&quot;parallax_building_1&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/404/parallax_building_1.png&quot; width=&quot;304&quot; /&gt;
-  &lt;img alt=&quot;building&quot; class=&quot;js-plaxify&quot; data-invert=&quot;true&quot; data-xrange=&quot;75&quot; data-yrange=&quot;30&quot; height=&quot;50&quot; id=&quot;parallax_building_2&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/404/parallax_building_2.png&quot; width=&quot;116&quot; /&gt;
-  &lt;img alt=&quot;building&quot; class=&quot;js-plaxify&quot; data-invert=&quot;true&quot; data-xrange=&quot;0&quot; data-yrange=&quot;40&quot; height=&quot;415&quot; id=&quot;parallax_bg&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/404/parallax_bg.jpg&quot; width=&quot;940&quot; /&gt;
-&lt;/div&gt;
-
-&lt;/script&gt;
-
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;!-- footer --&gt;
-    &lt;div id=&quot;footer&quot; &gt;
-      
-  &lt;div class=&quot;upper_footer&quot;&gt;
-     &lt;div class=&quot;site&quot; class=&quot;clearfix&quot;&gt;
-
-       &lt;!--[if IE]&gt;&lt;h4 id=&quot;blacktocat_ie&quot;&gt;GitHub Links&lt;/h4&gt;&lt;![endif]--&gt;
-       &lt;![if !IE]&gt;&lt;h4 id=&quot;blacktocat&quot;&gt;GitHub Links&lt;/h4&gt;&lt;![endif]&gt;
-
-       &lt;ul class=&quot;footer_nav&quot;&gt;
-         &lt;h4&gt;GitHub&lt;/h4&gt;
-         &lt;li&gt;&lt;a href=&quot;https://github.com/about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;https://github.com/blog&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;https://github.com/features&quot;&gt;Features&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;https://github.com/contact&quot;&gt;Contact &amp;amp; Support&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;https://github.com/training&quot;&gt;Training&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;http://status.github.com/&quot;&gt;Site Status&lt;/a&gt;&lt;/li&gt;
-       &lt;/ul&gt;
-
-       &lt;ul class=&quot;footer_nav&quot;&gt;
-         &lt;h4&gt;Tools&lt;/h4&gt;
-         &lt;li&gt;&lt;a href=&quot;http://mac.github.com/&quot;&gt;GitHub for Mac&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;http://mobile.github.com/&quot;&gt;Issues for iPhone&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;https://gist.github.com&quot;&gt;Gist: Code Snippets&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;http://fi.github.com/&quot;&gt;Enterprise Install&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;http://jobs.github.com/&quot;&gt;Job Board&lt;/a&gt;&lt;/li&gt;
-       &lt;/ul&gt;
-
-       &lt;ul class=&quot;footer_nav&quot;&gt;
-         &lt;h4&gt;Extras&lt;/h4&gt;
-         &lt;li&gt;&lt;a href=&quot;http://shop.github.com/&quot;&gt;GitHub Shop&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;http://octodex.github.com/&quot;&gt;The Octodex&lt;/a&gt;&lt;/li&gt;
-       &lt;/ul&gt;
-
-       &lt;ul class=&quot;footer_nav&quot;&gt;
-         &lt;h4&gt;Documentation&lt;/h4&gt;
-         &lt;li&gt;&lt;a href=&quot;http://help.github.com/&quot;&gt;GitHub Help&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;http://developer.github.com/&quot;&gt;Developer API&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;http://github.github.com/github-flavored-markdown/&quot;&gt;GitHub Flavored Markdown&lt;/a&gt;&lt;/li&gt;
-         &lt;li&gt;&lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;&lt;/li&gt;
-       &lt;/ul&gt;
-
-     &lt;/div&gt;&lt;!-- /.site --&gt;
-  &lt;/div&gt;&lt;!-- /.upper_footer --&gt;
-
-&lt;div class=&quot;lower_footer&quot;&gt;
-  &lt;div class=&quot;site&quot; class=&quot;clearfix&quot;&gt;
-    &lt;!--[if IE]&gt;&lt;div id=&quot;legal_ie&quot;&gt;&lt;![endif]--&gt;
-    &lt;![if !IE]&gt;&lt;div id=&quot;legal&quot;&gt;&lt;![endif]&gt;
-      &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;https://github.com/site/terms&quot;&gt;Terms of Service&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://github.com/site/privacy&quot;&gt;Privacy&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://github.com/security&quot;&gt;Security&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-
-      &lt;p&gt;&amp;copy; 2011 &lt;span id=&quot;_rrt&quot; title=&quot;0.02156s from fe9.rs.github.com&quot;&gt;GitHub&lt;/span&gt; Inc. All rights reserved.&lt;/p&gt;
-    &lt;/div&gt;&lt;!-- /#legal or /#legal_ie--&gt;
-
-      &lt;div class=&quot;sponsor&quot;&gt;
-        &lt;a href=&quot;http://www.rackspace.com&quot; class=&quot;logo&quot;&gt;
-          &lt;img alt=&quot;Dedicated Server&quot; height=&quot;36&quot; src=&quot;https://a248.e.akamai.net/assets.github.com/images/modules/footer/rackspace_logo.png?v2&quot; width=&quot;38&quot; /&gt;
-        &lt;/a&gt;
-        Powered by the &lt;a href=&quot;http://www.rackspace.com &quot;&gt;Dedicated
-        Servers&lt;/a&gt; and&lt;br/&gt; &lt;a href=&quot;http://www.rackspacecloud.com&quot;&gt;Cloud
-        Computing&lt;/a&gt; of Rackspace Hosting&lt;span&gt;&amp;reg;&lt;/span&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;&lt;!-- /.site --&gt;
-&lt;/div&gt;&lt;!-- /.lower_footer --&gt;
-
-    &lt;/div&gt;&lt;!-- /#footer --&gt;
-
-    
-
-&lt;div id=&quot;keyboard_shortcuts_pane&quot; class=&quot;instapaper_ignore readability-extra&quot; style=&quot;display:none&quot;&gt;
-  &lt;h2&gt;Keyboard Shortcuts &lt;small&gt;&lt;a href=&quot;#&quot; class=&quot;js-see-all-keyboard-shortcuts&quot;&gt;(see all)&lt;/a&gt;&lt;/small&gt;&lt;/h2&gt;
-
-  &lt;div class=&quot;columns threecols&quot;&gt;
-    &lt;div class=&quot;column first&quot;&gt;
-      &lt;h3&gt;Site wide shortcuts&lt;/h3&gt;
-      &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-        &lt;dt&gt;s&lt;/dt&gt;
-        &lt;dd&gt;Focus site search&lt;/dd&gt;
-      &lt;/dl&gt;
-      &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-        &lt;dt&gt;?&lt;/dt&gt;
-        &lt;dd&gt;Bring up this help dialog&lt;/dd&gt;
-      &lt;/dl&gt;
-    &lt;/div&gt;&lt;!-- /.column.first --&gt;
-
-    &lt;div class=&quot;column middle&quot; style=&amp;#39;display:none&amp;#39;&gt;
-      &lt;h3&gt;Commit list&lt;/h3&gt;
-      &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-        &lt;dt&gt;j&lt;/dt&gt;
-        &lt;dd&gt;Move selection down&lt;/dd&gt;
-      &lt;/dl&gt;
-      &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-        &lt;dt&gt;k&lt;/dt&gt;
-        &lt;dd&gt;Move selection up&lt;/dd&gt;
-      &lt;/dl&gt;
-      &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-        &lt;dt&gt;c &lt;em&gt;or&lt;/em&gt; o &lt;em&gt;or&lt;/em&gt; enter&lt;/dt&gt;
-        &lt;dd&gt;Open commit&lt;/dd&gt;
-      &lt;/dl&gt;
-      &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-        &lt;dt&gt;y&lt;/dt&gt;
-        &lt;dd&gt;Expand URL to its canonical form&lt;/dd&gt;
-      &lt;/dl&gt;
-    &lt;/div&gt;&lt;!-- /.column.first --&gt;
-
-    &lt;div class=&quot;column last&quot; style=&amp;#39;display:none&amp;#39;&gt;
-      &lt;h3&gt;Pull request list&lt;/h3&gt;
-      &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-        &lt;dt&gt;j&lt;/dt&gt;
-        &lt;dd&gt;Move selection down&lt;/dd&gt;
-      &lt;/dl&gt;
-      &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-        &lt;dt&gt;k&lt;/dt&gt;
-        &lt;dd&gt;Move selection up&lt;/dd&gt;
-      &lt;/dl&gt;
-      &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-        &lt;dt&gt;o &lt;em&gt;or&lt;/em&gt; enter&lt;/dt&gt;
-        &lt;dd&gt;Open issue&lt;/dd&gt;
-      &lt;/dl&gt;
-    &lt;/div&gt;&lt;!-- /.columns.last --&gt;
-
-  &lt;/div&gt;&lt;!-- /.columns.equacols --&gt;
-
-  &lt;div style=&amp;#39;display:none&amp;#39;&gt;
-    &lt;div class=&quot;rule&quot;&gt;&lt;/div&gt;
-
-    &lt;h3&gt;Issues&lt;/h3&gt;
-
-    &lt;div class=&quot;columns threecols&quot;&gt;
-      &lt;div class=&quot;column first&quot;&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;j&lt;/dt&gt;
-          &lt;dd&gt;Move selection down&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;k&lt;/dt&gt;
-          &lt;dd&gt;Move selection up&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;x&lt;/dt&gt;
-          &lt;dd&gt;Toggle selection&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;o &lt;em&gt;or&lt;/em&gt; enter&lt;/dt&gt;
-          &lt;dd&gt;Open issue&lt;/dd&gt;
-        &lt;/dl&gt;
-      &lt;/div&gt;&lt;!-- /.column.first --&gt;
-      &lt;div class=&quot;column middle&quot;&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;I&lt;/dt&gt;
-          &lt;dd&gt;Mark selection as read&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;U&lt;/dt&gt;
-          &lt;dd&gt;Mark selection as unread&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;e&lt;/dt&gt;
-          &lt;dd&gt;Close selection&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;y&lt;/dt&gt;
-          &lt;dd&gt;Remove selection from view&lt;/dd&gt;
-        &lt;/dl&gt;
-      &lt;/div&gt;&lt;!-- /.column.middle --&gt;
-      &lt;div class=&quot;column last&quot;&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;c&lt;/dt&gt;
-          &lt;dd&gt;Create issue&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;l&lt;/dt&gt;
-          &lt;dd&gt;Create label&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;i&lt;/dt&gt;
-          &lt;dd&gt;Back to inbox&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;u&lt;/dt&gt;
-          &lt;dd&gt;Back to issues&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;/&lt;/dt&gt;
-          &lt;dd&gt;Focus issues search&lt;/dd&gt;
-        &lt;/dl&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div style=&amp;#39;display:none&amp;#39;&gt;
-    &lt;div class=&quot;rule&quot;&gt;&lt;/div&gt;
-
-    &lt;h3&gt;Issues Dashboard&lt;/h3&gt;
-
-    &lt;div class=&quot;columns threecols&quot;&gt;
-      &lt;div class=&quot;column first&quot;&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;j&lt;/dt&gt;
-          &lt;dd&gt;Move selection down&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;k&lt;/dt&gt;
-          &lt;dd&gt;Move selection up&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;o &lt;em&gt;or&lt;/em&gt; enter&lt;/dt&gt;
-          &lt;dd&gt;Open issue&lt;/dd&gt;
-        &lt;/dl&gt;
-      &lt;/div&gt;&lt;!-- /.column.first --&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div style=&amp;#39;display:none&amp;#39;&gt;
-    &lt;div class=&quot;rule&quot;&gt;&lt;/div&gt;
-
-    &lt;h3&gt;Network Graph&lt;/h3&gt;
-    &lt;div class=&quot;columns equacols&quot;&gt;
-      &lt;div class=&quot;column first&quot;&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;&lt;span class=&quot;badmono&quot;&gt;←&lt;/span&gt; &lt;em&gt;or&lt;/em&gt; h&lt;/dt&gt;
-          &lt;dd&gt;Scroll left&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;&lt;span class=&quot;badmono&quot;&gt;→&lt;/span&gt; &lt;em&gt;or&lt;/em&gt; l&lt;/dt&gt;
-          &lt;dd&gt;Scroll right&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;&lt;span class=&quot;badmono&quot;&gt;↑&lt;/span&gt; &lt;em&gt;or&lt;/em&gt; k&lt;/dt&gt;
-          &lt;dd&gt;Scroll up&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;&lt;span class=&quot;badmono&quot;&gt;↓&lt;/span&gt; &lt;em&gt;or&lt;/em&gt; j&lt;/dt&gt;
-          &lt;dd&gt;Scroll down&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;t&lt;/dt&gt;
-          &lt;dd&gt;Toggle visibility of head labels&lt;/dd&gt;
-        &lt;/dl&gt;
-      &lt;/div&gt;&lt;!-- /.column.first --&gt;
-      &lt;div class=&quot;column last&quot;&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;shift &lt;span class=&quot;badmono&quot;&gt;←&lt;/span&gt; &lt;em&gt;or&lt;/em&gt; shift h&lt;/dt&gt;
-          &lt;dd&gt;Scroll all the way left&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;shift &lt;span class=&quot;badmono&quot;&gt;→&lt;/span&gt; &lt;em&gt;or&lt;/em&gt; shift l&lt;/dt&gt;
-          &lt;dd&gt;Scroll all the way right&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;shift &lt;span class=&quot;badmono&quot;&gt;↑&lt;/span&gt; &lt;em&gt;or&lt;/em&gt; shift k&lt;/dt&gt;
-          &lt;dd&gt;Scroll all the way up&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;shift &lt;span class=&quot;badmono&quot;&gt;↓&lt;/span&gt; &lt;em&gt;or&lt;/em&gt; shift j&lt;/dt&gt;
-          &lt;dd&gt;Scroll all the way down&lt;/dd&gt;
-        &lt;/dl&gt;
-      &lt;/div&gt;&lt;!-- /.column.last --&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div style=&amp;#39;display:none&amp;#39;&gt;
-    &lt;div class=&quot;rule&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;columns threecols&quot;&gt;
-      &lt;div class=&quot;column first&quot; style=&amp;#39;display:none&amp;#39;&gt;
-        &lt;h3&gt;Source Code Browsing&lt;/h3&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;t&lt;/dt&gt;
-          &lt;dd&gt;Activates the file finder&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;l&lt;/dt&gt;
-          &lt;dd&gt;Jump to line&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;w&lt;/dt&gt;
-          &lt;dd&gt;Switch branch/tag&lt;/dd&gt;
-        &lt;/dl&gt;
-        &lt;dl class=&quot;keyboard-mappings&quot;&gt;
-          &lt;dt&gt;y&lt;/dt&gt;
-          &lt;dd&gt;Expand URL to its canonical form&lt;/dd&gt;
-        &lt;/dl&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-    &lt;div id=&quot;markdown-help&quot; class=&quot;instapaper_ignore readability-extra&quot;&gt;
-  &lt;h2&gt;Markdown Cheat Sheet&lt;/h2&gt;
-
-  &lt;div class=&quot;cheatsheet-content&quot;&gt;
-
-  &lt;div class=&quot;mod&quot;&gt;
-    &lt;div class=&quot;col&quot;&gt;
-      &lt;h3&gt;Format Text&lt;/h3&gt;
-      &lt;p&gt;Headers&lt;/p&gt;
-      &lt;pre&gt;
-# This is an &amp;lt;h1&amp;gt; tag
-## This is an &amp;lt;h2&amp;gt; tag
-###### This is an &amp;lt;h6&amp;gt; tag&lt;/pre&gt;
-     &lt;p&gt;Text styles&lt;/p&gt;
-     &lt;pre&gt;
-*This text will be italic*
-_This will also be italic_
-**This text will be bold**
-__This will also be bold__
-
-*You **can** combine them*
-&lt;/pre&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col&quot;&gt;
-      &lt;h3&gt;Lists&lt;/h3&gt;
-      &lt;p&gt;Unordered&lt;/p&gt;
-      &lt;pre&gt;
-* Item 1
-* Item 2
-  * Item 2a
-  * Item 2b&lt;/pre&gt;
-     &lt;p&gt;Ordered&lt;/p&gt;
-     &lt;pre&gt;
-1. Item 1
-2. Item 2
-3. Item 3
-   * Item 3a
-   * Item 3b&lt;/pre&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col&quot;&gt;
-      &lt;h3&gt;Miscellaneous&lt;/h3&gt;
-      &lt;p&gt;Images&lt;/p&gt;
-      &lt;pre&gt;
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
-&lt;/pre&gt;
-     &lt;p&gt;Links&lt;/p&gt;
-     &lt;pre&gt;
-http://github.com - automatic!
-[GitHub](http://github.com)&lt;/pre&gt;
-&lt;p&gt;Blockquotes&lt;/p&gt;
-     &lt;pre&gt;
-As Kanye West said:
-&gt; We're living the future so
-&gt; the present is our past.
-&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;rule&quot;&gt;&lt;/div&gt;
-
-  &lt;h3&gt;Code Examples in Markdown&lt;/h3&gt;
-  &lt;div class=&quot;col&quot;&gt;
-      &lt;p&gt;Syntax highlighting with &lt;a href=&quot;http://github.github.com/github-flavored-markdown/&quot; title=&quot;GitHub Flavored Markdown&quot; target=&quot;_blank&quot;&gt;GFM&lt;/a&gt;&lt;/p&gt;
-      &lt;pre&gt;
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
-```&lt;/pre&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col&quot;&gt;
-      &lt;p&gt;Or, indent your code 4 spaces&lt;/p&gt;
-      &lt;pre&gt;
-Here is a Python code example
-without syntax highlighting:
-
-    def foo:
-      if not bar:
-        return true&lt;/pre&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col&quot;&gt;
-      &lt;p&gt;Inline code for comments&lt;/p&gt;
-      &lt;pre&gt;
-I think you should use an
-`&amp;lt;addr&amp;gt;` element here instead.&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;
-
-    &lt;div class=&quot;context-overlay&quot;&gt;&lt;/div&gt;
-
-    
-    
-    
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre></noscript></div>
-
-
-<p>Then create a project with the cedar stack on heroku.</p>
-
-<div><script src='https://gist.github.com/.js?file='></script>
-<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
-
-
-<p>Log in to Heroku and check out your app.</p>
-
-<p><img src="http://media.tumblr.com/tumblr_lpp485CMTR1qfdxjm.png"></p>
-
-<p>You should see something similar to the above. At this point you&#8217;ve created your project on heroku. Awesome, but there&#8217;s still more to do.</p>
-
-<h2>Deploy your project to heroku</h2>
-
-<p>Note the git repository listed on your project&#8217;s heroku page. Add it as a remote on your project with:</p>
-
-<div><script src='https://gist.github.com/.js?file='></script>
-<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
-
-
-<p>But most likely you will get a slew of errors. What about database setup and all the other steps that go with production application setup?</p>
-
-<h2>Set your project up for Heroku</h2>
-
-<p>Here&#8217;s where Heroku&#8217;s Addon system comes in. Basically, you&#8217;re going to replace your database server, frontend load balancing / reverse proxy, and daemon processes / cron jobs with Heroku Addons. This is a subject for another post, but I&#8217;ll go over what my standard stack is.</p>
-
-<p>Furthermore, Heroku has good documentation about their platform and Addons <a href="http://devcenter.heroku.com/">here</a></p>
-
-<h2>My standard stack</h2>
-
-<p>Lately I&#8217;ve been using Rails 3, Mongoid for models, Haml and Sass for views, and sendgrid for sending emails.</p>
-
-<p>On Heroku I&#8217;ll install the following free Addons:</p>
-
-<ul>
-<li>Sendgrid for sending and receiving emails (200 a day free)</li>
-<li>MongoLab for a free mongodb instance (240mb)</li>
-<li>Advanced Logging</li>
-<li>Custom Domain (for my own .com instead of a heroku subdomain)</li>
-</ul>
-
-
-<p>Note that your app slug (application files deployed to heroku) is limited to 100mb, but I have yet to run anywhere close to that. My side projects generally run around 10mb. Heroku recommends you use an asset host for any js/css/images.</p>
-
-<p>Heroku, with these addons is enough to get any side project off the ground. And there&#8217;s always the option to scale up with Heroku, or move it to your  paid host once it starts to grow.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1501,6 +949,10 @@ I think you should use an
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/verify-your-assumptions/">Verify your Assumptions</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/purchasing-electronic-media/">Purchasing Electronic Media</a>
       </li>
     
@@ -1514,10 +966,6 @@ I think you should use an
     
       <li class="post">
         <a href="/blog/the-problem-with-micro-frameworks/">The Problem with &#xb5;-Frameworks</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/learn-emacs-useful-links/">Learn Emacs: Useful Links</a>
       </li>
     
   </ul>

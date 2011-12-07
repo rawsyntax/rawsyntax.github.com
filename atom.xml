@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2011-11-30T22:29:57-05:00</updated>
+  <updated>2011-12-07T10:18:38-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Verify your Assumptions]]></title>
+    <link href="http://rawsyntax.com/blog/verify-your-assumptions/"/>
+    <updated>2011-12-07T09:41:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/verify-your-assumptions</id>
+    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/ram.jpg" class ="center"/></p>
+
+<p>Always verify your assumptions.  It will save you time and headache.
+I&#8217;ll explain now.</p>
+
+<h3>Building a PC</h3>
+
+<p>I recently built a PC from parts I bought online.  It had been 5 years
+since I&#8217;ve built a PC at the time so I&#8217;d forgotten my good habits.  I
+put everything together: RAM, CPU, HDD, GPU, motherboard etc&#8230;  and
+it booted up and POST&#8217;ed no problems.  I thought I was good to go at
+this point.  I managed to install windows and a bunch of drivers, but
+then I started getting random freeze ups.</p>
+
+<h3>Troubleshooting</h3>
+
+<p>I thought perhaps it was one of the drivers or something specific to
+windows 7 (this is a gaming box, not for work).  So I did a little
+digging and actually ended up reinstalling windows bare to rule out
+any driver issues.  Long story short, while the box would work fine
+for about 10 minutes, shortly thereafter the box would freeze up.</p>
+
+<p>It was at this point that I decided to get a boot CD with some
+troubleshooting utilities.  I chose
+<a href="http://www.ultimatebootcd.com/">Ultimate Boot CD</a> because it&#8217;s free
+and has almost everything you could need for diagnostics.</p>
+
+<h3>Testing</h3>
+
+<p>For whatever reason, when I built the PC I did it wrong.  I skipped
+the testing phase.  I didn&#8217;t test first.  So now I was in a situation
+where I was digging through everything to get to the root of the
+problem (and hopefully there&#8217;s only one!).  First I tested the HDD
+using HDAT2.  Many hours later, it came back clean.  Then I tested
+using Memtest86.  Within a couple of minutes it detected an error.  So
+I pulled the 2 RAM sticks, and tested each individually, and
+determined that I had 1 bad stick of RAM.</p>
+
+<h3>The Point is</h3>
+
+<p>If I had built my system right: plug in as little as possible to get
+it to boot and run diagnostics before installing software, I would
+have found my problem much faster and saved hours of time.  My problem
+here was that I assumed my RAM was good.  So even when you&#8217;re not
+programming it&#8217;s important to verify your assumptions and don&#8217;t forget to test.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Purchasing Electronic Media]]></title>
@@ -1522,39 +1575,6 @@ Domaing.generate_domains
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Rails 3 Email Validation]]></title>
-    <link href="http://rawsyntax.com/blog/rails-3-email-validation/"/>
-    <updated>2011-04-21T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/rails-3-email-validation</id>
-    <content type="html"><![CDATA[<p>Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only is this task difficult and error prone, but there are functional email addresses out there that do not conform to the spec. Not to mention the resulting regex often looks like <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
-
-<p>When I do email validation I use a simple regex:</p>
-
-<div><script src='https://gist.github.com/934791.js?file='></script>
-<noscript><pre><code>/^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
-</code></pre></noscript></div>
-
-
-<p>Which I took from the <a href="http://github.com/platformatec/devise">Devise</a> codebase. It means:</p>
-
-<ul>
-<li>begins with one or more word characters, period, percent, plus, or dashes</li>
-<li>then one at symbol</li>
-<li>then one or more word characters, dashes, and then a period</li>
-<li>ends with 2 or more word characters</li>
-<li>case-insensitive</li>
-</ul>
-
-
-<p>This regex ensures a reasonably close to valid email address, without enumerating and worrying about .com vs .co.uk vs .musem and a host of other issues.</p>
-
-<p>At this point, I have the application send an email to the address, and require the user to click a confirmation link. That&#8217;s good enough, and very simple to implement.</p>
-
-<p><a href="http://rubular.com/r/YTzbCkatJy">Try this regex out on Rubular</a> it&#8217;s an interactive web based ruby regex engine.</p>
 ]]></content>
   </entry>
   
