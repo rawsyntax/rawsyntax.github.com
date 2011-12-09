@@ -9,8 +9,8 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Always verify your assumptions. It will save you time and headache.
-I&#8217;ll explain now. Building a PC I recently built a PC from parts I bought &hellip;">
+  <meta name="description" content="I&#8217;ve worked on a few side projects over the years. Sometimes they&#8217;ve
+turned out well, and other times I stopped working on them. How do &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,107 @@ I&#8217;ll explain now. Building a PC I recently built a PC from parts I bought 
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-12-09T11:44:56-05:00" pubdate>Dec 9<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/side-projects-fail.jpg" alt="Sometimes Side Projects Fail" class="center"/></p>
+
+<p>I&#8217;ve worked on a few side projects over the years.  Sometimes they&#8217;ve
+turned out well, and other times I stopped working on them.  How do
+you know when it&#8217;s time to throw in the towel and when it&#8217;s time to
+push through?</p>
+
+<p>Roughly a year ago a friend and I were working on a bill splitting
+system.  It was supposed to solve the problem of splitting bills
+between friends.  More specifically, splitting regularly occuring or
+one time expenses between roommates.  Rather than worrying about
+having cash, or writing a check and waiting for it to cash, we built a
+system which piggybacked off of paypal&#8217;s API to send bill and payment
+notifications via email, which would generate a web checkout page
+where the debt could be paid online through paypal.</p>
+
+<p>See how long the previous sentence is?  Sounds too complicated already
+and I&#8217;m the one who built it. The eventual idea was that we would wrap
+this in a native client wrapper, so that if you&#8217;re out to dinner with
+your friends you don&#8217;t have to worry about splitting the bill.  One
+person will pick up the entire bill, split it and send bill
+notifications via email to all the other people.  Then the others pull
+out their phones and enter their paypal accounts and send payment for
+their portion of the bill.  The bill can be settled on the spot.</p>
+
+<h3>Not Every Idea is a Hit</h3>
+
+<p>In a perfect world every side-project would be a hit that turns into
+a business that generates lots of profit for little work.  In practice
+this actually can be quite difficult to pull off.  Furthermore
+sometimes those big hits aren&#8217;t actually big hits when they start.  It
+make take a couple of years of work to pull.  But how do you know if
+your idea is taking a couple of years to get started or simply not
+good at all?  Nobody wants to be a quitter, and worse nobody wants to
+quit a good idea that ends up making someone else rich.  But there&#8217;s
+also more to life than money.</p>
+
+<p>After working on this idea for a few hours a week for a couple months
+we eventually decided to scrap it.  There really didn&#8217;t seem to be a simple
+way to make money with this idea.  It may have been a useful service,
+but there are already similar free services out there for this.  Over
+the years, I&#8217;ve grown to have an affinity for ideas that have
+monetization strategies that are simple to understand.  In my
+experience, the more complicated it is, the less the likelyhood of
+actually making money.</p>
+
+<p>Most importantly I wasn&#8217;t particularly passionate about the idea, and
+I didn&#8217;t like the idea of piggybacking off of Paypal because of their
+horrible customer service (I recently had my funds availability
+delayed for 3 weeks with no explanation, and I&#8217;ve had an account for 7
+years and an ebay account with perfect feedback).  But using another
+online payment system made the idea less useful because other peer to
+peer payment systems simply aren&#8217;t as ubiquitous.</p>
+
+<h3>Benefits of Side Projects</h3>
+
+<p>Often the benefits are not monetary in nature.  In the case of this
+bill splitting website, I used it at the time to keep up to date with
+rails 3 and refresh my skills a little bit.  I was using Merb for most
+projects at work at the time. Furthermore, working on small side
+projects now and then keeps you familiar with how to start a project
+from scratch and increases the breadth of your knowledge.  If its a
+small project with just one person working on it, you have to be the
+one to do everything (or at least hire the contractors that will do
+the part outside your expertise, which is a skill in itself).</p>
+
+<p>The most important thing is to simplify your idea.  Then build the
+simplest thing that could possibly work.  Then keep at it and don&#8217;t be
+afraid to re-evaluate your idea.  It doesn&#8217;t make you a quitter to throw out a project that no longer seems reasonable.</p>
+
+<p>Check out an older post of mine about <a href="/blog/importance-of-side-projects/">side projects</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -843,93 +944,6 @@ gem 'guard-livereload'
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-bash-remove-commands-from-your-history/">Learn Bash: Remove Commands From Your History</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-11T00:00:00-04:00" pubdate>Aug 11<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Occasionally I type a password or other sensitive information into a shell
-prompt. Using bash history, the command can be removed.</p>
-
-<div><script src='https://gist.github.com/1330991.js?file='></script>
-<noscript><pre><code># say we start with an empty bash command history
-bash-3.2$ history
-    1  history
-
-
-# enter a command that requires a password
-bash-3.2$ sudo rm -i some_file
-Password:
-# accidentally ^C and type your password
-# into the prompt and hit enter
-bash-3.2$ secret_password
-bash: secret_password: command not found
-
-
-# your password is now there for all to
-# see in your bash history
-bash-3.2$ history
-    1  history
-    2  sudo rm -i some_file
-    3  secret_password
-    4  history
-
-
-# first option to fix it, delete the numbered entry from
-# history and write to your ~/.bash_history file
-bash-3.2$ history -d 3
-bash-3.2$ history -w
-
-
-# entry 3 will be removed entirely from your command history
-bash-3.2$ history
-    1  history
-    2  sudo rm -i some_file
-    3  history
-    4  history -d 3
-    5  history -w
-    6  history
-
-
-# the second option is to clear the entire history
-# and write the changes to disk
-bash-3.2$ history -c
-bash-3.2$ history -w
-
-
-# it's now pretty obvious that your history has been
-# scrubbed clean, but at least your password is history!
-bash-3.2$ history
-    1  history -w
-    2  history</code></pre></noscript></div>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -949,6 +963,10 @@ bash-3.2$ history
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/verify-your-assumptions/">Verify your Assumptions</a>
       </li>
     
@@ -962,10 +980,6 @@ bash-3.2$ history
     
       <li class="post">
         <a href="/blog/solving-the-general-case/">Solving the General Case</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/the-problem-with-micro-frameworks/">The Problem with &#xb5;-Frameworks</a>
       </li>
     
   </ul>

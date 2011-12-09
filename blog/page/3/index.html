@@ -9,7 +9,7 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (rfc 822) in a &hellip;">
+  <meta name="description" content="It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,91 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/generating-available-domain-names/">Generating Available Domain Names</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-04-22T00:00:00-04:00" pubdate>Apr 22<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a whois query to check if it&#8217;s available. Feel free to tweak it to your own needs. It also has some sleep calls to avoid flooding the whois server. Let it run for a couple days, see what comes out.</p>
+
+<p>I actually generated <a href="http://rawsyntax.com">rawsyntax.com</a> using this script.</p>
+
+<div><script src='https://gist.github.com/1360029.js?file='></script>
+<noscript><pre><code>#!/usr/bin/env ruby
+require 'rubygems'
+require 'whois'
+
+module Domaing
+  def self.alliterative?(first_word, second_word)
+    first_word[0] == second_word[0]
+  end
+
+  def self.generate_names(words)
+    first  = words[rand(words.size)].strip.downcase
+    second = words[rand(words.size)].strip.downcase
+
+    &quot;#{first}#{second}.com&quot; if alliterative?(first, second)
+  end
+
+  def self.generate_domains
+    words = []
+
+    File.open(&quot;2of12.txt&quot;, &quot;r&quot;).each_line do |l|
+      words &lt;&lt; l if l.length &gt; 4 &amp;&amp;  l.length &lt; 7
+    end
+
+    domains = []
+
+    while domains.count &lt; 30000
+      domain = generate_names(words)
+      domains &lt;&lt; domain if domain
+    end
+
+    domains.each  do |d|
+      sleep 5
+      begin
+        if Whois.whois(d).available?
+          File.open(&quot;domains.txt&quot;, &quot;a&quot;) do |f|
+            f.write &quot;#{d}\n&quot;
+          end
+        end
+      rescue
+        sleep 100 # to avoid overloading whois servers
+      end
+    end
+  end
+end
+
+Domaing.generate_domains
+</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -579,6 +664,10 @@ do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/verify-your-assumptions/">Verify your Assumptions</a>
       </li>
     
@@ -592,10 +681,6 @@ do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_
     
       <li class="post">
         <a href="/blog/solving-the-general-case/">Solving the General Case</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/the-problem-with-micro-frameworks/">The Problem with &#xb5;-Frameworks</a>
       </li>
     
   </ul>

@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Start Using html5 - Raw Syntax</title>
+  <title>Sometimes Side Projects Fail - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="There&#8217;s a lot of hype going on about html5 nowadays. If you&#8217;re not using html5 yet, the whole thing can be somewhat overwhelming. After &hellip;">
+  <meta name="description" content="I&#8217;ve worked on a few side projects over the years. Sometimes they&#8217;ve
+turned out well, and other times I stopped working on them. How do &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/start-using-html5">
+  <link rel="canonical" href="http://rawsyntax.com/blog/sometimes-side-projects-fail">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">Start Using Html5</h1>
+      <h1 class="entry-title">Sometimes Side Projects Fail</h1>
     
     
       <p class="meta">
@@ -89,69 +90,84 @@
 
   
 
-<time datetime="2010-09-25T00:00:00-04:00" pubdate>Sep 25<span>th</span>, 2010</time>
+<time datetime="2011-12-09T11:44:56-05:00" pubdate>Dec 9<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>There&#8217;s a lot of hype going on about html5 nowadays. If you&#8217;re not using html5 yet, the whole thing can be somewhat overwhelming. After reading this blogpost you&#8217;ll be ready to upgrade your current project (or start a new one) using html5.</p>
+<div class="entry-content"><p><img src="/images/side-projects-fail.jpg" alt="Sometimes Side Projects Fail" class="center"/></p>
 
-<h2>Understanding html5</h2>
+<p>I&#8217;ve worked on a few side projects over the years.  Sometimes they&#8217;ve
+turned out well, and other times I stopped working on them.  How do
+you know when it&#8217;s time to throw in the towel and when it&#8217;s time to
+push through?</p>
 
-<p>I went to the <a href="http://www.meetup.com/bocaruby/">bocaruby</a> ruby users group earlier this month. I had some understanding of what html5 is capable of, but Diego Scataglini&#8217;s presentation <a href="http://diegoscataglini.com/2010/09/14/232/html-5-a-gentle-introduction/">html5 a gentle introduction</a> definitely expanded my knowledge. I recommend it as a solid introduction to what is different about html5.</p>
+<p>Roughly a year ago a friend and I were working on a bill splitting
+system.  It was supposed to solve the problem of splitting bills
+between friends.  More specifically, splitting regularly occuring or
+one time expenses between roommates.  Rather than worrying about
+having cash, or writing a check and waiting for it to cash, we built a
+system which piggybacked off of paypal&#8217;s API to send bill and payment
+notifications via email, which would generate a web checkout page
+where the debt could be paid online through paypal.</p>
 
-<h2>Using html5</h2>
+<p>See how long the previous sentence is?  Sounds too complicated already
+and I&#8217;m the one who built it. The eventual idea was that we would wrap
+this in a native client wrapper, so that if you&#8217;re out to dinner with
+your friends you don&#8217;t have to worry about splitting the bill.  One
+person will pick up the entire bill, split it and send bill
+notifications via email to all the other people.  Then the others pull
+out their phones and enter their paypal accounts and send payment for
+their portion of the bill.  The bill can be settled on the spot.</p>
 
-<p>Often times after learning about a new technology a lot of programmers get stuck. This new functionality is great, but how I do I get started using it? It really helps to have something that gives you a little push.</p>
+<h3>Not Every Idea is a Hit</h3>
 
-<p><a href="http://html5boilerplate.com/">enter html5-boilerplate</a></p>
+<p>In a perfect world every side-project would be a hit that turns into
+a business that generates lots of profit for little work.  In practice
+this actually can be quite difficult to pull off.  Furthermore
+sometimes those big hits aren&#8217;t actually big hits when they start.  It
+make take a couple of years of work to pull.  But how do you know if
+your idea is taking a couple of years to get started or simply not
+good at all?  Nobody wants to be a quitter, and worse nobody wants to
+quit a good idea that ends up making someone else rich.  But there&#8217;s
+also more to life than money.</p>
 
-<p>Its a frontend template written in html5 with a lot of goodness baked in from the start. Between the css, html, various server configuration files, javascript libraries and profiling, its a huge collection of sane defaults for any web project.</p>
+<p>After working on this idea for a few hours a week for a couple months
+we eventually decided to scrap it.  There really didn&#8217;t seem to be a simple
+way to make money with this idea.  It may have been a useful service,
+but there are already similar free services out there for this.  Over
+the years, I&#8217;ve grown to have an affinity for ideas that have
+monetization strategies that are simple to understand.  In my
+experience, the more complicated it is, the less the likelyhood of
+actually making money.</p>
 
-<p>Some of its many features</p>
+<p>Most importantly I wasn&#8217;t particularly passionate about the idea, and
+I didn&#8217;t like the idea of piggybacking off of Paypal because of their
+horrible customer service (I recently had my funds availability
+delayed for 3 weeks with no explanation, and I&#8217;ve had an account for 7
+years and an ebay account with perfect feedback).  But using another
+online payment system made the idea less useful because other peer to
+peer payment systems simply aren&#8217;t as ubiquitous.</p>
 
-<ul>
-<li><a href="http://www.modernizr.com/">Modernizr</a></li>
-<li><a href="http://html5doctor.com/html-5-reset-stylesheet/">html5 css reset</a></li>
-<li>cross-browser compatible</li>
-<li>cdn hosted jquery with local fallback</li>
-<li>javascript profiling I particularly like how it handles ie specific styles.</li>
-</ul>
+<h3>Benefits of Side Projects</h3>
 
+<p>Often the benefits are not monetary in nature.  In the case of this
+bill splitting website, I used it at the time to keep up to date with
+rails 3 and refresh my skills a little bit.  I was using Merb for most
+projects at work at the time. Furthermore, working on small side
+projects now and then keeps you familiar with how to start a project
+from scratch and increases the breadth of your knowledge.  If its a
+small project with just one person working on it, you have to be the
+one to do everything (or at least hire the contractors that will do
+the part outside your expertise, which is a skill in itself).</p>
 
-<div><script src='https://gist.github.com/595804.js?file='></script>
-<noscript><pre><code>&lt;!doctype html&gt;
-&lt;!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --&gt;
-&lt;!--[if lt IE 7 ]&gt; &lt;html lang=&quot;en&quot; class=&quot;no-js ie6&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 7 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie7&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 8 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie8&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 9 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie9&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt; &lt;html lang=&quot;en&quot; class=&quot;no-js&quot;&gt; &lt;!--&lt;![endif]--&gt;
-</code></pre></noscript></div>
+<p>The most important thing is to simplify your idea.  Then build the
+simplest thing that could possibly work.  Then keep at it and don&#8217;t be
+afraid to re-evaluate your idea.  It doesn&#8217;t make you a quitter to throw out a project that no longer seems reasonable.</p>
 
-
-<p>You end up with a ie-version class applied to the html tag, which allows you to do ie targeted css all in the same file. For example:</p>
-
-<div><script src='https://gist.github.com/595820.js?file='></script>
-<noscript><pre><code>.ie6 body {
-     background-attachment: fixed;
-}
-
-//all in the same file!! no more additional files for ie!
-
-.ie7 body {
-     background-attachment: scroll;
-}
-</code></pre></noscript></div>
-
-
-<h2>Getting the code</h2>
-
-<p>You can get html5-boilerplate on the <a href="http://html5boilerplate.com">official site</a> or <a href="http://github.com/paulirish/html5-boilerplate">github</a></p>
-
-<p><a href="http://github.com/sporkd">sporkd</a> has created a compass plugin for html5-boilerplate <a href="http://github.com/sporkd/compass-html5-boilerplate">get the code here</a></p>
+<p>Check out an older post of mine about <a href="/blog/importance-of-side-projects/">side projects</a>.</p>
 </div>
 
 
@@ -169,15 +185,21 @@
 
   
 
-<time datetime="2010-09-25T00:00:00-04:00" pubdate>Sep 25<span>th</span>, 2010</time>
+<time datetime="2011-12-09T11:44:56-05:00" pubdate>Dec 9<span>th</span>, 2011</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/programming/'>programming</a>, <a class='category' href='/blog/categories/rants/'>rants</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/start-using-html5/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/start-using-html5/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/sometimes-side-projects-fail/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/sometimes-side-projects-fail/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -190,14 +212,18 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/rewriting-github-badges/" title="Previous Post: Rewriting github-badges">&laquo; Rewriting github-badges</a>
+        <a class="basic-alignment left" href="/blog/verify-your-assumptions/" title="Previous Post: Verify your Assumptions">&laquo; Verify your Assumptions</a>
       
-      
-        <a class="basic-alignment right" href="/blog/puncher-the-simple-file-watcher-for-os-x/" title="next Post: Puncher the simple file watcher for OS X">Puncher the simple file watcher for OS X &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -315,7 +341,10 @@
       var disqus_shortname = 'rawsyntax';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rawsyntax.com/blog/sometimes-side-projects-fail';
+        var disqus_url = 'http://rawsyntax.com/blog/sometimes-side-projects-fail';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
