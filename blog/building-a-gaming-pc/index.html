@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Building a Gaming PC - Raw Syntax</title>
+  <meta name="author" content="Eric Himmelreich">
+
+  
+  <meta name="description" content="I recently built a gaming pc from parts, as my laptop was struggling
+to run the latest games even on very low settings. I did some
+googling and came &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rawsyntax.com/blog/building-a-gaming-pc">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds.feedburner.com/RawSyntax" rel="alternate" title="Raw Syntax" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22677496-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Raw Syntax</a></h1>
+  
+    <h2>The stuff programs are made of</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/RawSyntax" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:rawsyntax.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="mailto:eric@rawsyntax.com">Contact</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Building a Gaming PC</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-12-21T10:34:00-05:00" pubdate>Dec 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I recently built a gaming pc from parts, as my laptop was struggling
+to run the latest games even on very low settings.  I did some
+googling and came to the obvious conclusion that building a desktop
+for gaming is way cheaper than trying to buy a new laptop, and the
+desktop gets way better performance.  In fact, this makes it so that I
+can stretch my laptop for a few more years, as it&#8217;s only used for web
+programming at the moment (and it&#8217;s plenty fast due to its SSD).</p>
+
+<p>At the end of this article I&#8217;ll be listing all the parts I used for my build.</p>
+
+<h3>Before Building a PC</h3>
+
+<p>You will need to take a few precautions.  I recommend using an
+anti-static wrist-strap.  They are about $5 and save you from frying
+your much more expensive components due to static electricity.  Wear
+it like a watch and clamp it to an unpainted metal part of your
+computer case.  I used the
+<a href="http://www.amazon.com/gp/product/B00004Z5D1?ie=UTF8&amp;tag=rawsyntax-20&amp;linkCode=xm2&amp;camp=1789&amp;creativeASIN=B00004Z5D1">Belkin Anti-Static Wrist Band</a>
+for my PC build.</p>
+
+<p>Get some diagnostic software.  I recommend the
+<a href="http://www.ultimatebootcd.com/">Ultimate Boot CD</a>.  This will come in
+handy if you have problems getting your system to boot or problems
+with it crashing.  It has diagnostic tools for CPU, memory, hard
+drive, etc&#8230;  I used it when
+<a href="/blog/verify-your-assumptions/">troubleshooting my build</a> and I found
+that it was just a bad memory stick causing all my issues.</p>
+
+<h3>Plan your build</h3>
+
+<p>Next you&#8217;ll want to spec out exactly what parts you&#8217;ll be using and
+ensure they are all compatible with each other.  A good site for
+finding parts and getting the best price is
+<a href="PCPartPicker">http://pcpartpicker.com/</a>.  If you need help deciding
+on a PC build that fits your budget, head on over to
+<a href="http://www.reddit.com/r/buildapc">BuildAPC</a>.  I had them recommend me
+a gaming PC build for my budget.  They can also help you with advice
+on how to actually put the parts together.</p>
+
+<h3>Actually Building a PC</h3>
+
+<p>I recommend that you build the PC with a TDD mentality.  Put in only the parts
+necessary to get it to POST successfully.  From then on, I would add
+individual components and test them with your UltimateBootCD.  Only
+after all the hardware passes tests should you install an operating
+system and drivers.</p>
+
+<p>I am recommending this approach after having done it the wrong way
+myself.  I put everything in and the operating system before doing any
+testing, and I was having random crashes going on.  It took hours of
+troubleshooting: read more about
+<a href="/blog/verify-your-assumptions/">troubleshooting my build</a>.</p>
+
+<h3>What Parts Did I Use?</h3>
+
+<p><a href="http://www.amazon.com/gp/product/B002C9K3UO/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B002C9K3UO"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B002C9K3UO&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B002C9K3UO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B002C9K3UO/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B002C9K3UO">LG Electronics GH22NS50 22X SATA Super Multi DVD+/-RW Internal Drive</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B002C9K3UO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>So far I&#8217;ve only used it for running the UltimateBootCD.</p>
+
+<p><a href="http://www.amazon.com/gp/product/B000H6AY6M/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B000H6AY6M"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B000H6AY6M&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B000H6AY6M" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B000H6AY6M/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B000H6AY6M">Saitek Eclipse II Backlit Keyboard (PK02AU)</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B000H6AY6M" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>I like this keyboard because it lights up: red, blue, or purple.</p>
+
+<p><a href="http://www.amazon.com/gp/product/B004CRSM4I/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B004CRSM4I"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B004CRSM4I&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B004CRSM4I" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B004CRSM4I/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B004CRSM4I">Corsair Vengeance 8 GB (2 x 4 GB) DDR3 1600 MHz (PC3 12800) 240-Pin DDR3</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B004CRSM4I" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>I bought this ram after I had to return some G Skill ram that was bad.</p>
+
+<p><a href="http://www.amazon.com/gp/product/B004EBUXHQ/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B004EBUXHQ"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B004EBUXHQ&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B004EBUXHQ" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B004EBUXHQ/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B004EBUXHQ">Intel Core i5-2500K Processor</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B004EBUXHQ" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>The important part here is that it&#8217;s the 2500k edition, which will
+allow overclocking if you&#8217;re into that.</p>
+
+<p><a href="http://www.amazon.com/gp/product/B004B1BAQ2/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B004B1BAQ2"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B004B1BAQ2&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B004B1BAQ2" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B004B1BAQ2/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B004B1BAQ2">Antec Computer Power Supply HCG-620</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B004B1BAQ2" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>Be sure your power supply has enough watts for your pc build (and
+supports crossfire or SLI for your graphics card).</p>
+
+<p><a href="http://www.amazon.com/gp/product/B0055Y66A4/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B0055Y66A4"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B0055Y66A4&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B0055Y66A4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B0055Y66A4/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B0055Y66A4">Sapphire DIRT 3 EDITION Radeon HD 6950 2 GB DDR5</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B0055Y66A4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>This graphics card was said to be unlockable to a 6970, but my
+particular card was not.  However, it&#8217;s still a very powerful card.</p>
+
+<p><a href="http://www.newegg.com/Product/Product.aspx?Item=N82E16813157271">ASRock Z68 Gen3 Extreme3</a></p>
+
+<p>This motherboard has some overclocking options built in.</p>
+
+<p><a href="http://www.amazon.com/gp/product/B0026FCI2U/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B0026FCI2U"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B0026FCI2U&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B0026FCI2U" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B0026FCI2U/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B0026FCI2U">Cooler Master HAF ATX Mid Tower Case</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B0026FCI2U" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>This case has great cooling, and is relatively quiet in my opinion.
+If you need quieter, I would replace the hard drive fan with a quieter
+one.  It&#8217;s the loudest fan on this thing.</p>
+
+<p><a href="http://www.amazon.com/gp/product/B005CT56R6/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B005CT56R6"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B005CT56R6&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B005CT56R6" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B005CT56R6/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B005CT56R6">Seagate Barracuda 7200 500 GB SATA 6.0 Gb-s 16 MB Cache 3.5-Inch Internal Bare Drive ST500DM002</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B005CT56R6" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>With hard drive prices the way they are now I wanted to save some
+money and 500GB is plenty of space for game files.  Some people
+recommend a SSD for gaming boxes, and while the performance will
+certainly be better, I haven&#8217;t noticed load times being much longer
+with this disk.  It&#8217;s fast enough.</p>
+
+<h3>Parts I Had Already</h3>
+
+<p><a href="http://www.amazon.com/gp/product/B00302DNZ4/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B00302DNZ4"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B00302DNZ4&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B00302DNZ4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B00302DNZ4/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B00302DNZ4">Dell UltraSharp U2410 24-inch Widescreen LCD High Performance Monitor with HDMI, DVI, DisplayPort and HDCP</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B00302DNZ4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>Though I already had this monitor at the time, as I use it for work,
+I&#8217;m listing it here because I highly recommend it.  The picture is
+great, it&#8217;s height-adjustable, rotatable, and can be mounted on a wall or
+monitor arm.  If the new price is too much for you, you can always
+find a refurbished one for about $300.  Most importantly the
+resolution is 1920x1200 not 1920x1080 like most monitors these days.</p>
+
+<p><a href="http://www.amazon.com/gp/product/B003BIFI6E/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B003BIFI6E"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B003BIFI6E&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B003BIFI6E" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p><a href="http://www.amazon.com/gp/product/B003BIFI6E/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B003BIFI6E">Razer DeathAdder - Gaming Mouse Left Hand Edition</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B003BIFI6E" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+
+<p>This is the best left handed gaming mouse I have found on the market
+today.  It also has drivers for both Windows and OS X.  The only
+annoying thing about it is that the manufacturer switched the left and
+right click.  So out of the box left-click and right-click are
+switched.  Luckily this can be adjusted with the drivers.  There are
+surprisingly few options for left-handed gamers, and the symmetrical
+mice don&#8217;t do it for me.</p>
+
+<h3>Build Results</h3>
+
+<p>All said and done this build cost me $922.79.  It runs current games
+on Ultra High settings, and has some room for overclocking or adding a
+second video card.  It is also said to support Ivy Bridge CPUs (when
+they come out).</p>
+
+<p>Interestingly, building this way allows me to buy a cheaper laptop next time I replace it (I don&#8217;t have to care about the graphics card in my laptop).  So overall it&#8217;ll work out cheaper, and I end up with a much better gaming experience.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
+
+      
+
+
+
+
+  
+
+<time datetime="2011-12-21T10:34:00-05:00" pubdate>Dec 21<span>st</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gaming/'>gaming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/building-a-gaming-pc/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/building-a-gaming-pc/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/sometimes-side-projects-fail/" title="Previous Post: Sometimes Side Projects Fail">&laquo; Sometimes Side Projects Fail</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <br />
+<section id="blog_links" class="section alpha">
+  <a href="http://feeds.feedburner.com/RawSyntax" title="subscribe via RSS" id="rss">Subscribe</a>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/building-a-gaming-pc/">Building a Gaming PC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/verify-your-assumptions/">Verify your Assumptions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/purchasing-electronic-media/">Purchasing Electronic Media</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/blogging-on-jekyll-url-redirects/">Blogging on Jekyll: URL Redirects</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/rawsyntax">@rawsyntax</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'rawsyntax',
+            count: 1,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("rawsyntax", 0, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-width="208px" data-show-count="true">Follow @rawsyntax</a>
+  
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/101134845820398279714?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<section>
+  <h1>Disclaimer</h1>
+  <p>Some links on this blog are affiliate links, which pay small sales commissions.</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - Eric Himmelreich -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'rawsyntax';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rawsyntax.com/blog/building-a-gaming-pc';
+        var disqus_url = 'http://rawsyntax.com/blog/building-a-gaming-pc';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

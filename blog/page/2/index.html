@@ -9,8 +9,7 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Occasionally I type a password or other sensitive information into a shell
-prompt. Using bash history, the command can be removed. # say we start &hellip;">
+  <meta name="description" content="LiveReload applies CSS/JS changes to Safari or Chrome without reloading the page, and automatically reloads when the html changes. Let that soak in &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +75,69 @@ prompt. Using bash history, the command can be removed. # say we start &hellip;"
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload With Rails for Faster Development</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-08-15T00:00:00-04:00" pubdate>Aug 15<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>LiveReload applies CSS/JS changes to Safari or Chrome without reloading the page, and automatically reloads when the html changes. Let that soak in for a minute. In this post I&#8217;ll go over how to get it installed and working on your Rails projects.</p>
+
+<p>The installation process has two steps. First we install a browser extension that listens for livereload events. Then we use guard to listen for  system events and send information to the browser.</p>
+
+<p>First install the livereload addon for <a href="https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei">chrome</a> or <a href="https://github.com/downloads/mockko/livereload/LiveReload-1.6.2.safariextz">safari</a>.</p>
+
+<p>In your rails project gemfile add</p>
+
+<pre><code>gem 'rb-fsevent'
+gem 'guard-livereload'
+</code></pre>
+
+<p>Run</p>
+
+<pre><code>bundle install
+</code></pre>
+
+<p>Then run</p>
+
+<pre><code>guard init livereload &amp;&amp; guard
+</code></pre>
+
+<p>To setup guard for livereload and start monitoring for file system events. The last step is to activate the browser extension. You will need to click the LiveReload button:</p>
+
+<p><img src="http://media.tumblr.com/tumblr_lpzehwqgO41qfdxjm.png"></p>
+
+<p>Now when you change a file in your view, Safari / Chrome will load the new content automatically.</p>
+
+<h2>Notes on RubyCocoa</h2>
+
+<p>The notes on the <a href="https://github.com/mockko/livereload">livereload repo</a> are a little confusing. Livereload can also work via RubyCocoa (instead of guard- livereload). If you&#8217;re running ruby 1.9.2 you cannot install RubyCocoa on it. RubyCocoa is not 1.9.x compatible. So I opt to use the browser extension and guard.</p>
+
+<p>More info <a href="http://livereload.com/">here</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1174,63 +1236,6 @@ very_long_var_name = 25
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/importance-of-side-projects/">Importance of Side Projects</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-05-29T00:00:00-04:00" pubdate>May 29<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Side projects are important for a few reasons. Programming is a creative process. Side projects allow programming without deadlines or restraints. Side projects allow programming in an exploratory way.</p>
-
-<h2>Explore new technologies</h2>
-
-<p>Every day there are more and more bleeding edge technologies coming out. A side project is a great place to try them out. There&#8217;s no reason to worry about bugs or performance issues because it&#8217;s just a side project. You&#8217;re not depending on the project to pay your bills. It&#8217;s ok if the website crashes.</p>
-
-<h2>Creating from scratch</h2>
-
-<p>Most jobs I&#8217;ve had so far were mostly maintenance work. Adding new features, fixing bugs, troubleshooting performance problems, refactoring existing code. Though I&#8217;ve built more than a few applications from scratch, it only takes me a couple months to lay the foundation, and then I&#8217;m in maintenance mode again.</p>
-
-<p>Side projects require creating from scratch on a regular basis. I love this step because I get to step back and take everything I&#8217;ve learned and put that into creating a new (and improved) project.</p>
-
-<h2>Good enough to launch</h2>
-
-<p>Working on a side project is also an exercise in avoiding analysis paralysis. If you&#8217;re starting from scratch, the possibilities are endless. A good way to avoid this is to make your short list of must have features, and then launch a beta when you have those features. A so called <a href="http://en.wikipedia.org/wiki/Minimum_viable_product">minimum viable product</a>.</p>
-
-<h2>Staving off burnout</h2>
-
-<p>Work on your passion. Work on something that is fun. If you&#8217;re a developer who is about to burnout because you don&#8217;t enjoy what you&#8217;re working on, try creating your own side project. It will remind you why programming is fun.</p>
-
-<h2>Keeping your skillset current</h2>
-
-<p>Maybe you&#8217;re working with old technology at your day job. Maybe you&#8217;re bored with your current skillset and want to learn some new skills. Side  are a great way to keep current with emerging trends in software. Never tried node.js? Great, make a small side project using it. All of a sudden you have something to show off as proof of your newly acquired skills.</p>
-
-<h2>Complete your side project</h2>
-
-<p>One of the problems with side projects is that they can remain incomplete. You may start on a project with all the gusto in the world, but then it&#8217;s two months later and you can&#8217;t remember the last time you worked on the side project. Nevertheless it&#8217;s important to push forward and complete the project. On that note, I&#8217;m off to do some work on my side project.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1252,6 +1257,10 @@ very_long_var_name = 25
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/building-a-gaming-pc/">Building a Gaming PC</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a>
       </li>
     
@@ -1265,10 +1274,6 @@ very_long_var_name = 25
     
       <li class="post">
         <a href="/blog/blogging-on-jekyll-url-redirects/">Blogging on Jekyll: URL Redirects</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/solving-the-general-case/">Solving the General Case</a>
       </li>
     
   </ul>
