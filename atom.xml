@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2011-12-22T12:14:01-05:00</updated>
+  <updated>2012-01-04T19:57:21-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Stop Programming]]></title>
+    <link href="http://rawsyntax.com/blog/stop-programming/"/>
+    <updated>2012-01-04T15:25:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/stop-programming</id>
+    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/stop-programming.jpg" alt="Stop Programming" class="center"/></p>
+
+<p>I&#8217;ve got some ideas on how you can improve your programming by not
+programming.  Try something new this year.</p>
+
+<h3>Simplifying Too Much</h3>
+
+<p>About 4 years ago, I fell in love with minimalism and tried to get rid of most of my possessions.  I went as far as selling my saxophone, (3) bass guitars,  and bass rig.  This meant not playing music any more.  At the time I decided that playing music was nonessential since it did not relate to programming and didn&#8217;t make any money.  I also sold my bicycle (which meant no more cycling).</p>
+
+<p>Pretty soon after that I was just a guy who programmed at work and
+worked on programming projects at home.  In other words, not very interesting.</p>
+
+<p>The great secret of minimalism (taken to an extreme), is that if you
+take away everything you are left with nothing.  In my case I realized
+I didn&#8217;t do anything for fun anymore.  I&#8217;ve since bought a bass,
+bass rig, and bicycle and started teaching myself classical / flamenco guitar.</p>
+
+<h3>Be a Beginner Again</h3>
+
+<p>I think there&#8217;s a problem lurking in many programming communities
+(forums, IRC, mailing lists).  Every so often a beginner comes a long
+and asks a basic question in the wrong way.  He doesn&#8217;t follow the
+rules of the community.  So a long-standing member of the community
+replies &#8220;use the search&#8221;, &#8220;read the FAQ&#8221;,  or a similar useless
+answer.  Go and search any forum you will find useless results like
+this.  This is not only unfriendly, but can pollute search results for
+others that visit later with the same questions, which eventually
+renders the &#8220;use the search&#8221; solution useless.</p>
+
+<p>While I agree that a community&#8217;s rules of etiquette should be
+followed, I think some members of these online communities have
+forgotten what it&#8217;s like to be a beginner.  Often newbie may not
+know what to search or need some extra explanation regarding a common
+problem. I found this to be the case when starting out with <a href="http://rawsyntax.com/blog/categories/learn-emacs/">emacs</a>,
+wherein reading the manual and using the help system are actually part
+of emacs itself and can be confusing if you don&#8217;t even know how to use
+the thing.</p>
+
+<p>That&#8217;s why I recommend trying something other than programming.  Go
+for something unrelated.  Something where you will be a complete
+beginner.  Try learning a musical instrument, building a bike,
+woodworking, etc&#8230;  Next time you&#8217;re helping out a beginner you may
+find yourself being more helpful and patient.</p>
+
+<h3>Expand Your Mind</h3>
+
+<p>The other reason to try something new is that it may eventually lead
+you to approach programming problems in a different or unconvential
+way.  Much of what we do is done by way of analogy.  OOP works by
+making a model that approximates real situations.  Eventually you&#8217;ll
+run into a real programming problem that can be solved using methods
+from the real world.</p>
+
+<p>Furthermore, programming is creative work.  It can be helpful to look
+elsewhere for inspiration.  Often I find myself thinking of
+programming as an art, as self-expression (albeit with many real world
+constraints; self-expression won&#8217;t necessarily create useful
+programs).  To get a better idea of what I mean check out <a
+href="http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071">The Tao of Programming</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=0931137071" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />.  Though it is written in a somewhat joking
+manner, there are a lot of truths in it.</p>
+
+<p>My favorite section is <strong>2.4</strong>:</p>
+
+<blockquote><p>A novice asked the Master: &#8220;Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?&#8221;</p><p>The Master replies: &#8220;That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.&#8221;</p><footer><strong>The Tao of Programming</strong><cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote>
+
+
+<p>Though this style of programming is totally impractical for designing
+reliable extensible software, I ponder it every few months because
+it is such a different perspective.  What if you were able to write a
+program that had the intuitive cohesion of a poem?</p>
+
+<h3>Now Go Do Something Else</h3>
+
+<p>That&#8217;s it.  Try something different and new this year.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Building a Gaming PC]]></title>
@@ -1678,41 +1760,6 @@ very_long_var_name = 25
 <h2>I got the interview, what now?</h2>
 
 <p><a href="http://rawsyntax.com/blog/interviewing-for-programmers">Read my earlier post on interviewing for a programming job</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Interviewing for Programmers]]></title>
-    <link href="http://rawsyntax.com/blog/interviewing-for-programmers/"/>
-    <updated>2011-06-02T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/interviewing-for-programmers</id>
-    <content type="html"><![CDATA[<p>Interviewing is a funny thing. In order to get hired for a programming job it&#8217;s most important to interview well. Getting hired usually doesn&#8217;t have much to do with programming skills. This is typically a pain point for programmers. Many of us feel that the hiring process should be changed. Personally, I&#8217;m ok with the hiring process as it is. It could be improved, but I&#8217;m going to tell you how to get a job anyway.</p>
-
-<h2>It&#8217;s a skill</h2>
-
-<p>Treat interviewing like a skill. It&#8217;s going to require some practice. It&#8217;s quite different from programming. Something I&#8217;ve noticed about  over the years is that the inexperienced naive ones tend to think that they know everything whereas experienced programmers know more what they don&#8217;t know. So as you grow as a programmer, you may even think of yourself as  worse programmer because you grow aware of what you don&#8217;t know. This is problematic when interviewing because you are essentially selling yourself to the company. If you don&#8217;t feel the product is good how can you sell it effectively? The next step is to figure out how to sell yourself.</p>
-
-<h2>Practice your pitch</h2>
-
-<p>I firmly believe that you have to have a game plan for the interview. Be familiar with everything you wrote on your resume. Have answers for the most common questions. Be able to relate specific experiences in your career in away that shows your strengths. Have your own pitch ready in the case that the interviewer doesn&#8217;t have much to say. I&#8217;ve had interviews where the interviewer simply asked open ended questions. It&#8217;s good to have your pitch ready to hit these questions out of the park.</p>
-
-<h2>Code Examples</h2>
-
-<p>Programming during the interview is silly. It&#8217;s not an accurate evaluation of a programmer&#8217;s skills, and I&#8217;m not sure what it serves to show the interviewer. I find that an easy way to avoid doing coding during the interview is to have some code examples ready for the interviewer to see. It&#8217;s important for the interviewer to both see the code and be able to run the app. Personally, I&#8217;ll build a side project in rails and host it on heroku, which allows the interviewer to review code and easily try out the app.</p>
-
-<p><a href="http://rawsyntax.com/blog/importance-of-side-projects">More on side projects here</a>.</p>
-
-<h2>All interviews are practice</h2>
-
-<p>Many programmers get nervous during interviews. I calm my nerves by remembering that all interviews are practice. If you don&#8217;t get the job it&#8217;s not a big deal. Simply apply for another job and interview for that one. In the meantime, I get real practice to hone my interview skills. However, before that next interview it&#8217;s important to try to learn from the interview you just had.</p>
-
-<h2>Evaluate your performance</h2>
-
-<p>What went wrong in the last interview? Where could you have improved? What went well? It&#8217;s important to critique your performance shortly after your interview. That way you won&#8217;t miss anything since everything will be fresh in your mind.</p>
-
-<h2>But how do I GET an interview?</h2>
-
-<p>That&#8217;s the subject of my next post. I&#8217;ll go over resume and cover letter writing, and some other topics. <a href="http://rawsyntax.com/blog/how-to-get-a-programming-interview">Read it here</a></p>
 ]]></content>
   </entry>
   

@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Generating Available Domain Names - Raw Syntax</title>
+  <title>Stop Programming - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a &hellip;">
+  <meta name="description" content="I&#8217;ve got some ideas on how you can improve your programming by not
+programming. Try something new this year. Simplifying Too Much About 4 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/generating-available-domain-names">
+  <link rel="canonical" href="http://rawsyntax.com/blog/stop-programming">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">Generating Available Domain Names</h1>
+      <h1 class="entry-title">Stop Programming</h1>
     
     
       <p class="meta">
@@ -89,68 +90,87 @@
 
   
 
-<time datetime="2011-04-22T00:00:00-04:00" pubdate>Apr 22<span>nd</span>, 2011</time>
+<time datetime="2012-01-04T15:25:00-05:00" pubdate>Jan 4<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a whois query to check if it&#8217;s available. Feel free to tweak it to your own needs. It also has some sleep calls to avoid flooding the whois server. Let it run for a couple days, see what comes out.</p>
+<div class="entry-content"><p><img src="/images/stop-programming.jpg" alt="Stop Programming" class="center"/></p>
 
-<p>I actually generated <a href="http://rawsyntax.com">rawsyntax.com</a> using this script.</p>
+<p>I&#8217;ve got some ideas on how you can improve your programming by not
+programming.  Try something new this year.</p>
 
-<div><script src='https://gist.github.com/1360029.js?file='></script>
-<noscript><pre><code>#!/usr/bin/env ruby
-require 'rubygems'
-require 'whois'
+<h3>Simplifying Too Much</h3>
 
-module Domaing
-  def self.alliterative?(first_word, second_word)
-    first_word[0] == second_word[0]
-  end
+<p>About 4 years ago, I fell in love with minimalism and tried to get rid of most of my possessions.  I went as far as selling my saxophone, (3) bass guitars,  and bass rig.  This meant not playing music any more.  At the time I decided that playing music was nonessential since it did not relate to programming and didn&#8217;t make any money.  I also sold my bicycle (which meant no more cycling).</p>
 
-  def self.generate_names(words)
-    first  = words[rand(words.size)].strip.downcase
-    second = words[rand(words.size)].strip.downcase
+<p>Pretty soon after that I was just a guy who programmed at work and
+worked on programming projects at home.  In other words, not very interesting.</p>
 
-    &quot;#{first}#{second}.com&quot; if alliterative?(first, second)
-  end
+<p>The great secret of minimalism (taken to an extreme), is that if you
+take away everything you are left with nothing.  In my case I realized
+I didn&#8217;t do anything for fun anymore.  I&#8217;ve since bought a bass,
+bass rig, and bicycle and started teaching myself classical / flamenco guitar.</p>
 
-  def self.generate_domains
-    words = []
+<h3>Be a Beginner Again</h3>
 
-    File.open(&quot;2of12.txt&quot;, &quot;r&quot;).each_line do |l|
-      words &lt;&lt; l if l.length &gt; 4 &amp;&amp;  l.length &lt; 7
-    end
+<p>I think there&#8217;s a problem lurking in many programming communities
+(forums, IRC, mailing lists).  Every so often a beginner comes a long
+and asks a basic question in the wrong way.  He doesn&#8217;t follow the
+rules of the community.  So a long-standing member of the community
+replies &#8220;use the search&#8221;, &#8220;read the FAQ&#8221;,  or a similar useless
+answer.  Go and search any forum you will find useless results like
+this.  This is not only unfriendly, but can pollute search results for
+others that visit later with the same questions, which eventually
+renders the &#8220;use the search&#8221; solution useless.</p>
 
-    domains = []
+<p>While I agree that a community&#8217;s rules of etiquette should be
+followed, I think some members of these online communities have
+forgotten what it&#8217;s like to be a beginner.  Often newbie may not
+know what to search or need some extra explanation regarding a common
+problem. I found this to be the case when starting out with <a href="/blog/categories/learn-emacs/">emacs</a>,
+wherein reading the manual and using the help system are actually part
+of emacs itself and can be confusing if you don&#8217;t even know how to use
+the thing.</p>
 
-    while domains.count &lt; 30000
-      domain = generate_names(words)
-      domains &lt;&lt; domain if domain
-    end
+<p>That&#8217;s why I recommend trying something other than programming.  Go
+for something unrelated.  Something where you will be a complete
+beginner.  Try learning a musical instrument, building a bike,
+woodworking, etc&#8230;  Next time you&#8217;re helping out a beginner you may
+find yourself being more helpful and patient.</p>
 
-    domains.each  do |d|
-      sleep 5
-      begin
-        if Whois.whois(d).available?
-          File.open(&quot;domains.txt&quot;, &quot;a&quot;) do |f|
-            f.write &quot;#{d}\n&quot;
-          end
-        end
-      rescue
-        sleep 100 # to avoid overloading whois servers
-      end
-    end
-  end
-end
+<h3>Expand Your Mind</h3>
 
-Domaing.generate_domains
-</code></pre></noscript></div>
+<p>The other reason to try something new is that it may eventually lead
+you to approach programming problems in a different or unconvential
+way.  Much of what we do is done by way of analogy.  OOP works by
+making a model that approximates real situations.  Eventually you&#8217;ll
+run into a real programming problem that can be solved using methods
+from the real world.</p>
+
+<p>Furthermore, programming is creative work.  It can be helpful to look
+elsewhere for inspiration.  Often I find myself thinking of
+programming as an art, as self-expression (albeit with many real world
+constraints; self-expression won&#8217;t necessarily create useful
+programs).  To get a better idea of what I mean check out <a
+href="http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071">The Tao of Programming</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=0931137071" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />.  Though it is written in a somewhat joking
+manner, there are a lot of truths in it.</p>
+
+<p>My favorite section is <strong>2.4</strong>:</p>
+
+<blockquote><p>A novice asked the Master: &#8220;Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?&#8221;</p><p>The Master replies: &#8220;That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.&#8221;</p><footer><strong>The Tao of Programming</strong><cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote>
 
 
+<p>Though this style of programming is totally impractical for designing
+reliable extensible software, I ponder it every few months because
+it is such a different perspective.  What if you were able to write a
+program that had the intuitive cohesion of a poem?</p>
 
+<h3>Now Go Do Something Else</h3>
+
+<p>That&#8217;s it.  Try something different and new this year.</p>
 </div>
 
 
@@ -168,12 +188,12 @@ Domaing.generate_domains
 
   
 
-<time datetime="2011-04-22T00:00:00-04:00" pubdate>Apr 22<span>nd</span>, 2011</time>
+<time datetime="2012-01-04T15:25:00-05:00" pubdate>Jan 4<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/rants/'>rants</a>
   
 </span>
 
@@ -182,7 +202,7 @@ Domaing.generate_domains
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/generating-available-domain-names/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/generating-available-domain-names/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/stop-programming/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/stop-programming/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -195,14 +215,18 @@ Domaing.generate_domains
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/rails-3-email-validation/" title="Previous Post: Rails 3 Email Validation">&laquo; Rails 3 Email Validation</a>
+        <a class="basic-alignment left" href="/blog/building-a-gaming-pc/" title="Previous Post: Building a Gaming PC">&laquo; Building a Gaming PC</a>
       
-      
-        <a class="basic-alignment right" href="/blog/importance-of-side-projects/" title="next Post: Importance of Side Projects">Importance of Side Projects &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -320,7 +344,10 @@ Domaing.generate_domains
       var disqus_shortname = 'rawsyntax';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rawsyntax.com/blog/stop-programming';
+        var disqus_url = 'http://rawsyntax.com/blog/stop-programming';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
