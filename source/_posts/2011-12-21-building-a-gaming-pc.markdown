@@ -39,7 +39,7 @@ that it was just a bad memory stick causing all my issues.
 Next you'll want to spec out exactly what parts you'll be using and
 ensure they are all compatible with each other.  A good site for
 finding parts and getting the best price is
-[http://pcpartpicker.com/](PCPartPicker).  If you need help deciding
+[PCPartPicker](http://pcpartpicker.com/).  If you need help deciding
 on a PC build that fits your budget, head on over to
 [BuildAPC](http://www.reddit.com/r/buildapc).  I had them recommend me
 a gaming PC build for my budget.  They can also help you with advice
