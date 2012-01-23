@@ -9,8 +9,10 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I&#8217;ve got some ideas on how you can improve your programming by not
-programming. Try something new this year. Simplifying Too Much About 4 &hellip;">
+  <meta name="description" content="Up to this point my Learn Emacs
+series has been all about how to do cool stuff in emacs. One of my
+personal favorites is align-regexp.
+A while back &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +78,83 @@ programming. Try something new this year. Simplifying Too Much About 4 &hellip;"
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting Your Emacs Config</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2012-01-22T22:26:00-05:00" pubdate>Jan 22<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Up to this point my <a href="/blog/categories/learn-emacs">Learn Emacs</a>
+series has been all about how to do cool stuff in emacs.  One of my
+personal favorites is <a href="/blog/learn-emacs-align-regexp/">align-regexp</a>.
+A while back that stopped working for me.  Now I get an error: <code>Wrong type
+argument: markerp, 0</code>.  Emacs doesn&#8217;t always do what I mean.</p>
+
+<h3>First Remove your Config</h3>
+
+<p>Whether you use a single <code>.emacs</code> file or a <code>~/.emacs.d/</code> directory
+it is time to remove it.  Personally I keep <code>~/.emacs.d/</code> symlinked to
+my <a href="https://github.com/rawsyntax/emacs.d">emacs.d github repo</a> so it iss
+quite easy to remove the symlink.  Alternatively you can start emacs
+with the <code>--no-init-file</code> option, to skip loading your files. The
+rationale for removing your config is simply that it reduces the
+number of variables you are dealing with.  Is the problem with your
+config or with emacs itself?</p>
+
+<h3>Then Check your Emacs Version</h3>
+
+<p>After I removed my config and tried <code>M-x align-regexp</code> again, I got
+the same error.  So its not my config.  If you find you have a problem
+with a particular version of emacs <code>M-x emacs-version</code> will tell you
+what version you have.  In my case it was</p>
+
+<pre><code>GNU Emacs 24.0.92.1 (x86_64-apple-darwin, NS apple-appkit-1038.36) of 2011-12-02 on bob.porkrind.org
+</code></pre>
+
+<p>As I get my emacs builds from
+<a href="http://emacsformacosx.com/">EmacsForMacOSX</a> or <code>brew install</code> them
+myself.  At this point I&#8217;m fairly certain I&#8217;m getting the error as a
+result of running a nightly build.  A quick google leads me to
+<a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2011-12/msg00266.html">bug#10249: 24.0.92</a>.
+I installed a pretest version, and align-regexp works fine like it
+used to..  I would prefer to be running the stable version, but I&#8217;m using
+<a href="https://github.com/technomancy/emacs-starter-kit">emacs-starter-kit</a>
+for my config, which requires emacs 24.</p>
+
+<h3>Version your Config</h3>
+
+<p>When functionality like this breaks it is really awesome to have an
+emacs configuration that is under version control.  I can walk
+backwards through any recent changes to find what is causing breakage.
+So if your config isn&#8217;t already versioned, version it right now.</p>
+
+<p>PS: I&#8217;m interested to know any emacs topics you&#8217;d like to see a
+blogpost on.  I haven&#8217;t been hacking my emacs config much lately, so
+I&#8217;m short on ideas for emacs posts.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1063,41 +1142,6 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-10-25T00:00:00-04:00" pubdate>Oct 25<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working directory (from any previous tabs). I found this feature to be annoying, as I already have a command that will do it when I want it, and I prefer the old 10.6 behavior.</p>
-
-<p>Luckily, this is a preference in Terminal.app and can be easily changed.</p>
-
-<p><img src="http://media.tumblr.com/tumblr_ltmvs87NgE1qfdxjm.png"></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1117,6 +1161,10 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting your Emacs Config</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/stop-programming/">Stop Programming</a>
       </li>
     
@@ -1130,10 +1178,6 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
     
       <li class="post">
         <a href="/blog/verify-your-assumptions/">Verify your Assumptions</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/purchasing-electronic-media/">Purchasing Electronic Media</a>
       </li>
     
   </ul>

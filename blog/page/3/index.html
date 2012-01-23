@@ -9,7 +9,7 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Interviewing is a funny thing. In order to get hired for a programming job it&#8217;s most important to interview well. Getting hired usually doesn&# &hellip;">
+  <meta name="description" content="Before I get into the details, remember that persistence is critical in this. In my last job search, I lost count how many jobs I applied to. I also &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,69 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/how-to-get-a-programming-interview/">How to Get a Programming Interview</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-06-06T00:00:00-04:00" pubdate>Jun 6<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Before I get into the details, remember that persistence is critical in this. In my last job search, I lost count how many jobs I applied to. I also had one where I was sure I got the job, and they called to tell me why I didn&#8217;t get it. I got really discouraged for a couple days, and then resumed the job search. Keep at it. Remember, you only need one big hit.</p>
+
+<h2>Figure out what your ideal job is</h2>
+
+<p>Make a list of the qualities you want in a job. For me these qualities were telecommuting, ruby web development, small company. It&#8217;s not necessarily important to find the ideal job, but you need to come up with a way of scoring job opportunities.</p>
+
+<h2>Ask friends / colleagues</h2>
+
+<p>The easiest way to get a new job is through a friend. So exhaust those resources first. However, when you get the interview don&#8217;t assume you have the job in the bag because you&#8217;ve got a friend at the company. Still give it your best shot.</p>
+
+<h2>Use the right job sites</h2>
+
+<p>Figure out where the good jobs are getting posted. Personally, I was looking for a telecommute ruby job with a small company. The best sites for me were <a href="http://jobs.rubynow.com/">http://jobs.rubynow.com/</a>, <a href="http://toprubyjobs.com/,">http://toprubyjobs.com/,</a> and craigslist.</p>
+
+<h2>Sell yourself in your cover letter</h2>
+
+<p>I know a few developers that hate writing cover letters. This is more common in experienced developers. The more they know about programming, the more they realize they don&#8217;t know, and that can lead to a situation where they have a hard time selling themselves to companies. If you have trouble with this, start making an objective list of your accomplishments. Flesh them out a bit and you&#8217;ve got a good start.</p>
+
+<h2>Tailor your cover letter for each job</h2>
+
+<p>I keep a standard cover letter targeting ruby web developer jobs in my email. I then edit and tailor it specifically to the job ad. This saves a lot of time, as opposed to writing a cover letter from scratch every time. Saving time means you can apply for more jobs, and get more interviews.</p>
+
+<h2>What to put in a cover letter</h2>
+
+<p>I write about how my experience has made me a good candidate for the job listing, and I link to source code and running websites that I&#8217;ve built. It&#8217;s important to signal to the employer ASAP that you are not bullshitting, and you really can code.</p>
+
+<h2>Tailor your resumé</h2>
+
+<p>I also keep a standard detailed resume on my computer. For each job I may highlight some experience or detail certain areas more than others. Be careful here. Be sure that everything you write on there is rock solid, and that you can back it up. I spend less time on tweaking the resume and more time tweaking the cover letter.</p>
+
+<h2>I got the interview, what now?</h2>
+
+<p><a href="/blog/interviewing-for-programmers">Read my earlier post on interviewing for a programming job</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -715,51 +778,9 @@ end
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/rewriting-github-badges/">Rewriting Github-badges</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2010-08-25T00:00:00-04:00" pubdate>Aug 25<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In building <a href="http://rawsyntax.com">rawsyntax</a> I wanted to be able to
-link to my <a href="http://github.com/rawsyntax">github profile</a>.</p>
-
-<p>After a little searching I found <a href="http://drnicjavascript.rubyforge.org/github_badge/">drnic&#8217;s github-badges</a>. It looked great, and I put it on the sidebar of my site. However, when I went to do crossbrowser testing (I develop in firefox, and crossbrowser test before deploying to production) I found that it caused IE[6,7,8] to crash.</p>
-
-<p>This is a big problem. I believe strongly in
-<a href="http://en.wikipedia.org/wiki/Progressive_enhancement">graceful degradation / progressive enhancement</a>. It&#8217;s one thing if IE isn&#8217;t getting the full experience, but crashing the browser is unacceptable.</p>
-
-<p>At this point, I had to have github-badges on my site. It&#8217;s simply too cool to
-do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_badge/">github-badges project site</a> and the source code. I figured it&#8217;d be easier to re-implement than to debug the current code (mostly because I&#8217;d rather not debug on IE[6,7,8]).</p>
-
-<p>In searching around for other github-badges alternatives, I didn&#8217;t anything that looked good and actually worked in all browsers. I did happen upon <a href="http://blog.darkhax.com/2010/03/04/make-your-own-badge-with-jquery-and-jaml">darkhax&#8217;s make-your-own-badge-with-jquery-and-jaml</a> post. Between this and <a href="http://github.com/drnic/github-badges">drnic&#8217;s github-badges</a> I cobbled together a solution that works in all browsers, and has the same features as drnic&#8217;s github-badges. It also has user configurable parameters. Check out the code on <a href="http://github.com/rawsyntax/github-badge">github</a>.</p>
-
-<p>UPDATE: I&#8217;ve since removed the github-badges, and added a link to my profile instead</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -778,6 +799,10 @@ do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting your Emacs Config</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/stop-programming/">Stop Programming</a>
       </li>
     
@@ -791,10 +816,6 @@ do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_
     
       <li class="post">
         <a href="/blog/verify-your-assumptions/">Verify your Assumptions</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/purchasing-electronic-media/">Purchasing Electronic Media</a>
       </li>
     
   </ul>

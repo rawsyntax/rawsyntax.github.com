@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-01-06T09:44:42-05:00</updated>
+  <updated>2012-01-22T23:02:11-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Troubleshooting your Emacs Config]]></title>
+    <link href="http://rawsyntax.com/blog/troubleshooting-your-emacs-config/"/>
+    <updated>2012-01-22T22:26:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/troubleshooting-your-emacs-config</id>
+    <content type="html"><![CDATA[<p>Up to this point my <a href="/blog/categories/learn-emacs">Learn Emacs</a>
+series has been all about how to do cool stuff in emacs.  One of my
+personal favorites is <a href="/blog/learn-emacs-align-regexp/">align-regexp</a>.
+A while back that stopped working for me.  Now I get an error: <code>Wrong type
+argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
+
+<h3>First Remove your Config</h3>
+
+<p>Whether you use a single <code>.emacs</code> file or a <code>~/.emacs.d/</code> directory
+it is time to remove it.  Personally I keep <code>~/.emacs.d/</code> symlinked to
+my <a href="https://github.com/rawsyntax/emacs.d">emacs.d github repo</a> so it iss
+quite easy to remove the symlink.  Alternatively you can start emacs
+with the <code>--no-init-file</code> option, to skip loading your files. The
+rationale for removing your config is simply that it reduces the
+number of variables you are dealing with.  Is the problem with your
+config or with emacs itself?</p>
+
+<h3>Then Check your Emacs Version</h3>
+
+<p>After I removed my config and tried <code>M-x align-regexp</code> again, I got
+the same error.  So its not my config.  If you find you have a problem
+with a particular version of emacs <code>M-x emacs-version</code> will tell you
+what version you have.  In my case it was</p>
+
+<pre><code>GNU Emacs 24.0.92.1 (x86_64-apple-darwin, NS apple-appkit-1038.36) of 2011-12-02 on bob.porkrind.org
+</code></pre>
+
+<p>As I get my emacs builds from
+<a href="http://emacsformacosx.com/">EmacsForMacOSX</a> or <code>brew install</code> them
+myself.  At this point I'm fairly certain I'm getting the error as a
+result of running a nightly build.  A quick google leads me to
+<a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2011-12/msg00266.html">bug#10249: 24.0.92</a>.
+I installed a pretest version, and align-regexp works fine like it
+used to..  I would prefer to be running the stable version, but I'm using
+<a href="https://github.com/technomancy/emacs-starter-kit">emacs-starter-kit</a>
+for my config, which requires emacs 24.</p>
+
+<h3>Version your Config</h3>
+
+<p>When functionality like this breaks it is really awesome to have an
+emacs configuration that is under version control.  I can walk
+backwards through any recent changes to find what is causing breakage.
+So if your config isn't already versioned, version it right now.</p>
+
+<p>PS: I'm interested to know any emacs topics you'd like to see a
+blogpost on.  I haven't been hacking my emacs config much lately, so
+I'm short on ideas for emacs posts.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Useful Links]]></title>
@@ -148,59 +203,6 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
 </p>
 
 <p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge's .emacs file (rename-file-and-buffer)</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: align-regexp]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-align-regexp/"/>
-    <updated>2011-06-20T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-align-regexp</id>
-    <content type="html"><![CDATA[<p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
-
-<h4>From the Emacs Manual:</h4>
-
-<p>align-regexp is an interactive autoloaded Lisp function in `align.el'.</p>
-
-<p>It is bound to C-x .</p>
-
-<p>(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</p>
-
-<p>Align the current region using an ad-hoc rule read from the minibuffer. BEG and END mark the limits of the region. This function will prompt for the REGEXP to align with. If no prefix arg was specified, you only need to supply the characters to be lined up and any preceding whitespace is replaced. If a prefix arg was specified, the full regexp with parenthesized whitespace should be supplied; it will also prompt for which parenthesis GROUP within REGEXP to modify, the amount of SPACING to use, and whether or not to REPEAT the rule throughout the line. See `align-rules-list' for more information about these options.</p>
-
-<p>For example, let's say you had a list of phone numbers, and wanted to align them so that the opening parentheses would line up:</p>
-
-<pre><code>Fred (123) 456-7890
-
-Alice (123) 456-7890
-
-Mary-Anne (123) 456-7890
-
-Joe (123) 456-7890
-</code></pre>
-
-<p>There is no predefined rule to handle this, but you could easily do it using a
-REGEXP like "(". All you would have to do is to mark the region, call `align-
-regexp' and type in that regular expression.</p>
-
-<h2>What I use align-regexp for</h2>
-
-<p><div><script src='https://gist.github.com/1035839.js?file='></script>
-<noscript><pre><code># before align-regexp, not super easy to read
-
-var = 5
-another_value = 10
-assignment = 5
-very_long_var_name = 25
-
-# after align-regexp =, readability improved!
-
-var                = 5
-another_value      = 10
-assignment         = 5
-very_long_var_name = 25
-</code></pre></noscript></div>
-</p>
 ]]></content>
   </entry>
   

@@ -5,12 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Stop Programming - Raw Syntax</title>
+  <title>Troubleshooting your Emacs Config - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I&#8217;ve got some ideas on how you can improve your programming by not
-programming. Try something new this year. Simplifying Too Much About 4 &hellip;">
+  <meta name="description" content="Up to this point my Learn Emacs
+series has been all about how to do cool stuff in emacs. One of my
+personal favorites is align-regexp.
+A while back &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +21,7 @@ programming. Try something new this year. Simplifying Too Much About 4 &hellip;"
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/stop-programming">
+  <link rel="canonical" href="http://rawsyntax.com/blog/troubleshooting-your-emacs-config">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,7 +81,7 @@ programming. Try something new this year. Simplifying Too Much About 4 &hellip;"
   
   <header>
     
-      <h1 class="entry-title">Stop Programming</h1>
+      <h1 class="entry-title">Troubleshooting Your Emacs Config</h1>
     
     
       <p class="meta">
@@ -90,87 +92,60 @@ programming. Try something new this year. Simplifying Too Much About 4 &hellip;"
 
   
 
-<time datetime="2012-01-04T15:25:00-05:00" pubdate>Jan 4<span>th</span>, 2012</time>
+<time datetime="2012-01-22T22:26:00-05:00" pubdate>Jan 22<span>nd</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img src="/images/stop-programming.jpg" alt="Stop Programming" class="center"/></p>
+<div class="entry-content"><p>Up to this point my <a href="/blog/categories/learn-emacs">Learn Emacs</a>
+series has been all about how to do cool stuff in emacs.  One of my
+personal favorites is <a href="/blog/learn-emacs-align-regexp/">align-regexp</a>.
+A while back that stopped working for me.  Now I get an error: <code>Wrong type
+argument: markerp, 0</code>.  Emacs doesn&#8217;t always do what I mean.</p>
 
-<p>I&#8217;ve got some ideas on how you can improve your programming by not
-programming.  Try something new this year.</p>
+<h3>First Remove your Config</h3>
 
-<h3>Simplifying Too Much</h3>
+<p>Whether you use a single <code>.emacs</code> file or a <code>~/.emacs.d/</code> directory
+it is time to remove it.  Personally I keep <code>~/.emacs.d/</code> symlinked to
+my <a href="https://github.com/rawsyntax/emacs.d">emacs.d github repo</a> so it iss
+quite easy to remove the symlink.  Alternatively you can start emacs
+with the <code>--no-init-file</code> option, to skip loading your files. The
+rationale for removing your config is simply that it reduces the
+number of variables you are dealing with.  Is the problem with your
+config or with emacs itself?</p>
 
-<p>About 4 years ago, I fell in love with minimalism and tried to get rid of most of my possessions.  I went as far as selling my saxophone, (3) bass guitars,  and bass rig.  This meant not playing music any more.  At the time I decided that playing music was nonessential since it did not relate to programming and didn&#8217;t make any money.  I also sold my bicycle (which meant no more cycling).</p>
+<h3>Then Check your Emacs Version</h3>
 
-<p>Pretty soon after that I was just a guy who programmed at work and
-worked on programming projects at home.  In other words, not very interesting.</p>
+<p>After I removed my config and tried <code>M-x align-regexp</code> again, I got
+the same error.  So its not my config.  If you find you have a problem
+with a particular version of emacs <code>M-x emacs-version</code> will tell you
+what version you have.  In my case it was</p>
 
-<p>The great secret of minimalism (taken to an extreme), is that if you
-take away everything you are left with nothing.  In my case I realized
-I didn&#8217;t do anything for fun anymore.  I&#8217;ve since bought a bass,
-bass rig, and bicycle and started teaching myself classical / flamenco guitar.</p>
+<pre><code>GNU Emacs 24.0.92.1 (x86_64-apple-darwin, NS apple-appkit-1038.36) of 2011-12-02 on bob.porkrind.org
+</code></pre>
 
-<h3>Be a Beginner Again</h3>
+<p>As I get my emacs builds from
+<a href="http://emacsformacosx.com/">EmacsForMacOSX</a> or <code>brew install</code> them
+myself.  At this point I&#8217;m fairly certain I&#8217;m getting the error as a
+result of running a nightly build.  A quick google leads me to
+<a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2011-12/msg00266.html">bug#10249: 24.0.92</a>.
+I installed a pretest version, and align-regexp works fine like it
+used to..  I would prefer to be running the stable version, but I&#8217;m using
+<a href="https://github.com/technomancy/emacs-starter-kit">emacs-starter-kit</a>
+for my config, which requires emacs 24.</p>
 
-<p>I think there&#8217;s a problem lurking in many programming communities
-(forums, IRC, mailing lists).  Every so often a beginner comes a long
-and asks a basic question in the wrong way.  He doesn&#8217;t follow the
-rules of the community.  So a long-standing member of the community
-replies &#8220;use the search&#8221;, &#8220;read the FAQ&#8221;,  or a similar useless
-answer.  Go and search any forum you will find useless results like
-this.  This is not only unfriendly, but can pollute search results for
-others that visit later with the same questions, which eventually
-renders the &#8220;use the search&#8221; solution useless.</p>
+<h3>Version your Config</h3>
 
-<p>While I agree that a community&#8217;s rules of etiquette should be
-followed, I think some members of these online communities have
-forgotten what it&#8217;s like to be a beginner.  Often newbie may not
-know what to search or need some extra explanation regarding a common
-problem. I found this to be the case when starting out with <a href="/blog/categories/learn-emacs/">emacs</a>,
-wherein reading the manual and using the help system are actually part
-of emacs itself and can be confusing if you don&#8217;t even know how to use
-the thing.</p>
+<p>When functionality like this breaks it is really awesome to have an
+emacs configuration that is under version control.  I can walk
+backwards through any recent changes to find what is causing breakage.
+So if your config isn&#8217;t already versioned, version it right now.</p>
 
-<p>That&#8217;s why I recommend trying something other than programming.  Go
-for something unrelated.  Something where you will be a complete
-beginner.  Try learning a musical instrument, building a bike,
-woodworking, etc&#8230;  Next time you&#8217;re helping out a beginner you may
-find yourself being more helpful and patient.</p>
-
-<h3>Expand Your Mind</h3>
-
-<p>The other reason to try something new is that it may eventually lead
-you to approach programming problems in a different or unconvential
-way.  Much of what we do is done by way of analogy.  OOP works by
-making a model that approximates real situations.  Eventually you&#8217;ll
-run into a real programming problem that can be solved using methods
-from the real world.</p>
-
-<p>Furthermore, programming is creative work.  It can be helpful to look
-elsewhere for inspiration.  Often I find myself thinking of
-programming as an art, as self-expression (albeit with many real world
-constraints; self-expression won&#8217;t necessarily create useful
-programs).  To get a better idea of what I mean check out <a
-href="http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071">The Tao of Programming</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=0931137071" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />.  Though it is written in a somewhat joking
-manner, there is truth in it.</p>
-
-<p>My favorite section is <strong>2.4</strong>:</p>
-
-<blockquote><p>A novice asked the Master: &#8220;Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?&#8221;</p><p>The Master replies: &#8220;That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.&#8221;</p><footer><strong>The Tao of Programming</strong><cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote>
-
-
-<p>Though this style of programming is totally impractical for designing
-reliable extensible software, I ponder it every few months because
-it is such a different perspective.  What if you were able to write a
-program that had the intuitive cohesion of a poem?</p>
-
-<h3>Now Go Do Something Else</h3>
-
-<p>That&#8217;s it.  Try something different and new this year.</p>
+<p>PS: I&#8217;m interested to know any emacs topics you&#8217;d like to see a
+blogpost on.  I haven&#8217;t been hacking my emacs config much lately, so
+I&#8217;m short on ideas for emacs posts.</p>
 </div>
 
 
@@ -188,12 +163,12 @@ program that had the intuitive cohesion of a poem?</p>
 
   
 
-<time datetime="2012-01-04T15:25:00-05:00" pubdate>Jan 4<span>th</span>, 2012</time>
+<time datetime="2012-01-22T22:26:00-05:00" pubdate>Jan 22<span>nd</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/rants/'>rants</a>
+    <a class='category' href='/blog/categories/learn-emacs/'>learn-emacs</a>, <a class='category' href='/blog/categories/programming/'>programming</a>
   
 </span>
 
@@ -202,7 +177,7 @@ program that had the intuitive cohesion of a poem?</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/stop-programming/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/stop-programming/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/troubleshooting-your-emacs-config/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/troubleshooting-your-emacs-config/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -215,10 +190,8 @@ program that had the intuitive cohesion of a poem?</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/building-a-gaming-pc/" title="Previous Post: Building a Gaming PC">&laquo; Building a Gaming PC</a>
+        <a class="basic-alignment left" href="/blog/stop-programming/" title="Previous Post: Stop Programming">&laquo; Stop Programming</a>
       
-      
-        <a class="basic-alignment right" href="/blog/troubleshooting-your-emacs-config/" title="next Post: Troubleshooting your Emacs Config">Troubleshooting your Emacs Config &raquo;</a>
       
     </p>
   </footer>
@@ -347,8 +320,8 @@ program that had the intuitive cohesion of a poem?</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://rawsyntax.com/blog/stop-programming';
-        var disqus_url = 'http://rawsyntax.com/blog/stop-programming';
+        var disqus_identifier = 'http://rawsyntax.com/blog/troubleshooting-your-emacs-config';
+        var disqus_url = 'http://rawsyntax.com/blog/troubleshooting-your-emacs-config';
         var disqus_script = 'embed.js';
       
     (function () {
