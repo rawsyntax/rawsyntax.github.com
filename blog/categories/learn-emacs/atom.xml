@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-01-22T23:02:11-05:00</updated>
+  <updated>2012-01-26T10:51:42-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Swap Windows]]></title>
+    <link href="http://rawsyntax.com/blog/learn-emacs-swap-windows/"/>
+    <updated>2012-01-26T10:33:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/learn-emacs-swap-windows</id>
+    <content type="html"><![CDATA[<p>When I use Emacs in GUI mode, I set it up to have two 80 column
+windows side by side.  It's extremely convention when you need to look
+at one section of the code while writing another.  For instance, you
+can have the spec file side by side with the code when doing TDD.
+Sometimes I want to swap the windows.  This kind of functionality does
+not come built in with emacs.  I found the <code>swap-windows</code> function
+that I use in Steve Yegge's
+<a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">.emacs</a>
+file.</p>
+
+<p><div><script src='https://gist.github.com/1683375.js?file='></script>
+<noscript><pre><code>(defun swap-windows ()
+ &quot;If you have 2 windows, it swaps them.&quot;
+ (interactive)
+ (cond ((not (= (count-windows) 2))
+        (message &quot;You need exactly 2 windows to do this.&quot;))
+       (t
+        (let* ((w1 (first (window-list)))
+               (w2 (second (window-list)))
+               (b1 (window-buffer w1))
+               (b2 (window-buffer w2))
+               (s1 (window-start w1))
+               (s2 (window-start w2)))
+          (set-window-buffer w1 b2)
+          (set-window-buffer w2 b1)
+          (set-window-start w1 s2)
+          (set-window-start w2 s1)))))</code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Troubleshooting your Emacs Config]]></title>
@@ -183,26 +219,6 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
 </p>
 
 <p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: delete-file-and-buffer]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-delete-file-and-buffer/"/>
-    <updated>2011-06-21T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-delete-file-and-buffer</id>
-    <content type="html"><![CDATA[<p>From my ~/.emacs.d</p>
-
-<p><div><script src='https://gist.github.com/1035862.js?file='></script>
-<noscript><pre><code>(defun delete-file-and-buffer ()
-  &quot;Deletes the current file and buffer, assumes file exists&quot;
-  (interactive)
-  (delete-file buffer-file-name)
-  (kill-buffer (buffer-name)))
-</code></pre></noscript></div>
-</p>
-
-<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge's .emacs file (rename-file-and-buffer)</a></p>
 ]]></content>
   </entry>
   

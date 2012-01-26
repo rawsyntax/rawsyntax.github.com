@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-01-22T23:02:11-05:00</updated>
+  <updated>2012-01-26T10:51:42-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Swap Windows]]></title>
+    <link href="http://rawsyntax.com/blog/learn-emacs-swap-windows/"/>
+    <updated>2012-01-26T10:33:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/learn-emacs-swap-windows</id>
+    <content type="html"><![CDATA[<p>When I use Emacs in GUI mode, I set it up to have two 80 column
+windows side by side.  It&#8217;s extremely convention when you need to look
+at one section of the code while writing another.  For instance, you
+can have the spec file side by side with the code when doing TDD.
+Sometimes I want to swap the windows.  This kind of functionality does
+not come built in with emacs.  I found the <code>swap-windows</code> function
+that I use in Steve Yegge&#8217;s
+<a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">.emacs</a>
+file.</p>
+
+<div><script src='https://gist.github.com/1683375.js?file='></script>
+<noscript><pre><code>(defun swap-windows ()
+ &quot;If you have 2 windows, it swaps them.&quot;
+ (interactive)
+ (cond ((not (= (count-windows) 2))
+        (message &quot;You need exactly 2 windows to do this.&quot;))
+       (t
+        (let* ((w1 (first (window-list)))
+               (w2 (second (window-list)))
+               (b1 (window-buffer w1))
+               (b2 (window-buffer w2))
+               (s1 (window-start w1))
+               (s2 (window-start w2)))
+          (set-window-buffer w1 b2)
+          (set-window-buffer w2 b1)
+          (set-window-start w1 s2)
+          (set-window-start w2 s1)))))</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Troubleshooting your Emacs Config]]></title>
@@ -1719,61 +1757,6 @@ I think you should use an
 <p><img src="http://rawsyntax.com/images/rails-profile.png"></p>
 
 <p>See <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a> for configuration options.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: align-regexp]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-align-regexp/"/>
-    <updated>2011-06-20T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-align-regexp</id>
-    <content type="html"><![CDATA[<p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
-
-<h4>From the Emacs Manual:</h4>
-
-<p>align-regexp is an interactive autoloaded Lisp function in `align.el&#8217;.</p>
-
-<p>It is bound to C-x .</p>
-
-<p>(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</p>
-
-<p>Align the current region using an ad-hoc rule read from the minibuffer. BEG and END mark the limits of the region. This function will prompt for the REGEXP to align with. If no prefix arg was specified, you only need to supply the characters to be lined up and any preceding whitespace is replaced. If a prefix arg was specified, the full regexp with parenthesized whitespace should be supplied; it will also prompt for which parenthesis GROUP within REGEXP to modify, the amount of SPACING to use, and whether or not to REPEAT the rule throughout the line. See `align-rules-list&#8217; for more information about these options.</p>
-
-<p>For example, let&#8217;s say you had a list of phone numbers, and wanted to align them so that the opening parentheses would line up:</p>
-
-<pre><code>Fred (123) 456-7890
-
-Alice (123) 456-7890
-
-Mary-Anne (123) 456-7890
-
-Joe (123) 456-7890
-</code></pre>
-
-<p>There is no predefined rule to handle this, but you could easily do it using a
-REGEXP like &#8220;(&#8220;. All you would have to do is to mark the region, call `align-
-regexp&#8217; and type in that regular expression.</p>
-
-<h2>What I use align-regexp for</h2>
-
-<div><script src='https://gist.github.com/1035839.js?file='></script>
-<noscript><pre><code># before align-regexp, not super easy to read
-
-var = 5
-another_value = 10
-assignment = 5
-very_long_var_name = 25
-
-# after align-regexp =, readability improved!
-
-var                = 5
-another_value      = 10
-assignment         = 5
-very_long_var_name = 25
-</code></pre></noscript></div>
-
-
-
 ]]></content>
   </entry>
   

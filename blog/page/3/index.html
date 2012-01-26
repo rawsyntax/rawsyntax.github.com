@@ -9,7 +9,7 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Before I get into the details, remember that persistence is critical in this. In my last job search, I lost count how many jobs I applied to. I also &hellip;">
+  <meta name="description" content="In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable. From the Emacs Manual: align-regexp is an &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,83 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learn-emacs-align-regexp/">Learn Emacs: Align-regexp</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
+
+<h4>From the Emacs Manual:</h4>
+
+<p>align-regexp is an interactive autoloaded Lisp function in `align.el&#8217;.</p>
+
+<p>It is bound to C-x .</p>
+
+<p>(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</p>
+
+<p>Align the current region using an ad-hoc rule read from the minibuffer. BEG and END mark the limits of the region. This function will prompt for the REGEXP to align with. If no prefix arg was specified, you only need to supply the characters to be lined up and any preceding whitespace is replaced. If a prefix arg was specified, the full regexp with parenthesized whitespace should be supplied; it will also prompt for which parenthesis GROUP within REGEXP to modify, the amount of SPACING to use, and whether or not to REPEAT the rule throughout the line. See `align-rules-list&#8217; for more information about these options.</p>
+
+<p>For example, let&#8217;s say you had a list of phone numbers, and wanted to align them so that the opening parentheses would line up:</p>
+
+<pre><code>Fred (123) 456-7890
+
+Alice (123) 456-7890
+
+Mary-Anne (123) 456-7890
+
+Joe (123) 456-7890
+</code></pre>
+
+<p>There is no predefined rule to handle this, but you could easily do it using a
+REGEXP like &#8220;(&#8220;. All you would have to do is to mark the region, call `align-
+regexp&#8217; and type in that regular expression.</p>
+
+<h2>What I use align-regexp for</h2>
+
+<div><script src='https://gist.github.com/1035839.js?file='></script>
+<noscript><pre><code># before align-regexp, not super easy to read
+
+var = 5
+another_value = 10
+assignment = 5
+very_long_var_name = 25
+
+# after align-regexp =, readability improved!
+
+var                = 5
+another_value      = 10
+assignment         = 5
+very_long_var_name = 25
+</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -692,92 +769,6 @@ end
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/start-using-html5/">Start Using Html5</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2010-09-25T00:00:00-04:00" pubdate>Sep 25<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>There&#8217;s a lot of hype going on about html5 nowadays. If you&#8217;re not using html5 yet, the whole thing can be somewhat overwhelming. After reading this blogpost you&#8217;ll be ready to upgrade your current project (or start a new one) using html5.</p>
-
-<h2>Understanding html5</h2>
-
-<p>I went to the <a href="http://www.meetup.com/bocaruby/">bocaruby</a> ruby users group earlier this month. I had some understanding of what html5 is capable of, but Diego Scataglini&#8217;s presentation <a href="http://diegoscataglini.com/2010/09/14/232/html-5-a-gentle-introduction/">html5 a gentle introduction</a> definitely expanded my knowledge. I recommend it as a solid introduction to what is different about html5.</p>
-
-<h2>Using html5</h2>
-
-<p>Often times after learning about a new technology a lot of programmers get stuck. This new functionality is great, but how I do I get started using it? It really helps to have something that gives you a little push.</p>
-
-<p><a href="http://html5boilerplate.com/">enter html5-boilerplate</a></p>
-
-<p>Its a frontend template written in html5 with a lot of goodness baked in from the start. Between the css, html, various server configuration files, javascript libraries and profiling, its a huge collection of sane defaults for any web project.</p>
-
-<p>Some of its many features</p>
-
-<ul>
-<li><a href="http://www.modernizr.com/">Modernizr</a></li>
-<li><a href="http://html5doctor.com/html-5-reset-stylesheet/">html5 css reset</a></li>
-<li>cross-browser compatible</li>
-<li>cdn hosted jquery with local fallback</li>
-<li>javascript profiling I particularly like how it handles ie specific styles.</li>
-</ul>
-
-
-<div><script src='https://gist.github.com/595804.js?file='></script>
-<noscript><pre><code>&lt;!doctype html&gt;
-&lt;!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --&gt;
-&lt;!--[if lt IE 7 ]&gt; &lt;html lang=&quot;en&quot; class=&quot;no-js ie6&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 7 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie7&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 8 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie8&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 9 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie9&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt; &lt;html lang=&quot;en&quot; class=&quot;no-js&quot;&gt; &lt;!--&lt;![endif]--&gt;
-</code></pre></noscript></div>
-
-
-<p>You end up with a ie-version class applied to the html tag, which allows you to do ie targeted css all in the same file. For example:</p>
-
-<div><script src='https://gist.github.com/595820.js?file='></script>
-<noscript><pre><code>.ie6 body {
-     background-attachment: fixed;
-}
-
-//all in the same file!! no more additional files for ie!
-
-.ie7 body {
-     background-attachment: scroll;
-}
-</code></pre></noscript></div>
-
-
-<h2>Getting the code</h2>
-
-<p>You can get html5-boilerplate on the <a href="http://html5boilerplate.com">official site</a> or <a href="http://github.com/paulirish/html5-boilerplate">github</a></p>
-
-<p><a href="http://github.com/sporkd">sporkd</a> has created a compass plugin for html5-boilerplate <a href="http://github.com/sporkd/compass-html5-boilerplate">get the code here</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -799,6 +790,10 @@ end
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learn-emacs-swap-windows/">Learn Emacs: Swap Windows</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting your Emacs Config</a>
       </li>
     
@@ -812,10 +807,6 @@ end
     
       <li class="post">
         <a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/verify-your-assumptions/">Verify your Assumptions</a>
       </li>
     
   </ul>
