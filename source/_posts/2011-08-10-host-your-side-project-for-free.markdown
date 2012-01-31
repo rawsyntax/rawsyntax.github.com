@@ -16,11 +16,11 @@ Looking for inspiration for a side project? [Read my post about side projects](h
 
 First install the heroku gem.
 
-{% gist 0c11cc5ab4b40d165ab9 %}
+{% gist 1712856 %}
 
 Then create a project with the cedar stack on heroku.
 
-{% gist 8d1ded8c7d4172e1d17c %}
+{% gist 1712866 %}
 
 Log in to Heroku and check out your app.
 
@@ -32,7 +32,7 @@ You should see something similar to the above. At this point you've created your
 
 Note the git repository listed on your project's heroku page. Add it as a remote on your project with:
 
-{% gist 961c4ed5eb4d0a21fb6b %}
+{% gist 1712875 %}
 
 But most likely you will get a slew of errors. What about database setup and all the other steps that go with production application setup?
 
