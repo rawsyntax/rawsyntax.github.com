@@ -9,9 +9,9 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I have a running series of blog posts on
-learning emacs. It is a life-long
-endeavor. In this post I&#8217;m going to share some of the emacs &hellip;">
+  <meta name="description" content="There are plenty of micro-frameworks out there for web development.
+Some ruby based ones are Sinatra, Padrino, and Camping. There&#8217;s also
+Flask &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,94 @@ endeavor. In this post I&#8217;m going to share some of the emacs &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/the-problem-with-micro-frameworks/">The Problem With &#xb5;-Frameworks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-11-27T11:34:00-05:00" pubdate>Nov 27<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/simple-spaghetti.jpg" class ="center"/></p>
+
+<p>There are plenty of micro-frameworks out there for web development.
+Some ruby based ones are Sinatra, Padrino, and Camping.  There&#8217;s also
+Flask and web.py for python.  These frameworks promise quick ramp up
+time and simplicity.  They are small and do not provide much
+functionality, which is sold as &#8220;not getting in your way&#8221;.</p>
+
+<h3>Great! What&#8217;s not to like?</h3>
+
+<p>In theory this sounds super, and if you have a project that has a very
+limited scope it works very well.  I&#8217;m not going to talk much about
+that case.  I find the more common case is that the project grows beyond its
+original specification.  Then suddenly you may need some of those
+features that were stripped out in order for the framework not to get
+in your way.  You&#8217;re left with two options: write the feature yourself
+or find a plugin that implements it.</p>
+
+<h3>Missing Features for Managing Complexity</h3>
+
+<p>It can be argued that software development is all about managing
+complexity.  Often micro-frameworks strip out useful features in the name
+of simplicity.  For example, Sinatra does not come with an acceptable
+partials implementation.  Its implementation allows you to render
+partials so long as there are no instance variables to be passed in.
+It is only useful for static html partials.  This omission just makes
+programming with sinatra harder.  Partial Rendering is a feature that helps reduce complexity.  It serves to break up large complex views into smaller manageable pieces and also DRY up the code.</p>
+
+<h3>Fat App on a Thin Framework</h3>
+
+<p><img src="/images/complex-spaghetti.jpg" class ="center"/></p>
+
+<p>Pretty soon you find yourself managing a project on a micro-framework
+with 10 external plugins for the various functionality that was not
+included out of the box.  So now you&#8217;re using a micro-framework that
+is no longer so simple.  Its intent to stay out of your way has
+actually made things harder now since your upgrade path is more
+complex.  When you upgrade the micro-framework how many of your
+plugins will still work?  How does the complexity of a micro-framework
+and 10 plugins compare to a regular framework (rails in the case of
+sinatra)?  You also have to be sure that the combination of plugins
+you are using do not conflict with eachother and cause unintended side-effects.</p>
+
+<h3>Thin App on Fat Framework</h3>
+
+<p>For the project that grows beyond its initial scope, I prefer to start
+with a thin application on top of a fat framework.  There&#8217;s just less
+for me to maintain and to test.  In the early days of the project its a really small app, and then when it grows larger it doesn&#8217;t
+start working against the framework.</p>
+
+<h3>Micro-Frameworks are Only Good for Micro-Projects</h3>
+
+<p>This is not meant to disparage all the micro-frameworks out there.  I
+believe they solve a specific problem.  I use micro-frameworks when
+the project is a good fit for them.  However, knowing a
+micro-framework really well is not a good excuse for not knowing a
+more powerful framework.  Sometimes the more powerful framework is
+what is needed.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -673,43 +761,6 @@ To git@heroku.com:my-project.git
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/make-your-rails-3-app-run-faster/">Make Your Rails 3 App Run Faster</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Profile it with <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a></p>
-
-<p>It will issue growl alerts for slow actions (configurable)</p>
-
-<p><img src="/images/rails-profile.png"></p>
-
-<p>See <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a> for configuration options.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -731,6 +782,10 @@ To git@heroku.com:my-project.git
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learn-emacs-how-to-break-bad-habits/">Learn Emacs: How to Break Bad Habits</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/learn-emacs-swap-windows/">Learn Emacs: Swap Windows</a>
       </li>
     
@@ -744,10 +799,6 @@ To git@heroku.com:my-project.git
     
       <li class="post">
         <a href="/blog/building-a-gaming-pc/">Building a Gaming PC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a>
       </li>
     
   </ul>
