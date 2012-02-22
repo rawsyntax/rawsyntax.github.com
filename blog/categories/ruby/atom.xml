@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-02-14T10:16:36-05:00</updated>
+  <updated>2012-02-22T15:45:29-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reload your app with Guard and Pow]]></title>
+    <link href="http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow/"/>
+    <updated>2012-02-22T15:06:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow</id>
+    <content type="html"><![CDATA[<p>About 6 months ago I started using <a href="http://pow.cx/">Pow</a> for serving
+my apps in development mode.  It loads any RACK compatible app, and
+allows you to access your projects via the <code>.dev</code> and named symlinks
+stored in <code>~/.pow</code> (for example <code>http://my_project.dev</code>).  No need to
+specify a port either!</p>
+
+<p>Very shortly afterwards I ran into a problem.  When I'm working on a
+Sinatra app, normally I use the
+<a href="https://github.com/rtomayko/shotgun">shotgun</a> gem for automatic
+reloading. I can't do that when I'm running Pow.  So I dug into Pow's
+documentation.</p>
+
+<p>Pow supports passenger-style reloads via these commands:</p>
+
+<pre><code>touch tmp/restart.txt
+touch tmp/always_restart.txt
+</code></pre>
+
+<p>That's somewhat helpful.  However, remembering to run <code>touch tmp/restart.txt</code> every time I make a change is a pain.  Creating <code>tmp/always_restart.txt</code> reloads every time, but makes the app painfully slow.  I don't need a reload for every css / image / js asset that is fetched.</p>
+
+<p><a href="https://github.com/guard/guard">Guard</a> to the rescue!  Guard is a
+simple tool.  Watch files; run commands on change.  There is already a
+<a href="https://github.com/guard/guard-pow">guard-pow</a> gem.  Which touches
+<code>tmp/restart.txt</code> on file change.</p>
+
+<p>To use it, add <code>guard-pow</code> to your Gemfile.  Then define a Guardfile
+telling it which files to watch.  Your specific files may differ, but
+this works for my needs.</p>
+
+<p><div><script src='https://gist.github.com/1886987.js?file='></script>
+<noscript><pre><code>guard 'pow' do
+  watch('.rvmrc')
+  watch('Gemfile')
+  watch('Gemfile.lock')
+  watch(%r{^lib/*/.*\.rb$})
+  watch(%r{^app/*/.*\.rb$})
+end
+</code></pre></noscript></div>
+</p>
+
+<p>Finally, run <code>bundle exec guard</code>.  It will print when it restarts pow.
+I like this approach because it can be adapted to any RACK compatible
+app by changing which files get watched.  Also, it doesn't require you
+to change any application specific code; It's only necessary to add
+guard to the Gemfile.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Use LiveReload with Rails for faster development]]></title>
@@ -159,84 +212,6 @@ Which I took from the <a href="http://github.com/platformatec/devise">Devise</a>
 <p>At this point, I have the application send an email to the address, and require the user to click a confirmation link. That's good enough, and very simple to implement.</p>
 
 <p><a href="http://rubular.com/r/YTzbCkatJy">Try this regex out on Rubular</a> it's an interactive web based ruby regex engine.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[URL Validation in Rails 3 (and ruby in general)]]></title>
-    <link href="http://rawsyntax.com/blog/url-validation-in-rails-3-and-ruby-in-general/"/>
-    <updated>2011-01-20T00:00:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/url-validation-in-rails-3-and-ruby-in-general</id>
-    <content type="html"><![CDATA[<p>I've seen some approaches, most notably <a href="http://www.igvita.com/2006/09/07/validating-url-in-ruby-on-rails/">here on igvita</a>. Though the reference on igvita is quite dated (2006 ??? being more or less the beginning of the epoch in rails-years), I've seen plenty of code using the validate-a-uri-by-regex approach.</p>
-
-<p>It doesn't work and pretty much always ends up excluding valid urls. This is why I prefer to use the parsing approach. If the url can be parsed, and the scheme seems reasonably valid, good enough.</p>
-
-<h2>An Interesting URL Problem</h2>
-
-<p>Recently I ran into a situation where I needed to be able to validate and handle unicode / internationalized links. One such link would be <a href="http://%D0%BA%D1%86.%D1%80%D1%84">the russian tld registrar кц.рф</a>. The typical approach of parsing with URI fails below</p>
-
-<p><div><script src='https://gist.github.com/789195.js?file='></script>
-<noscript><pre><code>#!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
-
-require 'uri'
-
-URI.parse(&quot;кц.рф&quot;)
-
-# fails with the following error
-#
-#/Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:156:in `split': bad URI(is not
-# URI?): кц.рф (URI::InvalidURIError)
-#	from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:174:in `parse'
-#	from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:628:in `parse'
-#	from ./uri-parse.rb:6:in `&lt;main&gt;'
-</code></pre></noscript></div>
-</p>
-
-<h2>The Solution</h2>
-
-<p>At this point, I happened to remember there is another library for parsing URIs. It's called <a href="https://github.com/sporkmonger/addressable">Addressable::URI</a>. Its aim is to be a full replacement of the ruby standard library's URI module.</p>
-
-<p>More importantly, it successfully parses unicode urls.
-<div><script src='https://gist.github.com/789235.js?file='></script>
-<noscript><pre><code>#!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
-
-require 'addressable/uri'
-
-Addressable::URI.parse(&quot;кц.рф&quot;)
-
-# no problem at all</code></pre></noscript></div>
-</p>
-
-<p>Here's how I do URL validation in rails 3, using ActiveModel and Addressable::URI.
-<div><script src='https://gist.github.com/789162.js?file='></script>
-<noscript><pre><code>class Example
-  include ActiveModel::Validations
-
-  ##
-  # Validates a URL
-  #
-  # If the URI library can parse the value, and the scheme is valid
-  # then we assume the url is valid
-  #
-  class UrlValidator &lt; ActiveModel::EachValidator
-    def validate_each(record, attribute, value)
-      begin
-        uri = Addressable::URI.parse(value)
-
-        if ![&quot;http&quot;,&quot;https&quot;,&quot;ftp&quot;].include?(uri.scheme)
-          raise Addressable::URI::InvalidURIError
-        end
-      rescue Addressable::URI::InvalidURIError
-        record.errors[attribute] &lt;&lt; &quot;Invalid URL&quot;
-      end
-    end
-  end
-
-  validates :field, :url =&gt; true
-end</code></pre></noscript></div>
-</p>
 ]]></content>
   </entry>
   

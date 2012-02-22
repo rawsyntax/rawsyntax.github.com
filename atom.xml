@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-02-14T10:16:36-05:00</updated>
+  <updated>2012-02-22T15:45:29-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,59 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reload your app with Guard and Pow]]></title>
+    <link href="http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow/"/>
+    <updated>2012-02-22T15:06:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow</id>
+    <content type="html"><![CDATA[<p>About 6 months ago I started using <a href="http://pow.cx/">Pow</a> for serving
+my apps in development mode.  It loads any RACK compatible app, and
+allows you to access your projects via the <code>.dev</code> and named symlinks
+stored in <code>~/.pow</code> (for example <code>http://my_project.dev</code>).  No need to
+specify a port either!</p>
+
+<p>Very shortly afterwards I ran into a problem.  When I&#8217;m working on a
+Sinatra app, normally I use the
+<a href="https://github.com/rtomayko/shotgun">shotgun</a> gem for automatic
+reloading. I can&#8217;t do that when I&#8217;m running Pow.  So I dug into Pow&#8217;s
+documentation.</p>
+
+<p>Pow supports passenger-style reloads via these commands:</p>
+
+<pre><code>touch tmp/restart.txt
+touch tmp/always_restart.txt
+</code></pre>
+
+<p>That&#8217;s somewhat helpful.  However, remembering to run <code>touch tmp/restart.txt</code> every time I make a change is a pain.  Creating <code>tmp/always_restart.txt</code> reloads every time, but makes the app painfully slow.  I don&#8217;t need a reload for every css / image / js asset that is fetched.</p>
+
+<p><a href="https://github.com/guard/guard">Guard</a> to the rescue!  Guard is a
+simple tool.  Watch files; run commands on change.  There is already a
+<a href="https://github.com/guard/guard-pow">guard-pow</a> gem.  Which touches
+<code>tmp/restart.txt</code> on file change.</p>
+
+<p>To use it, add <code>guard-pow</code> to your Gemfile.  Then define a Guardfile
+telling it which files to watch.  Your specific files may differ, but
+this works for my needs.</p>
+
+<div><script src='https://gist.github.com/1886987.js?file='></script>
+<noscript><pre><code>guard 'pow' do
+  watch('.rvmrc')
+  watch('Gemfile')
+  watch('Gemfile.lock')
+  watch(%r{^lib/*/.*\.rb$})
+  watch(%r{^app/*/.*\.rb$})
+end
+</code></pre></noscript></div>
+
+
+<p>Finally, run <code>bundle exec guard</code>.  It will print when it restarts pow.
+I like this approach because it can be adapted to any RACK compatible
+app by changing which files get watched.  Also, it doesn&#8217;t require you
+to change any application specific code; It&#8217;s only necessary to add
+guard to the Gemfile.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: How to Break Bad Habits]]></title>
@@ -1302,26 +1355,6 @@ To git@heroku.com:my-project.git
 
 
 <p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: delete-file-and-buffer]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-delete-file-and-buffer/"/>
-    <updated>2011-06-21T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-delete-file-and-buffer</id>
-    <content type="html"><![CDATA[<p>From my ~/.emacs.d</p>
-
-<div><script src='https://gist.github.com/1035862.js?file='></script>
-<noscript><pre><code>(defun delete-file-and-buffer ()
-  &quot;Deletes the current file and buffer, assumes file exists&quot;
-  (interactive)
-  (delete-file buffer-file-name)
-  (kill-buffer (buffer-name)))
-</code></pre></noscript></div>
-
-
-<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge&#8217;s .emacs file (rename-file-and-buffer)</a></p>
 ]]></content>
   </entry>
   

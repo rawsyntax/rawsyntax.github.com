@@ -133,8 +133,12 @@
         <lastmod>2012-02-14T10:11:31-05:00</lastmod>
     </url>
     <url>
+        <loc>http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow/</loc>
+        <lastmod>2012-02-22T15:44:30-05:00</lastmod>
+    </url>
+    <url>
         <loc>http://rawsyntax.com/blog/archives/</loc>
-        <lastmod>2012-02-14T10:11:31-05:00</lastmod>
+        <lastmod>2012-02-22T15:44:30-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/books/</loc>
@@ -142,6 +146,6 @@
     </url>
     <url>
         <loc>http://rawsyntax.com/</loc>
-        <lastmod>2012-02-14T10:11:31-05:00</lastmod>
+        <lastmod>2012-02-22T15:44:30-05:00</lastmod>
     </url>
 </urlset>

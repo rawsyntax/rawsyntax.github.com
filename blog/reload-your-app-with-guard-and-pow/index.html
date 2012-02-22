@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Learn Emacs: How to Break Bad Habits - Raw Syntax</title>
+  <title>Reload your app with Guard and Pow - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="The best thing to do is never to form bad habits in the first place.
-However if you didn&#8217;t have any bad habits, you wouldn&#8217;t be reading &hellip;">
+  <meta name="description" content="About 6 months ago I started using Pow for serving
+my apps in development mode. It loads any RACK compatible app, and
+allows you to access your &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ However if you didn&#8217;t have any bad habits, you wouldn&#8217;t be reading &
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits">
+  <link rel="canonical" href="http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,7 +80,7 @@ However if you didn&#8217;t have any bad habits, you wouldn&#8217;t be reading &
   
   <header>
     
-      <h1 class="entry-title">Learn Emacs: How to Break Bad Habits</h1>
+      <h1 class="entry-title">Reload Your App With Guard and Pow</h1>
     
     
       <p class="meta">
@@ -90,92 +91,58 @@ However if you didn&#8217;t have any bad habits, you wouldn&#8217;t be reading &
 
   
 
-<time datetime="2012-02-14T10:10:00-05:00" pubdate>Feb 14<span>th</span>, 2012</time>
+<time datetime="2012-02-22T15:06:00-05:00" pubdate>Feb 22<span>nd</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img src="/images/arrow-keys.jpg" class ="center"/></p>
+<div class="entry-content"><p>About 6 months ago I started using <a href="http://pow.cx/">Pow</a> for serving
+my apps in development mode.  It loads any RACK compatible app, and
+allows you to access your projects via the <code>.dev</code> and named symlinks
+stored in <code>~/.pow</code> (for example <code>http://my_project.dev</code>).  No need to
+specify a port either!</p>
 
-<p>The best thing to do is never to form bad habits in the first place.
-However if you didn&#8217;t have any bad habits, you wouldn&#8217;t be reading
-this blog post.  Here&#8217;s what has worked for me.</p>
+<p>Very shortly afterwards I ran into a problem.  When I&#8217;m working on a
+Sinatra app, normally I use the
+<a href="https://github.com/rtomayko/shotgun">shotgun</a> gem for automatic
+reloading. I can&#8217;t do that when I&#8217;m running Pow.  So I dug into Pow&#8217;s
+documentation.</p>
 
-<h3>Make a Note of It</h3>
+<p>Pow supports passenger-style reloads via these commands:</p>
 
-<p>One of my bad habits was using the arrow keys for navigation in emacs.
-It&#8217;s inefficient.  Emacs already has keybindings for next / previous
-and back / forward &#8211; and I don&#8217;t have to pick up my hands for those.
-The first thing I did was start keeping a short list of bad emacs
-habits.</p>
+<pre><code>touch tmp/restart.txt
+touch tmp/always_restart.txt
+</code></pre>
 
-<p>Don&#8217;t think about fixing every bad habit immediately.  Just note them
-and move on with real work.  These also don&#8217;t have to be bad habits
-per say.  They can be inefficiencies as well.  Is there a better way to
-do that thing you do all the time, but you&#8217;ve been putting of putting
-in the time to build it?</p>
+<p>That&#8217;s somewhat helpful.  However, remembering to run <code>touch tmp/restart.txt</code> every time I make a change is a pain.  Creating <code>tmp/always_restart.txt</code> reloads every time, but makes the app painfully slow.  I don&#8217;t need a reload for every css / image / js asset that is fetched.</p>
 
-<h3>Fix One Bad Habit</h3>
+<p><a href="https://github.com/guard/guard">Guard</a> to the rescue!  Guard is a
+simple tool.  Watch files; run commands on change.  There is already a
+<a href="https://github.com/guard/guard-pow">guard-pow</a> gem.  Which touches
+<code>tmp/restart.txt</code> on file change.</p>
 
-<p>After years of using the arrow keys in emacs, I decided it was time
-for that to stop.  Because my emacs config is versioned.  I can see
-that I decided to stop on <code>Fri Sep 16 10:53:49 2011 -0400</code>.  Work on
-fixing this one habit until its completely fixed.  My fix was pretty
-simple.</p>
+<p>To use it, add <code>guard-pow</code> to your Gemfile.  Then define a Guardfile
+telling it which files to watch.  Your specific files may differ, but
+this works for my needs.</p>
 
-<div><script src='https://gist.github.com/1794878.js?file='></script>
-<noscript><pre><code>commit 11dce2502c111ff9ae73f95dde89f27d0f84416a
-Author: Eric Himmelreich &lt;eric@rawsyntax.com&gt;
-Date:   Fri Sep 16 10:53:49 2011 -0400
-
-    break arrow keys habit, I already know the emacs bindings for moving
-
-    Modified   eric/bindings.el
-diff --git a/eric/bindings.el b/eric/bindings.el
-index 9915c7e..bb9d4fc 100644
---- a/eric/bindings.el
-+++ b/eric/bindings.el
-@@ -8,3 +8,9 @@
- 
- (global-set-key (kbd &quot;C-w&quot;) 'backward-kill-word)
- (global-set-key (kbd &quot;C-x C-k&quot;) 'kill-region)
-+
-+;; stop using the arrow keys
-+(global-unset-key [left])
-+(global-unset-key [up])
-+(global-unset-key [right])
-+(global-unset-key [down])
-
-[back] 
+<div><script src='https://gist.github.com/1886987.js?file='></script>
+<noscript><pre><code>guard 'pow' do
+  watch('.rvmrc')
+  watch('Gemfile')
+  watch('Gemfile.lock')
+  watch(%r{^lib/*/.*\.rb$})
+  watch(%r{^app/*/.*\.rb$})
+end
 </code></pre></noscript></div>
 
 
-<p>Unbind the arrow keys and it becomes pretty tough to use them.  I
-don&#8217;t use the arrow keys any more.  Maybe your fix is more complicated.
-Maybe it&#8217;s writing an emacs macro for something you do frequently.</p>
-
-<h3>Schedule Time for This</h3>
-
-<p>Its a bad idea to try to fix emacs problems while on a tight deadline
-for a project.  However you will find yourself with a spare 30 minutes
-or an hour here and there.  Make that your emacs improvement time.</p>
-
-<p>Almost a year ago I found myself with an ever growing emacs problem.
-My config files had grown out of control.  They were a huge mess and
-impossible to manage.  Even thoough I was using version control my
-config still had lots of local changes and files that weren&#8217;t tracked
-at all.  And my github repo was never up to date. I was in need of a
-fresh emacs config.  I needed organization and simplicity.</p>
-
-<p>When would I ever have time to rewrite my entire emacs config?</p>
-
-<p>I started making time on <code>Tue Jun 21 18:18:41 2011 -0400</code> as I had read
-about <code>emacs-starter-kit (v2)</code>.  Its basis was emacs-24 paired with
-the marmalade-repo (for emacs-lisp packages).  I put in an n hour here
-and there over the course of a few months.  In mid September it was good
-enough to use as my full-time working config.</p>
+<p>Finally, run <code>bundle exec guard</code>.  It will print when it restarts pow.
+I like this approach because it can be adapted to any RACK compatible
+app by changing which files get watched.  Also, it doesn&#8217;t require you
+to change any application specific code; It&#8217;s only necessary to add
+guard to the Gemfile.</p>
 </div>
 
 
@@ -193,12 +160,12 @@ enough to use as my full-time working config.</p>
 
   
 
-<time datetime="2012-02-14T10:10:00-05:00" pubdate>Feb 14<span>th</span>, 2012</time>
+<time datetime="2012-02-22T15:06:00-05:00" pubdate>Feb 22<span>nd</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/learn-emacs/'>learn-emacs</a>
+    <a class='category' href='/blog/categories/programming/'>programming</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
   
 </span>
 
@@ -207,7 +174,7 @@ enough to use as my full-time working config.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -220,10 +187,8 @@ enough to use as my full-time working config.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/learn-emacs-swap-windows/" title="Previous Post: Learn Emacs: Swap Windows">&laquo; Learn Emacs: Swap Windows</a>
+        <a class="basic-alignment left" href="/blog/learn-emacs-how-to-break-bad-habits/" title="Previous Post: Learn Emacs: How to Break Bad Habits">&laquo; Learn Emacs: How to Break Bad Habits</a>
       
-      
-        <a class="basic-alignment right" href="/blog/reload-your-app-with-guard-and-pow/" title="next Post: Reload your app with Guard and Pow">Reload your app with Guard and Pow &raquo;</a>
       
     </p>
   </footer>
@@ -352,8 +317,8 @@ enough to use as my full-time working config.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits';
-        var disqus_url = 'http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits';
+        var disqus_identifier = 'http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow';
+        var disqus_url = 'http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow';
         var disqus_script = 'embed.js';
       
     (function () {
