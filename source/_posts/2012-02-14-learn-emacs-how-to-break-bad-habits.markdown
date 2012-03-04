@@ -48,7 +48,7 @@ or an hour here and there.  Make that your emacs improvement time.
 
 Almost a year ago I found myself with an ever growing emacs problem.
 My config files had grown out of control.  They were a huge mess and
-impossible to manage.  Even thoough I was using version control my
+impossible to manage.  Even though I was using version control my
 config still had lots of local changes and files that weren't tracked
 at all.  And my github repo was never up to date. I was in need of a
 fresh emacs config.  I needed organization and simplicity.
