@@ -23,7 +23,7 @@ habits.
 Don't think about fixing every bad habit immediately.  Just note them
 and move on with real work.  These also don't have to be bad habits
 per say.  They can be inefficiencies as well.  Is there a better way to
-do that thing you do all the time, but you've been putting of putting
+do that thing you do all the time, but you've been putting off putting
 in the time to build it?
 
 ### Fix One Bad Habit
