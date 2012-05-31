@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-02-23T15:58:33-05:00</updated>
+  <updated>2012-05-31T16:50:17-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -35,7 +35,7 @@ habits.</p>
 <p>Don't think about fixing every bad habit immediately.  Just note them
 and move on with real work.  These also don't have to be bad habits
 per say.  They can be inefficiencies as well.  Is there a better way to
-do that thing you do all the time, but you've been putting of putting
+do that thing you do all the time, but you've been putting off putting
 in the time to build it?</p>
 
 <h3>Fix One Bad Habit</h3>
@@ -85,7 +85,7 @@ or an hour here and there.  Make that your emacs improvement time.</p>
 
 <p>Almost a year ago I found myself with an ever growing emacs problem.
 My config files had grown out of control.  They were a huge mess and
-impossible to manage.  Even thoough I was using version control my
+impossible to manage.  Even though I was using version control my
 config still had lots of local changes and files that weren't tracked
 at all.  And my github repo was never up to date. I was in need of a
 fresh emacs config.  I needed organization and simplicity.</p>
