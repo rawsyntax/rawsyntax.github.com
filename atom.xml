@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-05-31T16:50:17-04:00</updated>
+  <updated>2012-05-31T18:04:37-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,157 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Editing Javascript]]></title>
+    <link href="http://rawsyntax.com/blog/learn-emacs-editing-javascript/"/>
+    <updated>2012-05-31T17:07:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/learn-emacs-editing-javascript</id>
+    <content type="html"><![CDATA[<p>One of my favorite things about emacs is its javascript modes.  While
+there are a million options, I&#8217;m only going to talk about how I edit
+javascript with emacs.</p>
+
+<h2>Which Mode do I Use?</h2>
+
+<p>I use <a href="http://code.google.com/p/js2-mode/">js2-mode</a>.  It provides
+syntax highlighting and underlines errors as you type.  This mode
+doesn&#8217;t come with emacs, it was built by Steve Yegge.  However it is
+installable through the ELPA.</p>
+
+<p>One problem I found with this mode is that it has some weird ideas
+about indentation.  I personally prefer the indentation from the
+built-in <code>js-mode</code> in emacs.  After some googling I came across a
+<a href="http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode">blogpost</a>
+on fixing indentation in <code>js2-mode</code>.  Starting with that I then made my
+own modifications and have a <code>js2-mode</code> that works exactly the way I
+want it (code below).</p>
+
+<div><script src='https://gist.github.com/2846385.js?file='></script>
+<noscript><pre><code>(add-to-list 'auto-mode-alist '(&quot;\\.js$&quot; . js2-mode))
+(add-to-list 'auto-mode-alist '(&quot;\\.json$&quot; . js2-mode))
+
+
+;; Use js-mode indentation in js2-mode, I don't like js2-mode's indentation
+;;
+;; thanks http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
+;; with my own modifications
+;;
+(defun my-js2-indent-function ()
+  (interactive)
+  (save-restriction
+    (widen)
+    (let* ((inhibit-point-motion-hooks t)
+           (parse-status (save-excursion (syntax-ppss (point-at-bol))))
+           (offset (- (current-column) (current-indentation)))
+           (indentation (js--proper-indentation parse-status))
+           node)
+
+      (save-excursion
+
+        (back-to-indentation)
+        ;; consecutive declarations in a var statement are nice if
+        ;; properly aligned, i.e:
+        ;;
+        ;; var foo = &quot;bar&quot;,
+        ;;     bar = &quot;foo&quot;;
+        (setq node (js2-node-at-point))
+        (when (and node
+                   (= js2-NAME (js2-node-type node))
+                   (= js2-VAR (js2-node-type (js2-node-parent node))))
+          (setq indentation ( 4 indentation))))
+
+      (indent-line-to indentation)
+      (when (&gt; offset 0) (forward-char offset)))))
+
+(defun my-indent-sexp ()
+  (interactive)
+  (save-restriction
+    (save-excursion
+      (widen)
+      (let* ((inhibit-point-motion-hooks t)
+             (parse-status (syntax-ppss (point)))
+             (beg (nth 1 parse-status))
+             (end-marker (make-marker))
+             (end (progn (goto-char beg) (forward-list) (point)))
+             (ovl (make-overlay beg end)))
+        (set-marker end-marker end)
+        (overlay-put ovl 'face 'highlight)
+        (goto-char beg)
+        (while (&lt; (point) (marker-position end-marker))
+          ;; don't reindent blank lines so we don't set the &quot;buffer
+          ;; modified&quot; property for nothing
+          (beginning-of-line)
+          (unless (looking-at &quot;\\s-*$&quot;)
+            (indent-according-to-mode))
+          (forward-line))
+        (run-with-timer 0.5 nil '(lambda(ovl)
+                                   (delete-overlay ovl)) ovl)))))
+
+(defun my-js2-mode-hook ()
+  (require 'js)
+  (setq js-indent-level 2
+        indent-tabs-mode nil
+        c-basic-offset 2)
+  (c-toggle-auto-state 0)
+  (c-toggle-hungry-state 1)
+  (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
+  (define-key js2-mode-map [(meta control |)] 'cperl-lineup)
+  (define-key js2-mode-map [(meta control \;)] 
+    '(lambda()
+       (interactive)
+       (insert &quot;/* -----[ &quot;)
+       (save-excursion
+         (insert &quot; ]----- */&quot;))
+       ))
+  (define-key js2-mode-map [(return)] 'newline-and-indent)
+  (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
+  (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
+  (define-key js2-mode-map [(control meta q)] 'my-indent-sexp)
+  (if (featurep 'js2-highlight-vars)
+    (js2-highlight-vars-mode))
+  (message &quot;My JS2 hook&quot;))
+
+(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+
+</code></pre></noscript></div>
+
+
+<h2>Editing Javascript in HTML</h2>
+
+<p>In my experience I&#8217;m not always editing pure <code>.js</code> files.  Sometimes
+I&#8217;m editing javascript inside a <code>.haml</code>, <code>.erb</code>, or <code>.html</code> file.  The
+<code>haml-mode</code> I am using is supposed to have easy <code>js-mode</code> integration.
+However I tried to integrate <code>js2-mode</code>, and it was not simple.
+Furthermore, the built-in javascript highlighting seems to break on a
+regular basis.  Troubleshooting that problem looked like it was going
+to take more time than I had. Instead I wrote some elisp to allow me
+to quickly create a javascript scratch buffer.</p>
+
+<h2>Javascript Scratch Buffer</h2>
+
+<p>I use this to write javascript and copy / paste between buffers until
+I&#8217;m happy with the code.  It&#8217;s a very simple solution to the problem.
+It creates a buffer named scratch-js with <code>js2-mode</code>.  It&#8217;s not unlike
+the elisp scratch buffer that comes up on emacs start up.  I don&#8217;t
+write javascript all the time, so this solution works pretty well for me.</p>
+
+<div><script src='https://gist.github.com/2846414.js?file='></script>
+<noscript><pre><code>(defun scratch-js ()
+  &quot;Create or switch to a javascript mode scratch buffer&quot;
+  (interactive)
+
+  (if (not (eq nil (get-buffer &quot;scratch-js&quot;)))
+      (switch-to-buffer &quot;scratch-js&quot;)
+    (set-buffer (get-buffer-create &quot;scratch-js&quot;))
+    (js2-mode)
+    (switch-to-buffer &quot;scratch-js&quot;)))</code></pre></noscript></div>
+
+
+<p>This is admittedly a stopgap solution.  I would prefer to have
+<code>js2-mode</code> integrated tightly with <code>haml-mode</code>.  If anyone else has
+actually done this, I would love to see the code.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reload your app with Guard and Pow]]></title>
@@ -1334,27 +1485,6 @@ To git@heroku.com:my-project.git
 <p>If you need to do some particularly strange things with authentication, I’d recommend warden. It’ll also work with any rack compatible web app (sinatra, and others).</p>
 
 <p>Don’t bother rolling your own, warden and devise do a fine (and flexible) job, and there’s plenty of other authentication plugins not mentioned here.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: use defadvice to modify functions]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-use-defadvice-modify-functions/"/>
-    <updated>2011-06-22T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-use-defadvice-modify-functions</id>
-    <content type="html"><![CDATA[<p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
-
-<div><script src='https://gist.github.com/1038120.js?file='></script>
-<noscript><pre><code>;; make zap-to-char act like zap-up-to-char
-(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
-  &quot;Kill up to the ARG'th occurence of CHAR, and leave CHAR.
-  The CHAR is replaced and the point is put before CHAR.&quot;
-  (insert char)
-  (forward-char -1))
-</code></pre></noscript></div>
-
-
-<p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
 ]]></content>
   </entry>
   

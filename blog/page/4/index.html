@@ -9,7 +9,7 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Since the start of my career as a professional programmer, I&#8217;ve been interested in doing contract work online. Over the years I&#8217;ve half- &hellip;">
+  <meta name="description" content="I&#8217;ve seen some approaches, most notably here on igvita. Though the reference on igvita is quite dated (2006 ??? being more or less the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,110 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/url-validation-in-rails-3-and-ruby-in-general/">URL Validation in Rails 3 (and Ruby in General)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-01-20T00:00:00-05:00" pubdate>Jan 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve seen some approaches, most notably <a href="http://www.igvita.com/2006/09/07/validating-url-in-ruby-on-rails/">here on igvita</a>. Though the reference on igvita is quite dated (2006 ??? being more or less the beginning of the epoch in rails-years), I&#8217;ve seen plenty of code using the validate-a-uri-by-regex approach.</p>
+
+<p>It doesn&#8217;t work and pretty much always ends up excluding valid urls. This is why I prefer to use the parsing approach. If the url can be parsed, and the scheme seems reasonably valid, good enough.</p>
+
+<h2>An Interesting URL Problem</h2>
+
+<p>Recently I ran into a situation where I needed to be able to validate and handle unicode / internationalized links. One such link would be <a href="http://%D0%BA%D1%86.%D1%80%D1%84">the russian tld registrar кц.рф</a>. The typical approach of parsing with URI fails below</p>
+
+<div><script src='https://gist.github.com/789195.js?file='></script>
+<noscript><pre><code>#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'uri'
+
+URI.parse(&quot;кц.рф&quot;)
+
+# fails with the following error
+#
+#/Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:156:in `split': bad URI(is not
+# URI?): кц.рф (URI::InvalidURIError)
+#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:174:in `parse'
+#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:628:in `parse'
+#   from ./uri-parse.rb:6:in `&lt;main&gt;'
+</code></pre></noscript></div>
+
+
+<h2>The Solution</h2>
+
+<p>At this point, I happened to remember there is another library for parsing URIs. It&#8217;s called <a href="https://github.com/sporkmonger/addressable">Addressable::URI</a>. Its aim is to be a full replacement of the ruby standard library&#8217;s URI module.</p>
+
+<p>More importantly, it successfully parses unicode urls.</p>
+
+<div><script src='https://gist.github.com/789235.js?file='></script>
+<noscript><pre><code>#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'addressable/uri'
+
+Addressable::URI.parse(&quot;кц.рф&quot;)
+
+# no problem at all</code></pre></noscript></div>
+
+
+<p>Here&#8217;s how I do URL validation in rails 3, using ActiveModel and Addressable::URI.</p>
+
+<div><script src='https://gist.github.com/789162.js?file='></script>
+<noscript><pre><code>class Example
+  include ActiveModel::Validations
+
+  ##
+  # Validates a URL
+  #
+  # If the URI library can parse the value, and the scheme is valid
+  # then we assume the url is valid
+  #
+  class UrlValidator &lt; ActiveModel::EachValidator
+    def validate_each(record, attribute, value)
+      begin
+        uri = Addressable::URI.parse(value)
+
+        if ![&quot;http&quot;,&quot;https&quot;,&quot;ftp&quot;].include?(uri.scheme)
+          raise Addressable::URI::InvalidURIError
+        end
+      rescue Addressable::URI::InvalidURIError
+        record.errors[attribute] &lt;&lt; &quot;Invalid URL&quot;
+      end
+    end
+  end
+
+  validates :field, :url =&gt; true
+end</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -383,6 +487,10 @@ do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learn-emacs-editing-javascript/">Learn Emacs: Editing Javascript</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/reload-your-app-with-guard-and-pow/">Reload your app with Guard and Pow</a>
       </li>
     
@@ -396,10 +504,6 @@ do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_
     
       <li class="post">
         <a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting your Emacs Config</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/stop-programming/">Stop Programming</a>
       </li>
     
   </ul>

@@ -9,9 +9,8 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="About 6 months ago I started using Pow for serving
-my apps in development mode. It loads any RACK compatible app, and
-allows you to access your &hellip;">
+  <meta name="description" content="One of my favorite things about emacs is its javascript modes. While
+there are a million options, I&#8217;m only going to talk about how I edit &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +76,179 @@ allows you to access your &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learn-emacs-editing-javascript/">Learn Emacs: Editing Javascript</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2012-05-31T17:07:00-04:00" pubdate>May 31<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One of my favorite things about emacs is its javascript modes.  While
+there are a million options, I&#8217;m only going to talk about how I edit
+javascript with emacs.</p>
+
+<h2>Which Mode do I Use?</h2>
+
+<p>I use <a href="http://code.google.com/p/js2-mode/">js2-mode</a>.  It provides
+syntax highlighting and underlines errors as you type.  This mode
+doesn&#8217;t come with emacs, it was built by Steve Yegge.  However it is
+installable through the ELPA.</p>
+
+<p>One problem I found with this mode is that it has some weird ideas
+about indentation.  I personally prefer the indentation from the
+built-in <code>js-mode</code> in emacs.  After some googling I came across a
+<a href="http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode">blogpost</a>
+on fixing indentation in <code>js2-mode</code>.  Starting with that I then made my
+own modifications and have a <code>js2-mode</code> that works exactly the way I
+want it (code below).</p>
+
+<div><script src='https://gist.github.com/2846385.js?file='></script>
+<noscript><pre><code>(add-to-list 'auto-mode-alist '(&quot;\\.js$&quot; . js2-mode))
+(add-to-list 'auto-mode-alist '(&quot;\\.json$&quot; . js2-mode))
+
+
+;; Use js-mode indentation in js2-mode, I don't like js2-mode's indentation
+;;
+;; thanks http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
+;; with my own modifications
+;;
+(defun my-js2-indent-function ()
+  (interactive)
+  (save-restriction
+    (widen)
+    (let* ((inhibit-point-motion-hooks t)
+           (parse-status (save-excursion (syntax-ppss (point-at-bol))))
+           (offset (- (current-column) (current-indentation)))
+           (indentation (js--proper-indentation parse-status))
+           node)
+
+      (save-excursion
+
+        (back-to-indentation)
+        ;; consecutive declarations in a var statement are nice if
+        ;; properly aligned, i.e:
+        ;;
+        ;; var foo = &quot;bar&quot;,
+        ;;     bar = &quot;foo&quot;;
+        (setq node (js2-node-at-point))
+        (when (and node
+                   (= js2-NAME (js2-node-type node))
+                   (= js2-VAR (js2-node-type (js2-node-parent node))))
+          (setq indentation ( 4 indentation))))
+
+      (indent-line-to indentation)
+      (when (&gt; offset 0) (forward-char offset)))))
+
+(defun my-indent-sexp ()
+  (interactive)
+  (save-restriction
+    (save-excursion
+      (widen)
+      (let* ((inhibit-point-motion-hooks t)
+             (parse-status (syntax-ppss (point)))
+             (beg (nth 1 parse-status))
+             (end-marker (make-marker))
+             (end (progn (goto-char beg) (forward-list) (point)))
+             (ovl (make-overlay beg end)))
+        (set-marker end-marker end)
+        (overlay-put ovl 'face 'highlight)
+        (goto-char beg)
+        (while (&lt; (point) (marker-position end-marker))
+          ;; don't reindent blank lines so we don't set the &quot;buffer
+          ;; modified&quot; property for nothing
+          (beginning-of-line)
+          (unless (looking-at &quot;\\s-*$&quot;)
+            (indent-according-to-mode))
+          (forward-line))
+        (run-with-timer 0.5 nil '(lambda(ovl)
+                                   (delete-overlay ovl)) ovl)))))
+
+(defun my-js2-mode-hook ()
+  (require 'js)
+  (setq js-indent-level 2
+        indent-tabs-mode nil
+        c-basic-offset 2)
+  (c-toggle-auto-state 0)
+  (c-toggle-hungry-state 1)
+  (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
+  (define-key js2-mode-map [(meta control |)] 'cperl-lineup)
+  (define-key js2-mode-map [(meta control \;)] 
+    '(lambda()
+       (interactive)
+       (insert &quot;/* -----[ &quot;)
+       (save-excursion
+         (insert &quot; ]----- */&quot;))
+       ))
+  (define-key js2-mode-map [(return)] 'newline-and-indent)
+  (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
+  (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
+  (define-key js2-mode-map [(control meta q)] 'my-indent-sexp)
+  (if (featurep 'js2-highlight-vars)
+    (js2-highlight-vars-mode))
+  (message &quot;My JS2 hook&quot;))
+
+(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+
+</code></pre></noscript></div>
+
+
+<h2>Editing Javascript in HTML</h2>
+
+<p>In my experience I&#8217;m not always editing pure <code>.js</code> files.  Sometimes
+I&#8217;m editing javascript inside a <code>.haml</code>, <code>.erb</code>, or <code>.html</code> file.  The
+<code>haml-mode</code> I am using is supposed to have easy <code>js-mode</code> integration.
+However I tried to integrate <code>js2-mode</code>, and it was not simple.
+Furthermore, the built-in javascript highlighting seems to break on a
+regular basis.  Troubleshooting that problem looked like it was going
+to take more time than I had. Instead I wrote some elisp to allow me
+to quickly create a javascript scratch buffer.</p>
+
+<h2>Javascript Scratch Buffer</h2>
+
+<p>I use this to write javascript and copy / paste between buffers until
+I&#8217;m happy with the code.  It&#8217;s a very simple solution to the problem.
+It creates a buffer named scratch-js with <code>js2-mode</code>.  It&#8217;s not unlike
+the elisp scratch buffer that comes up on emacs start up.  I don&#8217;t
+write javascript all the time, so this solution works pretty well for me.</p>
+
+<div><script src='https://gist.github.com/2846414.js?file='></script>
+<noscript><pre><code>(defun scratch-js ()
+  &quot;Create or switch to a javascript mode scratch buffer&quot;
+  (interactive)
+
+  (if (not (eq nil (get-buffer &quot;scratch-js&quot;)))
+      (switch-to-buffer &quot;scratch-js&quot;)
+    (set-buffer (get-buffer-create &quot;scratch-js&quot;))
+    (js2-mode)
+    (switch-to-buffer &quot;scratch-js&quot;)))</code></pre></noscript></div>
+
+
+<p>This is admittedly a stopgap solution.  I would prefer to have
+<code>js2-mode</code> integrated tightly with <code>haml-mode</code>.  If anyone else has
+actually done this, I would love to see the code.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1024,106 +1196,6 @@ a good deal.  We are all taking our chances.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/blogging-on-jekyll-url-redirects/">Blogging on Jekyll: URL Redirects</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-11-29T14:32:00-05:00" pubdate>Nov 29<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>About a month ago I migrated my blog from Tumblr to Octopress hosted on github-pages.  I migrated because of Tumblr&#8217;s slow page loads and frequent downtime.  I picked Octopress because it is built on top of Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is a static site generator, which ensures I can deploy my blog on any old server in the future, and continue to use these same old tools (because I have them, rather than tumblr having them).</p>
-
-<h3>Migrating broke my URL Structure</h3>
-
-<p><img src="/images/urls_not_found.png" class ="center"/></p>
-
-<p>Running my site through Google&#8217;s Webmaster Tools showed that many sites are still linking to my old Tumblr blogpost urls.  Tumblr&#8217;s url structure is another reason I migrated away from it.  I should be in full control of the urls on my blog.  Never the less, I need to support redirects from the old URLs to my new URL structure <code>/blog/:post_title</code>.</p>
-
-<p>However Jekyll is just a static site, so there&#8217;s no ruby server to handle redirects.  Other Jekyll users deploy to Heroku and use a small Sinatra app to handle redirects, but I feel like that is complicating my simple setup.  If I were on a regular server I could setup an <code>.htaccess</code> file to handle the redirects, but github-pages does not support <code>.htaccess</code>.</p>
-
-<h3>Jekyll Plugins to the Rescue</h3>
-
-<p>One of the great things about Jekyll is its simple plugin system.  On
-<a href="https://github.com/mojombo/jekyll/wiki/Plugins">Jekyll&#8217;s Wiki</a> I
-found the
-<a href="https://github.com/tsmango/jekyll_alias_generator">Alias Generator</a>.
-It allows you to specify aliases on a per blogpost basis, in the YAML
-front matter.</p>
-
-<p>This post&#8217;s YAML is:</p>
-
-<pre><code>---
-layout: post
-title: "Blogging on Jekyll: URL Redirects"
-date: 2011-11-29 14:32
-comments: true
-categories: ["programming", "blogging"]
-alias: [/blog/blogging-on-redirects]
----
-</code></pre>
-
-<p>Now when I <code>rake generate</code> my site, the Alias Generator will create
-another static html file for this post at
-<code>/blog/blogging-on-redirects/index.html</code>:</p>
-
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
-&lt;meta http-equiv="refresh" content="0;url=/blog/blogging-on-jekyll-url-redirects/" /&gt;
-&lt;/head&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>Which will redirect here. Try it: <a href="/blog/blogging-on-redirects">/blog/blogging-on-redirects</a></p>
-
-<p>It was almost that simple.  The Alias Generator actually broke when I
-provided some of my old Tumblr urls. However, I
-<a href="https://github.com/rawsyntax/jekyll_alias_generator">forked it here</a>
-and fixed it so it handles nested aliases properly now.  I also opened
-a <a href="https://github.com/tsmango/jekyll_alias_generator/pull/1">pull request</a> to the owner to get this change merged in.</p>
-
-<h3>Jekyll&#8217;s Strengths</h3>
-
-<p>That experience is Jekyll&#8217;s strength as a blogging platform.  The
-output is so simple any web server can serve it so it doesn&#8217;t matter
-where you deploy to.  Its generation system is open source, hackable,
-and has a great plugin system.</p>
-
-<p>But most importantly, even if the Jekyll project implodes tomorrow.  I
-still have all my blog&#8217;s content versioned, and have all the tools
-necessary to maintain my blog.  I am not relying on a hosted service
-to back up my blog&#8217;s content, or maintain the tools I edit it with.</p>
-
-<h3>Try Octopress</h3>
-
-<p>If you haven&#8217;t tried <a href="http://octopress.org">Octopress</a> yet, I highly
-recommend it.  It&#8217;s Jekyll based, but it has a decent default
-stylesheet, so it&#8217;s very easy to install and immediately start
-blogging.  No programming or tweaking CSS to get in the way of writing content.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1143,6 +1215,10 @@ blogging.  No programming or tweaking CSS to get in the way of writing content.<
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learn-emacs-editing-javascript/">Learn Emacs: Editing Javascript</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/reload-your-app-with-guard-and-pow/">Reload your app with Guard and Pow</a>
       </li>
     
@@ -1156,10 +1232,6 @@ blogging.  No programming or tweaking CSS to get in the way of writing content.<
     
       <li class="post">
         <a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting your Emacs Config</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/stop-programming/">Stop Programming</a>
       </li>
     
   </ul>

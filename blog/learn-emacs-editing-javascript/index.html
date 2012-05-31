@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Solving the General Case - Raw Syntax</title>
+  <title>Learn Emacs: Editing Javascript - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="This XKCD comic struck a chord with me. I feel that it presents a
-false dichotomy. Either miss deadlines to design it right or go wild
-west cowboy &hellip;">
+  <meta name="description" content="One of my favorite things about emacs is its javascript modes. While
+there are a million options, I&#8217;m only going to talk about how I edit &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ west cowboy &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/solving-the-general-case">
+  <link rel="canonical" href="http://rawsyntax.com/blog/learn-emacs-editing-javascript">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +79,7 @@ west cowboy &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Solving the General Case</h1>
+      <h1 class="entry-title">Learn Emacs: Editing Javascript</h1>
     
     
       <p class="meta">
@@ -91,81 +90,156 @@ west cowboy &hellip;">
 
   
 
-<time datetime="2011-11-28T16:05:00-05:00" pubdate>Nov 28<span>th</span>, 2011</time>
+<time datetime="2012-05-31T17:07:00-04:00" pubdate>May 31<span>st</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><a href="http://xkcd.com/974">
-<img src="/images/the_general_problem.png" class ="center"/>
-</a></p>
+<div class="entry-content"><p>One of my favorite things about emacs is its javascript modes.  While
+there are a million options, I&#8217;m only going to talk about how I edit
+javascript with emacs.</p>
 
-<p>This XKCD comic struck a chord with me.  I feel that it presents a
-false dichotomy.  Either miss deadlines to design it right or go wild
-west cowboy coding and meet deadlines.  I think there&#8217;s a middle ground between
-those options.  Design it correctly, but deliver less functionality,
-and add the rest of the functionality at a later date.  While that&#8217;s a
-simple solution, this comic touches on other related issues.</p>
+<h2>Which Mode do I Use?</h2>
 
-<h3>Analysis Paralysis</h3>
+<p>I use <a href="http://code.google.com/p/js2-mode/">js2-mode</a>.  It provides
+syntax highlighting and underlines errors as you type.  This mode
+doesn&#8217;t come with emacs, it was built by Steve Yegge.  However it is
+installable through the ELPA.</p>
 
-<p><img src="/images/analysis-paralysis.jpg" class ="center"/></p>
+<p>One problem I found with this mode is that it has some weird ideas
+about indentation.  I personally prefer the indentation from the
+built-in <code>js-mode</code> in emacs.  After some googling I came across a
+<a href="http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode">blogpost</a>
+on fixing indentation in <code>js2-mode</code>.  Starting with that I then made my
+own modifications and have a <code>js2-mode</code> that works exactly the way I
+want it (code below).</p>
 
-<p>This affliction is pretty common largely as a result of all the
-choices we have nowadays when designing software.  Which language?
-Which Framework? How about a
-<a href="/blog/the-problem-with-micro-frameworks/">Micro-Framework</a>?  Which
-<a href="/blog/categories/learn-emacs/">Text Editor</a>?  Nevermind questions
-about how to actually solve the problem at hand.  If a simple flexible
-design is not readily coming to mind, I find it helpful to write some
-code that implements the very basics of the functionality needed, and
-then re-evaluate to figure out a design.  Its a more iterative
-approach.  Write a little code. Refactor.  Hopefully a good design
-will emerge.  If not try something else.</p>
-
-<h3>Deadline is not a Bad Word</h3>
-
-<p>Growing up my dad would always tell me: &#8220;There is no time&#8221;, but I
-didn&#8217;t understand what he meant until I got a job at 15 years old.
-Deadlines are part of life, and furthermore they are not bad.  A
-deadline is just a constraint.  Without deadlines we developers could
-work on software design forever and never actually get to
-implementation!  Deadlines can actually help cure analysis paralysis
-by reducing the number of options available to us.  Rewriting the
-whole project in python suddenly isn&#8217;t an option.  Deadlines force
-value judgements to be made.</p>
-
-<h3>Why the General Case Takes so Long</h3>
-
-<p>As you begin implementing your perfect design you may find holes.
-This is one of the reasons for the shift from waterfall development to
-agile (or even just shorter iterative processes).  Once your design is
-implemented to 90% you are constrained with all these implementation
-details.</p>
-
-<p>To paraphrase Albert Einstein:</p>
-
-<blockquote><p>&#8220;At design-time, design and implementation are the same.  At implementation-time, they are not.&#8221;</p></blockquote>
+<div><script src='https://gist.github.com/2846385.js?file='></script>
+<noscript><pre><code>(add-to-list 'auto-mode-alist '(&quot;\\.js$&quot; . js2-mode))
+(add-to-list 'auto-mode-alist '(&quot;\\.json$&quot; . js2-mode))
 
 
-<p>The following quote is about ruby implementation, but it can be applied to any hard general case problem.</p>
+;; Use js-mode indentation in js2-mode, I don't like js2-mode's indentation
+;;
+;; thanks http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
+;; with my own modifications
+;;
+(defun my-js2-indent-function ()
+  (interactive)
+  (save-restriction
+    (widen)
+    (let* ((inhibit-point-motion-hooks t)
+           (parse-status (save-excursion (syntax-ppss (point-at-bol))))
+           (offset (- (current-column) (current-indentation)))
+           (indentation (js--proper-indentation parse-status))
+           node)
 
-<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there&#8217;s some crazy stuff in that last 10% or 5% that totally blindsides you if you&#8217;re not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong><cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
+      (save-excursion
+
+        (back-to-indentation)
+        ;; consecutive declarations in a var statement are nice if
+        ;; properly aligned, i.e:
+        ;;
+        ;; var foo = &quot;bar&quot;,
+        ;;     bar = &quot;foo&quot;;
+        (setq node (js2-node-at-point))
+        (when (and node
+                   (= js2-NAME (js2-node-type node))
+                   (= js2-VAR (js2-node-type (js2-node-parent node))))
+          (setq indentation ( 4 indentation))))
+
+      (indent-line-to indentation)
+      (when (&gt; offset 0) (forward-char offset)))))
+
+(defun my-indent-sexp ()
+  (interactive)
+  (save-restriction
+    (save-excursion
+      (widen)
+      (let* ((inhibit-point-motion-hooks t)
+             (parse-status (syntax-ppss (point)))
+             (beg (nth 1 parse-status))
+             (end-marker (make-marker))
+             (end (progn (goto-char beg) (forward-list) (point)))
+             (ovl (make-overlay beg end)))
+        (set-marker end-marker end)
+        (overlay-put ovl 'face 'highlight)
+        (goto-char beg)
+        (while (&lt; (point) (marker-position end-marker))
+          ;; don't reindent blank lines so we don't set the &quot;buffer
+          ;; modified&quot; property for nothing
+          (beginning-of-line)
+          (unless (looking-at &quot;\\s-*$&quot;)
+            (indent-according-to-mode))
+          (forward-line))
+        (run-with-timer 0.5 nil '(lambda(ovl)
+                                   (delete-overlay ovl)) ovl)))))
+
+(defun my-js2-mode-hook ()
+  (require 'js)
+  (setq js-indent-level 2
+        indent-tabs-mode nil
+        c-basic-offset 2)
+  (c-toggle-auto-state 0)
+  (c-toggle-hungry-state 1)
+  (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
+  (define-key js2-mode-map [(meta control |)] 'cperl-lineup)
+  (define-key js2-mode-map [(meta control \;)] 
+    '(lambda()
+       (interactive)
+       (insert &quot;/* -----[ &quot;)
+       (save-excursion
+         (insert &quot; ]----- */&quot;))
+       ))
+  (define-key js2-mode-map [(return)] 'newline-and-indent)
+  (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
+  (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
+  (define-key js2-mode-map [(control meta q)] 'my-indent-sexp)
+  (if (featurep 'js2-highlight-vars)
+    (js2-highlight-vars-mode))
+  (message &quot;My JS2 hook&quot;))
+
+(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+
+</code></pre></noscript></div>
 
 
-<p>When he talks about getting blindsided by that last 10%, that is
-potentially a missed deadline.</p>
+<h2>Editing Javascript in HTML</h2>
 
-<h3>Solving the Problem of Solving the General Case</h3>
+<p>In my experience I&#8217;m not always editing pure <code>.js</code> files.  Sometimes
+I&#8217;m editing javascript inside a <code>.haml</code>, <code>.erb</code>, or <code>.html</code> file.  The
+<code>haml-mode</code> I am using is supposed to have easy <code>js-mode</code> integration.
+However I tried to integrate <code>js2-mode</code>, and it was not simple.
+Furthermore, the built-in javascript highlighting seems to break on a
+regular basis.  Troubleshooting that problem looked like it was going
+to take more time than I had. Instead I wrote some elisp to allow me
+to quickly create a javascript scratch buffer.</p>
 
-<p>  Ask yourself if you can live with a 90% solution.  Do you really need to solve the general case?  If 90% is not enough, break the general
-case down into many smaller pieces of functionality and many smaller
-deadlines.  You may still run into missed deadlines and problems, but
-they will have smaller and more predictable impact.  This doesn&#8217;t
-really solve the overall problem of software that takes too long to
-develop, but it makes the problems easier to manage.</p>
+<h2>Javascript Scratch Buffer</h2>
+
+<p>I use this to write javascript and copy / paste between buffers until
+I&#8217;m happy with the code.  It&#8217;s a very simple solution to the problem.
+It creates a buffer named scratch-js with <code>js2-mode</code>.  It&#8217;s not unlike
+the elisp scratch buffer that comes up on emacs start up.  I don&#8217;t
+write javascript all the time, so this solution works pretty well for me.</p>
+
+<div><script src='https://gist.github.com/2846414.js?file='></script>
+<noscript><pre><code>(defun scratch-js ()
+  &quot;Create or switch to a javascript mode scratch buffer&quot;
+  (interactive)
+
+  (if (not (eq nil (get-buffer &quot;scratch-js&quot;)))
+      (switch-to-buffer &quot;scratch-js&quot;)
+    (set-buffer (get-buffer-create &quot;scratch-js&quot;))
+    (js2-mode)
+    (switch-to-buffer &quot;scratch-js&quot;)))</code></pre></noscript></div>
+
+
+<p>This is admittedly a stopgap solution.  I would prefer to have
+<code>js2-mode</code> integrated tightly with <code>haml-mode</code>.  If anyone else has
+actually done this, I would love to see the code.</p>
 </div>
 
 
@@ -183,12 +257,12 @@ develop, but it makes the problems easier to manage.</p>
 
   
 
-<time datetime="2011-11-28T16:05:00-05:00" pubdate>Nov 28<span>th</span>, 2011</time>
+<time datetime="2012-05-31T17:07:00-04:00" pubdate>May 31<span>st</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/programming/'>programming</a>
+    <a class='category' href='/blog/categories/learn-emacs/'>learn-emacs</a>
   
 </span>
 
@@ -197,7 +271,7 @@ develop, but it makes the problems easier to manage.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/solving-the-general-case/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/solving-the-general-case/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/learn-emacs-editing-javascript/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/learn-emacs-editing-javascript/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -210,10 +284,8 @@ develop, but it makes the problems easier to manage.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/the-problem-with-micro-frameworks/" title="Previous Post: The Problem with &#xb5;-Frameworks">&laquo; The Problem with &#xb5;-Frameworks</a>
+        <a class="basic-alignment left" href="/blog/reload-your-app-with-guard-and-pow/" title="Previous Post: Reload your app with Guard and Pow">&laquo; Reload your app with Guard and Pow</a>
       
-      
-        <a class="basic-alignment right" href="/blog/blogging-on-jekyll-url-redirects/" title="next Post: Blogging on Jekyll: URL Redirects">Blogging on Jekyll: URL Redirects &raquo;</a>
       
     </p>
   </footer>
@@ -342,8 +414,8 @@ develop, but it makes the problems easier to manage.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://rawsyntax.com/blog/solving-the-general-case';
-        var disqus_url = 'http://rawsyntax.com/blog/solving-the-general-case';
+        var disqus_identifier = 'http://rawsyntax.com/blog/learn-emacs-editing-javascript';
+        var disqus_url = 'http://rawsyntax.com/blog/learn-emacs-editing-javascript';
         var disqus_script = 'embed.js';
       
     (function () {
