@@ -4,6 +4,7 @@ title: "Learn Emacs: Smex"
 date: 2012-06-06 12:24
 comments: true
 categories: ["learn-emacs"]
+alias: [/post/6869365816/learn-emacs-use-smex-for-m-x]
 ---
 
 Scroll down for code snippets and text.
