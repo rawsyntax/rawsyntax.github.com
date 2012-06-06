@@ -16,3 +16,4 @@ group :development do
 end
 
 gem 'sinatra', '1.2.6'
+gem 'ruby-oembed', '0.8.7'
