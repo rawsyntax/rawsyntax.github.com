@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-05-31T18:04:37-04:00</updated>
+  <updated>2012-06-06T13:23:17-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Smex]]></title>
+    <link href="http://rawsyntax.com/blog/learn-emacs-smex/"/>
+    <updated>2012-06-06T12:24:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/learn-emacs-smex</id>
+    <content type="html"><![CDATA[<p>Scroll down for code snippets and text.</p>
+
+<div class="embed video YouTube"><iframe width="459" height="344" src="http://www.youtube.com/embed/18u_ieDpr1o?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe></div>
+
+
+<p>Smex is IDO style completion for M-x.  It is very customizable.  I
+recommend taking a look at the README for all the available options.
+Here&#8217;s the minimum setup required.</p>
+
+<div><script src='https://gist.github.com/2883010.js?file='></script>
+<noscript><pre><code>(require 'smex)
+(smex-initialize)
+
+(global-set-key (kbd &quot;M-x&quot;) 'smex)
+(global-set-key (kbd &quot;M-X&quot;) 'smex-major-mode-commands)
+(global-set-key (kbd &quot;C-c M-x&quot;) 'smex-update)
+(global-set-key (kbd &quot;C-c C-c M-x&quot;) 'execute-extended-command)</code></pre></noscript></div>
+
+
+<p>It&#8217;s available on the ELPA and the source is on github.</p>
+
+<p><a href="https://github.com/nonsequitur/smex/">Smex source on github</a><br />
+<a href="http://marmalade-repo.org/packages/smex">available on marmalade repo</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Editing Javascript]]></title>
@@ -1442,49 +1473,6 @@ To git@heroku.com:my-project.git
 <p>Note that your app slug (application files deployed to heroku) is limited to 100mb, but I have yet to run anywhere close to that. My side projects generally run around 10mb. Heroku recommends you use an asset host for any js/css/images.</p>
 
 <p>Heroku, with these addons is enough to get any side project off the ground. And there&#8217;s always the option to scale up with Heroku, or move it to your  paid host once it starts to grow.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Rails Authentication Plugins]]></title>
-    <link href="http://rawsyntax.com/blog/rails-authentication-plugins/"/>
-    <updated>2011-07-30T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/rails-authentication-plugins</id>
-    <content type="html"><![CDATA[<p>Considering which authentication plugin to use for rails? I have some recommendations.</p>
-
-<h2>Devise</h2>
-
-<p>Devise is a full featured authentication plugin. Featuring, remember me, forgot password, last seen timestamps, email confirmation, lockouts, and a slew of other features. They have pretty much anything you could ask for.</p>
-
-<p>Devise supports activerecord and mongoid. I used it recently on a mongoid based rails 3 project. It worked wonderfully. I’ll post a code example of how I did it, in the next few weeks.</p>
-
-<p>Check out their very helpful <a href="https://github.com/plataformatec/devise/wiki/_pages">wiki</a>, and their <a href="https://github.com/plataformatec/devise/wiki/Extensions">long list of extensions</a>.</p>
-
-<h2>Warden</h2>
-
-<p>Devise is actually built on top of warden. And warden is descendant from merb-auth <a href="http://merbivore.com">(merb)</a>. So, if you’re like me and quite familiar with merb-auth and it’s flexibility, you’ll feel right at home with warden. I use warden when I need just the basics, login / logout / signup. Also, if you happen to be doing some custom work when logging in, such as interfacing with an API or another system, warden is built to handle it.</p>
-
-<p>See Mike Thomas’ post about <a href="http://finite.posterous.com/how-to-use-warden-authentication-with-rails-3">getting up and running with rails and warden</a></p>
-
-<p><a href="https://github.com/hassox/warden">check out the code in github</a></p>
-
-<p><a href="https://github.com/hassox/rails_warden">and the rails plugin</a></p>
-
-<h2>Roll your own</h2>
-
-<p>Some people prefer to write their own authentication system. Personally, I avoid reinventing the wheel when flexible solutions like warden and devise exist. However, there are some railscasts covering this topic in detail, if you’re interested to see how authentication works.</p>
-
-<p><a href="http://railscasts.com/episodes/250-authentication-from-scratch">railscasts: authentication from scratch</a></p>
-
-<p><a href="http://railscasts.com/episodes/270-authentication-in-rails-3-1">railscasts: rails 3.1 authentication</a></p>
-
-<h2>Recommendations</h2>
-
-<p>Use devise if you’re running a standard rails stack with activerecord or mongoid (or couch or datamapper if you try their extensions).</p>
-
-<p>If you need to do some particularly strange things with authentication, I’d recommend warden. It’ll also work with any rack compatible web app (sinatra, and others).</p>
-
-<p>Don’t bother rolling your own, warden and devise do a fine (and flexible) job, and there’s plenty of other authentication plugins not mentioned here.</p>
 ]]></content>
   </entry>
   

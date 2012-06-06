@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-05-31T18:04:37-04:00</updated>
+  <updated>2012-06-06T13:23:17-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Smex]]></title>
+    <link href="http://rawsyntax.com/blog/learn-emacs-smex/"/>
+    <updated>2012-06-06T12:24:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/learn-emacs-smex</id>
+    <content type="html"><![CDATA[<p>Scroll down for code snippets and text.</p>
+
+<p><div class="embed video YouTube"><iframe width="459" height="344" src="http://www.youtube.com/embed/18u_ieDpr1o?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe></div></p>
+
+<p>Smex is IDO style completion for M-x.  It is very customizable.  I
+recommend taking a look at the README for all the available options.
+Here's the minimum setup required.
+<div><script src='https://gist.github.com/2883010.js?file='></script>
+<noscript><pre><code>(require 'smex)
+(smex-initialize)
+
+(global-set-key (kbd &quot;M-x&quot;) 'smex)
+(global-set-key (kbd &quot;M-X&quot;) 'smex-major-mode-commands)
+(global-set-key (kbd &quot;C-c M-x&quot;) 'smex-update)
+(global-set-key (kbd &quot;C-c C-c M-x&quot;) 'execute-extended-command)</code></pre></noscript></div>
+</p>
+
+<p>It's available on the ELPA and the source is on github.</p>
+
+<p><a href="https://github.com/nonsequitur/smex/">Smex source on github</a><br />
+<a href="http://marmalade-repo.org/packages/smex">available on marmalade repo</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Editing Javascript]]></title>
@@ -339,59 +368,6 @@ So if your config isn't already versioned, version it right now.</p>
 <p>PS: I'm interested to know any emacs topics you'd like to see a
 blogpost on.  I haven't been hacking my emacs config much lately, so
 I'm short on ideas for emacs posts.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: Useful Links]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-useful-links/"/>
-    <updated>2011-11-08T23:02:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-useful-links</id>
-    <content type="html"><![CDATA[<p>I have a running series of blog posts on
-<a href="/blog/categories/learn-emacs/">learning emacs</a>.  It is a life-long
-endeavor.  In this post I'm going to share some of the emacs resources
-that I have come across over the years.</p>
-
-<h3><a href="http://www.emacswiki.org/">EmacsWiki</a></h3>
-
-<p>This is the definitive source for emacs information (aside from the emacs manual).  There's a ton of information there, some of it is outdated, but it's still worth your time.</p>
-
-<h3>Steve Yegge's Emacs Posts -- <a href="https://sites.google.com/site/steveyegge2/blog-rants">old blog</a> and <a href="http://steve-yegge.blogspot.com/search?q=emacs">new blog</a></h3>
-
-<p>All I can say is that Steve Yegge has written a lot about emacs, and has made some awesome elisp contributions.  I'm a huge fan of js2-mode.  Just do a search for emacs on his old and new blogs. <a href="https://sites.google.com/site/steveyegge2/effective-emacs">Effective Emacs</a>
-is a good post to start with.</p>
-
-<h3><a href="http://avdi.org/devblog/category/emacs-reboot/">Avdi Grimm's Emacs Reboot</a></h3>
-
-<p>Avdi Grimm is writing about re-doing his emacs config from scratch.
-It's very informative and super easy to follow.  I've used some ideas
-from his posts.  His <a href="https://github.com/avdi/.emacs24.d">emacs config is on github</a>.</p>
-
-<h3><a href="http://emacsrookie.com/">emacsrookie</a></h3>
-
-<p>This site is relatively new, and there are only a few posts on it
-right now, but it is quality emacs content.</p>
-
-<h3><a href="http://emacsrocks.com/">emacsrocks</a></h3>
-
-<p>Emacs screencasts.  It's another new site, but I can't argue with free content.</p>
-
-<h3><a href="http://emacsformacosx.com/">EmacsForMacOSX</a></h3>
-
-<p>This site is very convenient for getting the latest os x builds of
-emacs.  Or you can run the build-script yourself
-(<a href="https://github.com/caldwell/build-emacs">source on github</a>).</p>
-
-<h3><a href="https://github.com/search?&amp;q=emacs&amp;type=Everything&amp;repo=&amp;langOverride=&amp;start_value=1">Github</a></h3>
-
-<p>Search emacs on github.  You will find many other emacs users' configs
-hosted there.  Read their configs, and you will learn emacs.  I keep
-<a href="https://github.com/rawsyntax/emacs.d">my emacs config there</a>.</p>
-
-<p>Did I miss any useful emacs resources?</p>
-
-<p>UPDATE:  The users at <a href="http://reddit.com/r/emacs/">emacs reddit</a> let
-me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">emacs-fu</a></p>
 ]]></content>
   </entry>
   

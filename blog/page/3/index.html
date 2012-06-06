@@ -9,7 +9,7 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching &hellip;">
+  <meta name="description" content="Considering which authentication plugin to use for rails? I have some recommendations. Devise Devise is a full featured authentication plugin. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,71 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/rails-authentication-plugins/">Rails Authentication Plugins</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-07-30T00:00:00-04:00" pubdate>Jul 30<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Considering which authentication plugin to use for rails? I have some recommendations.</p>
+
+<h2>Devise</h2>
+
+<p>Devise is a full featured authentication plugin. Featuring, remember me, forgot password, last seen timestamps, email confirmation, lockouts, and a slew of other features. They have pretty much anything you could ask for.</p>
+
+<p>Devise supports activerecord and mongoid. I used it recently on a mongoid based rails 3 project. It worked wonderfully. I’ll post a code example of how I did it, in the next few weeks.</p>
+
+<p>Check out their very helpful <a href="https://github.com/plataformatec/devise/wiki/_pages">wiki</a>, and their <a href="https://github.com/plataformatec/devise/wiki/Extensions">long list of extensions</a>.</p>
+
+<h2>Warden</h2>
+
+<p>Devise is actually built on top of warden. And warden is descendant from merb-auth <a href="http://merbivore.com">(merb)</a>. So, if you’re like me and quite familiar with merb-auth and it’s flexibility, you’ll feel right at home with warden. I use warden when I need just the basics, login / logout / signup. Also, if you happen to be doing some custom work when logging in, such as interfacing with an API or another system, warden is built to handle it.</p>
+
+<p>See Mike Thomas’ post about <a href="http://finite.posterous.com/how-to-use-warden-authentication-with-rails-3">getting up and running with rails and warden</a></p>
+
+<p><a href="https://github.com/hassox/warden">check out the code in github</a></p>
+
+<p><a href="https://github.com/hassox/rails_warden">and the rails plugin</a></p>
+
+<h2>Roll your own</h2>
+
+<p>Some people prefer to write their own authentication system. Personally, I avoid reinventing the wheel when flexible solutions like warden and devise exist. However, there are some railscasts covering this topic in detail, if you’re interested to see how authentication works.</p>
+
+<p><a href="http://railscasts.com/episodes/250-authentication-from-scratch">railscasts: authentication from scratch</a></p>
+
+<p><a href="http://railscasts.com/episodes/270-authentication-in-rails-3-1">railscasts: rails 3.1 authentication</a></p>
+
+<h2>Recommendations</h2>
+
+<p>Use devise if you’re running a standard rails stack with activerecord or mongoid (or couch or datamapper if you try their extensions).</p>
+
+<p>If you need to do some particularly strange things with authentication, I’d recommend warden. It’ll also work with any rack compatible web app (sinatra, and others).</p>
+
+<p>Don’t bother rolling your own, warden and devise do a fine (and flexible) job, and there’s plenty of other authentication plugins not mentioned here.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -592,43 +657,6 @@ Domaing.generate_domains
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/quicksilver-lockscreen/">Quicksilver Lockscreen</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-04-13T00:00:00-04:00" pubdate>Apr 13<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/quicksilver-lockscreen.png"></p>
-
-<p>I&#8217;ve recently started locking my screen on OSX. However I found that <a href="http://qsapp.com">Quicksilver&#8217;s</a> LockScreen script did not work. I believe it was designed for Leopard.</p>
-
-<p>The workaround I&#8217;ve found is to start ScreenSaverEngine with Quicksilver, and set my Security.prefs to require a password.</p>
-
-<p>UPDATE: This also works in OSX Lion.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -650,6 +678,10 @@ Domaing.generate_domains
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learn-emacs-smex/">Learn Emacs: Smex</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/learn-emacs-editing-javascript/">Learn Emacs: Editing Javascript</a>
       </li>
     
@@ -663,10 +695,6 @@ Domaing.generate_domains
     
       <li class="post">
         <a href="/blog/learn-emacs-swap-windows/">Learn Emacs: Swap Windows</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting your Emacs Config</a>
       </li>
     
   </ul>
