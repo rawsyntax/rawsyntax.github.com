@@ -33,16 +33,20 @@ module Jekyll
 
     def generate(site)
       @site = site
-      puts "AliasGenerator loading..."
 
       process_posts
+      process_pages
     end
 
     def process_posts
-      puts "Processing #{@site.posts.size.to_s} post(s) for aliases..."
-
       @site.posts.each do |post|
         generate_aliases(post.url, post.data['alias'])
+      end
+    end
+
+    def process_pages
+      @site.pages.each do |page|
+        generate_aliases(page.destination('').gsub(/index\.(html|htm)$/, ''), page.data['alias'])
       end
     end
 
@@ -52,12 +56,19 @@ module Jekyll
       alias_paths.compact!
 
       alias_paths.flatten.each do |alias_path|
-        path             = File.join(@site.dest, alias_path)
-        alias_index_path = File.join(alias_path, "index.html")
+        # If alias_path has an extension, we'll write the alias file
+        # directly to that path.  Otherwise, we'll assume that the
+        # alias_path is a directory, in which case we'll generate an
+        # index.html file.
+        alias_dir = File.extname(alias_path).empty? ? alias_path : File.dirname(alias_path)
+        alias_file = File.extname(alias_path).empty? ? "index.html" : File.basename(alias_path)
 
-        FileUtils.mkdir_p(path)
+        fs_path_to_dir = File.join(@site.dest, alias_dir)
+        alias_index_path = File.join(alias_dir, alias_file)
 
-        File.open(File.join(path, "index.html"), 'w') do |file|
+        FileUtils.mkdir_p(fs_path_to_dir)
+
+        File.open(File.join(fs_path_to_dir, alias_file), 'w') do |file|
           file.write(alias_template(destination_path))
         end
 
@@ -72,6 +83,7 @@ module Jekyll
       <!DOCTYPE html>
       <html>
       <head>
+      <link rel="canonical" href="#{destination_path}"/>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
       <meta http-equiv="refresh" content="0;url=#{destination_path}" />
       </head>
