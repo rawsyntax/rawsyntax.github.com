@@ -7,7 +7,15 @@ categories: ["programming", "blogging"]
 alias: [/blog/blogging-on-redirects]
 ---
 
-About a month ago I migrated my blog from Tumblr to Octopress hosted on github-pages.  I migrated because of Tumblr's slow page loads and frequent downtime.  I picked Octopress because it is built on top of Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is a static site generator, which ensures I can deploy my blog on any old server in the future, and continue to use these same old tools (because I have them, rather than tumblr having them).
+About a month ago I migrated my blog from Tumblr to Octopress hosted
+on github-pages.  I migrated because of Tumblr's slow page loads and
+frequent downtime.  I picked Octopress because it is built on top of
+Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is
+a static site generator, which ensures I can deploy my blog on any old
+server in the future, and continue to use these same old tools
+(because I have them, rather than tumblr having them).
+
+<!--more-->
 
 ### Migrating broke my URL Structure
 

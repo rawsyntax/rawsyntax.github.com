@@ -4,7 +4,14 @@ title: How to get a Programming Interview
 alias: [/post/6249655944/how-to-get-a-programming-interview, /post/6249655944]
 ---
 
-Before I get into the details, remember that persistence is critical in this. In my last job search, I lost count how many jobs I applied to. I also had one where I was sure I got the job, and they called to tell me why I didn't get it. I got really discouraged for a couple days, and then resumed the job search. Keep at it. Remember, you only need one big hit.
+Before I get into the details, remember that persistence is critical
+in this. In my last job search, I lost count how many jobs I applied
+to. I also had one where I was sure I got the job, and they called to
+tell me why I didn't get it. I got really discouraged for a couple
+days, and then resumed the job search. Keep at it. Remember, you only
+need one big hit.
+
+<!--more-->
 
 ## Figure out what your ideal job is
 

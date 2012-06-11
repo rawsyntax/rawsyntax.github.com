@@ -12,6 +12,8 @@ personal favorites is [align-regexp](/blog/learn-emacs-align-regexp/).
 A while back that stopped working for me.  Now I get an error: `Wrong type
 argument: markerp, 0`.  Emacs doesn't always do what I mean.
 
+<!--more-->
+
 ### First Remove your Config
 
 Whether you use a single `.emacs` file or a `~/.emacs.d/` directory

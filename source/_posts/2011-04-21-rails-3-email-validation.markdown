@@ -5,7 +5,15 @@ categories: ["ruby", "code"]
 alias: [/post/4807844270/rails-3-email-validation, /post/4807844270]
 ---
 
-Most email validation I've encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec ([rfc 822](http://www.ietf.org/rfc/rfc0822.txt)) in a regex. Not only is this task difficult and error prone, but there are functional email addresses out there that do not conform to the spec. Not to mention the resulting regex often looks like [this](http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html).
+Most email validation I've encountered goes bananas with regards to
+regexes. The programmer tries to strictly adhere to the spec
+([rfc 822](http://www.ietf.org/rfc/rfc0822.txt)) in a regex. Not only
+is this task difficult and error prone, but there are functional email
+addresses out there that do not conform to the spec. Not to mention
+the resulting regex often looks like
+[this](http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html).
+
+<!--more-->
 
 When I do email validation I use a simple regex:
 

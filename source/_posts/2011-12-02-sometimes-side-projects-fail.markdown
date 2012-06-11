@@ -13,6 +13,8 @@ turned out well, and other times I stopped working on them.  How do
 you know when it's time to throw in the towel and when it's time to
 push through?
 
+<!--more-->
+
 Roughly a year ago a friend and I were working on a bill splitting
 system.  It was supposed to solve the problem of splitting bills
 between friends.  More specifically, splitting regularly occuring or

@@ -11,6 +11,8 @@ categories: []
 Always verify your assumptions.  It will save you time and headache.
 I'll explain now.
 
+<!--more-->
+
 ### Building a PC
 
 I recently built a PC from parts I bought online.  It had been 5 years

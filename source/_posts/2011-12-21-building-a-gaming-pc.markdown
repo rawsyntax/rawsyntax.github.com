@@ -14,6 +14,8 @@ desktop gets way better performance.  In fact, this makes it so that I
 can stretch my laptop for a few more years, as it's only used for web
 programming at the moment (and it's plenty fast due to its SSD).
 
+<!--more-->
+
 At the end of this article I'll be listing all the parts I used for my build.
 
 ### Before Building a PC

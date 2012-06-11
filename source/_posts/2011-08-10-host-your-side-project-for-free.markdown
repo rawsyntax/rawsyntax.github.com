@@ -4,7 +4,14 @@ title: Host your side project for free
 alias: [/post/8737142015/host-your-side-project-for-free, /post/8737142015]
 ---
 
-In this post I explain how to host your side project on Heroku for free. There are some limits of course. I'm assuming your side project is written in Ruby (RACK compatible), Node.js, or Clojure. I'm assuming you're using git for version control (heroku uses git push for deploys). I'll also discuss storage limitations (database, web assets, etc).
+In this post I explain how to host your side project on Heroku for
+free. There are some limits of course. I'm assuming your side project
+is written in Ruby (RACK compatible), Node.js, or Clojure. I'm
+assuming you're using git for version control (heroku uses git push
+for deploys). I'll also discuss storage limitations (database, web
+assets, etc).
+
+<!--more-->
 
 Looking for inspiration for a side project? [Read my post about side projects](http://rawsyntax.com/post/5982784556/importance-of-side-projects)
 

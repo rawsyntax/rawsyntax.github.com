@@ -4,7 +4,12 @@ title: Start Using html5
 alias: [/post/4542811266/start-using-html5, /post/4542811266]
 ---
 
-There's a lot of hype going on about html5 nowadays. If you're not using html5 yet, the whole thing can be somewhat overwhelming. After reading this blogpost you'll be ready to upgrade your current project (or start a new one) using html5.
+There's a lot of hype going on about html5 nowadays. If you're not
+using html5 yet, the whole thing can be somewhat overwhelming. After
+reading this blogpost you'll be ready to upgrade your current project
+(or start a new one) using html5.
+
+<!--more-->
 
 ## Understanding html5
 

@@ -11,6 +11,8 @@ I have a running series of blog posts on
 endeavor.  In this post I'm going to share some of the emacs resources
 that I have come across over the years.
 
+<!--more-->
+
 ### [EmacsWiki](http://www.emacswiki.org/)
 This is the definitive source for emacs information (aside from the emacs manual).  There's a ton of information there, some of it is outdated, but it's still worth your time.
 

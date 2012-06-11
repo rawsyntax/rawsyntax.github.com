@@ -17,6 +17,8 @@ those options.  Design it correctly, but deliver less functionality,
 and add the rest of the functionality at a later date.  While that's a
 simple solution, this comic touches on other related issues.
 
+<!--more-->
+
 ### Analysis Paralysis
 
 <img src="/images/analysis-paralysis.jpg" class ="center"/>

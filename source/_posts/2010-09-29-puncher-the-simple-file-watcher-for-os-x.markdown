@@ -9,6 +9,8 @@ Why another file watcher for OS X?
 
 There's already [kicker](http://github.com/alloy/kicker), and many ruby programs that need file watching, already have solutions built in. For example [ZenTest](http://github.com/seattlerb/zentest), [compass](http://compass-style.org) etc..
 
+<!--more-->
+
 The problem with file watchers on OS X is that they depend on [rubycocoa](http://rubycocoa.sourceforge.net/HomePage). If [rubycocoa](http://rubycocoa.sourceforge.net/HomePage) isn't available most of them fallback to [file-system polling](http://bit.ly/dDnkCu), which kills my cpu. If you're using the system ruby that comes with OS X, you're fine because [rubycocoa](http://rubycocoa.sourceforge.net/HomePage) is already built in.
 
 I use [rvm](http://rvm.beginrescueend.com/), which makes it super easy for me to install multiple separate and self-contained versions of ruby. I could for instance, maintain an old project that was written against ruby-1.8.6 while on the same machine starting a new project using ruby-1.9.2.

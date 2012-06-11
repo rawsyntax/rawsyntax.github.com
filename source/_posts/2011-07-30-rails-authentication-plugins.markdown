@@ -4,7 +4,10 @@ title: Rails Authentication Plugins
 alias: [/post/8257723163/rails-authentication-plugins, /post/8257723163]
 ---
 
-Considering which authentication plugin to use for rails? I have some recommendations.
+Considering which authentication plugin to use for rails? I have some
+recommendations.
+
+<!--more-->
 
 ## Devise
 

@@ -21,6 +21,8 @@ in which he says:
 His article made me think of a time years ago when I wanted to be in the
 music business.
 
+<!--more-->
+
 When I was about 12 or 13 I started playing bass guitar.  From then on
 I was enamored with music.  Playing it, listening to it, thinking
 about playing it etc...  Then when I was in 11th grade I had the

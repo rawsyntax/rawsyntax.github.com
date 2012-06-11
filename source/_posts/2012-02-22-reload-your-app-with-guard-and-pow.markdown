@@ -12,6 +12,8 @@ allows you to access your projects via the `.dev` and named symlinks
 stored in `~/.pow` (for example `http://my_project.dev`).  No need to
 specify a port either!
 
+<!--more-->
+
 Very shortly afterwards I ran into a problem.  When I'm working on a
 Sinatra app, normally I use the
 [shotgun](https://github.com/rtomayko/shotgun) gem for automatic

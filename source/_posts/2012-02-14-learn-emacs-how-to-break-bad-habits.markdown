@@ -12,6 +12,8 @@ The best thing to do is never to form bad habits in the first place.
 However if you didn't have any bad habits, you wouldn't be reading
 this blog post.  Here's what has worked for me.
 
+<!--more-->
+
 ### Make a Note of It
 
 One of my bad habits was using the arrow keys for navigation in emacs.

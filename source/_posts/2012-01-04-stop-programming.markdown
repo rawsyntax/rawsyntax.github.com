@@ -12,6 +12,8 @@ categories: ["rants"]
 I've got some ideas on how you can improve your programming by not
 programming.  Try something new this year.
 
+<!--more-->
+
 ### Simplifying Too Much
 
 About 4 years ago, I fell in love with minimalism and tried to get rid of most of my possessions.  I went as far as selling my saxophone, (3) bass guitars,  and bass rig.  This meant not playing music any more.  At the time I decided that playing music was nonessential since it did not relate to programming and didn't make any money.  I also sold my bicycle (which meant no more cycling).

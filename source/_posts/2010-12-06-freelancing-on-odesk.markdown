@@ -5,7 +5,19 @@ categories: ["ruby", "code"]
 alias: [/post/4544143273/freelancing-on-odesk, /post/4544143273]
 ---
 
-Since the start of my career as a professional programmer, I've been interested in doing contract work online. Over the years I've half-heartedly tried to get jobs on sites like [elance](http://www.elance.com/), [rentacoder](http://rentacoder.com), and [guru](http://www.guru.com). I never had any success. All I found was employers / providers offering $200 fixed-bid contracts for building [facebook](http://facebook.com) / [ebay](http://ebay.com) clones, and workers willing to work for way less than I would or even could. In November 2010, after reading enough posts on [hacker news](http://news.ycombinator.com) I decided to give [oDesk](http://odesk.com) an honest try.
+Since the start of my career as a professional programmer, I've been
+interested in doing contract work online. Over the years I've
+half-heartedly tried to get jobs on sites like
+[elance](http://www.elance.com/), [rentacoder](http://rentacoder.com),
+and [guru](http://www.guru.com). I never had any success. All I found
+was employers / providers offering $200 fixed-bid contracts for
+building [facebook](http://facebook.com) / [ebay](http://ebay.com)
+clones, and workers willing to work for way less than I would or even
+could. In November 2010, after reading enough posts on
+[hacker news](http://news.ycombinator.com) I decided to give
+[oDesk](http://odesk.com) an honest try.
+
+<!--more-->
 
 ## Trying oDesk for a Full Month
 

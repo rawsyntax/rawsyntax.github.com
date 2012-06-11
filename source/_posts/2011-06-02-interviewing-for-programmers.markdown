@@ -4,7 +4,15 @@ title: Interviewing for Programmers
 alias: [/post/6112439871/interviewing-for-programmers, /post/6112439871]
 ---
 
-Interviewing is a funny thing. In order to get hired for a programming job it's most important to interview well. Getting hired usually doesn't have much to do with programming skills. This is typically a pain point for programmers. Many of us feel that the hiring process should be changed. Personally, I'm ok with the hiring process as it is. It could be improved, but I'm going to tell you how to get a job anyway.
+Interviewing is a funny thing. In order to get hired for a programming
+job it's most important to interview well. Getting hired usually
+doesn't have much to do with programming skills. This is typically a
+pain point for programmers. Many of us feel that the hiring process
+should be changed. Personally, I'm ok with the hiring process as it
+is. It could be improved, but I'm going to tell you how to get a job
+anyway.
+
+<!--more-->
 
 ## It's a skill
 

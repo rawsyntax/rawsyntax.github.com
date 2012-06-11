@@ -14,6 +14,8 @@ Flask and web.py for python.  These frameworks promise quick ramp up
 time and simplicity.  They are small and do not provide much
 functionality, which is sold as "not getting in your way".
 
+<!--more-->
+
 ### Great! What's not to like?
 
 In theory this sounds super, and if you have a project that has a very

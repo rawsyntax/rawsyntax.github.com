@@ -10,6 +10,8 @@ One of my favorite things about emacs is its javascript modes.  While
 there are a million options, I'm only going to talk about how I edit
 javascript with emacs.
 
+<!--more-->
+
 ##  Which Mode do I Use?
 
 I use [js2-mode](http://code.google.com/p/js2-mode/).  It provides
