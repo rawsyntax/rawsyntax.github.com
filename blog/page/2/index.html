@@ -9,10 +9,9 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Up to this point my Learn Emacs
-series has been all about how to do cool stuff in emacs. One of my
-personal favorites is align-regexp.
-A while back &hellip;">
+  <meta name="description" content="When I use Emacs in GUI mode, I set it up to have two 80 column
+windows side by side. It&#8217;s extremely convention when you need to look
+at one &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +79,66 @@ A while back &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learn-emacs-swap-windows/">Learn Emacs: Swap Windows</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2012-01-26T10:33:00-05:00" pubdate>Jan 26<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When I use Emacs in GUI mode, I set it up to have two 80 column
+windows side by side.  It&#8217;s extremely convention when you need to look
+at one section of the code while writing another.  For instance, you
+can have the spec file side by side with the code when doing TDD.
+Sometimes I want to swap the windows.  This kind of functionality does
+not come built in with emacs.  I found the <code>swap-windows</code> function
+that I use in Steve Yegge&#8217;s
+<a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">.emacs</a>
+file.</p>
+
+<div><script src='https://gist.github.com/1683375.js?file='></script>
+<noscript><pre><code>(defun swap-windows ()
+ &quot;If you have 2 windows, it swaps them.&quot;
+ (interactive)
+ (cond ((not (= (count-windows) 2))
+        (message &quot;You need exactly 2 windows to do this.&quot;))
+       (t
+        (let* ((w1 (first (window-list)))
+               (w2 (second (window-list)))
+               (b1 (window-buffer w1))
+               (b2 (window-buffer w2))
+               (s1 (window-start w1))
+               (s2 (window-start w2)))
+          (set-window-buffer w1 b2)
+          (set-window-buffer w2 b1)
+          (set-window-start w1 s2)
+          (set-window-start w2 s1)))))</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -243,45 +302,6 @@ push through?</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/verify-your-assumptions/">Verify Your Assumptions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-12-07T09:41:00-05:00" pubdate>Dec 7<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/ram.jpg" class ="center"/></p>
-
-<p>Always verify your assumptions.  It will save you time and headache.
-I&#8217;ll explain now.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/verify-your-assumptions/">Read More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -303,6 +323,10 @@ I&#8217;ll explain now.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/emacs-24-dot-1-is-out/">Emacs 24.1 is Out</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/learn-emacs-smex/">Learn Emacs: Smex</a>
       </li>
     
@@ -316,10 +340,6 @@ I&#8217;ll explain now.</p>
     
       <li class="post">
         <a href="/blog/learn-emacs-how-to-break-bad-habits/">Learn Emacs: How to Break Bad Habits</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/learn-emacs-swap-windows/">Learn Emacs: Swap Windows</a>
       </li>
     
   </ul>

@@ -5,13 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Freelancing on oDesk - Raw Syntax</title>
+  <title>Emacs 24.1 is Out - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Since the start of my career as a professional programmer, I&#8217;ve been
-interested in doing contract work online. Over the years I&#8217;ve
-half- &hellip;">
+  <meta name="description" content="Emacs 24.1 was
+released
+yesterday. Being the first release version of Emacs 24, I&#8217;d suggest trying it
+out. I&#8217;ve been using Emacs 24 since &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +21,7 @@ half- &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/freelancing-on-odesk">
+  <link rel="canonical" href="http://rawsyntax.com/blog/emacs-24-dot-1-is-out">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -82,7 +83,7 @@ half- &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Freelancing on oDesk</h1>
+      <h1 class="entry-title">Emacs 24.1 Is Out</h1>
     
     
       <p class="meta">
@@ -93,50 +94,59 @@ half- &hellip;">
 
   
 
-<time datetime="2010-12-06T00:00:00-05:00" pubdate>Dec 6<span>th</span>, 2010</time>
+<time datetime="2012-06-11T16:55:00-04:00" pubdate>Jun 11<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Since the start of my career as a professional programmer, I&#8217;ve been
-interested in doing contract work online. Over the years I&#8217;ve
-half-heartedly tried to get jobs on sites like
-<a href="http://www.elance.com/">elance</a>, <a href="http://rentacoder.com">rentacoder</a>,
-and <a href="http://www.guru.com">guru</a>. I never had any success. All I found
-was employers / providers offering $200 fixed-bid contracts for
-building <a href="http://facebook.com">facebook</a> / <a href="http://ebay.com">ebay</a>
-clones, and workers willing to work for way less than I would or even
-could. In November 2010, after reading enough posts on
-<a href="http://news.ycombinator.com">hacker news</a> I decided to give
-<a href="http://odesk.com">oDesk</a> an honest try.</p>
+<div class="entry-content"><p>Emacs 24.1 was
+<a href="http://lists.gnu.org/archive/html/emacs-devel/2012-06/msg00164.html">released</a>
+yesterday.</p>
+
+<p>Being the first release version of Emacs 24, I&#8217;d suggest trying it
+out.  I&#8217;ve been using Emacs 24 since the pretest version started
+coming out, and even the recent pretests have been stable for me.</p>
 
 <!--more-->
 
 
-<h2>Trying oDesk for a Full Month</h2>
+<h2>Some New Features</h2>
 
-<p>I committed myself to trying get jobs on <a href="http://www.odesk.com">oDesk</a> for a full month. I found the usual unrealistic jobs (demanding everything for nothing). I focused narrowly on <a href="http://www.ruby-lang.org/">ruby</a> and <a href="http://rubyonrails.org">rails</a> since that&#8217;s been the focus of my skill-set the past few years.</p>
+<p>My favorite feature of Emacs 24 is the elisp package manager.  I find
+its an extremely convenient way to manage the packages you want your
+<code>~/.emacs.d</code> to utilize. It&#8217;s available via <code>M-x list-packages</code>.  The
+canonical package manager is known as the
+<a href="http://tromey.com/elpa/">ELPA</a>, but there are other package
+managers, such as <a href="http://marmalade-repo.org/">marmalade</a> because the
+ELPA doesn&#8217;t include everything.</p>
 
-<h2>Fixed-bid Projects</h2>
+<p>Getting the package manager setup is easy.  Here&#8217;s the minimal code
+needed:</p>
 
-<p>After a few days of applying to 2-3 jobs per day, I finally got an acceptance. It should be noted that for each of these jobs I wrote a detailed and specially tailored cover letter selling myself to the employer. I believe this is crucial. Writing cover letters is worth getting good at.</p>
+<div><script src='https://gist.github.com/2912673.js?file='></script>
+<noscript><pre><code>(require 'package)
 
-<p>The job was to modify the
-<a href="https://github.com/Shopify/active_merchant">ActiveMerchant</a> gem to add support for a new payment gateway. I wrote <a href="https://jadedpixel.lighthouseapp.com/projects/11599/tickets/199-patch-added-merchant-warrior-gateway">this patch</a> for <a href="http://merchantwarrior.com">MerchantWarrior</a> in about 8 hours start to finish. It was a fixed bid project and the employer paid me promptly.</p>
+;; optionally add the marmalade repo to list-packages
+(add-to-list 'package-archives
+         '(&quot;marmalade&quot; . &quot;http://marmalade-repo.org/packages/&quot;))
 
-<p>I got this project after only a few days, and I was ready for more. The next job I did was basically rails troubleshooting for another developer over skype. It consisted of a few small bugs, each of which were small fixed-bid projects. The guy would skype me, name his price, then I&#8217;d fix his bugs in his rails applications, explain why, and he&#8217;d pay me. It wasn&#8217;t much money, but these were small bugs, and it boosted my feedback rating on <a href="http://odesk.com">oDesk</a>.</p>
+(package-initialize)
+(package-refresh-contents)</code></pre></noscript></div>
 
-<p>On to the next job! November was turning out to be a good month for trying out online contracting. At this point I had only done fixed-bid contracts. I wanted something bigger. I wanted hourly work on <a href="http://odesk.com">oDesk</a>. Hourly work is special because <a href="http://odesk.com">oDesk</a> guarantees payment for hours worked. They have an application that you run on your desktop that tracks hours worked, takes screenshots, and lists average keystrokes and mouse actions.</p>
 
-<h2>Hourly Work</h2>
+<p>Another new feature is the built-in color-theme facility.  Prior to
+Emacs 24 color themes could be created through the
+<a href="http://www.emacswiki.org/cgi-bin/wiki?ColorTheme">color-theme</a>
+package.  Instead you can now use <code>customize-create-theme</code> to create
+color-themes.</p>
 
-<p>The first hourly project I got was a small ruby integration with <a href="http://ifbyphone.com">ifbyphone</a>. I had used ifbyphone before, so I wrote a cover letter selling myself hard (knowing ruby, having used ifbyphone before). I was also asked to justify my hourly rate, since it was higher than the typical hourly rate on <a href="http://odesk.com">oDesk</a>. This was easy enough.</p>
+<p><img src="/images/customize-create-theme.jpg" class ="center"/></p>
 
-<p>As soon as I delivered the code for this project, the employer offered me some work building a ruby gem. It&#8217;s basically a simplistic template-based email parser. It&#8217;s rather fragile, but given the employer&#8217;s time constraints, it does what he wants. I ended up codifying the employer&#8217;s requirements into <a href="http://rspec.info">rspec</a> tests.</p>
-
-<p>Once I finished that project, the same employer offered me some more hourly work in the form of a rails project. It&#8217;s a microsite for people who play farmville. For the record, I do not play farmville. There are plenty of other more interesting video games to play. The site is basically a lookup table for some farmville data. It&#8217;s sortable and can be filtered to the user&#8217;s specifications. I&#8217;m not yet finished with this project.</p>
+<p>There&#8217;s too much to cover in a blogpost, but here&#8217;s the entire
+<a href="https://www.gnu.org/software/emacs/NEWS.24.1">NEWS file</a>, which you
+can also view inside emacs with  <code>M-x view-emacs-news</code>.</p>
 </div>
 
 
@@ -154,12 +164,12 @@ could. In November 2010, after reading enough posts on
 
   
 
-<time datetime="2010-12-06T00:00:00-05:00" pubdate>Dec 6<span>th</span>, 2010</time>
+<time datetime="2012-06-11T16:55:00-04:00" pubdate>Jun 11<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/learn-emacs/'>learn-emacs</a>
   
 </span>
 
@@ -168,7 +178,7 @@ could. In November 2010, after reading enough posts on
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/freelancing-on-odesk/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/freelancing-on-odesk/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/emacs-24-dot-1-is-out/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/emacs-24-dot-1-is-out/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -181,14 +191,18 @@ could. In November 2010, after reading enough posts on
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/puncher-the-simple-file-watcher-for-os-x/" title="Previous Post: Puncher the simple file watcher for OS X">&laquo; Puncher the simple file watcher for OS X</a>
+        <a class="basic-alignment left" href="/blog/learn-emacs-smex/" title="Previous Post: Learn Emacs: Smex">&laquo; Learn Emacs: Smex</a>
       
-      
-        <a class="basic-alignment right" href="/blog/url-validation-in-rails-3-and-ruby-in-general/" title="next Post: URL Validation in Rails 3 (and ruby in general)">URL Validation in Rails 3 (and ruby in general) &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -306,7 +320,10 @@ could. In November 2010, after reading enough posts on
       var disqus_shortname = 'rawsyntax';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rawsyntax.com/blog/emacs-24-dot-1-is-out';
+        var disqus_url = 'http://rawsyntax.com/blog/emacs-24-dot-1-is-out';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

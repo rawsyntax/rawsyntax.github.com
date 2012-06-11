@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-11T10:47:10-04:00</updated>
+  <updated>2012-06-11T18:06:25-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Emacs 24.1 is Out]]></title>
+    <link href="http://rawsyntax.com/blog/emacs-24-dot-1-is-out/"/>
+    <updated>2012-06-11T16:55:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/emacs-24-dot-1-is-out</id>
+    <content type="html"><![CDATA[<p>Emacs 24.1 was
+<a href="http://lists.gnu.org/archive/html/emacs-devel/2012-06/msg00164.html">released</a>
+yesterday.</p>
+
+<p>Being the first release version of Emacs 24, I&#8217;d suggest trying it
+out.  I&#8217;ve been using Emacs 24 since the pretest version started
+coming out, and even the recent pretests have been stable for me.</p>
+
+<!--more-->
+
+
+<h2>Some New Features</h2>
+
+<p>My favorite feature of Emacs 24 is the elisp package manager.  I find
+its an extremely convenient way to manage the packages you want your
+<code>~/.emacs.d</code> to utilize. It&#8217;s available via <code>M-x list-packages</code>.  The
+canonical package manager is known as the
+<a href="http://tromey.com/elpa/">ELPA</a>, but there are other package
+managers, such as <a href="http://marmalade-repo.org/">marmalade</a> because the
+ELPA doesn&#8217;t include everything.</p>
+
+<p>Getting the package manager setup is easy.  Here&#8217;s the minimal code
+needed:</p>
+
+<div><script src='https://gist.github.com/2912673.js?file='></script>
+<noscript><pre><code>(require 'package)
+
+;; optionally add the marmalade repo to list-packages
+(add-to-list 'package-archives
+         '(&quot;marmalade&quot; . &quot;http://marmalade-repo.org/packages/&quot;))
+
+(package-initialize)
+(package-refresh-contents)</code></pre></noscript></div>
+
+
+<p>Another new feature is the built-in color-theme facility.  Prior to
+Emacs 24 color themes could be created through the
+<a href="http://www.emacswiki.org/cgi-bin/wiki?ColorTheme">color-theme</a>
+package.  Instead you can now use <code>customize-create-theme</code> to create
+color-themes.</p>
+
+<p><img src="http://rawsyntax.com/images/customize-create-theme.jpg" class ="center"/></p>
+
+<p>There&#8217;s too much to cover in a blogpost, but here&#8217;s the entire
+<a href="https://www.gnu.org/software/emacs/NEWS.24.1">NEWS file</a>, which you
+can also view inside emacs with  <code>M-x view-emacs-news</code>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Smex]]></title>
@@ -1437,111 +1491,6 @@ bash-3.2$ history
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Host your side project for free]]></title>
-    <link href="http://rawsyntax.com/blog/host-your-side-project-for-free/"/>
-    <updated>2011-08-10T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/host-your-side-project-for-free</id>
-    <content type="html"><![CDATA[<p>In this post I explain how to host your side project on Heroku for
-free. There are some limits of course. I&#8217;m assuming your side project
-is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m
-assuming you&#8217;re using git for version control (heroku uses git push
-for deploys). I&#8217;ll also discuss storage limitations (database, web
-assets, etc).</p>
-
-<!--more-->
-
-
-<p>Looking for inspiration for a side project? <a href="http://rawsyntax.com/post/5982784556/importance-of-side-projects">Read my post about side projects</a></p>
-
-<h2>Sign up for Heroku</h2>
-
-<p><img src="http://media.tumblr.com/tumblr_lpp3jgSnE31qfdxjm.png"></p>
-
-<h2>Create a Project on Heroku</h2>
-
-<p>First install the heroku gem.</p>
-
-<div><script src='https://gist.github.com/1712856.js?file='></script>
-<noscript><pre><code>➜  ~  gem install heroku
-Fetching: heroku-2.4.0.gem (100%)
-Successfully installed heroku-2.4.0
-1 gem installed
-</code></pre></noscript></div>
-
-
-<p>Then create a project with the cedar stack on heroku.</p>
-
-<div><script src='https://gist.github.com/1712866.js?file='></script>
-<noscript><pre><code>➜  ~  heroku apps:create --stack cedar my-project
-Creating my-project... done, stack is cedar
-http://my-project.herokuapp.com/ | git@heroku.com:my-project.git</code></pre></noscript></div>
-
-
-<p>Log in to Heroku and check out your app.</p>
-
-<p><img src="http://media.tumblr.com/tumblr_lpp485CMTR1qfdxjm.png"></p>
-
-<p>You should see something similar to the above. At this point you&#8217;ve created your project on heroku. Awesome, but there&#8217;s still more to do.</p>
-
-<h2>Deploy your project to heroku</h2>
-
-<p>Note the git repository listed on your project&#8217;s heroku page. Add it as a remote on your project with:</p>
-
-<div><script src='https://gist.github.com/1712875.js?file='></script>
-<noscript><pre><code>➜  my-project git:(master) ✗ git push heroku master
-Counting objects: 7, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 459 bytes, done.
-Total 4 (delta 2), reused 0 (delta 0)
-
------&gt; Heroku receiving push
------&gt; Ruby/Rails app detected
------&gt; Detected Rails is not set to serve static_assets
-       Installing rails3_serve_static_assets... done
------&gt; Configure Rails 3 to disable x-sendfile
-       Installing rails3_disable_x_sendfile... done
------&gt; Configure Rails to log to stdout
-       Installing rails_log_stdout... done
------&gt; Gemfile detected, running Bundler version 1.0.7
-       All dependencies are satisfied
------&gt; Compiled slug size is 8.0MB
------&gt; Launching... done, v1
-       http://my-project.heroku.com deployed to Heroku
-
-To git@heroku.com:my-project.git
-   ecd8d10..0d81a36  master -&gt; master</code></pre></noscript></div>
-
-
-<p>But most likely you will get a slew of errors. What about database setup and all the other steps that go with production application setup?</p>
-
-<h2>Set your project up for Heroku</h2>
-
-<p>Here&#8217;s where Heroku&#8217;s Addon system comes in. Basically, you&#8217;re going to replace your database server, frontend load balancing / reverse proxy, and daemon processes / cron jobs with Heroku Addons. This is a subject for another post, but I&#8217;ll go over what my standard stack is.</p>
-
-<p>Furthermore, Heroku has good documentation about their platform and Addons <a href="http://devcenter.heroku.com/">here</a></p>
-
-<h2>My standard stack</h2>
-
-<p>Lately I&#8217;ve been using Rails 3, Mongoid for models, Haml and Sass for views, and sendgrid for sending emails.</p>
-
-<p>On Heroku I&#8217;ll install the following free Addons:</p>
-
-<ul>
-<li>Sendgrid for sending and receiving emails (200 a day free)</li>
-<li>MongoLab for a free mongodb instance (240mb)</li>
-<li>Advanced Logging</li>
-<li>Custom Domain (for my own .com instead of a heroku subdomain)</li>
-</ul>
-
-
-<p>Note that your app slug (application files deployed to heroku) is limited to 100mb, but I have yet to run anywhere close to that. My side projects generally run around 10mb. Heroku recommends you use an asset host for any js/css/images.</p>
-
-<p>Heroku, with these addons is enough to get any side project off the ground. And there&#8217;s always the option to scale up with Heroku, or move it to your  paid host once it starts to grow.</p>
 ]]></content>
   </entry>
   

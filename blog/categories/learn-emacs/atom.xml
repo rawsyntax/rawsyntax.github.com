@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-11T10:47:10-04:00</updated>
+  <updated>2012-06-11T18:06:25-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Emacs 24.1 is Out]]></title>
+    <link href="http://rawsyntax.com/blog/emacs-24-dot-1-is-out/"/>
+    <updated>2012-06-11T16:55:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/emacs-24-dot-1-is-out</id>
+    <content type="html"><![CDATA[<p>Emacs 24.1 was
+<a href="http://lists.gnu.org/archive/html/emacs-devel/2012-06/msg00164.html">released</a>
+yesterday.</p>
+
+<p>Being the first release version of Emacs 24, I'd suggest trying it
+out.  I've been using Emacs 24 since the pretest version started
+coming out, and even the recent pretests have been stable for me.</p>
+
+<!--more-->
+
+
+<h2>Some New Features</h2>
+
+<p>My favorite feature of Emacs 24 is the elisp package manager.  I find
+its an extremely convenient way to manage the packages you want your
+<code>~/.emacs.d</code> to utilize. It's available via <code>M-x list-packages</code>.  The
+canonical package manager is known as the
+<a href="http://tromey.com/elpa/">ELPA</a>, but there are other package
+managers, such as <a href="http://marmalade-repo.org/">marmalade</a> because the
+ELPA doesn't include everything.</p>
+
+<p>Getting the package manager setup is easy.  Here's the minimal code
+needed:</p>
+
+<p><div><script src='https://gist.github.com/2912673.js?file='></script>
+<noscript><pre><code>(require 'package)
+
+;; optionally add the marmalade repo to list-packages
+(add-to-list 'package-archives
+	     '(&quot;marmalade&quot; . &quot;http://marmalade-repo.org/packages/&quot;))
+
+(package-initialize)
+(package-refresh-contents)</code></pre></noscript></div>
+</p>
+
+<p>Another new feature is the built-in color-theme facility.  Prior to
+Emacs 24 color themes could be created through the
+<a href="http://www.emacswiki.org/cgi-bin/wiki?ColorTheme">color-theme</a>
+package.  Instead you can now use <code>customize-create-theme</code> to create
+color-themes.</p>
+
+<p><img src="http://rawsyntax.com/images/customize-create-theme.jpg" class ="center"/></p>
+
+<p>There's too much to cover in a blogpost, but here's the entire
+<a href="https://www.gnu.org/software/emacs/NEWS.24.1">NEWS file</a>, which you
+can also view inside emacs with  <code>M-x view-emacs-news</code>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Emacs: Smex]]></title>
@@ -319,64 +373,6 @@ file.</p>
           (set-window-start w1 s2)
           (set-window-start w2 s1)))))</code></pre></noscript></div>
 </p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Troubleshooting your Emacs Config]]></title>
-    <link href="http://rawsyntax.com/blog/troubleshooting-your-emacs-config/"/>
-    <updated>2012-01-22T22:26:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/troubleshooting-your-emacs-config</id>
-    <content type="html"><![CDATA[<p>Up to this point my <a href="/blog/categories/learn-emacs">Learn Emacs</a>
-series has been all about how to do cool stuff in emacs.  One of my
-personal favorites is <a href="/blog/learn-emacs-align-regexp/">align-regexp</a>.
-A while back that stopped working for me.  Now I get an error: <code>Wrong type
-argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
-
-<!--more-->
-
-
-<h3>First Remove your Config</h3>
-
-<p>Whether you use a single <code>.emacs</code> file or a <code>~/.emacs.d/</code> directory
-it is time to remove it.  Personally I keep <code>~/.emacs.d/</code> symlinked to
-my <a href="https://github.com/rawsyntax/emacs.d">emacs.d github repo</a> so it iss
-quite easy to remove the symlink.  Alternatively you can start emacs
-with the <code>--no-init-file</code> option, to skip loading your files. The
-rationale for removing your config is simply that it reduces the
-number of variables you are dealing with.  Is the problem with your
-config or with emacs itself?</p>
-
-<h3>Then Check your Emacs Version</h3>
-
-<p>After I removed my config and tried <code>M-x align-regexp</code> again, I got
-the same error.  So its not my config.  If you find you have a problem
-with a particular version of emacs <code>M-x emacs-version</code> will tell you
-what version you have.  In my case it was</p>
-
-<pre><code>GNU Emacs 24.0.92.1 (x86_64-apple-darwin, NS apple-appkit-1038.36) of 2011-12-02 on bob.porkrind.org
-</code></pre>
-
-<p>As I get my emacs builds from
-<a href="http://emacsformacosx.com/">EmacsForMacOSX</a> or <code>brew install</code> them
-myself.  At this point I'm fairly certain I'm getting the error as a
-result of running a nightly build.  A quick google leads me to
-<a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2011-12/msg00266.html">bug#10249: 24.0.92</a>.
-I installed a pretest version, and align-regexp works fine like it
-used to..  I would prefer to be running the stable version, but I'm using
-<a href="https://github.com/technomancy/emacs-starter-kit">emacs-starter-kit</a>
-for my config, which requires emacs 24.</p>
-
-<h3>Version your Config</h3>
-
-<p>When functionality like this breaks it is really awesome to have an
-emacs configuration that is under version control.  I can walk
-backwards through any recent changes to find what is causing breakage.
-So if your config isn't already versioned, version it right now.</p>
-
-<p>PS: I'm interested to know any emacs topics you'd like to see a
-blogpost on.  I haven't been hacking my emacs config much lately, so
-I'm short on ideas for emacs posts.</p>
 ]]></content>
   </entry>
   
