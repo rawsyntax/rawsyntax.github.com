@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>The Problem with &#xb5;-Frameworks - Raw Syntax</title>
+  <title>Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="There are plenty of micro-frameworks out there for web development.
-Some ruby based ones are Sinatra, Padrino, and Camping. There&#8217;s also
-Flask &hellip;">
+  <meta name="description" content="Considering which authentication plugin to use for rails? I have some
+recommendations. ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ Flask &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/the-problem-with-micro-frameworks">
+  <link rel="canonical" href="http://rawsyntax.com/blog/page/5">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,12 +76,15 @@ Flask &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">The Problem With &#xb5;-Frameworks</h1>
+      <h1 class="entry-title"><a href="/blog/rails-authentication-plugins/">Rails Authentication Plugins</a></h1>
     
     
       <p class="meta">
@@ -93,135 +95,196 @@ Flask &hellip;">
 
   
 
-<time datetime="2011-11-27T11:34:00-05:00" pubdate>Nov 27<span>th</span>, 2011</time>
+<time datetime="2011-07-30T00:00:00-04:00" pubdate>Jul 30<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img src="/images/simple-spaghetti.jpg" class ="center"/></p>
+  <div class="entry-content"><p>Considering which authentication plugin to use for rails? I have some
+recommendations.</p>
 
-<p>There are plenty of micro-frameworks out there for web development.
-Some ruby based ones are Sinatra, Padrino, and Camping.  There&#8217;s also
-Flask and web.py for python.  These frameworks promise quick ramp up
-time and simplicity.  They are small and do not provide much
-functionality, which is sold as &#8220;not getting in your way&#8221;.</p>
-
-<!--more-->
-
-
-<h3>Great! What&#8217;s not to like?</h3>
-
-<p>In theory this sounds super, and if you have a project that has a very
-limited scope it works very well.  I&#8217;m not going to talk much about
-that case.  I find the more common case is that the project grows beyond its
-original specification.  Then suddenly you may need some of those
-features that were stripped out in order for the framework not to get
-in your way.  You&#8217;re left with two options: write the feature yourself
-or find a plugin that implements it.</p>
-
-<h3>Missing Features for Managing Complexity</h3>
-
-<p>It can be argued that software development is all about managing
-complexity.  Often micro-frameworks strip out useful features in the name
-of simplicity.  For example, Sinatra does not come with an acceptable
-partials implementation.  Its implementation allows you to render
-partials so long as there are no instance variables to be passed in.
-It is only useful for static html partials.  This omission just makes
-programming with sinatra harder.  Partial Rendering is a feature that helps reduce complexity.  It serves to break up large complex views into smaller manageable pieces and also DRY up the code.</p>
-
-<h3>Fat App on a Thin Framework</h3>
-
-<p><img src="/images/complex-spaghetti.jpg" class ="center"/></p>
-
-<p>Pretty soon you find yourself managing a project on a micro-framework
-with 10 external plugins for the various functionality that was not
-included out of the box.  So now you&#8217;re using a micro-framework that
-is no longer so simple.  Its intent to stay out of your way has
-actually made things harder now since your upgrade path is more
-complex.  When you upgrade the micro-framework how many of your
-plugins will still work?  How does the complexity of a micro-framework
-and 10 plugins compare to a regular framework (rails in the case of
-sinatra)?  You also have to be sure that the combination of plugins
-you are using do not conflict with eachother and cause unintended side-effects.</p>
-
-<h3>Thin App on Fat Framework</h3>
-
-<p>For the project that grows beyond its initial scope, I prefer to start
-with a thin application on top of a fat framework.  There&#8217;s just less
-for me to maintain and to test.  In the early days of the project its a really small app, and then when it grows larger it doesn&#8217;t
-start working against the framework.</p>
-
-<h3>Micro-Frameworks are Only Good for Micro-Projects</h3>
-
-<p>This is not meant to disparage all the micro-frameworks out there.  I
-believe they solve a specific problem.  I use micro-frameworks when
-the project is a good fit for them.  However, knowing a
-micro-framework really well is not a good excuse for not knowing a
-more powerful framework.  Sometimes the more powerful framework is
-what is needed.</p>
 </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/rails-authentication-plugins/">Read More &rarr;</a>
+    </footer>
+  
 
 
-  <footer>
-    <p class="meta">
+    </article>
+  
+  
+    <article>
       
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
-
-      
-
-
-
-
-  
-
-<time datetime="2011-11-27T11:34:00-05:00" pubdate>Nov 27<span>th</span>, 2011</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/rants/'>rants</a>
-  
-</span>
-
-
-    </p>
+  <header>
     
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/the-problem-with-micro-frameworks/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/the-problem-with-micro-frameworks/" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
+      <h1 class="entry-title"><a href="/blog/learn-emacs-use-defadvice-modify-functions/">Learn Emacs: Use Defadvice to Modify Functions</a></h1>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/learn-emacs-useful-links/" title="Previous Post: Learn Emacs: Useful Links">&laquo; Learn Emacs: Useful Links</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/solving-the-general-case/" title="next Post: Solving the General Case">Solving the General Case &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
+    
+      <p class="meta">
+        
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+  
+
+<time datetime="2011-06-22T00:00:00-04:00" pubdate>Jun 22<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
+
+<div><script src='https://gist.github.com/1038120.js?file='></script>
+<noscript><pre><code>;; make zap-to-char act like zap-up-to-char
+(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
+  &quot;Kill up to the ARG'th occurence of CHAR, and leave CHAR.
+  The CHAR is replaced and the point is put before CHAR.&quot;
+  (insert char)
+  (forward-char -1))
+</code></pre></noscript></div>
+
+
+<p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
 </div>
-  </section>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learn-emacs-delete-file-and-buffer/">Learn Emacs: Delete-file-and-buffer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-06-21T00:00:00-04:00" pubdate>Jun 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>From my ~/.emacs.d</p>
+
+<div><script src='https://gist.github.com/1035862.js?file='></script>
+<noscript><pre><code>(defun delete-file-and-buffer ()
+  &quot;Deletes the current file and buffer, assumes file exists&quot;
+  (interactive)
+  (delete-file buffer-file-name)
+  (kill-buffer (buffer-name)))
+</code></pre></noscript></div>
+
+
+<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge&#8217;s .emacs file (rename-file-and-buffer)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/make-your-rails-3-app-run-faster/">Make Your Rails 3 App Run Faster</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Profile it with <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a></p>
+
+<p>It will issue growl alerts for slow actions (configurable)</p>
+
+<p><img src="/images/rails-profile.png"></p>
+
+<p>See <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a> for configuration options.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learn-emacs-align-regexp/">Learn Emacs: Align-regexp</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In this post I go over how to use emacs and align-regexp to clean up
+your code and make it more readable.</p>
 
 </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/learn-emacs-align-regexp/">Read More &rarr;</a>
+    </footer>
+  
 
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/6/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/4/">Newer &rarr;</a>
+    
+  </div>
+</div>
 <aside class="sidebar">
   
     <br />
@@ -258,7 +321,7 @@ what is needed.</p>
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/rawsyntax">@rawsyntax</a> on Github
@@ -288,7 +351,7 @@ what is needed.</p>
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -321,7 +384,6 @@ what is needed.</p>
   
 </aside>
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -336,10 +398,7 @@ what is needed.</p>
       var disqus_shortname = 'rawsyntax';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://rawsyntax.com/blog/the-problem-with-micro-frameworks';
-        var disqus_url = 'http://rawsyntax.com/blog/the-problem-with-micro-frameworks';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

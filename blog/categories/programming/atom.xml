@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-07T22:41:49-04:00</updated>
+  <updated>2012-06-11T10:47:10-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -23,6 +23,9 @@ my apps in development mode.  It loads any RACK compatible app, and
 allows you to access your projects via the <code>.dev</code> and named symlinks
 stored in <code>~/.pow</code> (for example <code>http://my_project.dev</code>).  No need to
 specify a port either!</p>
+
+<!--more-->
+
 
 <p>Very shortly afterwards I ran into a problem.  When I'm working on a
 Sinatra app, normally I use the
@@ -76,6 +79,9 @@ series has been all about how to do cool stuff in emacs.  One of my
 personal favorites is <a href="/blog/learn-emacs-align-regexp/">align-regexp</a>.
 A while back that stopped working for me.  Now I get an error: <code>Wrong type
 argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
+
+<!--more-->
+
 
 <h3>First Remove your Config</h3>
 
@@ -132,6 +138,9 @@ I'm short on ideas for emacs posts.</p>
 turned out well, and other times I stopped working on them.  How do
 you know when it's time to throw in the towel and when it's time to
 push through?</p>
+
+<!--more-->
+
 
 <p>Roughly a year ago a friend and I were working on a bill splitting
 system.  It was supposed to solve the problem of splitting bills
@@ -205,7 +214,16 @@ afraid to re-evaluate your idea.  It doesn't make you a quitter to throw out a p
     <link href="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/"/>
     <updated>2011-11-29T14:32:00-05:00</updated>
     <id>http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects</id>
-    <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted on github-pages.  I migrated because of Tumblr's slow page loads and frequent downtime.  I picked Octopress because it is built on top of Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is a static site generator, which ensures I can deploy my blog on any old server in the future, and continue to use these same old tools (because I have them, rather than tumblr having them).</p>
+    <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted
+on github-pages.  I migrated because of Tumblr's slow page loads and
+frequent downtime.  I picked Octopress because it is built on top of
+Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is
+a static site generator, which ensures I can deploy my blog on any old
+server in the future, and continue to use these same old tools
+(because I have them, rather than tumblr having them).</p>
+
+<!--more-->
+
 
 <h3>Migrating broke my URL Structure</h3>
 
@@ -293,6 +311,9 @@ west cowboy coding and meet deadlines.  I think there's a middle ground between
 those options.  Design it correctly, but deliver less functionality,
 and add the rest of the functionality at a later date.  While that's a
 simple solution, this comic touches on other related issues.</p>
+
+<!--more-->
+
 
 <h3>Analysis Paralysis</h3>
 

@@ -9,7 +9,9 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Considering which authentication plugin to use for rails? I have some recommendations. Devise Devise is a full featured authentication plugin. &hellip;">
+  <meta name="description" content="&lt;rant&gt; Recently I read
+Derek Webber&#8217;s post about Spotify,
+in which he says: I am paid $0.00029 per stream of a song on Spotify, and even &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,7 +85,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/rails-authentication-plugins/">Rails Authentication Plugins</a></h1>
+      <h1 class="entry-title"><a href="/blog/purchasing-electronic-media/">Purchasing Electronic Media</a></h1>
     
     
       <p class="meta">
@@ -94,249 +96,34 @@
 
   
 
-<time datetime="2011-07-30T00:00:00-04:00" pubdate>Jul 30<span>th</span>, 2011</time>
+<time datetime="2011-11-30T19:11:00-05:00" pubdate>Nov 30<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Considering which authentication plugin to use for rails? I have some recommendations.</p>
-
-<h2>Devise</h2>
-
-<p>Devise is a full featured authentication plugin. Featuring, remember me, forgot password, last seen timestamps, email confirmation, lockouts, and a slew of other features. They have pretty much anything you could ask for.</p>
-
-<p>Devise supports activerecord and mongoid. I used it recently on a mongoid based rails 3 project. It worked wonderfully. I’ll post a code example of how I did it, in the next few weeks.</p>
-
-<p>Check out their very helpful <a href="https://github.com/plataformatec/devise/wiki/_pages">wiki</a>, and their <a href="https://github.com/plataformatec/devise/wiki/Extensions">long list of extensions</a>.</p>
-
-<h2>Warden</h2>
-
-<p>Devise is actually built on top of warden. And warden is descendant from merb-auth <a href="http://merbivore.com">(merb)</a>. So, if you’re like me and quite familiar with merb-auth and it’s flexibility, you’ll feel right at home with warden. I use warden when I need just the basics, login / logout / signup. Also, if you happen to be doing some custom work when logging in, such as interfacing with an API or another system, warden is built to handle it.</p>
-
-<p>See Mike Thomas’ post about <a href="http://finite.posterous.com/how-to-use-warden-authentication-with-rails-3">getting up and running with rails and warden</a></p>
-
-<p><a href="https://github.com/hassox/warden">check out the code in github</a></p>
-
-<p><a href="https://github.com/hassox/rails_warden">and the rails plugin</a></p>
-
-<h2>Roll your own</h2>
-
-<p>Some people prefer to write their own authentication system. Personally, I avoid reinventing the wheel when flexible solutions like warden and devise exist. However, there are some railscasts covering this topic in detail, if you’re interested to see how authentication works.</p>
-
-<p><a href="http://railscasts.com/episodes/250-authentication-from-scratch">railscasts: authentication from scratch</a></p>
-
-<p><a href="http://railscasts.com/episodes/270-authentication-in-rails-3-1">railscasts: rails 3.1 authentication</a></p>
-
-<h2>Recommendations</h2>
-
-<p>Use devise if you’re running a standard rails stack with activerecord or mongoid (or couch or datamapper if you try their extensions).</p>
-
-<p>If you need to do some particularly strange things with authentication, I’d recommend warden. It’ll also work with any rack compatible web app (sinatra, and others).</p>
-
-<p>Don’t bother rolling your own, warden and devise do a fine (and flexible) job, and there’s plenty of other authentication plugins not mentioned here.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-use-defadvice-modify-functions/">Learn Emacs: Use Defadvice to Modify Functions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-22T00:00:00-04:00" pubdate>Jun 22<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
-
-<div><script src='https://gist.github.com/1038120.js?file='></script>
-<noscript><pre><code>;; make zap-to-char act like zap-up-to-char
-(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
-  &quot;Kill up to the ARG'th occurence of CHAR, and leave CHAR.
-  The CHAR is replaced and the point is put before CHAR.&quot;
-  (insert char)
-  (forward-char -1))
-</code></pre></noscript></div>
-
-
-<p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-delete-file-and-buffer/">Learn Emacs: Delete-file-and-buffer</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-21T00:00:00-04:00" pubdate>Jun 21<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>From my ~/.emacs.d</p>
-
-<div><script src='https://gist.github.com/1035862.js?file='></script>
-<noscript><pre><code>(defun delete-file-and-buffer ()
-  &quot;Deletes the current file and buffer, assumes file exists&quot;
-  (interactive)
-  (delete-file buffer-file-name)
-  (kill-buffer (buffer-name)))
-</code></pre></noscript></div>
-
-
-<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge&#8217;s .emacs file (rename-file-and-buffer)</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/make-your-rails-3-app-run-faster/">Make Your Rails 3 App Run Faster</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Profile it with <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a></p>
-
-<p>It will issue growl alerts for slow actions (configurable)</p>
-
-<p><img src="/images/rails-profile.png"></p>
-
-<p>See <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a> for configuration options.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-align-regexp/">Learn Emacs: Align-regexp</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post I go over how to use emacs and align-regexp to clean up your code and make it more readable.</p>
-
-<h4>From the Emacs Manual:</h4>
-
-<p>align-regexp is an interactive autoloaded Lisp function in `align.el&#8217;.</p>
-
-<p>It is bound to C-x .</p>
-
-<p>(align-regexp BEG END REGEXP &amp;optional GROUP SPACING REPEAT)</p>
-
-<p>Align the current region using an ad-hoc rule read from the minibuffer. BEG and END mark the limits of the region. This function will prompt for the REGEXP to align with. If no prefix arg was specified, you only need to supply the characters to be lined up and any preceding whitespace is replaced. If a prefix arg was specified, the full regexp with parenthesized whitespace should be supplied; it will also prompt for which parenthesis GROUP within REGEXP to modify, the amount of SPACING to use, and whether or not to REPEAT the rule throughout the line. See `align-rules-list&#8217; for more information about these options.</p>
-
-<p>For example, let&#8217;s say you had a list of phone numbers, and wanted to align them so that the opening parentheses would line up:</p>
-
-<pre><code>Fred (123) 456-7890
-
-Alice (123) 456-7890
-
-Mary-Anne (123) 456-7890
-
-Joe (123) 456-7890
+  <div class="entry-content"><pre><code>&lt;rant&gt;
 </code></pre>
 
-<p>There is no predefined rule to handle this, but you could easily do it using a
-REGEXP like &#8220;(&#8220;. All you would have to do is to mark the region, call `align-
-regexp&#8217; and type in that regular expression.</p>
+<p><img src="/images/20-bucks.jpg" class="center" alt="$20" /></p>
 
-<h2>What I use align-regexp for</h2>
+<p>Recently I read
+<a href="http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense">Derek Webber&#8217;s post about Spotify</a>,
+in which he says:</p>
 
-<div><script src='https://gist.github.com/1035839.js?file='></script>
-<noscript><pre><code># before align-regexp, not super easy to read
-
-var = 5
-another_value = 10
-assignment = 5
-very_long_var_name = 25
-
-# after align-regexp =, readability improved!
-
-var                = 5
-another_value      = 10
-assignment         = 5
-very_long_var_name = 25
-</code></pre></noscript></div>
+<blockquote><p>I am paid $0.00029 per stream of a song on Spotify, and even this amount depends on whether the song is being streamed by a paid user or someone using the service for free.  This means it will take upwards of 3,500 streams of a single song on Spotify to earn $1.00 versus that same revenue for one iTunes song purchase</p><footer><strong>Derek Webber</strong><cite><a href='http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense'>derekwebb.tumblr.com/post/&hellip;</a></cite></footer></blockquote>
 
 
+<p>His article made me think of a time years ago when I wanted to be in the
+music business.</p>
 
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/purchasing-electronic-media/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -347,7 +134,7 @@ very_long_var_name = 25
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/how-to-get-a-programming-interview/">How to Get a Programming Interview</a></h1>
+      <h1 class="entry-title"><a href="/blog/blogging-on-jekyll-url-redirects/">Blogging on Jekyll: URL Redirects</a></h1>
     
     
       <p class="meta">
@@ -358,48 +145,27 @@ very_long_var_name = 25
 
   
 
-<time datetime="2011-06-06T00:00:00-04:00" pubdate>Jun 6<span>th</span>, 2011</time>
+<time datetime="2011-11-29T14:32:00-05:00" pubdate>Nov 29<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Before I get into the details, remember that persistence is critical in this. In my last job search, I lost count how many jobs I applied to. I also had one where I was sure I got the job, and they called to tell me why I didn&#8217;t get it. I got really discouraged for a couple days, and then resumed the job search. Keep at it. Remember, you only need one big hit.</p>
+  <div class="entry-content"><p>About a month ago I migrated my blog from Tumblr to Octopress hosted
+on github-pages.  I migrated because of Tumblr&#8217;s slow page loads and
+frequent downtime.  I picked Octopress because it is built on top of
+Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is
+a static site generator, which ensures I can deploy my blog on any old
+server in the future, and continue to use these same old tools
+(because I have them, rather than tumblr having them).</p>
 
-<h2>Figure out what your ideal job is</h2>
-
-<p>Make a list of the qualities you want in a job. For me these qualities were telecommuting, ruby web development, small company. It&#8217;s not necessarily important to find the ideal job, but you need to come up with a way of scoring job opportunities.</p>
-
-<h2>Ask friends / colleagues</h2>
-
-<p>The easiest way to get a new job is through a friend. So exhaust those resources first. However, when you get the interview don&#8217;t assume you have the job in the bag because you&#8217;ve got a friend at the company. Still give it your best shot.</p>
-
-<h2>Use the right job sites</h2>
-
-<p>Figure out where the good jobs are getting posted. Personally, I was looking for a telecommute ruby job with a small company. The best sites for me were <a href="http://jobs.rubynow.com/">http://jobs.rubynow.com/</a>, <a href="http://toprubyjobs.com/,">http://toprubyjobs.com/,</a> and craigslist.</p>
-
-<h2>Sell yourself in your cover letter</h2>
-
-<p>I know a few developers that hate writing cover letters. This is more common in experienced developers. The more they know about programming, the more they realize they don&#8217;t know, and that can lead to a situation where they have a hard time selling themselves to companies. If you have trouble with this, start making an objective list of your accomplishments. Flesh them out a bit and you&#8217;ve got a good start.</p>
-
-<h2>Tailor your cover letter for each job</h2>
-
-<p>I keep a standard cover letter targeting ruby web developer jobs in my email. I then edit and tailor it specifically to the job ad. This saves a lot of time, as opposed to writing a cover letter from scratch every time. Saving time means you can apply for more jobs, and get more interviews.</p>
-
-<h2>What to put in a cover letter</h2>
-
-<p>I write about how my experience has made me a good candidate for the job listing, and I link to source code and running websites that I&#8217;ve built. It&#8217;s important to signal to the employer ASAP that you are not bullshitting, and you really can code.</p>
-
-<h2>Tailor your resumé</h2>
-
-<p>I also keep a standard detailed resume on my computer. For each job I may highlight some experience or detail certain areas more than others. Be careful here. Be sure that everything you write on there is rock solid, and that you can back it up. I spend less time on tweaking the resume and more time tweaking the cover letter.</p>
-
-<h2>I got the interview, what now?</h2>
-
-<p><a href="/blog/interviewing-for-programmers">Read my earlier post on interviewing for a programming job</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/blogging-on-jekyll-url-redirects/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -410,7 +176,7 @@ very_long_var_name = 25
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/interviewing-for-programmers/">Interviewing for Programmers</a></h1>
+      <h1 class="entry-title"><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
     
     
       <p class="meta">
@@ -421,42 +187,30 @@ very_long_var_name = 25
 
   
 
-<time datetime="2011-06-02T00:00:00-04:00" pubdate>Jun 2<span>nd</span>, 2011</time>
+<time datetime="2011-11-28T16:05:00-05:00" pubdate>Nov 28<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Interviewing is a funny thing. In order to get hired for a programming job it&#8217;s most important to interview well. Getting hired usually doesn&#8217;t have much to do with programming skills. This is typically a pain point for programmers. Many of us feel that the hiring process should be changed. Personally, I&#8217;m ok with the hiring process as it is. It could be improved, but I&#8217;m going to tell you how to get a job anyway.</p>
+  <div class="entry-content"><p><a href="http://xkcd.com/974">
+<img src="/images/the_general_problem.png" class ="center"/>
+</a></p>
 
-<h2>It&#8217;s a skill</h2>
+<p>This XKCD comic struck a chord with me.  I feel that it presents a
+false dichotomy.  Either miss deadlines to design it right or go wild
+west cowboy coding and meet deadlines.  I think there&#8217;s a middle ground between
+those options.  Design it correctly, but deliver less functionality,
+and add the rest of the functionality at a later date.  While that&#8217;s a
+simple solution, this comic touches on other related issues.</p>
 
-<p>Treat interviewing like a skill. It&#8217;s going to require some practice. It&#8217;s quite different from programming. Something I&#8217;ve noticed about  over the years is that the inexperienced naive ones tend to think that they know everything whereas experienced programmers know more what they don&#8217;t know. So as you grow as a programmer, you may even think of yourself as  worse programmer because you grow aware of what you don&#8217;t know. This is problematic when interviewing because you are essentially selling yourself to the company. If you don&#8217;t feel the product is good how can you sell it effectively? The next step is to figure out how to sell yourself.</p>
-
-<h2>Practice your pitch</h2>
-
-<p>I firmly believe that you have to have a game plan for the interview. Be familiar with everything you wrote on your resume. Have answers for the most common questions. Be able to relate specific experiences in your career in away that shows your strengths. Have your own pitch ready in the case that the interviewer doesn&#8217;t have much to say. I&#8217;ve had interviews where the interviewer simply asked open ended questions. It&#8217;s good to have your pitch ready to hit these questions out of the park.</p>
-
-<h2>Code Examples</h2>
-
-<p>Programming during the interview is silly. It&#8217;s not an accurate evaluation of a programmer&#8217;s skills, and I&#8217;m not sure what it serves to show the interviewer. I find that an easy way to avoid doing coding during the interview is to have some code examples ready for the interviewer to see. It&#8217;s important for the interviewer to both see the code and be able to run the app. Personally, I&#8217;ll build a side project in rails and host it on heroku, which allows the interviewer to review code and easily try out the app.</p>
-
-<p><a href="/blog/importance-of-side-projects">More on side projects here</a>.</p>
-
-<h2>All interviews are practice</h2>
-
-<p>Many programmers get nervous during interviews. I calm my nerves by remembering that all interviews are practice. If you don&#8217;t get the job it&#8217;s not a big deal. Simply apply for another job and interview for that one. In the meantime, I get real practice to hone my interview skills. However, before that next interview it&#8217;s important to try to learn from the interview you just had.</p>
-
-<h2>Evaluate your performance</h2>
-
-<p>What went wrong in the last interview? Where could you have improved? What went well? It&#8217;s important to critique your performance shortly after your interview. That way you won&#8217;t miss anything since everything will be fresh in your mind.</p>
-
-<h2>But how do I GET an interview?</h2>
-
-<p>That&#8217;s the subject of my next post. I&#8217;ll go over resume and cover letter writing, and some other topics. <a href="/blog/how-to-get-a-programming-interview">Read it here</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/solving-the-general-case/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -467,7 +221,7 @@ very_long_var_name = 25
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/importance-of-side-projects/">Importance of Side Projects</a></h1>
+      <h1 class="entry-title"><a href="/blog/the-problem-with-micro-frameworks/">The Problem With &#xb5;-Frameworks</a></h1>
     
     
       <p class="meta">
@@ -478,42 +232,27 @@ very_long_var_name = 25
 
   
 
-<time datetime="2011-05-29T00:00:00-04:00" pubdate>May 29<span>th</span>, 2011</time>
+<time datetime="2011-11-27T11:34:00-05:00" pubdate>Nov 27<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Side projects are important for a few reasons. Programming is a creative process. Side projects allow programming without deadlines or restraints. Side projects allow programming in an exploratory way.</p>
+  <div class="entry-content"><p><img src="/images/simple-spaghetti.jpg" class ="center"/></p>
 
-<h2>Explore new technologies</h2>
+<p>There are plenty of micro-frameworks out there for web development.
+Some ruby based ones are Sinatra, Padrino, and Camping.  There&#8217;s also
+Flask and web.py for python.  These frameworks promise quick ramp up
+time and simplicity.  They are small and do not provide much
+functionality, which is sold as &#8220;not getting in your way&#8221;.</p>
 
-<p>Every day there are more and more bleeding edge technologies coming out. A side project is a great place to try them out. There&#8217;s no reason to worry about bugs or performance issues because it&#8217;s just a side project. You&#8217;re not depending on the project to pay your bills. It&#8217;s ok if the website crashes.</p>
-
-<h2>Creating from scratch</h2>
-
-<p>Most jobs I&#8217;ve had so far were mostly maintenance work. Adding new features, fixing bugs, troubleshooting performance problems, refactoring existing code. Though I&#8217;ve built more than a few applications from scratch, it only takes me a couple months to lay the foundation, and then I&#8217;m in maintenance mode again.</p>
-
-<p>Side projects require creating from scratch on a regular basis. I love this step because I get to step back and take everything I&#8217;ve learned and put that into creating a new (and improved) project.</p>
-
-<h2>Good enough to launch</h2>
-
-<p>Working on a side project is also an exercise in avoiding analysis paralysis. If you&#8217;re starting from scratch, the possibilities are endless. A good way to avoid this is to make your short list of must have features, and then launch a beta when you have those features. A so called <a href="http://en.wikipedia.org/wiki/Minimum_viable_product">minimum viable product</a>.</p>
-
-<h2>Staving off burnout</h2>
-
-<p>Work on your passion. Work on something that is fun. If you&#8217;re a developer who is about to burnout because you don&#8217;t enjoy what you&#8217;re working on, try creating your own side project. It will remind you why programming is fun.</p>
-
-<h2>Keeping your skillset current</h2>
-
-<p>Maybe you&#8217;re working with old technology at your day job. Maybe you&#8217;re bored with your current skillset and want to learn some new skills. Side  are a great way to keep current with emerging trends in software. Never tried node.js? Great, make a small side project using it. All of a sudden you have something to show off as proof of your newly acquired skills.</p>
-
-<h2>Complete your side project</h2>
-
-<p>One of the problems with side projects is that they can remain incomplete. You may start on a project with all the gusto in the world, but then it&#8217;s two months later and you can&#8217;t remember the last time you worked on the side project. Nevertheless it&#8217;s important to push forward and complete the project. On that note, I&#8217;m off to do some work on my side project.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/the-problem-with-micro-frameworks/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -524,7 +263,7 @@ very_long_var_name = 25
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/generating-available-domain-names/">Generating Available Domain Names</a></h1>
+      <h1 class="entry-title"><a href="/blog/learn-emacs-useful-links/">Learn Emacs: Useful Links</a></h1>
     
     
       <p class="meta">
@@ -535,125 +274,24 @@ very_long_var_name = 25
 
   
 
-<time datetime="2011-04-22T00:00:00-04:00" pubdate>Apr 22<span>nd</span>, 2011</time>
+<time datetime="2011-11-08T23:02:00-05:00" pubdate>Nov 8<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>It&#8217;s a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a whois query to check if it&#8217;s available. Feel free to tweak it to your own needs. It also has some sleep calls to avoid flooding the whois server. Let it run for a couple days, see what comes out.</p>
-
-<p>I actually generated <a href="http://rawsyntax.com">rawsyntax.com</a> using this script.</p>
-
-<div><script src='https://gist.github.com/1360029.js?file='></script>
-<noscript><pre><code>#!/usr/bin/env ruby
-require 'rubygems'
-require 'whois'
-
-module Domaing
-  def self.alliterative?(first_word, second_word)
-    first_word[0] == second_word[0]
-  end
-
-  def self.generate_names(words)
-    first  = words[rand(words.size)].strip.downcase
-    second = words[rand(words.size)].strip.downcase
-
-    &quot;#{first}#{second}.com&quot; if alliterative?(first, second)
-  end
-
-  def self.generate_domains
-    words = []
-
-    File.open(&quot;2of12.txt&quot;, &quot;r&quot;).each_line do |l|
-      words &lt;&lt; l if l.length &gt; 4 &amp;&amp;  l.length &lt; 7
-    end
-
-    domains = []
-
-    while domains.count &lt; 30000
-      domain = generate_names(words)
-      domains &lt;&lt; domain if domain
-    end
-
-    domains.each  do |d|
-      sleep 5
-      begin
-        if Whois.whois(d).available?
-          File.open(&quot;domains.txt&quot;, &quot;a&quot;) do |f|
-            f.write &quot;#{d}\n&quot;
-          end
-        end
-      rescue
-        sleep 100 # to avoid overloading whois servers
-      end
-    end
-  end
-end
-
-Domaing.generate_domains
-</code></pre></noscript></div>
-
-
+  <div class="entry-content"><p>I have a running series of blog posts on
+<a href="/blog/categories/learn-emacs/">learning emacs</a>.  It is a life-long
+endeavor.  In this post I&#8217;m going to share some of the emacs resources
+that I have come across over the years.</p>
 
 </div>
   
   
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/rails-3-email-validation/">Rails 3 Email Validation</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-04-21T00:00:00-04:00" pubdate>Apr 21<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Most email validation I&#8217;ve encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only is this task difficult and error prone, but there are functional email addresses out there that do not conform to the spec. Not to mention the resulting regex often looks like <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
-
-<p>When I do email validation I use a simple regex:</p>
-
-<div><script src='https://gist.github.com/934791.js?file='></script>
-<noscript><pre><code>/^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
-</code></pre></noscript></div>
-
-
-<p>Which I took from the <a href="http://github.com/platformatec/devise">Devise</a> codebase. It means:</p>
-
-<ul>
-<li>begins with one or more word characters, period, percent, plus, or dashes</li>
-<li>then one at symbol</li>
-<li>then one or more word characters, dashes, and then a period</li>
-<li>ends with 2 or more word characters</li>
-<li>case-insensitive</li>
-</ul>
-
-
-<p>This regex ensures a reasonably close to valid email address, without enumerating and worrying about .com vs .co.uk vs .musem and a host of other issues.</p>
-
-<p>At this point, I have the application send an email to the address, and require the user to click a confirmation link. That&#8217;s good enough, and very simple to implement.</p>
-
-<p><a href="http://rubular.com/r/YTzbCkatJy">Try this regex out on Rubular</a> it&#8217;s an interactive web based ruby regex engine.</p>
-</div>
-  
+    <footer>
+      <a rel="full-article" href="/blog/learn-emacs-useful-links/">Read More &rarr;</a>
+    </footer>
   
 
 

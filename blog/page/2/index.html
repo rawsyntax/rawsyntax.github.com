@@ -9,9 +9,10 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="&lt;rant&gt; Recently I read
-Derek Webber&#8217;s post about Spotify,
-in which he says: I am paid $0.00029 per stream of a song on Spotify, and even &hellip;">
+  <meta name="description" content="Up to this point my Learn Emacs
+series has been all about how to do cool stuff in emacs. One of my
+personal favorites is align-regexp.
+A while back &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,7 +86,7 @@ in which he says: I am paid $0.00029 per stream of a song on Spotify, and even &
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/purchasing-electronic-media/">Purchasing Electronic Media</a></h1>
+      <h1 class="entry-title"><a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting Your Emacs Config</a></h1>
     
     
       <p class="meta">
@@ -96,151 +97,25 @@ in which he says: I am paid $0.00029 per stream of a song on Spotify, and even &
 
   
 
-<time datetime="2011-11-30T19:11:00-05:00" pubdate>Nov 30<span>th</span>, 2011</time>
+<time datetime="2012-01-22T22:26:00-05:00" pubdate>Jan 22<span>nd</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><pre><code>&lt;rant&gt;
-</code></pre>
+  <div class="entry-content"><p>Up to this point my <a href="/blog/categories/learn-emacs">Learn Emacs</a>
+series has been all about how to do cool stuff in emacs.  One of my
+personal favorites is <a href="/blog/learn-emacs-align-regexp/">align-regexp</a>.
+A while back that stopped working for me.  Now I get an error: <code>Wrong type
+argument: markerp, 0</code>.  Emacs doesn&#8217;t always do what I mean.</p>
 
-<p><img src="/images/20-bucks.jpg" class="center" alt="$20" /></p>
-
-<p>Recently I read
-<a href="http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense">Derek Webber&#8217;s post about Spotify</a>,
-in which he says:</p>
-
-<blockquote><p>I am paid $0.00029 per stream of a song on Spotify, and even this amount depends on whether the song is being streamed by a paid user or someone using the service for free.  This means it will take upwards of 3,500 streams of a single song on Spotify to earn $1.00 versus that same revenue for one iTunes song purchase</p><footer><strong>Derek Webber</strong><cite><a href='http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense'>derekwebb.tumblr.com/post/&hellip;</a></cite></footer></blockquote>
-
-
-<p>His article made me think of a time years ago when I wanted to be in the
-music business.</p>
-
-<p>When I was about 12 or 13 I started playing bass guitar.  From then on
-I was enamored with music.  Playing it, listening to it, thinking
-about playing it etc&#8230;  Then when I was in 11th grade I had the
-opportunity to take an AP computer science course.  I took it, 5&#8217;ed
-the AP test, and promptly stopped programming at all.  By the time I
-was in 12th grade I was convinced I&#8217;d go to college as a music
-business major.  Play music and get paid?  Sounds like a party right?  Why not?</p>
-
-<h3>Getting Paid (for Music) is Complicated</h3>
-
-<p>My first semester in college we had a silly 0 credit hour course for 3
-hours each week where the professors basically talked about the music
-business.  They related anecdotal stuff about copyright, various
-record label / venue contract issues, and all kinds of other issues.
-This class was a big red flag for me.  They went over how you get paid
-royalties in various situations and how little you get paid for them
-(even if you got a good deal).</p>
-
-<p>The gist of the class as I understood it was that most of the money is
-in publishing, and if you&#8217;re not at the top already it&#8217;s basically a
-roll of the dice as far as making a comfortable living at it.</p>
-
-<h3>I Didn&#8217;t go to College to Roll the Dice</h3>
-
-<p>If being there wasn&#8217;t helping my chances of getting a good paying gig
-after graduating, then why was I there at all?  Furthermore, I
-apparently had already taken in highschool all the required math for
-my major.  I found that to be ridiculous because math is useful, and
-I&#8217;m a nerd at heart.  It&#8217;s just that some how programming has become
-cool, or at least that&#8217;s what I tell myself.</p>
-
-<p>While the music business classes were fun and pretty easy (admittedly
-these were only first year first semester courses), I got an eerie
-feeling that I would have a hard time getting paid after college
-because of all these issues that were outlined in that 0 credit hour
-class.</p>
-
-<p>Oops, I skipped a part.  I had a summer job at Kroger bagging groceries when I
-was 15.  It was then that I realized that bagging groceries doesn&#8217;t
-pay enough, and that if I didn&#8217;t do something about it I could be
-bagging groceries for the rest of my life.  There&#8217;s nothing wrong with that
-except for the fact that minimum wage isn&#8217;t a living wage (for me).</p>
-
-<h3>Ahh.. Back to Math!</h3>
-
-<p>As the semester drew to a close, I realized that what I most wanted to
-do was play with all the computer stuff in the recording studio.
-Namely, that G4 Macintosh running all the software.  The choice became
-obvious to me.  I changed my major to computer science and added a minor in math.</p>
-
-<p>I felt like that was a pretty good bet for getting a job after
-college, and I knew I was reasonably good at it.  Mostly importantly I
-felt like that was something worth spending 4 years at college doing.
-Now on to the topic of this post.</p>
-
-<h3>About Media</h3>
-
-<p>Enough about me, Back to Derek Webber&#8217;s article.  He concludes his
-article by telling his fans to buy or download his music for free, but
-he spends most of the words in his article demonizing Spotify.</p>
-
-<p>He&#8217;s mostly angry about how they pay him so little per streamed track,
-and how they don&#8217;t pay him the same as artists on big name labels.  It
-seems to me, if you don&#8217;t like Spotify&#8217;s deal, don&#8217;t take it.  His
-criticisms of Spotify seem to be at odds with his proclamation that
-record production costs are at an all time low (meaning the artist can
-produce and sell his/her own content independently).</p>
-
-<p>Spotify is about adding another tool to the musicians toolbox.  Yet
-another way to make money off your music, if you so choose.  This is a
-huge difference from <code>back in the day</code> when musicians had to take the
-record label&#8217;s deal or not get any CDs pressed at all.  If anything,
-these bad deals that Spotify is able to negotiate are evidence of
-musicians making bad deals.  It&#8217;s in Spotify&#8217;s best interest to pay as
-little money as possible for music.</p>
-
-<p>Anything Spotify says about being good for the music business
-or any other <code>feel good talk</code> is simply marketing speak.  That is, it
-is their marketing department&#8217;s job to write up this kind of stuff.</p>
-
-<h3>The Problem Buying Media Legally</h3>
-
-<p>Now I&#8217;m not a Spotify fan even though it seems like I&#8217;m building them
-up.  Spotify is part of the problem in a few ways.  Ever since digital
-distribution of media started, piracy and DRM have had a symbiotic relationship.
-If there were no piracy, there&#8217;d be no need for DRM, and the presence
-of DRM punishes customers who try to do the right thing by not
-pirating media.</p>
-
-<blockquote><p>Customers think they are buying media, and publishers think they are<br/>selling a license to use that media under certain conditions.</p></blockquote>
-
-
-<p>That is the core of the problem.  When I buy an ebook I expect to be
-able to read it anywhere I want (like a printed book).  When I buy
-music I expect to be able to listen to it under any conditions.  If I
-want to record it to a cassette I should be able to.</p>
-
-<p>Arguments about piracy are pretty pointless.  On the one hand you have
-companies claiming that every act of piracy counts as a lost sale,
-when we know that&#8217;s not the case.  A lot of pirates don&#8217;t buy
-anything, and then some pirates do make a purchase after trying it out for
-free (via a pirated copy).</p>
-
-<h3>It&#8217;s Not All Bad</h3>
-
-<p>There are a number of publishing companies that are doing this right.
-They give you an unencumbered copy of the media, and ask you to do the
-right thing and not share it.  Pragmatic Programmers is one such
-company that is doing the right thing.  That is a message I can relate
-to, and I have purchased a couple books from them.</p>
-
-<h3>Back to How Musicians Are Getting Screwed</h3>
-
-<p>I agree that generally musicians are getting a bad deal.  It&#8217;s one of
-the reasons I decided not to do that for a living.  I don&#8217;t agree with
-the idea that musicians deserve a better deal.  The way the economy
-has been for the past few years is evidence that nobody is guaranteed
-a good deal.  We are all taking our chances.</p>
-
-<pre><code>&lt;/rant&gt;
-</code></pre>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/troubleshooting-your-emacs-config/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -251,7 +126,7 @@ a good deal.  We are all taking our chances.</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/blogging-on-jekyll-url-redirects/">Blogging on Jekyll: URL Redirects</a></h1>
+      <h1 class="entry-title"><a href="/blog/stop-programming/">Stop Programming</a></h1>
     
     
       <p class="meta">
@@ -262,85 +137,24 @@ a good deal.  We are all taking our chances.</p>
 
   
 
-<time datetime="2011-11-29T14:32:00-05:00" pubdate>Nov 29<span>th</span>, 2011</time>
+<time datetime="2012-01-04T15:25:00-05:00" pubdate>Jan 4<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>About a month ago I migrated my blog from Tumblr to Octopress hosted on github-pages.  I migrated because of Tumblr&#8217;s slow page loads and frequent downtime.  I picked Octopress because it is built on top of Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is a static site generator, which ensures I can deploy my blog on any old server in the future, and continue to use these same old tools (because I have them, rather than tumblr having them).</p>
+  <div class="entry-content"><p><img src="/images/stop-programming.jpg" alt="Stop Programming" class="center"/></p>
 
-<h3>Migrating broke my URL Structure</h3>
+<p>I&#8217;ve got some ideas on how you can improve your programming by not
+programming.  Try something new this year.</p>
 
-<p><img src="/images/urls_not_found.png" class ="center"/></p>
-
-<p>Running my site through Google&#8217;s Webmaster Tools showed that many sites are still linking to my old Tumblr blogpost urls.  Tumblr&#8217;s url structure is another reason I migrated away from it.  I should be in full control of the urls on my blog.  Never the less, I need to support redirects from the old URLs to my new URL structure <code>/blog/:post_title</code>.</p>
-
-<p>However Jekyll is just a static site, so there&#8217;s no ruby server to handle redirects.  Other Jekyll users deploy to Heroku and use a small Sinatra app to handle redirects, but I feel like that is complicating my simple setup.  If I were on a regular server I could setup an <code>.htaccess</code> file to handle the redirects, but github-pages does not support <code>.htaccess</code>.</p>
-
-<h3>Jekyll Plugins to the Rescue</h3>
-
-<p>One of the great things about Jekyll is its simple plugin system.  On
-<a href="https://github.com/mojombo/jekyll/wiki/Plugins">Jekyll&#8217;s Wiki</a> I
-found the
-<a href="https://github.com/tsmango/jekyll_alias_generator">Alias Generator</a>.
-It allows you to specify aliases on a per blogpost basis, in the YAML
-front matter.</p>
-
-<p>This post&#8217;s YAML is:</p>
-
-<pre><code>---
-layout: post
-title: "Blogging on Jekyll: URL Redirects"
-date: 2011-11-29 14:32
-comments: true
-categories: ["programming", "blogging"]
-alias: [/blog/blogging-on-redirects]
----
-</code></pre>
-
-<p>Now when I <code>rake generate</code> my site, the Alias Generator will create
-another static html file for this post at
-<code>/blog/blogging-on-redirects/index.html</code>:</p>
-
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
-&lt;meta http-equiv="refresh" content="0;url=/blog/blogging-on-jekyll-url-redirects/" /&gt;
-&lt;/head&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>Which will redirect here. Try it: <a href="/blog/blogging-on-redirects">/blog/blogging-on-redirects</a></p>
-
-<p>It was almost that simple.  The Alias Generator actually broke when I
-provided some of my old Tumblr urls. However, I
-<a href="https://github.com/rawsyntax/jekyll_alias_generator">forked it here</a>
-and fixed it so it handles nested aliases properly now.  I also opened
-a <a href="https://github.com/tsmango/jekyll_alias_generator/pull/1">pull request</a> to the owner to get this change merged in.</p>
-
-<h3>Jekyll&#8217;s Strengths</h3>
-
-<p>That experience is Jekyll&#8217;s strength as a blogging platform.  The
-output is so simple any web server can serve it so it doesn&#8217;t matter
-where you deploy to.  Its generation system is open source, hackable,
-and has a great plugin system.</p>
-
-<p>But most importantly, even if the Jekyll project implodes tomorrow.  I
-still have all my blog&#8217;s content versioned, and have all the tools
-necessary to maintain my blog.  I am not relying on a hosted service
-to back up my blog&#8217;s content, or maintain the tools I edit it with.</p>
-
-<h3>Try Octopress</h3>
-
-<p>If you haven&#8217;t tried <a href="http://octopress.org">Octopress</a> yet, I highly
-recommend it.  It&#8217;s Jekyll based, but it has a decent default
-stylesheet, so it&#8217;s very easy to install and immediately start
-blogging.  No programming or tweaking CSS to get in the way of writing content.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/stop-programming/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -351,7 +165,7 @@ blogging.  No programming or tweaking CSS to get in the way of writing content.<
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/solving-the-general-case/">Solving the General Case</a></h1>
+      <h1 class="entry-title"><a href="/blog/building-a-gaming-pc/">Building a Gaming PC</a></h1>
     
     
       <p class="meta">
@@ -362,83 +176,27 @@ blogging.  No programming or tweaking CSS to get in the way of writing content.<
 
   
 
-<time datetime="2011-11-28T16:05:00-05:00" pubdate>Nov 28<span>th</span>, 2011</time>
+<time datetime="2011-12-21T10:34:00-05:00" pubdate>Dec 21<span>st</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://xkcd.com/974">
-<img src="/images/the_general_problem.png" class ="center"/>
-</a></p>
+  <div class="entry-content"><p>I recently built a gaming pc from parts, as my laptop was struggling
+to run the latest games even on very low settings.  I did some
+googling and came to the obvious conclusion that building a desktop
+for gaming is way cheaper than trying to buy a new laptop, and the
+desktop gets way better performance.  In fact, this makes it so that I
+can stretch my laptop for a few more years, as it&#8217;s only used for web
+programming at the moment (and it&#8217;s plenty fast due to its SSD).</p>
 
-<p>This XKCD comic struck a chord with me.  I feel that it presents a
-false dichotomy.  Either miss deadlines to design it right or go wild
-west cowboy coding and meet deadlines.  I think there&#8217;s a middle ground between
-those options.  Design it correctly, but deliver less functionality,
-and add the rest of the functionality at a later date.  While that&#8217;s a
-simple solution, this comic touches on other related issues.</p>
-
-<h3>Analysis Paralysis</h3>
-
-<p><img src="/images/analysis-paralysis.jpg" class ="center"/></p>
-
-<p>This affliction is pretty common largely as a result of all the
-choices we have nowadays when designing software.  Which language?
-Which Framework? How about a
-<a href="/blog/the-problem-with-micro-frameworks/">Micro-Framework</a>?  Which
-<a href="/blog/categories/learn-emacs/">Text Editor</a>?  Nevermind questions
-about how to actually solve the problem at hand.  If a simple flexible
-design is not readily coming to mind, I find it helpful to write some
-code that implements the very basics of the functionality needed, and
-then re-evaluate to figure out a design.  Its a more iterative
-approach.  Write a little code. Refactor.  Hopefully a good design
-will emerge.  If not try something else.</p>
-
-<h3>Deadline is not a Bad Word</h3>
-
-<p>Growing up my dad would always tell me: &#8220;There is no time&#8221;, but I
-didn&#8217;t understand what he meant until I got a job at 15 years old.
-Deadlines are part of life, and furthermore they are not bad.  A
-deadline is just a constraint.  Without deadlines we developers could
-work on software design forever and never actually get to
-implementation!  Deadlines can actually help cure analysis paralysis
-by reducing the number of options available to us.  Rewriting the
-whole project in python suddenly isn&#8217;t an option.  Deadlines force
-value judgements to be made.</p>
-
-<h3>Why the General Case Takes so Long</h3>
-
-<p>As you begin implementing your perfect design you may find holes.
-This is one of the reasons for the shift from waterfall development to
-agile (or even just shorter iterative processes).  Once your design is
-implemented to 90% you are constrained with all these implementation
-details.</p>
-
-<p>To paraphrase Albert Einstein:</p>
-
-<blockquote><p>&#8220;At design-time, design and implementation are the same.  At implementation-time, they are not.&#8221;</p></blockquote>
-
-
-<p>The following quote is about ruby implementation, but it can be applied to any hard general case problem.</p>
-
-<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there&#8217;s some crazy stuff in that last 10% or 5% that totally blindsides you if you&#8217;re not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong><cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
-
-
-<p>When he talks about getting blindsided by that last 10%, that is
-potentially a missed deadline.</p>
-
-<h3>Solving the Problem of Solving the General Case</h3>
-
-<p>  Ask yourself if you can live with a 90% solution.  Do you really need to solve the general case?  If 90% is not enough, break the general
-case down into many smaller pieces of functionality and many smaller
-deadlines.  You may still run into missed deadlines and problems, but
-they will have smaller and more predictable impact.  This doesn&#8217;t
-really solve the overall problem of software that takes too long to
-develop, but it makes the problems easier to manage.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/building-a-gaming-pc/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -449,7 +207,7 @@ develop, but it makes the problems easier to manage.</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/the-problem-with-micro-frameworks/">The Problem With &#xb5;-Frameworks</a></h1>
+      <h1 class="entry-title"><a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a></h1>
     
     
       <p class="meta">
@@ -460,73 +218,26 @@ develop, but it makes the problems easier to manage.</p>
 
   
 
-<time datetime="2011-11-27T11:34:00-05:00" pubdate>Nov 27<span>th</span>, 2011</time>
+<time datetime="2011-12-09T11:44:56-05:00" pubdate>Dec 9<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src="/images/simple-spaghetti.jpg" class ="center"/></p>
+  <div class="entry-content"><p><img src="/images/side-projects-fail.jpg" alt="Sometimes Side Projects Fail" class="center"/></p>
 
-<p>There are plenty of micro-frameworks out there for web development.
-Some ruby based ones are Sinatra, Padrino, and Camping.  There&#8217;s also
-Flask and web.py for python.  These frameworks promise quick ramp up
-time and simplicity.  They are small and do not provide much
-functionality, which is sold as &#8220;not getting in your way&#8221;.</p>
+<p>I&#8217;ve worked on a few side projects over the years.  Sometimes they&#8217;ve
+turned out well, and other times I stopped working on them.  How do
+you know when it&#8217;s time to throw in the towel and when it&#8217;s time to
+push through?</p>
 
-<h3>Great! What&#8217;s not to like?</h3>
-
-<p>In theory this sounds super, and if you have a project that has a very
-limited scope it works very well.  I&#8217;m not going to talk much about
-that case.  I find the more common case is that the project grows beyond its
-original specification.  Then suddenly you may need some of those
-features that were stripped out in order for the framework not to get
-in your way.  You&#8217;re left with two options: write the feature yourself
-or find a plugin that implements it.</p>
-
-<h3>Missing Features for Managing Complexity</h3>
-
-<p>It can be argued that software development is all about managing
-complexity.  Often micro-frameworks strip out useful features in the name
-of simplicity.  For example, Sinatra does not come with an acceptable
-partials implementation.  Its implementation allows you to render
-partials so long as there are no instance variables to be passed in.
-It is only useful for static html partials.  This omission just makes
-programming with sinatra harder.  Partial Rendering is a feature that helps reduce complexity.  It serves to break up large complex views into smaller manageable pieces and also DRY up the code.</p>
-
-<h3>Fat App on a Thin Framework</h3>
-
-<p><img src="/images/complex-spaghetti.jpg" class ="center"/></p>
-
-<p>Pretty soon you find yourself managing a project on a micro-framework
-with 10 external plugins for the various functionality that was not
-included out of the box.  So now you&#8217;re using a micro-framework that
-is no longer so simple.  Its intent to stay out of your way has
-actually made things harder now since your upgrade path is more
-complex.  When you upgrade the micro-framework how many of your
-plugins will still work?  How does the complexity of a micro-framework
-and 10 plugins compare to a regular framework (rails in the case of
-sinatra)?  You also have to be sure that the combination of plugins
-you are using do not conflict with eachother and cause unintended side-effects.</p>
-
-<h3>Thin App on Fat Framework</h3>
-
-<p>For the project that grows beyond its initial scope, I prefer to start
-with a thin application on top of a fat framework.  There&#8217;s just less
-for me to maintain and to test.  In the early days of the project its a really small app, and then when it grows larger it doesn&#8217;t
-start working against the framework.</p>
-
-<h3>Micro-Frameworks are Only Good for Micro-Projects</h3>
-
-<p>This is not meant to disparage all the micro-frameworks out there.  I
-believe they solve a specific problem.  I use micro-frameworks when
-the project is a good fit for them.  However, knowing a
-micro-framework really well is not a good excuse for not knowing a
-more powerful framework.  Sometimes the more powerful framework is
-what is needed.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/sometimes-side-projects-fail/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -537,7 +248,7 @@ what is needed.</p>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/learn-emacs-useful-links/">Learn Emacs: Useful Links</a></h1>
+      <h1 class="entry-title"><a href="/blog/verify-your-assumptions/">Verify Your Assumptions</a></h1>
     
     
       <p class="meta">
@@ -548,430 +259,24 @@ what is needed.</p>
 
   
 
-<time datetime="2011-11-08T23:02:00-05:00" pubdate>Nov 8<span>th</span>, 2011</time>
+<time datetime="2011-12-07T09:41:00-05:00" pubdate>Dec 7<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I have a running series of blog posts on
-<a href="/blog/categories/learn-emacs/">learning emacs</a>.  It is a life-long
-endeavor.  In this post I&#8217;m going to share some of the emacs resources
-that I have come across over the years.</p>
+  <div class="entry-content"><p><img src="/images/ram.jpg" class ="center"/></p>
 
-<h3><a href="http://www.emacswiki.org/">EmacsWiki</a></h3>
-
-<p>This is the definitive source for emacs information (aside from the emacs manual).  There&#8217;s a ton of information there, some of it is outdated, but it&#8217;s still worth your time.</p>
-
-<h3>Steve Yegge&#8217;s Emacs Posts &#8211; <a href="https://sites.google.com/site/steveyegge2/blog-rants">old blog</a> and <a href="http://steve-yegge.blogspot.com/search?q=emacs">new blog</a></h3>
-
-<p>All I can say is that Steve Yegge has written a lot about emacs, and has made some awesome elisp contributions.  I&#8217;m a huge fan of js2-mode.  Just do a search for emacs on his old and new blogs. <a href="https://sites.google.com/site/steveyegge2/effective-emacs">Effective Emacs</a>
-is a good post to start with.</p>
-
-<h3><a href="http://avdi.org/devblog/category/emacs-reboot/">Avdi Grimm&#8217;s Emacs Reboot</a></h3>
-
-<p>Avdi Grimm is writing about re-doing his emacs config from scratch.
-It&#8217;s very informative and super easy to follow.  I&#8217;ve used some ideas
-from his posts.  His <a href="https://github.com/avdi/.emacs24.d">emacs config is on github</a>.</p>
-
-<h3><a href="http://emacsrookie.com/">emacsrookie</a></h3>
-
-<p>This site is relatively new, and there are only a few posts on it
-right now, but it is quality emacs content.</p>
-
-<h3><a href="http://emacsrocks.com/">emacsrocks</a></h3>
-
-<p>Emacs screencasts.  It&#8217;s another new site, but I can&#8217;t argue with free content.</p>
-
-<h3><a href="http://emacsformacosx.com/">EmacsForMacOSX</a></h3>
-
-<p>This site is very convenient for getting the latest os x builds of
-emacs.  Or you can run the build-script yourself
-(<a href="https://github.com/caldwell/build-emacs">source on github</a>).</p>
-
-<h3><a href="https://github.com/search?&amp;q=emacs&amp;type=Everything&amp;repo=&amp;langOverride=&amp;start_value=1">Github</a></h3>
-
-<p>Search emacs on github.  You will find many other emacs users&#8217; configs
-hosted there.  Read their configs, and you will learn emacs.  I keep
-<a href="https://github.com/rawsyntax/emacs.d">my emacs config there</a>.</p>
-
-<p>Did I miss any useful emacs resources?</p>
-
-<p>UPDATE:  The users at <a href="http://reddit.com/r/emacs/">emacs reddit</a> let
-me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">emacs-fu</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-10-25T00:00:00-04:00" pubdate>Oct 25<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working directory (from any previous tabs). I found this feature to be annoying, as I already have a command that will do it when I want it, and I prefer the old 10.6 behavior.</p>
-
-<p>Luckily, this is a preference in Terminal.app and can be easily changed.</p>
-
-<p><img src="http://media.tumblr.com/tumblr_ltmvs87NgE1qfdxjm.png"></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-28T00:00:00-04:00" pubdate>Aug 28<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>An emacs keyboard macro is just a recording of user input into emacs, which means that most anything you can do in emacs can be recorded as a macro. Read that again. Pretty powerful.</p>
-
-<p>Here&#8217;s how it works. To start recording, type</p>
-
-<pre><code>C-x (
-</code></pre>
-
-<p>and input the commands in your macro. Then type</p>
-
-<pre><code>C-x )
-</code></pre>
-
-<p>to stop recording. Then type</p>
-
-<pre><code>C-x e
-</code></pre>
-
-<p>to apply the macro once, or</p>
-
-<pre><code>C-u 0 C-x e
-</code></pre>
-
-<p>to apply the macro until the bell rings or end of buffer is reached</p>
-
-<p>Keep in mind that you must not ring the bell when defining a keyboard macro (by accident, or with C-g). If you do, you&#8217;ll have to start all over defining your keyboard macro</p>
-
-<p>Typically I use a keyboard macro when I have a file full of data that needs slight altering, for example a non-standard CSV-like file. I&#8217;ll define a macro in terms of what needs changing on each line and then apply the macro for each line (until the end of the buffer).</p>
-
-<h3>Further Reading</h3>
-
-<ul>
-<li><a href="http://www.emacswiki.org/emacs/KeyboardMacros">emacs wiki on keyboard macros</a></li>
-<li><a href="http://www.emacswiki.org/emacs/KeyboardMacrosTricks">keyboard macros tricks</a></li>
-<li><a href="http://www.gnu.org/s/libtool/manual/emacs/Keyboard-Macros.html">emacs manual entry on keyboard macros</a></li>
-</ul>
+<p>Always verify your assumptions.  It will save you time and headache.
+I&#8217;ll explain now.</p>
 
 </div>
   
   
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload With Rails for Faster Development</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-15T00:00:00-04:00" pubdate>Aug 15<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>LiveReload applies CSS/JS changes to Safari or Chrome without reloading the page, and automatically reloads when the html changes. Let that soak in for a minute. In this post I&#8217;ll go over how to get it installed and working on your Rails projects.</p>
-
-<p>The installation process has two steps. First we install a browser extension that listens for livereload events. Then we use guard to listen for  system events and send information to the browser.</p>
-
-<p>First install the livereload addon for <a href="https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei">chrome</a> or <a href="https://github.com/downloads/mockko/livereload/LiveReload-1.6.2.safariextz">safari</a>.</p>
-
-<p>In your rails project gemfile add</p>
-
-<pre><code>gem 'rb-fsevent'
-gem 'guard-livereload'
-</code></pre>
-
-<p>Run</p>
-
-<pre><code>bundle install
-</code></pre>
-
-<p>Then run</p>
-
-<pre><code>guard init livereload &amp;&amp; guard
-</code></pre>
-
-<p>To setup guard for livereload and start monitoring for file system events. The last step is to activate the browser extension. You will need to click the LiveReload button:</p>
-
-<p><img src="http://media.tumblr.com/tumblr_lpzehwqgO41qfdxjm.png"></p>
-
-<p>Now when you change a file in your view, Safari / Chrome will load the new content automatically.</p>
-
-<h2>Notes on RubyCocoa</h2>
-
-<p>The notes on the <a href="https://github.com/mockko/livereload">livereload repo</a> are a little confusing. Livereload can also work via RubyCocoa (instead of guard- livereload). If you&#8217;re running ruby 1.9.2 you cannot install RubyCocoa on it. RubyCocoa is not 1.9.x compatible. So I opt to use the browser extension and guard.</p>
-
-<p>More info <a href="http://livereload.com/">here</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-bash-remove-commands-from-your-history/">Learn Bash: Remove Commands From Your History</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-11T00:00:00-04:00" pubdate>Aug 11<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Occasionally I type a password or other sensitive information into a shell
-prompt. Using bash history, the command can be removed.</p>
-
-<div><script src='https://gist.github.com/1330991.js?file='></script>
-<noscript><pre><code># say we start with an empty bash command history
-bash-3.2$ history
-    1  history
-
-
-# enter a command that requires a password
-bash-3.2$ sudo rm -i some_file
-Password:
-# accidentally ^C and type your password
-# into the prompt and hit enter
-bash-3.2$ secret_password
-bash: secret_password: command not found
-
-
-# your password is now there for all to
-# see in your bash history
-bash-3.2$ history
-    1  history
-    2  sudo rm -i some_file
-    3  secret_password
-    4  history
-
-
-# first option to fix it, delete the numbered entry from
-# history and write to your ~/.bash_history file
-bash-3.2$ history -d 3
-bash-3.2$ history -w
-
-
-# entry 3 will be removed entirely from your command history
-bash-3.2$ history
-    1  history
-    2  sudo rm -i some_file
-    3  history
-    4  history -d 3
-    5  history -w
-    6  history
-
-
-# the second option is to clear the entire history
-# and write the changes to disk
-bash-3.2$ history -c
-bash-3.2$ history -w
-
-
-# it's now pretty obvious that your history has been
-# scrubbed clean, but at least your password is history!
-bash-3.2$ history
-    1  history -w
-    2  history</code></pre></noscript></div>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/host-your-side-project-for-free/">Host Your Side Project for Free</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-08-10T00:00:00-04:00" pubdate>Aug 10<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post I explain how to host your side project on Heroku for free. There are some limits of course. I&#8217;m assuming your side project is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m assuming you&#8217;re using git for version control (heroku uses git push for deploys). I&#8217;ll also discuss storage limitations (database, web assets, etc).</p>
-
-<p>Looking for inspiration for a side project? <a href="http://rawsyntax.com/post/5982784556/importance-of-side-projects">Read my post about side projects</a></p>
-
-<h2>Sign up for Heroku</h2>
-
-<p><img src="http://media.tumblr.com/tumblr_lpp3jgSnE31qfdxjm.png"></p>
-
-<h2>Create a Project on Heroku</h2>
-
-<p>First install the heroku gem.</p>
-
-<div><script src='https://gist.github.com/1712856.js?file='></script>
-<noscript><pre><code>➜  ~  gem install heroku
-Fetching: heroku-2.4.0.gem (100%)
-Successfully installed heroku-2.4.0
-1 gem installed
-</code></pre></noscript></div>
-
-
-<p>Then create a project with the cedar stack on heroku.</p>
-
-<div><script src='https://gist.github.com/1712866.js?file='></script>
-<noscript><pre><code>➜  ~  heroku apps:create --stack cedar my-project
-Creating my-project... done, stack is cedar
-http://my-project.herokuapp.com/ | git@heroku.com:my-project.git</code></pre></noscript></div>
-
-
-<p>Log in to Heroku and check out your app.</p>
-
-<p><img src="http://media.tumblr.com/tumblr_lpp485CMTR1qfdxjm.png"></p>
-
-<p>You should see something similar to the above. At this point you&#8217;ve created your project on heroku. Awesome, but there&#8217;s still more to do.</p>
-
-<h2>Deploy your project to heroku</h2>
-
-<p>Note the git repository listed on your project&#8217;s heroku page. Add it as a remote on your project with:</p>
-
-<div><script src='https://gist.github.com/1712875.js?file='></script>
-<noscript><pre><code>➜  my-project git:(master) ✗ git push heroku master
-Counting objects: 7, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 459 bytes, done.
-Total 4 (delta 2), reused 0 (delta 0)
-
------&gt; Heroku receiving push
------&gt; Ruby/Rails app detected
------&gt; Detected Rails is not set to serve static_assets
-       Installing rails3_serve_static_assets... done
------&gt; Configure Rails 3 to disable x-sendfile
-       Installing rails3_disable_x_sendfile... done
------&gt; Configure Rails to log to stdout
-       Installing rails_log_stdout... done
------&gt; Gemfile detected, running Bundler version 1.0.7
-       All dependencies are satisfied
------&gt; Compiled slug size is 8.0MB
------&gt; Launching... done, v1
-       http://my-project.heroku.com deployed to Heroku
-
-To git@heroku.com:my-project.git
-   ecd8d10..0d81a36  master -&gt; master</code></pre></noscript></div>
-
-
-<p>But most likely you will get a slew of errors. What about database setup and all the other steps that go with production application setup?</p>
-
-<h2>Set your project up for Heroku</h2>
-
-<p>Here&#8217;s where Heroku&#8217;s Addon system comes in. Basically, you&#8217;re going to replace your database server, frontend load balancing / reverse proxy, and daemon processes / cron jobs with Heroku Addons. This is a subject for another post, but I&#8217;ll go over what my standard stack is.</p>
-
-<p>Furthermore, Heroku has good documentation about their platform and Addons <a href="http://devcenter.heroku.com/">here</a></p>
-
-<h2>My standard stack</h2>
-
-<p>Lately I&#8217;ve been using Rails 3, Mongoid for models, Haml and Sass for views, and sendgrid for sending emails.</p>
-
-<p>On Heroku I&#8217;ll install the following free Addons:</p>
-
-<ul>
-<li>Sendgrid for sending and receiving emails (200 a day free)</li>
-<li>MongoLab for a free mongodb instance (240mb)</li>
-<li>Advanced Logging</li>
-<li>Custom Domain (for my own .com instead of a heroku subdomain)</li>
-</ul>
-
-
-<p>Note that your app slug (application files deployed to heroku) is limited to 100mb, but I have yet to run anywhere close to that. My side projects generally run around 10mb. Heroku recommends you use an asset host for any js/css/images.</p>
-
-<p>Heroku, with these addons is enough to get any side project off the ground. And there&#8217;s always the option to scale up with Heroku, or move it to your  paid host once it starts to grow.</p>
-</div>
-  
+    <footer>
+      <a rel="full-article" href="/blog/verify-your-assumptions/">Read More &rarr;</a>
+    </footer>
   
 
 

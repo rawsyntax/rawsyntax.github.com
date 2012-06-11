@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-07T22:41:49-04:00</updated>
+  <updated>2012-06-11T10:47:10-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -23,6 +23,9 @@ my apps in development mode.  It loads any RACK compatible app, and
 allows you to access your projects via the <code>.dev</code> and named symlinks
 stored in <code>~/.pow</code> (for example <code>http://my_project.dev</code>).  No need to
 specify a port either!</p>
+
+<!--more-->
+
 
 <p>Very shortly afterwards I ran into a problem.  When I'm working on a
 Sinatra app, normally I use the
@@ -71,7 +74,13 @@ guard to the Gemfile.</p>
     <link href="http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development/"/>
     <updated>2011-08-15T00:00:00-04:00</updated>
     <id>http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development</id>
-    <content type="html"><![CDATA[<p>LiveReload applies CSS/JS changes to Safari or Chrome without reloading the page, and automatically reloads when the html changes. Let that soak in for a minute. In this post I'll go over how to get it installed and working on your Rails projects.</p>
+    <content type="html"><![CDATA[<p>LiveReload applies CSS/JS changes to Safari or Chrome without
+reloading the page, and automatically reloads when the html changes.
+Let that soak in for a minute. In this post I'll go over how to get it
+installed and working on your Rails projects.</p>
+
+<!--more-->
+
 
 <p>The installation process has two steps. First we install a browser extension that listens for livereload events. Then we use guard to listen for  system events and send information to the browser.</p>
 
@@ -127,7 +136,14 @@ gem 'guard-livereload'
     <link href="http://rawsyntax.com/blog/generating-available-domain-names/"/>
     <updated>2011-04-22T00:00:00-04:00</updated>
     <id>http://rawsyntax.com/blog/generating-available-domain-names</id>
-    <content type="html"><![CDATA[<p>It's a ruby script that loads a dictionary of common words, restricts word length, combines two that start with the same letter, and issues a whois query to check if it's available. Feel free to tweak it to your own needs. It also has some sleep calls to avoid flooding the whois server. Let it run for a couple days, see what comes out.</p>
+    <content type="html"><![CDATA[<p>It's a ruby script that loads a dictionary of common words, restricts
+word length, combines two that start with the same letter, and issues
+a whois query to check if it's available. Feel free to tweak it to
+your own needs. It also has some sleep calls to avoid flooding the
+whois server. Let it run for a couple days, see what comes out.</p>
+
+<!--more-->
+
 
 <p>I actually generated <a href="http://rawsyntax.com">rawsyntax.com</a> using this script.</p>
 
@@ -188,7 +204,16 @@ Domaing.generate_domains
     <link href="http://rawsyntax.com/blog/rails-3-email-validation/"/>
     <updated>2011-04-21T00:00:00-04:00</updated>
     <id>http://rawsyntax.com/blog/rails-3-email-validation</id>
-    <content type="html"><![CDATA[<p>Most email validation I've encountered goes bananas with regards to regexes. The programmer tries to strictly adhere to the spec (<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only is this task difficult and error prone, but there are functional email addresses out there that do not conform to the spec. Not to mention the resulting regex often looks like <a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
+    <content type="html"><![CDATA[<p>Most email validation I've encountered goes bananas with regards to
+regexes. The programmer tries to strictly adhere to the spec
+(<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only
+is this task difficult and error prone, but there are functional email
+addresses out there that do not conform to the spec. Not to mention
+the resulting regex often looks like
+<a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
+
+<!--more-->
+
 
 <p>When I do email validation I use a simple regex:</p>
 

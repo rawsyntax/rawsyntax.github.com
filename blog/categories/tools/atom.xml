@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tools | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-07T22:41:49-04:00</updated>
+  <updated>2012-06-11T10:47:10-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -33,6 +33,9 @@
     <id>http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history</id>
     <content type="html"><![CDATA[<p>Occasionally I type a password or other sensitive information into a shell
 prompt. Using bash history, the command can be removed.</p>
+
+<!--more-->
+
 
 <p><div><script src='https://gist.github.com/1330991.js?file='></script>
 <noscript><pre><code># say we start with an empty bash command history

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-07T22:41:49-04:00</updated>
+  <updated>2012-06-11T10:47:10-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -50,6 +50,9 @@ Here's the minimum setup required.
     <content type="html"><![CDATA[<p>One of my favorite things about emacs is its javascript modes.  While
 there are a million options, I'm only going to talk about how I edit
 javascript with emacs.</p>
+
+<!--more-->
+
 
 <h2>Which Mode do I Use?</h2>
 
@@ -204,6 +207,9 @@ actually done this, I would love to see the code.</p>
 However if you didn't have any bad habits, you wouldn't be reading
 this blog post.  Here's what has worked for me.</p>
 
+<!--more-->
+
+
 <h3>Make a Note of It</h3>
 
 <p>One of my bad habits was using the arrow keys for navigation in emacs.
@@ -326,6 +332,9 @@ series has been all about how to do cool stuff in emacs.  One of my
 personal favorites is <a href="/blog/learn-emacs-align-regexp/">align-regexp</a>.
 A while back that stopped working for me.  Now I get an error: <code>Wrong type
 argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
+
+<!--more-->
+
 
 <h3>First Remove your Config</h3>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-07T22:41:49-04:00</updated>
+  <updated>2012-06-11T10:47:10-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -52,6 +52,9 @@ Here&#8217;s the minimum setup required.</p>
     <content type="html"><![CDATA[<p>One of my favorite things about emacs is its javascript modes.  While
 there are a million options, I&#8217;m only going to talk about how I edit
 javascript with emacs.</p>
+
+<!--more-->
+
 
 <h2>Which Mode do I Use?</h2>
 
@@ -206,6 +209,9 @@ allows you to access your projects via the <code>.dev</code> and named symlinks
 stored in <code>~/.pow</code> (for example <code>http://my_project.dev</code>).  No need to
 specify a port either!</p>
 
+<!--more-->
+
+
 <p>Very shortly afterwards I ran into a problem.  When I&#8217;m working on a
 Sinatra app, normally I use the
 <a href="https://github.com/rtomayko/shotgun">shotgun</a> gem for automatic
@@ -258,6 +264,9 @@ guard to the Gemfile.</p>
 <p>The best thing to do is never to form bad habits in the first place.
 However if you didn&#8217;t have any bad habits, you wouldn&#8217;t be reading
 this blog post.  Here&#8217;s what has worked for me.</p>
+
+<!--more-->
+
 
 <h3>Make a Note of It</h3>
 
@@ -384,6 +393,9 @@ personal favorites is <a href="http://rawsyntax.com/blog/learn-emacs-align-regex
 A while back that stopped working for me.  Now I get an error: <code>Wrong type
 argument: markerp, 0</code>.  Emacs doesn&#8217;t always do what I mean.</p>
 
+<!--more-->
+
+
 <h3>First Remove your Config</h3>
 
 <p>Whether you use a single <code>.emacs</code> file or a <code>~/.emacs.d/</code> directory
@@ -437,6 +449,9 @@ I&#8217;m short on ideas for emacs posts.</p>
 
 <p>I&#8217;ve got some ideas on how you can improve your programming by not
 programming.  Try something new this year.</p>
+
+<!--more-->
+
 
 <h3>Simplifying Too Much</h3>
 
@@ -522,6 +537,9 @@ for gaming is way cheaper than trying to buy a new laptop, and the
 desktop gets way better performance.  In fact, this makes it so that I
 can stretch my laptop for a few more years, as it&#8217;s only used for web
 programming at the moment (and it&#8217;s plenty fast due to its SSD).</p>
+
+<!--more-->
+
 
 <p>At the end of this article I&#8217;ll be listing all the parts I used for my build.</p>
 
@@ -679,6 +697,9 @@ turned out well, and other times I stopped working on them.  How do
 you know when it&#8217;s time to throw in the towel and when it&#8217;s time to
 push through?</p>
 
+<!--more-->
+
+
 <p>Roughly a year ago a friend and I were working on a bill splitting
 system.  It was supposed to solve the problem of splitting bills
 between friends.  More specifically, splitting regularly occuring or
@@ -756,6 +777,9 @@ afraid to re-evaluate your idea.  It doesn&#8217;t make you a quitter to throw o
 <p>Always verify your assumptions.  It will save you time and headache.
 I&#8217;ll explain now.</p>
 
+<!--more-->
+
+
 <h3>Building a PC</h3>
 
 <p>I recently built a PC from parts I bought online.  It had been 5 years
@@ -818,6 +842,9 @@ in which he says:</p>
 
 <p>His article made me think of a time years ago when I wanted to be in the
 music business.</p>
+
+<!--more-->
+
 
 <p>When I was about 12 or 13 I started playing bass guitar.  From then on
 I was enamored with music.  Playing it, listening to it, thinking
@@ -948,7 +975,16 @@ a good deal.  We are all taking our chances.</p>
     <link href="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/"/>
     <updated>2011-11-29T14:32:00-05:00</updated>
     <id>http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects</id>
-    <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted on github-pages.  I migrated because of Tumblr&#8217;s slow page loads and frequent downtime.  I picked Octopress because it is built on top of Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is a static site generator, which ensures I can deploy my blog on any old server in the future, and continue to use these same old tools (because I have them, rather than tumblr having them).</p>
+    <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted
+on github-pages.  I migrated because of Tumblr&#8217;s slow page loads and
+frequent downtime.  I picked Octopress because it is built on top of
+Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is
+a static site generator, which ensures I can deploy my blog on any old
+server in the future, and continue to use these same old tools
+(because I have them, rather than tumblr having them).</p>
+
+<!--more-->
+
 
 <h3>Migrating broke my URL Structure</h3>
 
@@ -1037,6 +1073,9 @@ those options.  Design it correctly, but deliver less functionality,
 and add the rest of the functionality at a later date.  While that&#8217;s a
 simple solution, this comic touches on other related issues.</p>
 
+<!--more-->
+
+
 <h3>Analysis Paralysis</h3>
 
 <p><img src="http://rawsyntax.com/images/analysis-paralysis.jpg" class ="center"/></p>
@@ -1110,6 +1149,9 @@ Flask and web.py for python.  These frameworks promise quick ramp up
 time and simplicity.  They are small and do not provide much
 functionality, which is sold as &#8220;not getting in your way&#8221;.</p>
 
+<!--more-->
+
+
 <h3>Great! What&#8217;s not to like?</h3>
 
 <p>In theory this sounds super, and if you have a project that has a very
@@ -1173,6 +1215,9 @@ what is needed.</p>
 endeavor.  In this post I&#8217;m going to share some of the emacs resources
 that I have come across over the years.</p>
 
+<!--more-->
+
+
 <h3><a href="http://www.emacswiki.org/">EmacsWiki</a></h3>
 
 <p>This is the definitive source for emacs information (aside from the emacs manual).  There&#8217;s a ton of information there, some of it is outdated, but it&#8217;s still worth your time.</p>
@@ -1234,7 +1279,12 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
     <link href="http://rawsyntax.com/blog/learn-emacs-keyboard-macros/"/>
     <updated>2011-08-28T00:00:00-04:00</updated>
     <id>http://rawsyntax.com/blog/learn-emacs-keyboard-macros</id>
-    <content type="html"><![CDATA[<p>An emacs keyboard macro is just a recording of user input into emacs, which means that most anything you can do in emacs can be recorded as a macro. Read that again. Pretty powerful.</p>
+    <content type="html"><![CDATA[<p>An emacs keyboard macro is just a recording of user input into emacs,
+which means that most anything you can do in emacs can be recorded as
+a macro. Read that again. Pretty powerful.</p>
+
+<!--more-->
+
 
 <p>Here&#8217;s how it works. To start recording, type</p>
 
@@ -1278,7 +1328,13 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
     <link href="http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development/"/>
     <updated>2011-08-15T00:00:00-04:00</updated>
     <id>http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development</id>
-    <content type="html"><![CDATA[<p>LiveReload applies CSS/JS changes to Safari or Chrome without reloading the page, and automatically reloads when the html changes. Let that soak in for a minute. In this post I&#8217;ll go over how to get it installed and working on your Rails projects.</p>
+    <content type="html"><![CDATA[<p>LiveReload applies CSS/JS changes to Safari or Chrome without
+reloading the page, and automatically reloads when the html changes.
+Let that soak in for a minute. In this post I&#8217;ll go over how to get it
+installed and working on your Rails projects.</p>
+
+<!--more-->
+
 
 <p>The installation process has two steps. First we install a browser extension that listens for livereload events. Then we use guard to listen for  system events and send information to the browser.</p>
 
@@ -1321,6 +1377,11 @@ gem 'guard-livereload'
     <id>http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history</id>
     <content type="html"><![CDATA[<p>Occasionally I type a password or other sensitive information into a shell
 prompt. Using bash history, the command can be removed.</p>
+
+<!--more-->
+
+
+
 
 <div><script src='https://gist.github.com/1330991.js?file='></script>
 <noscript><pre><code># say we start with an empty bash command history
@@ -1384,7 +1445,15 @@ bash-3.2$ history
     <link href="http://rawsyntax.com/blog/host-your-side-project-for-free/"/>
     <updated>2011-08-10T00:00:00-04:00</updated>
     <id>http://rawsyntax.com/blog/host-your-side-project-for-free</id>
-    <content type="html"><![CDATA[<p>In this post I explain how to host your side project on Heroku for free. There are some limits of course. I&#8217;m assuming your side project is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m assuming you&#8217;re using git for version control (heroku uses git push for deploys). I&#8217;ll also discuss storage limitations (database, web assets, etc).</p>
+    <content type="html"><![CDATA[<p>In this post I explain how to host your side project on Heroku for
+free. There are some limits of course. I&#8217;m assuming your side project
+is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m
+assuming you&#8217;re using git for version control (heroku uses git push
+for deploys). I&#8217;ll also discuss storage limitations (database, web
+assets, etc).</p>
+
+<!--more-->
+
 
 <p>Looking for inspiration for a side project? <a href="http://rawsyntax.com/post/5982784556/importance-of-side-projects">Read my post about side projects</a></p>
 

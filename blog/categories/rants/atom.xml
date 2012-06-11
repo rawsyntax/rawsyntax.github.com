@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rants | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/rants/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-07T22:41:49-04:00</updated>
+  <updated>2012-06-11T10:47:10-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -22,6 +22,9 @@
 
 <p>I've got some ideas on how you can improve your programming by not
 programming.  Try something new this year.</p>
+
+<!--more-->
+
 
 <h3>Simplifying Too Much</h3>
 
@@ -105,6 +108,9 @@ program that had the intuitive cohesion of a poem?</p>
 turned out well, and other times I stopped working on them.  How do
 you know when it's time to throw in the towel and when it's time to
 push through?</p>
+
+<!--more-->
+
 
 <p>Roughly a year ago a friend and I were working on a bill splitting
 system.  It was supposed to solve the problem of splitting bills
@@ -191,6 +197,9 @@ in which he says:</p>
 
 <p>His article made me think of a time years ago when I wanted to be in the
 music business.</p>
+
+<!--more-->
+
 
 <p>When I was about 12 or 13 I started playing bass guitar.  From then on
 I was enamored with music.  Playing it, listening to it, thinking
@@ -327,6 +336,9 @@ Some ruby based ones are Sinatra, Padrino, and Camping.  There's also
 Flask and web.py for python.  These frameworks promise quick ramp up
 time and simplicity.  They are small and do not provide much
 functionality, which is sold as "not getting in your way".</p>
+
+<!--more-->
+
 
 <h3>Great! What's not to like?</h3>
 

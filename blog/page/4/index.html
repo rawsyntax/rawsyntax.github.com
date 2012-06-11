@@ -9,7 +9,7 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I&#8217;ve recently started locking my screen on OSX. However I found that Quicksilver&#8217;s LockScreen script did not work. I believe it was &hellip;">
+  <meta name="description" content="In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,7 +83,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/quicksilver-lockscreen/">Quicksilver Lockscreen</a></h1>
+      <h1 class="entry-title"><a href="/blog/os-x-lion-new-tab-in-terminal-changes-directory/">OS X Lion New Tab in Terminal Changes Directory</a></h1>
     
     
       <p class="meta">
@@ -94,20 +94,18 @@
 
   
 
-<time datetime="2011-04-13T00:00:00-04:00" pubdate>Apr 13<span>th</span>, 2011</time>
+<time datetime="2011-10-25T00:00:00-04:00" pubdate>Oct 25<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src="/images/quicksilver-lockscreen.png"></p>
+  <div class="entry-content"><p>In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working directory (from any previous tabs). I found this feature to be annoying, as I already have a command that will do it when I want it, and I prefer the old 10.6 behavior.</p>
 
-<p>I&#8217;ve recently started locking my screen on OSX. However I found that <a href="http://qsapp.com">Quicksilver&#8217;s</a> LockScreen script did not work. I believe it was designed for Leopard.</p>
+<p>Luckily, this is a preference in Terminal.app and can be easily changed.</p>
 
-<p>The workaround I&#8217;ve found is to start ScreenSaverEngine with Quicksilver, and set my Security.prefs to require a password.</p>
-
-<p>UPDATE: This also works in OSX Lion.</p>
+<p><img src="http://media.tumblr.com/tumblr_ltmvs87NgE1qfdxjm.png"></p>
 </div>
   
   
@@ -120,7 +118,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/url-validation-in-rails-3-and-ruby-in-general/">URL Validation in Rails 3 (and Ruby in General)</a></h1>
+      <h1 class="entry-title"><a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a></h1>
     
     
       <p class="meta">
@@ -131,89 +129,23 @@
 
   
 
-<time datetime="2011-01-20T00:00:00-05:00" pubdate>Jan 20<span>th</span>, 2011</time>
+<time datetime="2011-08-28T00:00:00-04:00" pubdate>Aug 28<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I&#8217;ve seen some approaches, most notably <a href="http://www.igvita.com/2006/09/07/validating-url-in-ruby-on-rails/">here on igvita</a>. Though the reference on igvita is quite dated (2006 ??? being more or less the beginning of the epoch in rails-years), I&#8217;ve seen plenty of code using the validate-a-uri-by-regex approach.</p>
-
-<p>It doesn&#8217;t work and pretty much always ends up excluding valid urls. This is why I prefer to use the parsing approach. If the url can be parsed, and the scheme seems reasonably valid, good enough.</p>
-
-<h2>An Interesting URL Problem</h2>
-
-<p>Recently I ran into a situation where I needed to be able to validate and handle unicode / internationalized links. One such link would be <a href="http://%D0%BA%D1%86.%D1%80%D1%84">the russian tld registrar кц.рф</a>. The typical approach of parsing with URI fails below</p>
-
-<div><script src='https://gist.github.com/789195.js?file='></script>
-<noscript><pre><code>#!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
-
-require 'uri'
-
-URI.parse(&quot;кц.рф&quot;)
-
-# fails with the following error
-#
-#/Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:156:in `split': bad URI(is not
-# URI?): кц.рф (URI::InvalidURIError)
-#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:174:in `parse'
-#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:628:in `parse'
-#   from ./uri-parse.rb:6:in `&lt;main&gt;'
-</code></pre></noscript></div>
-
-
-<h2>The Solution</h2>
-
-<p>At this point, I happened to remember there is another library for parsing URIs. It&#8217;s called <a href="https://github.com/sporkmonger/addressable">Addressable::URI</a>. Its aim is to be a full replacement of the ruby standard library&#8217;s URI module.</p>
-
-<p>More importantly, it successfully parses unicode urls.</p>
-
-<div><script src='https://gist.github.com/789235.js?file='></script>
-<noscript><pre><code>#!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
-
-require 'addressable/uri'
-
-Addressable::URI.parse(&quot;кц.рф&quot;)
-
-# no problem at all</code></pre></noscript></div>
-
-
-<p>Here&#8217;s how I do URL validation in rails 3, using ActiveModel and Addressable::URI.</p>
-
-<div><script src='https://gist.github.com/789162.js?file='></script>
-<noscript><pre><code>class Example
-  include ActiveModel::Validations
-
-  ##
-  # Validates a URL
-  #
-  # If the URI library can parse the value, and the scheme is valid
-  # then we assume the url is valid
-  #
-  class UrlValidator &lt; ActiveModel::EachValidator
-    def validate_each(record, attribute, value)
-      begin
-        uri = Addressable::URI.parse(value)
-
-        if ![&quot;http&quot;,&quot;https&quot;,&quot;ftp&quot;].include?(uri.scheme)
-          raise Addressable::URI::InvalidURIError
-        end
-      rescue Addressable::URI::InvalidURIError
-        record.errors[attribute] &lt;&lt; &quot;Invalid URL&quot;
-      end
-    end
-  end
-
-  validates :field, :url =&gt; true
-end</code></pre></noscript></div>
-
-
+  <div class="entry-content"><p>An emacs keyboard macro is just a recording of user input into emacs,
+which means that most anything you can do in emacs can be recorded as
+a macro. Read that again. Pretty powerful.</p>
 
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/learn-emacs-keyboard-macros/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -224,7 +156,7 @@ end</code></pre></noscript></div>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/freelancing-on-odesk/">Freelancing on oDesk</a></h1>
+      <h1 class="entry-title"><a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload With Rails for Faster Development</a></h1>
     
     
       <p class="meta">
@@ -235,39 +167,24 @@ end</code></pre></noscript></div>
 
   
 
-<time datetime="2010-12-06T00:00:00-05:00" pubdate>Dec 6<span>th</span>, 2010</time>
+<time datetime="2011-08-15T00:00:00-04:00" pubdate>Aug 15<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Since the start of my career as a professional programmer, I&#8217;ve been interested in doing contract work online. Over the years I&#8217;ve half-heartedly tried to get jobs on sites like <a href="http://www.elance.com/">elance</a>, <a href="http://rentacoder.com">rentacoder</a>, and <a href="http://www.guru.com">guru</a>. I never had any success. All I found was employers / providers offering $200 fixed-bid contracts for building <a href="http://facebook.com">facebook</a> / <a href="http://ebay.com">ebay</a> clones, and workers willing to work for way less than I would or even could. In November 2010, after reading enough posts on <a href="http://news.ycombinator.com">hacker news</a> I decided to give <a href="http://odesk.com">oDesk</a> an honest try.</p>
+  <div class="entry-content"><p>LiveReload applies CSS/JS changes to Safari or Chrome without
+reloading the page, and automatically reloads when the html changes.
+Let that soak in for a minute. In this post I&#8217;ll go over how to get it
+installed and working on your Rails projects.</p>
 
-<h2>Trying oDesk for a Full Month</h2>
-
-<p>I committed myself to trying get jobs on <a href="http://www.odesk.com">oDesk</a> for a full month. I found the usual unrealistic jobs (demanding everything for nothing). I focused narrowly on <a href="http://www.ruby-lang.org/">ruby</a> and <a href="http://rubyonrails.org">rails</a> since that&#8217;s been the focus of my skill-set the past few years.</p>
-
-<h2>Fixed-bid Projects</h2>
-
-<p>After a few days of applying to 2-3 jobs per day, I finally got an acceptance. It should be noted that for each of these jobs I wrote a detailed and specially tailored cover letter selling myself to the employer. I believe this is crucial. Writing cover letters is worth getting good at.</p>
-
-<p>The job was to modify the
-<a href="https://github.com/Shopify/active_merchant">ActiveMerchant</a> gem to add support for a new payment gateway. I wrote <a href="https://jadedpixel.lighthouseapp.com/projects/11599/tickets/199-patch-added-merchant-warrior-gateway">this patch</a> for <a href="http://merchantwarrior.com">MerchantWarrior</a> in about 8 hours start to finish. It was a fixed bid project and the employer paid me promptly.</p>
-
-<p>I got this project after only a few days, and I was ready for more. The next job I did was basically rails troubleshooting for another developer over skype. It consisted of a few small bugs, each of which were small fixed-bid projects. The guy would skype me, name his price, then I&#8217;d fix his bugs in his rails applications, explain why, and he&#8217;d pay me. It wasn&#8217;t much money, but these were small bugs, and it boosted my feedback rating on <a href="http://odesk.com">oDesk</a>.</p>
-
-<p>On to the next job! November was turning out to be a good month for trying out online contracting. At this point I had only done fixed-bid contracts. I wanted something bigger. I wanted hourly work on <a href="http://odesk.com">oDesk</a>. Hourly work is special because <a href="http://odesk.com">oDesk</a> guarantees payment for hours worked. They have an application that you run on your desktop that tracks hours worked, takes screenshots, and lists average keystrokes and mouse actions.</p>
-
-<h2>Hourly Work</h2>
-
-<p>The first hourly project I got was a small ruby integration with <a href="http://ifbyphone.com">ifbyphone</a>. I had used ifbyphone before, so I wrote a cover letter selling myself hard (knowing ruby, having used ifbyphone before). I was also asked to justify my hourly rate, since it was higher than the typical hourly rate on <a href="http://odesk.com">oDesk</a>. This was easy enough.</p>
-
-<p>As soon as I delivered the code for this project, the employer offered me some work building a ruby gem. It&#8217;s basically a simplistic template-based email parser. It&#8217;s rather fragile, but given the employer&#8217;s time constraints, it does what he wants. I ended up codifying the employer&#8217;s requirements into <a href="http://rspec.info">rspec</a> tests.</p>
-
-<p>Once I finished that project, the same employer offered me some more hourly work in the form of a rails project. It&#8217;s a microsite for people who play farmville. For the record, I do not play farmville. There are plenty of other more interesting video games to play. The site is basically a lookup table for some farmville data. It&#8217;s sortable and can be filtered to the user&#8217;s specifications. I&#8217;m not yet finished with this project.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/use-livereload-with-rails-for-faster-development/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -278,7 +195,7 @@ end</code></pre></noscript></div>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/puncher-the-simple-file-watcher-for-os-x/">Puncher the Simple File Watcher for OS X</a></h1>
+      <h1 class="entry-title"><a href="/blog/learn-bash-remove-commands-from-your-history/">Learn Bash: Remove Commands From Your History</a></h1>
     
     
       <p class="meta">
@@ -289,89 +206,22 @@ end</code></pre></noscript></div>
 
   
 
-<time datetime="2010-09-29T00:00:00-04:00" pubdate>Sep 29<span>th</span>, 2010</time>
+<time datetime="2011-08-11T00:00:00-04:00" pubdate>Aug 11<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Why another file watcher for OS X?</p>
+  <div class="entry-content"><p>Occasionally I type a password or other sensitive information into a shell
+prompt. Using bash history, the command can be removed.</p>
 
-<p>There&#8217;s already <a href="http://github.com/alloy/kicker">kicker</a>, and many ruby programs that need file watching, already have solutions built in. For example <a href="http://github.com/seattlerb/zentest">ZenTest</a>, <a href="http://compass-style.org">compass</a> etc..</p>
-
-<p>The problem with file watchers on OS X is that they depend on <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a>. If <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> isn&#8217;t available most of them fallback to <a href="http://bit.ly/dDnkCu">file-system polling</a>, which kills my cpu. If you&#8217;re using the system ruby that comes with OS X, you&#8217;re fine because <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> is already built in.</p>
-
-<p>I use <a href="http://rvm.beginrescueend.com/">rvm</a>, which makes it super easy for me to install multiple separate and self-contained versions of ruby. I could for instance, maintain an old project that was written against ruby-1.8.6 while on the same machine starting a new project using ruby-1.9.2.</p>
-
-<p>You&#8217;ll only run into <a href="http://rubycocoa.sourceforge.net/HomePage">rubycocoa</a> problems if you use <a href="http://rvm.beginrescueend.com/">rvm</a>. Have a quick <a href="http://www.google.com/search?&amp;q=rubycocoa+rvm">google for rvm and rubycocoa</a>, and you&#8217;ll see a huge list of people having issues installing rubycocoa with rvm.</p>
-
-<p>Typically the code to fix this problem goes something like this</p>
-
-<div><script src='https://gist.github.com/289868.js?file='></script>
-<noscript><pre><code>~$ ARCHFLAGS='-arch i386 -arch x86_64'
-~$ rvm install 1.8.7 --debug --reconfigure -C --enable-shared=yes
-~$ wget http://sourceforge.net/projects/rubycocoa/files/RubyCocoa/1.0.0/RubyCocoa-1.0.0.tar.gz/download
-~$ tar xzf RubyCocoa-1.0.0.tar.gz &amp;&amp; rm RubyCocoa-1.0.0.tar.gz &amp;&amp; cd RubyCocoa-1.0.0
-~/RubyCocoa-1.0.0$ ruby install.rb config --build-universal=yes
-~/RubyCocoa-1.0.0$ ruby install.rb setup
-~/RubyCocoa-1.0.0$ sudo ruby install.rb install</code></pre></noscript></div>
-
-
-<p>Eventually, I got tired of having to install rubycocoa just to use osx&#8217;s fsevents. I discovered <a href="http://github.com/sandro/ruby-fsevent">ruby-fsevent</a> when I went looking for solutions to this problem. It&#8217;s a file watcher gem with a C extension that uses fsevents. For me this means I don&#8217;t have to fuss with recompiling my ruby version and and making rvm and rubycocoa happy to get fsevents.</p>
-
-<p>However, there still was a problem. <a href="http://compass-style.org">Compass</a> doesn&#8217;t use ruby-fsevent. I needed a file watcher that uses ruby-fsevent and does not depend on rubycocoa, and can execute arbitrary commands. I wanted a tool that I could use like below.</p>
-
-<p><code>puncher 'command' files_in_dir/*</code></p>
-
-<p>And that&#8217;s what I built. It&#8217;s incredibly simple. The code is only 29 lines.</p>
-
-<div><script src='https://gist.github.com/603206.js?file='></script>
-<noscript><pre><code>begin
-  require 'fsevent'
-rescue LoadError
-  require 'rubygems'
-  require 'fsevent'
-end
-
-class Puncher &lt; FSEvent
-
-  def initialize(command, files)
-    @command, @files, @latency, @last_sec = command, files, 0.2, Time.now
-
-    start
-  end
-
-  def start
-    watch_directories((@files.collect { |f| File.dirname(f) }).uniq)
-    super
-  end
-
-  def on_change(directories)
-    time = @last_sec
-
-    @files.each { |f| @last_sec = File.mtime(f) if File.mtime(f) &gt; @last_sec }
-
-    system @command unless time == @last_sec
-  end
-
-end
-</code></pre></noscript></div>
-
-
-<p>Today I mostly use it like below</p>
-
-<p><code>screen -S compass_punch puncher 'bundle exec compass -c config/compass.rb' app/sass/*</code></p>
-
-<p>This creates a screen, which runs a puncher instance, that runs a compass command to compile all my sass code, whenever a sass file is modified. Even though compass requires rubycocoa for using fsevents, I can wrap it with my puncher gem and use fsevents without rubycocoa.</p>
-
-<p>I wrap it in a screen so I can check on the output occasionally. My next enhancement is to add growl notifications to puncher, then I can simply background the process, instead of spawning a screen for it. Problem solved.</p>
-
-<p>PS if you have any interest in seeing a version of puncher that works on linux or windows, send me a message, comment, or create an issue on the github issue tracker.</p>
-
-<p>UPDATE: I heartily recommend <a href="https://github.com/guard">guard</a> for general purpose file watching</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/learn-bash-remove-commands-from-your-history/">Read More &rarr;</a>
+    </footer>
   
 
 
@@ -382,7 +232,7 @@ end
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/start-using-html5/">Start Using Html5</a></h1>
+      <h1 class="entry-title"><a href="/blog/host-your-side-project-for-free/">Host Your Side Project for Free</a></h1>
     
     
       <p class="meta">
@@ -393,121 +243,34 @@ end
 
   
 
-<time datetime="2010-09-25T00:00:00-04:00" pubdate>Sep 25<span>th</span>, 2010</time>
+<time datetime="2011-08-10T00:00:00-04:00" pubdate>Aug 10<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>There&#8217;s a lot of hype going on about html5 nowadays. If you&#8217;re not using html5 yet, the whole thing can be somewhat overwhelming. After reading this blogpost you&#8217;ll be ready to upgrade your current project (or start a new one) using html5.</p>
+  <div class="entry-content"><p>In this post I explain how to host your side project on Heroku for
+free. There are some limits of course. I&#8217;m assuming your side project
+is written in Ruby (RACK compatible), Node.js, or Clojure. I&#8217;m
+assuming you&#8217;re using git for version control (heroku uses git push
+for deploys). I&#8217;ll also discuss storage limitations (database, web
+assets, etc).</p>
 
-<h2>Understanding html5</h2>
-
-<p>I went to the <a href="http://www.meetup.com/bocaruby/">bocaruby</a> ruby users group earlier this month. I had some understanding of what html5 is capable of, but Diego Scataglini&#8217;s presentation <a href="http://diegoscataglini.com/2010/09/14/232/html-5-a-gentle-introduction/">html5 a gentle introduction</a> definitely expanded my knowledge. I recommend it as a solid introduction to what is different about html5.</p>
-
-<h2>Using html5</h2>
-
-<p>Often times after learning about a new technology a lot of programmers get stuck. This new functionality is great, but how I do I get started using it? It really helps to have something that gives you a little push.</p>
-
-<p><a href="http://html5boilerplate.com/">enter html5-boilerplate</a></p>
-
-<p>Its a frontend template written in html5 with a lot of goodness baked in from the start. Between the css, html, various server configuration files, javascript libraries and profiling, its a huge collection of sane defaults for any web project.</p>
-
-<p>Some of its many features</p>
-
-<ul>
-<li><a href="http://www.modernizr.com/">Modernizr</a></li>
-<li><a href="http://html5doctor.com/html-5-reset-stylesheet/">html5 css reset</a></li>
-<li>cross-browser compatible</li>
-<li>cdn hosted jquery with local fallback</li>
-<li>javascript profiling I particularly like how it handles ie specific styles.</li>
-</ul>
-
-
-<div><script src='https://gist.github.com/595804.js?file='></script>
-<noscript><pre><code>&lt;!doctype html&gt;
-&lt;!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --&gt;
-&lt;!--[if lt IE 7 ]&gt; &lt;html lang=&quot;en&quot; class=&quot;no-js ie6&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 7 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie7&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 8 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie8&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if IE 9 ]&gt;    &lt;html lang=&quot;en&quot; class=&quot;no-js ie9&quot;&gt; &lt;![endif]--&gt;
-&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt; &lt;html lang=&quot;en&quot; class=&quot;no-js&quot;&gt; &lt;!--&lt;![endif]--&gt;
-</code></pre></noscript></div>
-
-
-<p>You end up with a ie-version class applied to the html tag, which allows you to do ie targeted css all in the same file. For example:</p>
-
-<div><script src='https://gist.github.com/595820.js?file='></script>
-<noscript><pre><code>.ie6 body {
-     background-attachment: fixed;
-}
-
-//all in the same file!! no more additional files for ie!
-
-.ie7 body {
-     background-attachment: scroll;
-}
-</code></pre></noscript></div>
-
-
-<h2>Getting the code</h2>
-
-<p>You can get html5-boilerplate on the <a href="http://html5boilerplate.com">official site</a> or <a href="http://github.com/paulirish/html5-boilerplate">github</a></p>
-
-<p><a href="http://github.com/sporkd">sporkd</a> has created a compass plugin for html5-boilerplate <a href="http://github.com/sporkd/compass-html5-boilerplate">get the code here</a></p>
 </div>
   
   
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/rewriting-github-badges/">Rewriting Github-badges</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2010-08-25T00:00:00-04:00" pubdate>Aug 25<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In building <a href="http://rawsyntax.com">rawsyntax</a> I wanted to be able to
-link to my <a href="http://github.com/rawsyntax">github profile</a>.</p>
-
-<p>After a little searching I found <a href="http://drnicjavascript.rubyforge.org/github_badge/">drnic&#8217;s github-badges</a>. It looked great, and I put it on the sidebar of my site. However, when I went to do crossbrowser testing (I develop in firefox, and crossbrowser test before deploying to production) I found that it caused IE[6,7,8] to crash.</p>
-
-<p>This is a big problem. I believe strongly in
-<a href="http://en.wikipedia.org/wiki/Progressive_enhancement">graceful degradation / progressive enhancement</a>. It&#8217;s one thing if IE isn&#8217;t getting the full experience, but crashing the browser is unacceptable.</p>
-
-<p>At this point, I had to have github-badges on my site. It&#8217;s simply too cool to
-do without. Looking at the <a href="http://drnicjavascript.rubyforge.org/github_badge/">github-badges project site</a> and the source code. I figured it&#8217;d be easier to re-implement than to debug the current code (mostly because I&#8217;d rather not debug on IE[6,7,8]).</p>
-
-<p>In searching around for other github-badges alternatives, I didn&#8217;t anything that looked good and actually worked in all browsers. I did happen upon <a href="http://blog.darkhax.com/2010/03/04/make-your-own-badge-with-jquery-and-jaml">darkhax&#8217;s make-your-own-badge-with-jquery-and-jaml</a> post. Between this and <a href="http://github.com/drnic/github-badges">drnic&#8217;s github-badges</a> I cobbled together a solution that works in all browsers, and has the same features as drnic&#8217;s github-badges. It also has user configurable parameters. Check out the code on <a href="http://github.com/rawsyntax/github-badge">github</a>.</p>
-
-<p>UPDATE: I&#8217;ve since removed the github-badges, and added a link to my profile instead</p>
-</div>
-  
+    <footer>
+      <a rel="full-article" href="/blog/host-your-side-project-for-free/">Read More &rarr;</a>
+    </footer>
   
 
 
     </article>
   
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/5/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blogging | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/blogging/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-07T22:41:49-04:00</updated>
+  <updated>2012-06-11T10:47:10-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -18,7 +18,16 @@
     <link href="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/"/>
     <updated>2011-11-29T14:32:00-05:00</updated>
     <id>http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects</id>
-    <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted on github-pages.  I migrated because of Tumblr's slow page loads and frequent downtime.  I picked Octopress because it is built on top of Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is a static site generator, which ensures I can deploy my blog on any old server in the future, and continue to use these same old tools (because I have them, rather than tumblr having them).</p>
+    <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted
+on github-pages.  I migrated because of Tumblr's slow page loads and
+frequent downtime.  I picked Octopress because it is built on top of
+Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is
+a static site generator, which ensures I can deploy my blog on any old
+server in the future, and continue to use these same old tools
+(because I have them, rather than tumblr having them).</p>
+
+<!--more-->
+
 
 <h3>Migrating broke my URL Structure</h3>
 
