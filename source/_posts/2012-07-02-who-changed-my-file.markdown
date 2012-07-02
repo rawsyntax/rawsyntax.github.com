@@ -6,8 +6,6 @@ comments: true
 categories: ["programming"]
 ---
 
-<img src="/images/audit.jpg" class ="center"/>
-
 I was troubleshooting slow page loads on a server running rails
 recently.  I noticed that DNS was actually causing an occasional
 problem with pageloads.  For whatever reason my `/etc/resolv.conf`
