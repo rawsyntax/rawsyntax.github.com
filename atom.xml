@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-07-02T19:06:09-04:00</updated>
+  <updated>2012-07-02T19:11:49-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -18,9 +18,7 @@
     <link href="http://rawsyntax.com/blog/who-changed-my-file/"/>
     <updated>2012-07-02T18:27:00-04:00</updated>
     <id>http://rawsyntax.com/blog/who-changed-my-file</id>
-    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/audit.jpg" class ="center"/></p>
-
-<p>I was troubleshooting slow page loads on a server running rails
+    <content type="html"><![CDATA[<p>I was troubleshooting slow page loads on a server running rails
 recently.  I noticed that DNS was actually causing an occasional
 problem with pageloads.  For whatever reason my <code>/etc/resolv.conf</code>
 would get overwritten every once in a while with slow / unresponsive
