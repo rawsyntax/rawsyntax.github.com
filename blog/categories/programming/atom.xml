@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-11T18:06:25-04:00</updated>
+  <updated>2012-07-02T19:06:09-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Who Changed my File]]></title>
+    <link href="http://rawsyntax.com/blog/who-changed-my-file/"/>
+    <updated>2012-07-02T18:27:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/who-changed-my-file</id>
+    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/audit.jpg" class ="center"/></p>
+
+<p>I was troubleshooting slow page loads on a server running rails
+recently.  I noticed that DNS was actually causing an occasional
+problem with pageloads.  For whatever reason my <code>/etc/resolv.conf</code>
+would get overwritten every once in a while with slow / unresponsive
+DNS servers.  I had manually set them to <code>8.8.8.8</code> and <code>8.8.4.4</code>, but
+to my suprise the file had been changed.</p>
+
+<p>I started digging and checking the usual suspects that might alter
+that file (<code>dhclient</code>, <code>resolvconf</code> ...).  I didn't find the problem.
+This is where <code>auditd</code> comes in handy.  Its a daemon that can be setup
+to watch a file and log what program changed it.</p>
+
+<p>I installed <code>auditd</code> and set it up to watch <code>/etc/resolv.conf</code> and log
+any write or append actions (as I don't care about who reads it):</p>
+
+<p><code>auditctl -w /etc/resolv.conf -p wa -k resolvconf</code></p>
+
+<p><code>-k</code> here is simply the key by which you can search the audit logs.  I edited the file a few times to test auditd and searched its logs:</p>
+
+<p><code>ausearch -f /etc/resolv.conf</code></p>
+
+<p>It logs all kinds of info.  user id, command run, working directory.
+I'm blogging it here mostly so don't forget about it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reload your app with Guard and Pow]]></title>
@@ -293,82 +326,6 @@ to back up my blog's content, or maintain the tools I edit it with.</p>
 recommend it.  It's Jekyll based, but it has a decent default
 stylesheet, so it's very easy to install and immediately start
 blogging.  No programming or tweaking CSS to get in the way of writing content.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Solving the General Case]]></title>
-    <link href="http://rawsyntax.com/blog/solving-the-general-case/"/>
-    <updated>2011-11-28T16:05:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/solving-the-general-case</id>
-    <content type="html"><![CDATA[<p><a href="http://xkcd.com/974">
-<img src="http://rawsyntax.com/images/the_general_problem.png" class ="center"/>
-</a></p>
-
-<p>This XKCD comic struck a chord with me.  I feel that it presents a
-false dichotomy.  Either miss deadlines to design it right or go wild
-west cowboy coding and meet deadlines.  I think there's a middle ground between
-those options.  Design it correctly, but deliver less functionality,
-and add the rest of the functionality at a later date.  While that's a
-simple solution, this comic touches on other related issues.</p>
-
-<!--more-->
-
-
-<h3>Analysis Paralysis</h3>
-
-<p><img src="http://rawsyntax.com/images/analysis-paralysis.jpg" class ="center"/></p>
-
-<p>This affliction is pretty common largely as a result of all the
-choices we have nowadays when designing software.  Which language?
-Which Framework? How about a
-<a href="/blog/the-problem-with-micro-frameworks/">Micro-Framework</a>?  Which
-<a href="/blog/categories/learn-emacs/">Text Editor</a>?  Nevermind questions
-about how to actually solve the problem at hand.  If a simple flexible
-design is not readily coming to mind, I find it helpful to write some
-code that implements the very basics of the functionality needed, and
-then re-evaluate to figure out a design.  Its a more iterative
-approach.  Write a little code. Refactor.  Hopefully a good design
-will emerge.  If not try something else.</p>
-
-<h3>Deadline is not a Bad Word</h3>
-
-<p>Growing up my dad would always tell me: "There is no time", but I
-didn't understand what he meant until I got a job at 15 years old.
-Deadlines are part of life, and furthermore they are not bad.  A
-deadline is just a constraint.  Without deadlines we developers could
-work on software design forever and never actually get to
-implementation!  Deadlines can actually help cure analysis paralysis
-by reducing the number of options available to us.  Rewriting the
-whole project in python suddenly isn't an option.  Deadlines force
-value judgements to be made.</p>
-
-<h3>Why the General Case Takes so Long</h3>
-
-<p>As you begin implementing your perfect design you may find holes.
-This is one of the reasons for the shift from waterfall development to
-agile (or even just shorter iterative processes).  Once your design is
-implemented to 90% you are constrained with all these implementation
-details.</p>
-
-<p>To paraphrase Albert Einstein:
-<blockquote><p>"At design-time, design and implementation are the same.  At implementation-time, they are not."</p></blockquote></p>
-
-<p>The following quote is about ruby implementation, but it can be applied to any hard general case problem.</p>
-
-<p><blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there's some crazy stuff in that last 10% or 5% that totally blindsides you if you're not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong><cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote></p>
-
-<p>When he talks about getting blindsided by that last 10%, that is
-potentially a missed deadline.</p>
-
-<h3>Solving the Problem of Solving the General Case</h3>
-
-<p>  Ask yourself if you can live with a 90% solution.  Do you really need to solve the general case?  If 90% is not enough, break the general
-case down into many smaller pieces of functionality and many smaller
-deadlines.  You may still run into missed deadlines and problems, but
-they will have smaller and more predictable impact.  This doesn't
-really solve the overall problem of software that takes too long to
-develop, but it makes the problems easier to manage.</p>
 ]]></content>
   </entry>
   

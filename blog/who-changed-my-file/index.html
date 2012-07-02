@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Learn Emacs: use defadvice to modify functions - Raw Syntax</title>
+  <title>Who Changed my File - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching &hellip;">
+  <meta name="description" content="I was troubleshooting slow page loads on a server running rails
+recently. I noticed that DNS was actually causing an occasional
+problem with &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/learn-emacs-use-defadvice-modify-functions">
+  <link rel="canonical" href="http://rawsyntax.com/blog/who-changed-my-file">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +82,7 @@
   
   <header>
     
-      <h1 class="entry-title">Learn Emacs: Use Defadvice to Modify Functions</h1>
+      <h1 class="entry-title">Who Changed My File</h1>
     
     
       <p class="meta">
@@ -91,26 +93,38 @@
 
   
 
-<time datetime="2011-06-22T00:00:00-04:00" pubdate>Jun 22<span>nd</span>, 2011</time>
+<time datetime="2012-07-02T18:27:00-04:00" pubdate>Jul 2<span>nd</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
+<div class="entry-content"><p><img src="/images/audit.jpg" class ="center"/></p>
 
-<div><script src='https://gist.github.com/1038120.js?file='></script>
-<noscript><pre><code>;; make zap-to-char act like zap-up-to-char
-(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
-  &quot;Kill up to the ARG'th occurence of CHAR, and leave CHAR.
-  The CHAR is replaced and the point is put before CHAR.&quot;
-  (insert char)
-  (forward-char -1))
-</code></pre></noscript></div>
+<p>I was troubleshooting slow page loads on a server running rails
+recently.  I noticed that DNS was actually causing an occasional
+problem with pageloads.  For whatever reason my <code>/etc/resolv.conf</code>
+would get overwritten every once in a while with slow / unresponsive
+DNS servers.  I had manually set them to <code>8.8.8.8</code> and <code>8.8.4.4</code>, but
+to my suprise the file had been changed.</p>
 
+<p>I started digging and checking the usual suspects that might alter
+that file (<code>dhclient</code>, <code>resolvconf</code> &#8230;).  I didn&#8217;t find the problem.
+This is where <code>auditd</code> comes in handy.  Its a daemon that can be setup
+to watch a file and log what program changed it.</p>
 
-<p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
+<p>I installed <code>auditd</code> and set it up to watch <code>/etc/resolv.conf</code> and log
+any write or append actions (as I don&#8217;t care about who reads it):</p>
+
+<p><code>auditctl -w /etc/resolv.conf -p wa -k resolvconf</code></p>
+
+<p><code>-k</code> here is simply the key by which you can search the audit logs.  I edited the file a few times to test auditd and searched its logs:</p>
+
+<p><code>ausearch -f /etc/resolv.conf</code></p>
+
+<p>It logs all kinds of info.  user id, command run, working directory.
+I&#8217;m blogging it here mostly so don&#8217;t forget about it.</p>
 </div>
 
 
@@ -128,12 +142,12 @@
 
   
 
-<time datetime="2011-06-22T00:00:00-04:00" pubdate>Jun 22<span>nd</span>, 2011</time>
+<time datetime="2012-07-02T18:27:00-04:00" pubdate>Jul 2<span>nd</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/learn-emacs/'>learn-emacs</a>
+    <a class='category' href='/blog/categories/programming/'>programming</a>
   
 </span>
 
@@ -142,7 +156,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/learn-emacs-use-defadvice-modify-functions/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/learn-emacs-use-defadvice-modify-functions/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/who-changed-my-file/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/who-changed-my-file/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -155,14 +169,18 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/learn-emacs-delete-file-and-buffer/" title="Previous Post: Learn Emacs: delete-file-and-buffer">&laquo; Learn Emacs: delete-file-and-buffer</a>
+        <a class="basic-alignment left" href="/blog/emacs-24-dot-1-is-out/" title="Previous Post: Emacs 24.1 is Out">&laquo; Emacs 24.1 is Out</a>
       
-      
-        <a class="basic-alignment right" href="/blog/rails-authentication-plugins/" title="next Post: Rails Authentication Plugins">Rails Authentication Plugins &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -280,7 +298,10 @@
       var disqus_shortname = 'rawsyntax';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rawsyntax.com/blog/who-changed-my-file';
+        var disqus_url = 'http://rawsyntax.com/blog/who-changed-my-file';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

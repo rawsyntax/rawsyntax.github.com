@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-06-11T18:06:25-04:00</updated>
+  <updated>2012-07-02T19:06:09-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Who Changed my File]]></title>
+    <link href="http://rawsyntax.com/blog/who-changed-my-file/"/>
+    <updated>2012-07-02T18:27:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/who-changed-my-file</id>
+    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/audit.jpg" class ="center"/></p>
+
+<p>I was troubleshooting slow page loads on a server running rails
+recently.  I noticed that DNS was actually causing an occasional
+problem with pageloads.  For whatever reason my <code>/etc/resolv.conf</code>
+would get overwritten every once in a while with slow / unresponsive
+DNS servers.  I had manually set them to <code>8.8.8.8</code> and <code>8.8.4.4</code>, but
+to my suprise the file had been changed.</p>
+
+<p>I started digging and checking the usual suspects that might alter
+that file (<code>dhclient</code>, <code>resolvconf</code> &#8230;).  I didn&#8217;t find the problem.
+This is where <code>auditd</code> comes in handy.  Its a daemon that can be setup
+to watch a file and log what program changed it.</p>
+
+<p>I installed <code>auditd</code> and set it up to watch <code>/etc/resolv.conf</code> and log
+any write or append actions (as I don&#8217;t care about who reads it):</p>
+
+<p><code>auditctl -w /etc/resolv.conf -p wa -k resolvconf</code></p>
+
+<p><code>-k</code> here is simply the key by which you can search the audit logs.  I edited the file a few times to test auditd and searched its logs:</p>
+
+<p><code>ausearch -f /etc/resolv.conf</code></p>
+
+<p>It logs all kinds of info.  user id, command run, working directory.
+I&#8217;m blogging it here mostly so don&#8217;t forget about it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Emacs 24.1 is Out]]></title>
@@ -1421,76 +1454,6 @@ gem 'guard-livereload'
 <p>The notes on the <a href="https://github.com/mockko/livereload">livereload repo</a> are a little confusing. Livereload can also work via RubyCocoa (instead of guard- livereload). If you&#8217;re running ruby 1.9.2 you cannot install RubyCocoa on it. RubyCocoa is not 1.9.x compatible. So I opt to use the browser extension and guard.</p>
 
 <p>More info <a href="http://livereload.com/">here</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Bash: Remove Commands from your History]]></title>
-    <link href="http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history/"/>
-    <updated>2011-08-11T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history</id>
-    <content type="html"><![CDATA[<p>Occasionally I type a password or other sensitive information into a shell
-prompt. Using bash history, the command can be removed.</p>
-
-<!--more-->
-
-
-
-
-<div><script src='https://gist.github.com/1330991.js?file='></script>
-<noscript><pre><code># say we start with an empty bash command history
-bash-3.2$ history
-    1  history
-
-
-# enter a command that requires a password
-bash-3.2$ sudo rm -i some_file
-Password:
-# accidentally ^C and type your password
-# into the prompt and hit enter
-bash-3.2$ secret_password
-bash: secret_password: command not found
-
-
-# your password is now there for all to
-# see in your bash history
-bash-3.2$ history
-    1  history
-    2  sudo rm -i some_file
-    3  secret_password
-    4  history
-
-
-# first option to fix it, delete the numbered entry from
-# history and write to your ~/.bash_history file
-bash-3.2$ history -d 3
-bash-3.2$ history -w
-
-
-# entry 3 will be removed entirely from your command history
-bash-3.2$ history
-    1  history
-    2  sudo rm -i some_file
-    3  history
-    4  history -d 3
-    5  history -w
-    6  history
-
-
-# the second option is to clear the entire history
-# and write the changes to disk
-bash-3.2$ history -c
-bash-3.2$ history -w
-
-
-# it's now pretty obvious that your history has been
-# scrubbed clean, but at least your password is history!
-bash-3.2$ history
-    1  history -w
-    2  history</code></pre></noscript></div>
-
-
-
 ]]></content>
   </entry>
   
