@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tools | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-07-11T12:52:16-04:00</updated>
+  <updated>2012-07-11T13:08:44-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Faster SSH Connections]]></title>
+    <link href="http://rawsyntax.com/blog/faster-ssh-connections/"/>
+    <updated>2012-07-11T12:34:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/faster-ssh-connections</id>
+    <content type="html"><![CDATA[<p>Certain servers I connect to on a regular basis are rather slow when
+connecting.  Here are some <code>~/.ssh/config</code> options to speed up ssh connections.</p>
+
+<p>I find this is useful for scripts that make multiple subsequent ssh
+connections.  Capistrano comes to mind as well as a couple of scripts
+I have that use scp.</p>
+
+<p><div><script src='https://gist.github.com/3091626.js?file='></script>
+<noscript><pre><code>Host *
+    # don't try to authenticate with Kerberos
+    GSSAPIAuthentication no
+    GSSAPIKeyExchange no
+    # persist the ssh connection for 5 minutes
+    # subsequent ssh connections respond faster because its reusing an existing connection
+    ControlMaster auto
+    ControlPath ~/.ssh/master-%r@%h:%p
+    ControlPersist 5m</code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OS X Lion New Tab in Terminal Changes Directory]]></title>
