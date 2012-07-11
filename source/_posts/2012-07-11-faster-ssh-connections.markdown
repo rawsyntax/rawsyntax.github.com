@@ -3,7 +3,7 @@ layout: post
 title: "Faster SSH Connections"
 date: 2012-07-11 12:34
 comments: true
-categories: ["programming"]
+categories: ["tools]
 ---
 
 Certain servers I connect to on a regular basis are rather slow when
