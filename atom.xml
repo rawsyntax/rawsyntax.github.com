@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-07-02T19:11:49-04:00</updated>
+  <updated>2012-07-11T12:52:16-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Faster SSH Connections]]></title>
+    <link href="http://rawsyntax.com/blog/faster-ssh-connections/"/>
+    <updated>2012-07-11T12:34:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/faster-ssh-connections</id>
+    <content type="html"><![CDATA[<p>Certain servers I connect to on a regular basis are rather slow when
+connecting.  Here are some <code>~/.ssh/config</code> options to speed up ssh connections.</p>
+
+<p>I find this is useful for scripts that make multiple subsequent ssh
+connections.  Capistrano comes to mind as well as a couple of scripts
+I have that use scp.</p>
+
+<div><script src='https://gist.github.com/3091626.js?file='></script>
+<noscript><pre><code>Host *
+    # don't try to authenticate with Kerberos
+    GSSAPIAuthentication no
+    GSSAPIKeyExchange no
+    # persist the ssh connection for 5 minutes
+    # subsequent ssh connections respond faster because its reusing an existing connection
+    ControlMaster auto
+    ControlPath ~/.ssh/master-%r@%h:%p
+    ControlPersist 5m</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Who Changed my File]]></title>
@@ -1405,53 +1433,6 @@ a macro. Read that again. Pretty powerful.</p>
 <li><a href="http://www.gnu.org/s/libtool/manual/emacs/Keyboard-Macros.html">emacs manual entry on keyboard macros</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Use LiveReload with Rails for faster development]]></title>
-    <link href="http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development/"/>
-    <updated>2011-08-15T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development</id>
-    <content type="html"><![CDATA[<p>LiveReload applies CSS/JS changes to Safari or Chrome without
-reloading the page, and automatically reloads when the html changes.
-Let that soak in for a minute. In this post I&#8217;ll go over how to get it
-installed and working on your Rails projects.</p>
-
-<!--more-->
-
-
-<p>The installation process has two steps. First we install a browser extension that listens for livereload events. Then we use guard to listen for  system events and send information to the browser.</p>
-
-<p>First install the livereload addon for <a href="https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei">chrome</a> or <a href="https://github.com/downloads/mockko/livereload/LiveReload-1.6.2.safariextz">safari</a>.</p>
-
-<p>In your rails project gemfile add</p>
-
-<pre><code>gem 'rb-fsevent'
-gem 'guard-livereload'
-</code></pre>
-
-<p>Run</p>
-
-<pre><code>bundle install
-</code></pre>
-
-<p>Then run</p>
-
-<pre><code>guard init livereload &amp;&amp; guard
-</code></pre>
-
-<p>To setup guard for livereload and start monitoring for file system events. The last step is to activate the browser extension. You will need to click the LiveReload button:</p>
-
-<p><img src="http://media.tumblr.com/tumblr_lpzehwqgO41qfdxjm.png"></p>
-
-<p>Now when you change a file in your view, Safari / Chrome will load the new content automatically.</p>
-
-<h2>Notes on RubyCocoa</h2>
-
-<p>The notes on the <a href="https://github.com/mockko/livereload">livereload repo</a> are a little confusing. Livereload can also work via RubyCocoa (instead of guard- livereload). If you&#8217;re running ruby 1.9.2 you cannot install RubyCocoa on it. RubyCocoa is not 1.9.x compatible. So I opt to use the browser extension and guard.</p>
-
-<p>More info <a href="http://livereload.com/">here</a></p>
 ]]></content>
   </entry>
   

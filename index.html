@@ -9,9 +9,8 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I was troubleshooting slow page loads on a server running rails
-recently. I noticed that DNS was actually causing an occasional
-problem with &hellip;">
+  <meta name="description" content="Certain servers I connect to on a regular basis are rather slow when
+connecting. Here are some ~/.ssh/config options to speed up ssh connections. I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +78,56 @@ problem with &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/faster-ssh-connections/">Faster SSH Connections</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2012-07-11T12:34:00-04:00" pubdate>Jul 11<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Certain servers I connect to on a regular basis are rather slow when
+connecting.  Here are some <code>~/.ssh/config</code> options to speed up ssh connections.</p>
+
+<p>I find this is useful for scripts that make multiple subsequent ssh
+connections.  Capistrano comes to mind as well as a couple of scripts
+I have that use scp.</p>
+
+<div><script src='https://gist.github.com/3091626.js?file='></script>
+<noscript><pre><code>Host *
+    # don't try to authenticate with Kerberos
+    GSSAPIAuthentication no
+    GSSAPIKeyExchange no
+    # persist the ssh connection for 5 minutes
+    # subsequent ssh connections respond faster because its reusing an existing connection
+    ControlMaster auto
+    ControlPath ~/.ssh/master-%r@%h:%p
+    ControlPersist 5m</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -266,46 +315,6 @@ javascript with emacs.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/reload-your-app-with-guard-and-pow/">Reload Your App With Guard and Pow</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2012-02-22T15:06:00-05:00" pubdate>Feb 22<span>nd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>About 6 months ago I started using <a href="http://pow.cx/">Pow</a> for serving
-my apps in development mode.  It loads any RACK compatible app, and
-allows you to access your projects via the <code>.dev</code> and named symlinks
-stored in <code>~/.pow</code> (for example <code>http://my_project.dev</code>).  No need to
-specify a port either!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/reload-your-app-with-guard-and-pow/">Read More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -325,6 +334,10 @@ specify a port either!</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/faster-ssh-connections/">Faster SSH Connections</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/who-changed-my-file/">Who Changed my File</a>
       </li>
     
@@ -338,10 +351,6 @@ specify a port either!</p>
     
       <li class="post">
         <a href="/blog/learn-emacs-editing-javascript/">Learn Emacs: Editing Javascript</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/reload-your-app-with-guard-and-pow/">Reload your app with Guard and Pow</a>
       </li>
     
   </ul>
