@@ -9,8 +9,8 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Certain servers I connect to on a regular basis are rather slow when
-connecting. Here are some ~/.ssh/config options to speed up ssh connections. I &hellip;">
+  <meta name="description" content="Over the years I&#8217;ve found myself needing a quick way to measure some
+slow code. Whether I&#8217;m looking at a 100 line function or a 10 line &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,101 @@ connecting. Here are some ~/.ssh/config options to speed up ssh connections. I &
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/measuring-slow-code/">Measuring Slow Code</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2012-09-02T15:59:00-04:00" pubdate>Sep 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Over the years I&#8217;ve found myself needing a quick way to measure some
+slow code.  Whether I&#8217;m looking at a 100 line function or a 10 line
+controller action, sometimes I just need some quick print statements
+to determine which part of the code is slow.</p>
+
+<p>My original approach to doing this would be to mark off sections of
+the code with <code>Time.now</code> statements printing out how many seconds each
+section took.  This approach is messy because it requires altering the
+code a good deal.  And at the end I was left comparing sections of the
+code to figure out which part was slower than all the other parts &#8211;
+doing the math in my head.</p>
+
+<h2>Use Benchmark?</h2>
+
+<p>Ruby has a
+<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html">Benchmark</a>
+class built in.  I tried using it.  While it can be helpful in certain
+situations, if I&#8217;m measuring 5 sections of a function there&#8217;s an awful
+lot of code rewriting that has to happen because of the Benchmark
+blocks messing with the scope of variables.  That was more work than
+it was worth.</p>
+
+<h2>Roll my Own</h2>
+
+<p>I&#8217;m hesitant to reinvent the wheel, but in this case I created a very
+simple gem to address my needs.  It&#8217;s called
+<a href="https://github.com/rawsyntax/code_timer">CodeTimer</a>.  To use it first
+you instantiate it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span> <span class="o">=</span> <span class="no">CodeTimer</span><span class="o">.</span><span class="n">new</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you insert markers for each part that you want to measure:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part1&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># ... slow code here ...</span>
+</span><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part2&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># ...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And a marker for stopping measuring:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It returns a formatted string:</p>
+
+<pre><code>Total Time: 17s
+Part1:   11% / 2s
+Part2:   29% / 5s
+Part3:   47% / 8s
+Part4:   11% / 2s
+</code></pre>
+
+<p>And it&#8217;s easy to see that Part3 is the slowest section.  Better start
+trying to speed up the code there.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -277,44 +372,6 @@ Here&#8217;s the minimum setup required.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-editing-javascript/">Learn Emacs: Editing Javascript</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2012-05-31T17:07:00-04:00" pubdate>May 31<span>st</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>One of my favorite things about emacs is its javascript modes.  While
-there are a million options, I&#8217;m only going to talk about how I edit
-javascript with emacs.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/learn-emacs-editing-javascript/">Read More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -334,6 +391,10 @@ javascript with emacs.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/measuring-slow-code/">Measuring Slow Code</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/faster-ssh-connections/">Faster SSH Connections</a>
       </li>
     
@@ -347,10 +408,6 @@ javascript with emacs.</p>
     
       <li class="post">
         <a href="/blog/learn-emacs-smex/">Learn Emacs: Smex</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/learn-emacs-editing-javascript/">Learn Emacs: Editing Javascript</a>
       </li>
     
   </ul>

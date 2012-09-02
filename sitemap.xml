@@ -157,8 +157,12 @@
         <lastmod>2012-07-11T13:08:23-04:00</lastmod>
     </url>
     <url>
+        <loc>http://rawsyntax.com/blog/measuring-slow-code/</loc>
+        <lastmod>2012-09-02T16:27:59-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://rawsyntax.com/blog/archives/</loc>
-        <lastmod>2012-07-11T13:08:23-04:00</lastmod>
+        <lastmod>2012-09-02T16:27:59-04:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/open-source-contributions/</loc>
@@ -170,6 +174,6 @@
     </url>
     <url>
         <loc>http://rawsyntax.com/</loc>
-        <lastmod>2012-07-11T13:08:23-04:00</lastmod>
+        <lastmod>2012-09-02T16:27:59-04:00</lastmod>
     </url>
 </urlset>

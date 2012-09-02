@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tools | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-07-11T13:08:44-04:00</updated>
+  <updated>2012-09-02T16:28:50-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Measuring Slow Code]]></title>
+    <link href="http://rawsyntax.com/blog/measuring-slow-code/"/>
+    <updated>2012-09-02T15:59:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/measuring-slow-code</id>
+    <content type="html"><![CDATA[<p>Over the years I've found myself needing a quick way to measure some
+slow code.  Whether I'm looking at a 100 line function or a 10 line
+controller action, sometimes I just need some quick print statements
+to determine which part of the code is slow.</p>
+
+<p>My original approach to doing this would be to mark off sections of
+the code with <code>Time.now</code> statements printing out how many seconds each
+section took.  This approach is messy because it requires altering the
+code a good deal.  And at the end I was left comparing sections of the
+code to figure out which part was slower than all the other parts --
+doing the math in my head.</p>
+
+<h2>Use Benchmark?</h2>
+
+<p>Ruby has a
+<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html">Benchmark</a>
+class built in.  I tried using it.  While it can be helpful in certain
+situations, if I'm measuring 5 sections of a function there's an awful
+lot of code rewriting that has to happen because of the Benchmark
+blocks messing with the scope of variables.  That was more work than
+it was worth.</p>
+
+<h2>Roll my Own</h2>
+
+<p>I'm hesitant to reinvent the wheel, but in this case I created a very
+simple gem to address my needs.  It's called
+<a href="https://github.com/rawsyntax/code_timer">CodeTimer</a>.  To use it first
+you instantiate it:</p>
+
+<p><code>ruby
+ct = CodeTimer.new
+</code></p>
+
+<p>Then you insert markers for each part that you want to measure:</p>
+
+<p>``` ruby
+ct.start("Part1")</p>
+
+<h1>... slow code here ...</h1>
+
+<p>ct.start("Part2")</p>
+
+<h1>...</h1>
+
+<p>```</p>
+
+<p>And a marker for stopping measuring:</p>
+
+<p><code>ruby
+ct.end
+</code></p>
+
+<p>It returns a formatted string:</p>
+
+<pre><code>Total Time: 17s
+Part1:   11% / 2s
+Part2:   29% / 5s
+Part3:   47% / 8s
+Part4:   11% / 2s
+</code></pre>
+
+<p>And it's easy to see that Part3 is the slowest section.  Better start
+trying to speed up the code there.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Faster SSH Connections]]></title>

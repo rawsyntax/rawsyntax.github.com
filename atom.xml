@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-07-11T13:08:44-04:00</updated>
+  <updated>2012-09-02T16:28:50-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Measuring Slow Code]]></title>
+    <link href="http://rawsyntax.com/blog/measuring-slow-code/"/>
+    <updated>2012-09-02T15:59:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/measuring-slow-code</id>
+    <content type="html"><![CDATA[<p>Over the years I&#8217;ve found myself needing a quick way to measure some
+slow code.  Whether I&#8217;m looking at a 100 line function or a 10 line
+controller action, sometimes I just need some quick print statements
+to determine which part of the code is slow.</p>
+
+<p>My original approach to doing this would be to mark off sections of
+the code with <code>Time.now</code> statements printing out how many seconds each
+section took.  This approach is messy because it requires altering the
+code a good deal.  And at the end I was left comparing sections of the
+code to figure out which part was slower than all the other parts &#8211;
+doing the math in my head.</p>
+
+<h2>Use Benchmark?</h2>
+
+<p>Ruby has a
+<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html">Benchmark</a>
+class built in.  I tried using it.  While it can be helpful in certain
+situations, if I&#8217;m measuring 5 sections of a function there&#8217;s an awful
+lot of code rewriting that has to happen because of the Benchmark
+blocks messing with the scope of variables.  That was more work than
+it was worth.</p>
+
+<h2>Roll my Own</h2>
+
+<p>I&#8217;m hesitant to reinvent the wheel, but in this case I created a very
+simple gem to address my needs.  It&#8217;s called
+<a href="https://github.com/rawsyntax/code_timer">CodeTimer</a>.  To use it first
+you instantiate it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span> <span class="o">=</span> <span class="no">CodeTimer</span><span class="o">.</span><span class="n">new</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you insert markers for each part that you want to measure:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part1&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># ... slow code here ...</span>
+</span><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part2&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># ...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And a marker for stopping measuring:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It returns a formatted string:</p>
+
+<pre><code>Total Time: 17s
+Part1:   11% / 2s
+Part2:   29% / 5s
+Part3:   47% / 8s
+Part4:   11% / 2s
+</code></pre>
+
+<p>And it&#8217;s easy to see that Part3 is the slowest section.  Better start
+trying to speed up the code there.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Faster SSH Connections]]></title>
@@ -1384,55 +1457,6 @@ me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">em
 <p>Luckily, this is a preference in Terminal.app and can be easily changed.</p>
 
 <p><img src="http://media.tumblr.com/tumblr_ltmvs87NgE1qfdxjm.png"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: Keyboard Macros]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-keyboard-macros/"/>
-    <updated>2011-08-28T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-keyboard-macros</id>
-    <content type="html"><![CDATA[<p>An emacs keyboard macro is just a recording of user input into emacs,
-which means that most anything you can do in emacs can be recorded as
-a macro. Read that again. Pretty powerful.</p>
-
-<!--more-->
-
-
-<p>Here&#8217;s how it works. To start recording, type</p>
-
-<pre><code>C-x (
-</code></pre>
-
-<p>and input the commands in your macro. Then type</p>
-
-<pre><code>C-x )
-</code></pre>
-
-<p>to stop recording. Then type</p>
-
-<pre><code>C-x e
-</code></pre>
-
-<p>to apply the macro once, or</p>
-
-<pre><code>C-u 0 C-x e
-</code></pre>
-
-<p>to apply the macro until the bell rings or end of buffer is reached</p>
-
-<p>Keep in mind that you must not ring the bell when defining a keyboard macro (by accident, or with C-g). If you do, you&#8217;ll have to start all over defining your keyboard macro</p>
-
-<p>Typically I use a keyboard macro when I have a file full of data that needs slight altering, for example a non-standard CSV-like file. I&#8217;ll define a macro in terms of what needs changing on each line and then apply the macro for each line (until the end of the buffer).</p>
-
-<h3>Further Reading</h3>
-
-<ul>
-<li><a href="http://www.emacswiki.org/emacs/KeyboardMacros">emacs wiki on keyboard macros</a></li>
-<li><a href="http://www.emacswiki.org/emacs/KeyboardMacrosTricks">keyboard macros tricks</a></li>
-<li><a href="http://www.gnu.org/s/libtool/manual/emacs/Keyboard-Macros.html">emacs manual entry on keyboard macros</a></li>
-</ul>
-
 ]]></content>
   </entry>
   

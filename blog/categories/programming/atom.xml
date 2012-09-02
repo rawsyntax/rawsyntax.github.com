@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-07-11T13:08:44-04:00</updated>
+  <updated>2012-09-02T16:28:50-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Measuring Slow Code]]></title>
+    <link href="http://rawsyntax.com/blog/measuring-slow-code/"/>
+    <updated>2012-09-02T15:59:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/measuring-slow-code</id>
+    <content type="html"><![CDATA[<p>Over the years I've found myself needing a quick way to measure some
+slow code.  Whether I'm looking at a 100 line function or a 10 line
+controller action, sometimes I just need some quick print statements
+to determine which part of the code is slow.</p>
+
+<p>My original approach to doing this would be to mark off sections of
+the code with <code>Time.now</code> statements printing out how many seconds each
+section took.  This approach is messy because it requires altering the
+code a good deal.  And at the end I was left comparing sections of the
+code to figure out which part was slower than all the other parts --
+doing the math in my head.</p>
+
+<h2>Use Benchmark?</h2>
+
+<p>Ruby has a
+<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html">Benchmark</a>
+class built in.  I tried using it.  While it can be helpful in certain
+situations, if I'm measuring 5 sections of a function there's an awful
+lot of code rewriting that has to happen because of the Benchmark
+blocks messing with the scope of variables.  That was more work than
+it was worth.</p>
+
+<h2>Roll my Own</h2>
+
+<p>I'm hesitant to reinvent the wheel, but in this case I created a very
+simple gem to address my needs.  It's called
+<a href="https://github.com/rawsyntax/code_timer">CodeTimer</a>.  To use it first
+you instantiate it:</p>
+
+<p><code>ruby
+ct = CodeTimer.new
+</code></p>
+
+<p>Then you insert markers for each part that you want to measure:</p>
+
+<p>``` ruby
+ct.start("Part1")</p>
+
+<h1>... slow code here ...</h1>
+
+<p>ct.start("Part2")</p>
+
+<h1>...</h1>
+
+<p>```</p>
+
+<p>And a marker for stopping measuring:</p>
+
+<p><code>ruby
+ct.end
+</code></p>
+
+<p>It returns a formatted string:</p>
+
+<pre><code>Total Time: 17s
+Part1:   11% / 2s
+Part2:   29% / 5s
+Part3:   47% / 8s
+Part4:   11% / 2s
+</code></pre>
+
+<p>And it's easy to see that Part3 is the slowest section.  Better start
+trying to speed up the code there.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Who Changed my File]]></title>
@@ -237,93 +308,6 @@ simplest thing that could possibly work.  Then keep at it and don't be
 afraid to re-evaluate your idea.  It doesn't make you a quitter to throw out a project that no longer seems reasonable.</p>
 
 <p>Check out an older post of mine about <a href="/blog/importance-of-side-projects/">side projects</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Blogging on Jekyll: URL Redirects]]></title>
-    <link href="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/"/>
-    <updated>2011-11-29T14:32:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects</id>
-    <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted
-on github-pages.  I migrated because of Tumblr's slow page loads and
-frequent downtime.  I picked Octopress because it is built on top of
-Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is
-a static site generator, which ensures I can deploy my blog on any old
-server in the future, and continue to use these same old tools
-(because I have them, rather than tumblr having them).</p>
-
-<!--more-->
-
-
-<h3>Migrating broke my URL Structure</h3>
-
-<p><img src="http://rawsyntax.com/images/urls_not_found.png" class ="center"/></p>
-
-<p>Running my site through Google's Webmaster Tools showed that many sites are still linking to my old Tumblr blogpost urls.  Tumblr's url structure is another reason I migrated away from it.  I should be in full control of the urls on my blog.  Never the less, I need to support redirects from the old URLs to my new URL structure <code>/blog/:post_title</code>.</p>
-
-<p>However Jekyll is just a static site, so there's no ruby server to handle redirects.  Other Jekyll users deploy to Heroku and use a small Sinatra app to handle redirects, but I feel like that is complicating my simple setup.  If I were on a regular server I could setup an <code>.htaccess</code> file to handle the redirects, but github-pages does not support <code>.htaccess</code>.</p>
-
-<h3>Jekyll Plugins to the Rescue</h3>
-
-<p>One of the great things about Jekyll is its simple plugin system.  On
-<a href="https://github.com/mojombo/jekyll/wiki/Plugins">Jekyll's Wiki</a> I
-found the
-<a href="https://github.com/tsmango/jekyll_alias_generator">Alias Generator</a>.
-It allows you to specify aliases on a per blogpost basis, in the YAML
-front matter.</p>
-
-<p>This post's YAML is:</p>
-
-<pre><code>---
-layout: post
-title: "Blogging on Jekyll: URL Redirects"
-date: 2011-11-29 14:32
-comments: true
-categories: ["programming", "blogging"]
-alias: [/blog/blogging-on-redirects]
----
-</code></pre>
-
-<p>Now when I <code>rake generate</code> my site, the Alias Generator will create
-another static html file for this post at
-<code>/blog/blogging-on-redirects/index.html</code>:</p>
-
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
-&lt;meta http-equiv="refresh" content="0;url=/blog/blogging-on-jekyll-url-redirects/" /&gt;
-&lt;/head&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>Which will redirect here. Try it: <a href="/blog/blogging-on-redirects">/blog/blogging-on-redirects</a></p>
-
-<p>It was almost that simple.  The Alias Generator actually broke when I
-provided some of my old Tumblr urls. However, I
-<a href="https://github.com/rawsyntax/jekyll_alias_generator">forked it here</a>
-and fixed it so it handles nested aliases properly now.  I also opened
-a <a href="https://github.com/tsmango/jekyll_alias_generator/pull/1">pull request</a> to the owner to get this change merged in.</p>
-
-<h3>Jekyll's Strengths</h3>
-
-<p>That experience is Jekyll's strength as a blogging platform.  The
-output is so simple any web server can serve it so it doesn't matter
-where you deploy to.  Its generation system is open source, hackable,
-and has a great plugin system.</p>
-
-<p>But most importantly, even if the Jekyll project implodes tomorrow.  I
-still have all my blog's content versioned, and have all the tools
-necessary to maintain my blog.  I am not relying on a hosted service
-to back up my blog's content, or maintain the tools I edit it with.</p>
-
-<h3>Try Octopress</h3>
-
-<p>If you haven't tried <a href="http://octopress.org">Octopress</a> yet, I highly
-recommend it.  It's Jekyll based, but it has a decent default
-stylesheet, so it's very easy to install and immediately start
-blogging.  No programming or tweaking CSS to get in the way of writing content.</p>
 ]]></content>
   </entry>
   

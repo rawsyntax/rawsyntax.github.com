@@ -9,7 +9,7 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="From my ~/.emacs.d (defun delete-file-and-buffer () &quot;Deletes the current file and buffer, assumes file exists&quot; (interactive) (delete-file &hellip;">
+  <meta name="description" content="I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learn-emacs-use-defadvice-modify-functions/">Learn Emacs: Use Defadvice to Modify Functions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2011-06-22T00:00:00-04:00" pubdate>Jun 22<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
+
+<div><script src='https://gist.github.com/1038120.js?file='></script>
+<noscript><pre><code>;; make zap-to-char act like zap-up-to-char
+(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
+  &quot;Kill up to the ARG'th occurence of CHAR, and leave CHAR.
+  The CHAR is replaced and the point is put before CHAR.&quot;
+  (insert char)
+  (forward-char -1))
+</code></pre></noscript></div>
+
+
+<p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -235,48 +278,6 @@ need one big hit.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/interviewing-for-programmers/">Interviewing for Programmers</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2011-06-02T00:00:00-04:00" pubdate>Jun 2<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Interviewing is a funny thing. In order to get hired for a programming
-job it&#8217;s most important to interview well. Getting hired usually
-doesn&#8217;t have much to do with programming skills. This is typically a
-pain point for programmers. Many of us feel that the hiring process
-should be changed. Personally, I&#8217;m ok with the hiring process as it
-is. It could be improved, but I&#8217;m going to tell you how to get a job
-anyway.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/interviewing-for-programmers/">Read More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -298,6 +299,10 @@ anyway.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/measuring-slow-code/">Measuring Slow Code</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/faster-ssh-connections/">Faster SSH Connections</a>
       </li>
     
@@ -311,10 +316,6 @@ anyway.</p>
     
       <li class="post">
         <a href="/blog/learn-emacs-smex/">Learn Emacs: Smex</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/learn-emacs-editing-javascript/">Learn Emacs: Editing Javascript</a>
       </li>
     
   </ul>
