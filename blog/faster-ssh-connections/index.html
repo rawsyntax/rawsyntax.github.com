@@ -117,7 +117,17 @@ I have that use scp.</p>
     ControlPersist 5m</code></pre></noscript></div>
 
 
+<p>EDIT:  I have noticed occasionally that I get some error messages due
+to stale master connections.  I think this happens when my computer
+powers off without shutting down fully.</p>
 
+<pre><code>Control socket connect(/Users/eric/.ssh/master-user@example.com:22): Connection refused
+ControlSocket /Users/eric/.ssh/master-user@example.com:22 already exists, disabling multiplexing
+</code></pre>
+
+<p>The connection still works, but it is even slower to connect which
+defeats the purpose of using master control sockets.  You can go into
+<code>~/.ssh</code> and manually remove the connection files to clean it up.</p>
 </div>
 
 

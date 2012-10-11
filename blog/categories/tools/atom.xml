@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tools | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-09-05T10:58:14-04:00</updated>
+  <updated>2012-10-11T17:00:26-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -114,6 +114,18 @@ I have that use scp.</p>
     ControlPath ~/.ssh/master-%r@%h:%p
     ControlPersist 5m</code></pre></noscript></div>
 </p>
+
+<p>EDIT:  I have noticed occasionally that I get some error messages due
+to stale master connections.  I think this happens when my computer
+powers off without shutting down fully.</p>
+
+<pre><code>Control socket connect(/Users/eric/.ssh/master-user@example.com:22): Connection refused
+ControlSocket /Users/eric/.ssh/master-user@example.com:22 already exists, disabling multiplexing
+</code></pre>
+
+<p>The connection still works, but it is even slower to connect which
+defeats the purpose of using master control sockets.  You can go into
+<code>~/.ssh</code> and manually remove the connection files to clean it up.</p>
 ]]></content>
   </entry>
   
