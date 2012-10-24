@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-10-11T17:00:26-04:00</updated>
+  <updated>2012-10-24T14:55:58-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -117,7 +117,9 @@ I have that use scp.</p>
     ControlPersist 5m</code></pre></noscript></div>
 
 
-<p>EDIT:  I have noticed occasionally that I get some error messages due
+<h2>Beware Strange Behavior</h2>
+
+<p>I have noticed occasionally that I get some error messages due
 to stale master connections.  I think this happens when my computer
 powers off without shutting down fully.</p>
 
@@ -128,6 +130,11 @@ ControlSocket /Users/eric/.ssh/master-user@example.com:22 already exists, disabl
 <p>The connection still works, but it is even slower to connect which
 defeats the purpose of using master control sockets.  You can go into
 <code>~/.ssh</code> and manually remove the connection files to clean it up.</p>
+
+<p>Furthermore, this behavior can get quite confusing when setting up
+ssh-key authentication.  You may think you have it set up correctly
+because of lack of a password prompt, but in my case it was reusing
+the connection (which is why it didn&#8217;t prompt me).</p>
 ]]></content>
   </entry>
   
