@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tools | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/tools/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-10-24T14:55:58-04:00</updated>
+  <updated>2012-11-08T11:22:29-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Quicksilver, Secure Keyboard Entry, and Single Modifier Activation]]></title>
+    <link href="http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/"/>
+    <updated>2012-11-08T10:55:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction</id>
+    <content type="html"><![CDATA[<p>I use <a href="http://qsapp.com">Quicksilver</a> all the time.  Despite its bugs,
+I prefer it to any of the other launcher type programs that exist.
+Nevermind the fact that it is more powerful than most of those other
+programs (Alfred, LaunchBar, etc).  The single feature that got me
+hooked is the ability to bring up the Quicksilver prompt with a single
+keypress.  I have it set up to use the command key.</p>
+
+<p><img src="http://rawsyntax.com/images/single-modifier-activation.png" class ="center"/></p>
+
+<p>Other tools like Alfred won't do this (though it does have the command
+key double tap).</p>
+
+<h2>The Problem</h2>
+
+<p>Right around a year ago I started experiencing issues with single
+modifier activation not working occasionally.  At first I didn't know
+if it was Quicksilver being buggy or what.  Eventually I noticed that
+if my cursor was inside a password field single modifier activation
+would not work.  This is apparently a restriction of the operating
+system, that doesn't allow Quicksilver (or other programs like it) to
+listen to text entry on secure fields.</p>
+
+<p>I also noticed that when I was in Terminal.app single modifier
+activation would not work, which was strange because it had worked in
+the past (on 10.5 for example).  As a stopgap measure I started using command+space, which seemed to work all the time.</p>
+
+<p>Using that new keybinding was annoying enough that I switched my
+terminal and started using iTerm2.app.  It did not have the same
+problem as Terminal.app oddly enough.  I finally figured out what
+Terminal.app's problem was.</p>
+
+<p><img src="http://rawsyntax.com/images/secure-keyboard-entry.png" class ="center"/></p>
+
+<p>This setting essentially makes all text input in Terminal.app act like
+a password field having the same single modifier activation problem as
+above.  Turning Secure Keyboard Entry off fixed the problem.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Measuring Slow Code]]></title>
@@ -212,21 +256,6 @@ bash-3.2$ history
     1  history -w
     2  history</code></pre></noscript></div>
 </p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Quicksilver Lockscreen]]></title>
-    <link href="http://rawsyntax.com/blog/quicksilver-lockscreen/"/>
-    <updated>2011-04-13T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/quicksilver-lockscreen</id>
-    <content type="html"><![CDATA[<p><img src="/images/quicksilver-lockscreen.png"></p>
-
-<p>I've recently started locking my screen on OSX. However I found that <a href="http://qsapp.com">Quicksilver's</a> LockScreen script did not work. I believe it was designed for Leopard.</p>
-
-<p>The workaround I've found is to start ScreenSaverEngine with Quicksilver, and set my Security.prefs to require a password.</p>
-
-<p>UPDATE: This also works in OSX Lion.</p>
 ]]></content>
   </entry>
   

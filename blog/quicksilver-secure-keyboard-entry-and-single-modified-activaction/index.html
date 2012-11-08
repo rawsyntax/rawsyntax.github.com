@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Raw Syntax</title>
+  <title>Quicksilver, Secure Keyboard Entry, and Single Modifier Activation - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Considering which authentication plugin to use for rails? I have some
-recommendations. ">
+  <meta name="description" content="I use Quicksilver all the time. Despite its bugs,
+I prefer it to any of the other launcher type programs that exist.
+Nevermind the fact that it is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ recommendations. ">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/page/6">
+  <link rel="canonical" href="http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -75,15 +76,12 @@ recommendations. ">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/rails-authentication-plugins/">Rails Authentication Plugins</a></h1>
+      <h1 class="entry-title">Quicksilver, Secure Keyboard Entry, and Single Modifier Activation</h1>
     
     
       <p class="meta">
@@ -94,196 +92,108 @@ recommendations. ">
 
   
 
-<time datetime="2011-07-30T00:00:00-04:00" pubdate>Jul 30<span>th</span>, 2011</time>
+<time datetime="2012-11-08T10:55:00-05:00" pubdate>Nov 8<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Considering which authentication plugin to use for rails? I have some
-recommendations.</p>
+<div class="entry-content"><p>I use <a href="http://qsapp.com">Quicksilver</a> all the time.  Despite its bugs,
+I prefer it to any of the other launcher type programs that exist.
+Nevermind the fact that it is more powerful than most of those other
+programs (Alfred, LaunchBar, etc).  The single feature that got me
+hooked is the ability to bring up the Quicksilver prompt with a single
+keypress.  I have it set up to use the command key.</p>
 
+<p><img src="/images/single-modifier-activation.png" class ="center"/></p>
+
+<p>Other tools like Alfred won&#8217;t do this (though it does have the command
+key double tap).</p>
+
+<h2>The Problem</h2>
+
+<p>Right around a year ago I started experiencing issues with single
+modifier activation not working occasionally.  At first I didn&#8217;t know
+if it was Quicksilver being buggy or what.  Eventually I noticed that
+if my cursor was inside a password field single modifier activation
+would not work.  This is apparently a restriction of the operating
+system, that doesn&#8217;t allow Quicksilver (or other programs like it) to
+listen to text entry on secure fields.</p>
+
+<p>I also noticed that when I was in Terminal.app single modifier
+activation would not work, which was strange because it had worked in
+the past (on 10.5 for example).  As a stopgap measure I started using command+space, which seemed to work all the time.</p>
+
+<p>Using that new keybinding was annoying enough that I switched my
+terminal and started using iTerm2.app.  It did not have the same
+problem as Terminal.app oddly enough.  I finally figured out what
+Terminal.app&#8217;s problem was.</p>
+
+<p><img src="/images/secure-keyboard-entry.png" class ="center"/></p>
+
+<p>This setting essentially makes all text input in Terminal.app act like
+a password field having the same single modifier activation problem as
+above.  Turning Secure Keyboard Entry off fixed the problem.</p>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/rails-authentication-plugins/">Read More &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-use-defadvice-modify-functions/">Learn Emacs: Use Defadvice to Modify Functions</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
   
 
-<time datetime="2011-06-22T00:00:00-04:00" pubdate>Jun 22<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
+<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
 
-
-  <div class="entry-content"><p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
-
-<div><script src='https://gist.github.com/1038120.js?file='></script>
-<noscript><pre><code>;; make zap-to-char act like zap-up-to-char
-(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
-  &quot;Kill up to the ARG'th occurence of CHAR, and leave CHAR.
-  The CHAR is replaced and the point is put before CHAR.&quot;
-  (insert char)
-  (forward-char -1))
-</code></pre></noscript></div>
-
-
-<p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-delete-file-and-buffer/">Learn Emacs: Delete-file-and-buffer</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
 
   
 
-<time datetime="2011-06-21T00:00:00-04:00" pubdate>Jun 21<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>From my ~/.emacs.d</p>
-
-<div><script src='https://gist.github.com/1035862.js?file='></script>
-<noscript><pre><code>(defun delete-file-and-buffer ()
-  &quot;Deletes the current file and buffer, assumes file exists&quot;
-  (interactive)
-  (delete-file buffer-file-name)
-  (kill-buffer (buffer-name)))
-</code></pre></noscript></div>
-
-
-<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge&#8217;s .emacs file (rename-file-and-buffer)</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2012-11-08T10:55:00-05:00" pubdate>Nov 8<span>th</span>, 2012</time>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/make-your-rails-3-app-run-faster/">Make Your Rails 3 App Run Faster</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
+<span class="categories">
   
+    <a class='category' href='/blog/categories/tools/'>tools</a>
+  
+</span>
 
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>Profile it with <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a></p>
-
-<p>It will issue growl alerts for slow actions (configurable)</p>
-
-<p><img src="/images/rails-profile.png"></p>
-
-<p>See <a href="https://github.com/igrigorik/slowgrowl">slowgrowl</a> for configuration options.</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-align-regexp/">Learn Emacs: Align-regexp</a></h1>
-    
-    
-      <p class="meta">
-        
+        <a class="basic-alignment left" href="/blog/measuring-slow-code/" title="Previous Post: Measuring Slow Code">&laquo; Measuring Slow Code</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-
-
-
-  
-
-<time datetime="2011-06-20T00:00:00-04:00" pubdate>Jun 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In this post I go over how to use emacs and align-regexp to clean up
-your code and make it more readable.</p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/learn-emacs-align-regexp/">Read More &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/7/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/blog/page/5/">Newer &rarr;</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <br />
@@ -320,7 +230,7 @@ your code and make it more readable.</p>
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/rawsyntax">@rawsyntax</a> on Github
@@ -350,7 +260,7 @@ your code and make it more readable.</p>
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -383,6 +293,7 @@ your code and make it more readable.</p>
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -397,7 +308,10 @@ your code and make it more readable.</p>
       var disqus_shortname = 'rawsyntax';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction';
+        var disqus_url = 'http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
