@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-11-08T11:25:23-05:00</updated>
+  <updated>2012-11-08T11:30:23-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,50 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Quicksilver, Secure Keyboard Entry, and Single Modifier Activation]]></title>
-    <link href="http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/"/>
-    <updated>2012-11-08T10:55:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction</id>
-    <content type="html"><![CDATA[<p>I use <a href="http://qsapp.com">Quicksilver</a> all the time.  Despite its bugs,
-I prefer it to any of the other launcher type programs that exist.
-Nevermind the fact that it is more powerful than most of those other
-programs (Alfred, LaunchBar, etc).  The single feature that got me
-hooked is the ability to bring up the Quicksilver prompt with a single
-keypress.  I have it set up to use the command key.</p>
-
-<p><img src="http://rawsyntax.com/images/single-modifier-activation.png" class ="center"/></p>
-
-<p>Other tools like Alfred won&#8217;t do this (though it does have the command
-key double tap).</p>
-
-<h2>The Problem</h2>
-
-<p>Right around a year ago I started experiencing issues with single
-modifier activation not working occasionally.  At first I didn&#8217;t know
-if it was Quicksilver being buggy or what.  Eventually I noticed that
-if my cursor was inside a password field single modifier activation
-would not work.  This is apparently a restriction of the operating
-system, that doesn&#8217;t allow Quicksilver (or other programs like it) to
-listen to text entry on secure fields.</p>
-
-<p>I also noticed that when I was in Terminal.app single modifier
-activation would not work, which was strange because it had worked in
-the past (on 10.5 for example).  As a stopgap measure I started using command+space, which seemed to work all the time.</p>
-
-<p>Using that new keybinding was annoying enough that I switched my
-terminal and started using iTerm2.app.  It did not have the same
-problem as Terminal.app oddly enough.  I finally figured out what
-Terminal.app&#8217;s problem was.</p>
-
-<p><img src="http://rawsyntax.com/images/secure-keyboard-entry.png" class ="center"/></p>
-
-<p>This setting essentially makes all text input in Terminal.app act like
-a password field having the same single modifier activation problem as
-above.  Turning Secure Keyboard Entry off fixed the problem.</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Measuring Slow Code]]></title>
@@ -1512,6 +1468,19 @@ hosted there.  Read their configs, and you will learn emacs.  I keep
 
 <p>UPDATE:  The users at <a href="http://reddit.com/r/emacs/">emacs reddit</a> let
 me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">emacs-fu</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OS X Lion New Tab in Terminal Changes Directory]]></title>
+    <link href="http://rawsyntax.com/blog/os-x-lion-new-tab-in-terminal-changes-directory/"/>
+    <updated>2011-10-25T00:00:00-04:00</updated>
+    <id>http://rawsyntax.com/blog/os-x-lion-new-tab-in-terminal-changes-directory</id>
+    <content type="html"><![CDATA[<p>In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working directory (from any previous tabs). I found this feature to be annoying, as I already have a command that will do it when I want it, and I prefer the old 10.6 behavior.</p>
+
+<p>Luckily, this is a preference in Terminal.app and can be easily changed.</p>
+
+<p><img src="http://media.tumblr.com/tumblr_ltmvs87NgE1qfdxjm.png"></p>
 ]]></content>
   </entry>
   

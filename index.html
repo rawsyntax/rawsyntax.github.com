@@ -9,9 +9,8 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I use Quicksilver all the time. Despite its bugs,
-I prefer it to any of the other launcher type programs that exist.
-Nevermind the fact that it is &hellip;">
+  <meta name="description" content="Over the years I&#8217;ve found myself needing a quick way to measure some
+slow code. Whether I&#8217;m looking at a 100 line function or a 10 line &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,72 +77,6 @@ Nevermind the fact that it is &hellip;">
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Quicksilver, Secure Keyboard Entry, and Single Modifier Activation</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-  
-
-<time datetime="2012-11-08T10:55:00-05:00" pubdate>Nov 8<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I use <a href="http://qsapp.com">Quicksilver</a> all the time.  Despite its bugs,
-I prefer it to any of the other launcher type programs that exist.
-Nevermind the fact that it is more powerful than most of those other
-programs (Alfred, LaunchBar, etc).  The single feature that got me
-hooked is the ability to bring up the Quicksilver prompt with a single
-keypress.  I have it set up to use the command key.</p>
-
-<p><img src="/images/single-modifier-activation.png" class ="center"/></p>
-
-<p>Other tools like Alfred won&#8217;t do this (though it does have the command
-key double tap).</p>
-
-<h2>The Problem</h2>
-
-<p>Right around a year ago I started experiencing issues with single
-modifier activation not working occasionally.  At first I didn&#8217;t know
-if it was Quicksilver being buggy or what.  Eventually I noticed that
-if my cursor was inside a password field single modifier activation
-would not work.  This is apparently a restriction of the operating
-system, that doesn&#8217;t allow Quicksilver (or other programs like it) to
-listen to text entry on secure fields.</p>
-
-<p>I also noticed that when I was in Terminal.app single modifier
-activation would not work, which was strange because it had worked in
-the past (on 10.5 for example).  As a stopgap measure I started using command+space, which seemed to work all the time.</p>
-
-<p>Using that new keybinding was annoying enough that I switched my
-terminal and started using iTerm2.app.  It did not have the same
-problem as Terminal.app oddly enough.  I finally figured out what
-Terminal.app&#8217;s problem was.</p>
-
-<p><img src="/images/secure-keyboard-entry.png" class ="center"/></p>
-
-<p>This setting essentially makes all text input in Terminal.app act like
-a password field having the same single modifier activation problem as
-above.  Turning Secure Keyboard Entry off fixed the problem.</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -409,6 +342,59 @@ coming out, and even the recent pretests have been stable for me.</p>
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learn-emacs-smex/">Learn Emacs: Smex</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2012-06-06T12:24:00-04:00" pubdate>Jun 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Scroll down for code snippets and text.</p>
+
+<div class="embed video YouTube"><iframe width="459" height="344" src="http://www.youtube.com/embed/18u_ieDpr1o?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe></div>
+
+
+<p>Smex is IDO style completion for M-x.  It is very customizable.  I
+recommend taking a look at the README for all the available options.
+Here&#8217;s the minimum setup required.</p>
+
+<div><script src='https://gist.github.com/2883010.js?file='></script>
+<noscript><pre><code>(require 'smex)
+(smex-initialize)
+
+(global-set-key (kbd &quot;M-x&quot;) 'smex)
+(global-set-key (kbd &quot;M-X&quot;) 'smex-major-mode-commands)
+(global-set-key (kbd &quot;C-c M-x&quot;) 'smex-update)
+(global-set-key (kbd &quot;C-c C-c M-x&quot;) 'execute-extended-command)</code></pre></noscript></div>
+
+
+<p>It&#8217;s available on the ELPA and the source is on github.</p>
+
+<p><a href="https://github.com/nonsequitur/smex/">Smex source on github</a><br />
+<a href="http://marmalade-repo.org/packages/smex">available on marmalade repo</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -428,10 +414,6 @@ coming out, and even the recent pretests have been stable for me.</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Quicksilver, Secure Keyboard Entry, and Single Modifier Activation</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/measuring-slow-code/">Measuring Slow Code</a>
       </li>
     
@@ -445,6 +427,10 @@ coming out, and even the recent pretests have been stable for me.</p>
     
       <li class="post">
         <a href="/blog/emacs-24-dot-1-is-out/">Emacs 24.1 is Out</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/learn-emacs-smex/">Learn Emacs: Smex</a>
       </li>
     
   </ul>
