@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rants | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/rants/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-11-08T11:30:23-05:00</updated>
+  <updated>2012-11-12T16:23:31-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -84,7 +84,7 @@ manner, there is truth in it.</p>
 
 <p>My favorite section is <strong>2.4</strong>:</p>
 
-<p><blockquote><p>A novice asked the Master: ``Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?''</p></p><p><p>The Master replies: ``That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.''</p><footer><strong>The Tao of Programming</strong><cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=rawsyntax-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote></p>
+<p><blockquote><p>A novice asked the Master: ``Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?''</p></p><p><p>The Master replies: ``That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.''</p><footer><strong>The Tao of Programming</strong> <cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;tag=rawsyntax-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote></p>
 
 <p>Though this style of programming is totally impractical for designing
 reliable extensible software, I ponder it every few months because
@@ -193,7 +193,7 @@ afraid to re-evaluate your idea.  It doesn't make you a quitter to throw out a p
 <a href="http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense">Derek Webber's post about Spotify</a>,
 in which he says:</p>
 
-<p><blockquote><p>I am paid $0.00029 per stream of a song on Spotify, and even this amount depends on whether the song is being streamed by a paid user or someone using the service for free.  This means it will take upwards of 3,500 streams of a single song on Spotify to earn $1.00 versus that same revenue for one iTunes song purchase</p><footer><strong>Derek Webber</strong><cite><a href='http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense'>derekwebb.tumblr.com/post/&hellip;</a></cite></footer></blockquote></p>
+<p><blockquote><p>I am paid $0.00029 per stream of a song on Spotify, and even this amount depends on whether the song is being streamed by a paid user or someone using the service for free.  This means it will take upwards of 3,500 streams of a single song on Spotify to earn $1.00 versus that same revenue for one iTunes song purchase</p><footer><strong>Derek Webber</strong> <cite><a href='http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense'>derekwebb.tumblr.com/post/&hellip;</a></cite></footer></blockquote></p>
 
 <p>His article made me think of a time years ago when I wanted to be in the
 music business.</p>

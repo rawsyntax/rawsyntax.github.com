@@ -5,12 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Learn Emacs: Smex - Raw Syntax</title>
+  <title>Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="Scroll down for code snippets and text. Smex is IDO style completion for M-x. It is very customizable. I
-recommend taking a look at the README for &hellip;">
+  <meta name="description" content="In building rawsyntax I wanted to be able to
+link to my github profile. After a little searching I found
+drnic&#8217;s github-badges.
+It looked great &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +21,7 @@ recommend taking a look at the README for &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/learn-emacs-smex/">
+  <link rel="canonical" href="http://rawsyntax.com/blog/page/9/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,12 +79,15 @@ recommend taking a look at the README for &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Learn Emacs: Smex</h1>
+      <h1 class="entry-title"><a href="/blog/rewriting-github-badges/">Rewriting Github-badges</a></h1>
     
     
       <p class="meta">
@@ -98,100 +103,42 @@ recommend taking a look at the README for &hellip;">
   
 
 
-<time datetime="2012-06-06T12:24:00-04:00" pubdate data-updated="true">Jun 6<span>th</span>, 2012</time>
+<time datetime="2010-08-25T00:00:00-04:00" pubdate data-updated="true">Aug 25<span>th</span>, 2010</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Scroll down for code snippets and text.</p>
+  <div class="entry-content"><p>In building <a href="http://rawsyntax.com">rawsyntax</a> I wanted to be able to
+link to my <a href="http://github.com/rawsyntax">github profile</a>.</p>
 
-<div class="embed video YouTube"><iframe width="459" height="344" src="http://www.youtube.com/embed/18u_ieDpr1o?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe></div>
+<p>After a little searching I found
+<a href="http://drnicjavascript.rubyforge.org/github_badge/">drnic&#8217;s github-badges</a>.
+It looked great, and I put it on the sidebar of my site. However, when
+I went to do crossbrowser testing (I develop in firefox, and
+crossbrowser test before deploying to production) I found that it
+caused IE[6,7,8] to crash.</p>
 
-
-<p>Smex is IDO style completion for M-x.  It is very customizable.  I
-recommend taking a look at the README for all the available options.
-Here&#8217;s the minimum setup required.</p>
-
-<div><script src='https://gist.github.com/2883010.js?file='></script>
-<noscript><pre><code>(require 'smex)
-(smex-initialize)
-
-(global-set-key (kbd &quot;M-x&quot;) 'smex)
-(global-set-key (kbd &quot;M-X&quot;) 'smex-major-mode-commands)
-(global-set-key (kbd &quot;C-c M-x&quot;) 'smex-update)
-(global-set-key (kbd &quot;C-c C-c M-x&quot;) 'execute-extended-command)</code></pre></noscript></div>
-
-
-<p>It&#8217;s available on the ELPA and the source is on github.</p>
-
-<p><a href="https://github.com/nonsequitur/smex/">Smex source on github</a><br />
-<a href="http://marmalade-repo.org/packages/smex">available on marmalade repo</a></p>
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
-
-      
-
-
-
-
-
-
-
-
+  
+    <footer>
+      <a rel="full-article" href="/blog/rewriting-github-badges/">Read More &rarr;</a>
+    </footer>
   
 
 
-<time datetime="2012-06-06T12:24:00-04:00" pubdate data-updated="true">Jun 6<span>th</span>, 2012</time>
-      
-
-<span class="categories">
+    </article>
   
-    <a class='category' href='/blog/categories/learn-emacs/'>learn-emacs</a>
-  
-</span>
-
-
-    </p>
+  <div class="pagination">
     
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/learn-emacs-smex/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/learn-emacs-smex/" >Tweet</a>
-  
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
+    <a href="/blog/archives">Blog Archives</a>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/learn-emacs-editing-javascript/" title="Previous Post: Learn Emacs: Editing Javascript">&laquo; Learn Emacs: Editing Javascript</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/emacs-24-dot-1-is-out/" title="Next Post: Emacs 24.1 is Out">Emacs 24.1 is Out &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a class="next" href="/blog/page/8/">Newer &rarr;</a>
+    
+  </div>
 </div>
-  </section>
-
-</div>
-
 <aside class="sidebar">
   
     <br />
@@ -228,7 +175,7 @@ Here&#8217;s the minimum setup required.</p>
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/rawsyntax">@rawsyntax</a> on GitHub
@@ -258,7 +205,7 @@ Here&#8217;s the minimum setup required.</p>
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -291,7 +238,6 @@ Here&#8217;s the minimum setup required.</p>
   
 </aside>
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -306,10 +252,7 @@ Here&#8217;s the minimum setup required.</p>
       var disqus_shortname = 'rawsyntax';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://rawsyntax.com/blog/learn-emacs-smex/';
-        var disqus_url = 'http://rawsyntax.com/blog/learn-emacs-smex/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

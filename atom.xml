@@ -4,7 +4,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-11-08T11:30:23-05:00</updated>
+  <updated>2012-11-12T16:23:31-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Quicksilver, Secure Keyboard Entry, and Single Modifier Activation]]></title>
+    <link href="http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/"/>
+    <updated>2012-11-08T10:55:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction</id>
+    <content type="html"><![CDATA[<p>I use <a href="http://qsapp.com">Quicksilver</a> all the time.  Despite its bugs,
+I prefer it to any of the other launcher type programs that exist.
+Nevermind the fact that it is more powerful than most of those other
+programs (Alfred, LaunchBar, etc).  The single feature that got me
+hooked is the ability to bring up the Quicksilver prompt with a single
+keypress.  I have it set up to use the command key.</p>
+
+<p><img src="http://rawsyntax.com/images/single-modifier-activation.png" class ="center"/></p>
+
+<p>Other tools like Alfred won&#8217;t do this (though it does have the command
+key double tap).</p>
+
+<h2>The Problem</h2>
+
+<p>Right around a year ago I started experiencing issues with single
+modifier activation not working occasionally.  At first I didn&#8217;t know
+if it was Quicksilver being buggy or what.  Eventually I noticed that
+if my cursor was inside a password field single modifier activation
+would not work.  This is apparently a restriction of the operating
+system, that doesn&#8217;t allow Quicksilver (or other programs like it) to
+listen to text entry on secure fields.</p>
+
+<p>I also noticed that when I was in Terminal.app single modifier
+activation would not work, which was strange because it had worked in
+the past (on 10.5 for example).  As a stopgap measure I started using command+space, which seemed to work all the time.</p>
+
+<p>Using that new keybinding was annoying enough that I switched my
+terminal and started using iTerm2.app.  It did not have the same
+problem as Terminal.app oddly enough.  I finally figured out what
+Terminal.app&#8217;s problem was.</p>
+
+<p><img src="http://rawsyntax.com/images/secure-keyboard-entry.png" class ="center"/></p>
+
+<p>This setting essentially makes all text input in Terminal.app act like
+a password field having the same single modifier activation problem as
+above.  Turning Secure Keyboard Entry off fixed the problem.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Measuring Slow Code]]></title>
@@ -721,7 +765,7 @@ manner, there is truth in it.</p>
 
 <p>My favorite section is <strong>2.4</strong>:</p>
 
-<blockquote><p>A novice asked the Master: &#8220;Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?&#8221;</p><p>The Master replies: &#8220;That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.&#8221;</p><footer><strong>The Tao of Programming</strong><cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote>
+<blockquote><p>A novice asked the Master: &#8220;Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?&#8221;</p><p>The Master replies: &#8220;That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.&#8221;</p><footer><strong>The Tao of Programming</strong> <cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote>
 
 
 <p>Though this style of programming is totally impractical for designing
@@ -1047,7 +1091,7 @@ programming it&#8217;s important to verify your assumptions and don&#8217;t forg
 <a href="http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense">Derek Webber&#8217;s post about Spotify</a>,
 in which he says:</p>
 
-<blockquote><p>I am paid $0.00029 per stream of a song on Spotify, and even this amount depends on whether the song is being streamed by a paid user or someone using the service for free.  This means it will take upwards of 3,500 streams of a single song on Spotify to earn $1.00 versus that same revenue for one iTunes song purchase</p><footer><strong>Derek Webber</strong><cite><a href='http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense'>derekwebb.tumblr.com/post/&hellip;</a></cite></footer></blockquote>
+<blockquote><p>I am paid $0.00029 per stream of a song on Spotify, and even this amount depends on whether the song is being streamed by a paid user or someone using the service for free.  This means it will take upwards of 3,500 streams of a single song on Spotify to earn $1.00 versus that same revenue for one iTunes song purchase</p><footer><strong>Derek Webber</strong> <cite><a href='http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense'>derekwebb.tumblr.com/post/&hellip;</a></cite></footer></blockquote>
 
 
 <p>His article made me think of a time years ago when I wanted to be in the
@@ -1329,7 +1373,7 @@ details.</p>
 
 <p>The following quote is about ruby implementation, but it can be applied to any hard general case problem.</p>
 
-<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there&#8217;s some crazy stuff in that last 10% or 5% that totally blindsides you if you&#8217;re not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong><cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
+<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there&#8217;s some crazy stuff in that last 10% or 5% that totally blindsides you if you&#8217;re not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong> <cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
 
 
 <p>When he talks about getting blindsided by that last 10%, that is
@@ -1468,19 +1512,6 @@ hosted there.  Read their configs, and you will learn emacs.  I keep
 
 <p>UPDATE:  The users at <a href="http://reddit.com/r/emacs/">emacs reddit</a> let
 me know I forgot a big one.  Check out <a href="http://emacs-fu.blogspot.com">emacs-fu</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OS X Lion New Tab in Terminal Changes Directory]]></title>
-    <link href="http://rawsyntax.com/blog/os-x-lion-new-tab-in-terminal-changes-directory/"/>
-    <updated>2011-10-25T00:00:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/os-x-lion-new-tab-in-terminal-changes-directory</id>
-    <content type="html"><![CDATA[<p>In 10.6 when you opened a new tab in Terminal.app it opened to your home directory. In 10.7 a new tab in Terminal.app opens to your current working directory (from any previous tabs). I found this feature to be annoying, as I already have a command that will do it when I want it, and I prefer the old 10.6 behavior.</p>
-
-<p>Luckily, this is a preference in Terminal.app and can be easily changed.</p>
-
-<p><img src="http://media.tumblr.com/tumblr_ltmvs87NgE1qfdxjm.png"></p>
 ]]></content>
   </entry>
   
