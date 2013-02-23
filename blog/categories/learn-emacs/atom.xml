@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learn-emacs | Raw Syntax]]></title>
   <link href="http://rawsyntax.com/blog/categories/learn-emacs/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2012-11-30T17:39:06-05:00</updated>
+  <updated>2013-02-23T17:36:34-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Emacs: Fit your Workflow]]></title>
+    <link href="http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/"/>
+    <updated>2013-02-23T17:02:00-05:00</updated>
+    <id>http://rawsyntax.com/blog/learn-emacs-fit-your-workflow</id>
+    <content type="html"><![CDATA[<p><div class="embed video YouTube"><iframe width="480" height="270" src="http://www.youtube.com/embed/nQ0Q_6HZwwY?feature=oembed" frameborder="0" allowfullscreen></iframe></div></p>
+
+<p>The visor I refer to is a feature of <a href="http://totalterminal.binaryage.com/">TotalTerminal</a>.</p>
+
+<p>The elisp code is below:</p>
+
+<p><div><script src='https://gist.github.com/5021575.js?file='></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+<div><script src='https://gist.github.com/5021581.js?file='></script>
+<noscript><pre><code></code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Emacs 24.1 is Out]]></title>
@@ -74,7 +94,7 @@ can also view inside emacs with  <code>M-x view-emacs-news</code>.</p>
     <id>http://rawsyntax.com/blog/learn-emacs-smex</id>
     <content type="html"><![CDATA[<p>Scroll down for code snippets and text.</p>
 
-<p><div class="embed video YouTube"><iframe width="459" height="344" src="http://www.youtube.com/embed/18u_ieDpr1o?fs=1&feature=oembed" frameborder="0" allowfullscreen></iframe></div></p>
+<p><div class="embed video YouTube"><iframe width="459" height="344" src="http://www.youtube.com/embed/18u_ieDpr1o?feature=oembed" frameborder="0" allowfullscreen></iframe></div></p>
 
 <p>Smex is IDO style completion for M-x.  It is very customizable.  I
 recommend taking a look at the README for all the available options.
@@ -337,42 +357,6 @@ about <code>emacs-starter-kit (v2)</code>.  Its basis was emacs-24 paired with
 the marmalade-repo (for emacs-lisp packages).  I put in an n hour here
 and there over the course of a few months.  In mid September it was good
 enough to use as my full-time working config.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: Swap Windows]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-swap-windows/"/>
-    <updated>2012-01-26T10:33:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-swap-windows</id>
-    <content type="html"><![CDATA[<p>When I use Emacs in GUI mode, I set it up to have two 80 column
-windows side by side.  It's extremely convention when you need to look
-at one section of the code while writing another.  For instance, you
-can have the spec file side by side with the code when doing TDD.
-Sometimes I want to swap the windows.  This kind of functionality does
-not come built in with emacs.  I found the <code>swap-windows</code> function
-that I use in Steve Yegge's
-<a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">.emacs</a>
-file.</p>
-
-<p><div><script src='https://gist.github.com/1683375.js?file='></script>
-<noscript><pre><code>(defun swap-windows ()
- &quot;If you have 2 windows, it swaps them.&quot;
- (interactive)
- (cond ((not (= (count-windows) 2))
-        (message &quot;You need exactly 2 windows to do this.&quot;))
-       (t
-        (let* ((w1 (first (window-list)))
-               (w2 (second (window-list)))
-               (b1 (window-buffer w1))
-               (b2 (window-buffer w2))
-               (s1 (window-start w1))
-               (s2 (window-start w2)))
-          (set-window-buffer w1 b2)
-          (set-window-buffer w2 b1)
-          (set-window-start w1 s2)
-          (set-window-start w2 s1)))))</code></pre></noscript></div>
-</p>
 ]]></content>
   </entry>
   

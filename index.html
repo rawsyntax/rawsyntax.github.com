@@ -9,9 +9,7 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I use Quicksilver all the time. Despite its bugs,
-I prefer it to any of the other launcher type programs that exist.
-Nevermind the fact that it is &hellip;">
+  <meta name="description" content=" The visor I refer to is a feature of TotalTerminal. The elisp code is below: ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +78,95 @@ Nevermind the fact that it is &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/learn-emacs-fit-your-workflow/">Learn Emacs: Fit Your Workflow</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-23T17:02:00-05:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class="embed video YouTube"><iframe width="480" height="270" src="http://www.youtube.com/embed/nQ0Q_6HZwwY?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
+
+
+<p>The visor I refer to is a feature of <a href="http://totalterminal.binaryage.com/">TotalTerminal</a>.</p>
+
+<p>The elisp code is below:</p>
+
+<div><script src='https://gist.github.com/5021575.js?file='></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+
+
+<div><script src='https://gist.github.com/5021581.js?file='></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/heroku-and-conditionals-in-the-gemfile/">Heroku and Conditionals in the Gemfile</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-04T20:29:00-05:00" pubdate data-updated="true">Feb 4<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -331,111 +418,6 @@ the connection (which is why it didn&#8217;t prompt me).</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/who-changed-my-file/">Who Changed My File</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-02T18:27:00-04:00" pubdate data-updated="true">Jul 2<span>nd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was troubleshooting slow page loads on a server running rails
-recently.  I noticed that DNS was actually causing an occasional
-problem with pageloads.  For whatever reason my <code>/etc/resolv.conf</code>
-would get overwritten every once in a while with slow / unresponsive
-DNS servers.  I had manually set them to <code>8.8.8.8</code> and <code>8.8.4.4</code>, but
-to my suprise the file had been changed.</p>
-
-<p>I started digging and checking the usual suspects that might alter
-that file (<code>dhclient</code>, <code>resolvconf</code> &#8230;).  I didn&#8217;t find the problem.
-This is where <code>auditd</code> comes in handy.  Its a daemon that can be setup
-to watch a file and log what program changed it.</p>
-
-<p>I installed <code>auditd</code> and set it up to watch <code>/etc/resolv.conf</code> and log
-any write or append actions (as I don&#8217;t care about who reads it):</p>
-
-<p><code>auditctl -w /etc/resolv.conf -p wa -k resolvconf</code></p>
-
-<p><code>-k</code> here is simply the key by which you can search the audit logs.  I edited the file a few times to test auditd and searched its logs:</p>
-
-<p><code>ausearch -f /etc/resolv.conf</code></p>
-
-<p>It logs all kinds of info.  user id, command run, working directory.
-I&#8217;m blogging it here mostly so don&#8217;t forget about it.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/emacs-24-dot-1-is-out/">Emacs 24.1 Is Out</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-11T16:55:00-04:00" pubdate data-updated="true">Jun 11<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Emacs 24.1 was
-<a href="http://lists.gnu.org/archive/html/emacs-devel/2012-06/msg00164.html">released</a>
-yesterday.</p>
-
-<p>Being the first release version of Emacs 24, I&#8217;d suggest trying it
-out.  I&#8217;ve been using Emacs 24 since the pretest version started
-coming out, and even the recent pretests have been stable for me.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/emacs-24-dot-1-is-out/">Read More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -455,6 +437,14 @@ coming out, and even the recent pretests have been stable for me.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learn-emacs-fit-your-workflow/">Learn Emacs: Fit your Workflow</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/heroku-and-conditionals-in-the-gemfile/">Heroku and Conditionals in the Gemfile</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Quicksilver, Secure Keyboard Entry, and Single Modifier Activation</a>
       </li>
     
@@ -464,14 +454,6 @@ coming out, and even the recent pretests have been stable for me.</p>
     
       <li class="post">
         <a href="/blog/faster-ssh-connections/">Faster SSH Connections</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/who-changed-my-file/">Who Changed my File</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/emacs-24-dot-1-is-out/">Emacs 24.1 is Out</a>
       </li>
     
   </ul>
@@ -546,7 +528,7 @@ coming out, and even the recent pretests have been stable for me.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Eric Himmelreich -
+  Copyright &copy; 2013 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

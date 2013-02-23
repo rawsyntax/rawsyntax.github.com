@@ -9,7 +9,9 @@
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="I&#8217;ve recently started locking my screen on OSX. However I found that Quicksilver&#8217;s LockScreen script did not work. I believe it was &hellip;">
+  <meta name="description" content="It&#8217;s a ruby script that loads a dictionary of common words, restricts
+word length, combines two that start with the same letter, and issues
+a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +80,98 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/generating-available-domain-names/">Generating Available Domain Names</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-22T00:00:00-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It&#8217;s a ruby script that loads a dictionary of common words, restricts
+word length, combines two that start with the same letter, and issues
+a whois query to check if it&#8217;s available. Feel free to tweak it to
+your own needs. It also has some sleep calls to avoid flooding the
+whois server. Let it run for a couple days, see what comes out.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/generating-available-domain-names/">Read More &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/rails-3-email-validation/">Rails 3 Email Validation</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-21T00:00:00-04:00" pubdate data-updated="true">Apr 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Most email validation I&#8217;ve encountered goes bananas with regards to
+regexes. The programmer tries to strictly adhere to the spec
+(<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only
+is this task difficult and error prone, but there are functional email
+addresses out there that do not conform to the spec. Not to mention
+the resulting regex often looks like
+<a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/rails-3-email-validation/">Read More &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -210,100 +304,6 @@ scheme seems reasonably valid, good enough.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/freelancing-on-odesk/">Freelancing on oDesk</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-06T00:00:00-05:00" pubdate data-updated="true">Dec 6<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Since the start of my career as a professional programmer, I&#8217;ve been
-interested in doing contract work online. Over the years I&#8217;ve
-half-heartedly tried to get jobs on sites like
-<a href="http://www.elance.com/">elance</a>, <a href="http://rentacoder.com">rentacoder</a>,
-and <a href="http://www.guru.com">guru</a>. I never had any success. All I found
-was employers / providers offering $200 fixed-bid contracts for
-building <a href="http://facebook.com">facebook</a> / <a href="http://ebay.com">ebay</a>
-clones, and workers willing to work for way less than I would or even
-could. In November 2010, after reading enough posts on
-<a href="http://news.ycombinator.com">hacker news</a> I decided to give
-<a href="http://odesk.com">oDesk</a> an honest try.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/freelancing-on-odesk/">Read More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/puncher-the-simple-file-watcher-for-os-x/">Puncher the Simple File Watcher for OS X</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-09-29T00:00:00-04:00" pubdate data-updated="true">Sep 29<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Why another file watcher for OS X?</p>
-
-<p>There&#8217;s already <a href="http://github.com/alloy/kicker">kicker</a>, and many ruby programs that need file watching, already have solutions built in. For example <a href="http://github.com/seattlerb/zentest">ZenTest</a>, <a href="http://compass-style.org">compass</a> etc..</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/puncher-the-simple-file-watcher-for-os-x/">Read More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -325,6 +325,14 @@ could. In November 2010, after reading enough posts on
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/learn-emacs-fit-your-workflow/">Learn Emacs: Fit your Workflow</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/heroku-and-conditionals-in-the-gemfile/">Heroku and Conditionals in the Gemfile</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Quicksilver, Secure Keyboard Entry, and Single Modifier Activation</a>
       </li>
     
@@ -334,14 +342,6 @@ could. In November 2010, after reading enough posts on
     
       <li class="post">
         <a href="/blog/faster-ssh-connections/">Faster SSH Connections</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/who-changed-my-file/">Who Changed my File</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/emacs-24-dot-1-is-out/">Emacs 24.1 is Out</a>
       </li>
     
   </ul>
@@ -416,7 +416,7 @@ could. In November 2010, after reading enough posts on
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Eric Himmelreich -
+  Copyright &copy; 2013 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

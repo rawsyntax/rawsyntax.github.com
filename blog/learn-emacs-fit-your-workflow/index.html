@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Use LiveReload with Rails for faster development - Raw Syntax</title>
+  <title>Learn Emacs: Fit your Workflow - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
 
   
-  <meta name="description" content="LiveReload applies CSS/JS changes to Safari or Chrome without
-reloading the page, and automatically reloads when the html changes.
-Let that soak in &hellip;">
+  <meta name="description" content=" The visor I refer to is a feature of TotalTerminal. The elisp code is below: ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Let that soak in &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development/">
+  <link rel="canonical" href="http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -83,7 +81,7 @@ Let that soak in &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Use LiveReload With Rails for Faster Development</h1>
+      <h1 class="entry-title">Learn Emacs: Fit Your Workflow</h1>
     
     
       <p class="meta">
@@ -99,52 +97,31 @@ Let that soak in &hellip;">
   
 
 
-<time datetime="2011-08-15T00:00:00-04:00" pubdate data-updated="true">Aug 15<span>th</span>, 2011</time>
+<time datetime="2013-02-23T17:02:00-05:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>LiveReload applies CSS/JS changes to Safari or Chrome without
-reloading the page, and automatically reloads when the html changes.
-Let that soak in for a minute. In this post I&#8217;ll go over how to get it
-installed and working on your Rails projects.</p>
-
-<!--more-->
+<div class="entry-content"><div class="embed video YouTube"><iframe width="480" height="270" src="http://www.youtube.com/embed/nQ0Q_6HZwwY?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
 
 
-<p>The installation process has two steps. First we install a browser extension that listens for livereload events. Then we use guard to listen for  system events and send information to the browser.</p>
+<p>The visor I refer to is a feature of <a href="http://totalterminal.binaryage.com/">TotalTerminal</a>.</p>
 
-<p>First install the livereload addon for <a href="https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei">chrome</a> or <a href="https://github.com/downloads/mockko/livereload/LiveReload-1.6.2.safariextz">safari</a>.</p>
+<p>The elisp code is below:</p>
 
-<p>In your rails project gemfile add</p>
+<div><script src='https://gist.github.com/5021575.js?file='></script>
+<noscript><pre><code></code></pre></noscript></div>
 
-<pre><code>gem 'rb-fsevent'
-gem 'guard-livereload'
-</code></pre>
 
-<p>Run</p>
 
-<pre><code>bundle install
-</code></pre>
 
-<p>Then run</p>
+<div><script src='https://gist.github.com/5021581.js?file='></script>
+<noscript><pre><code></code></pre></noscript></div>
 
-<pre><code>guard init livereload &amp;&amp; guard
-</code></pre>
 
-<p>To setup guard for livereload and start monitoring for file system events. The last step is to activate the browser extension. You will need to click the LiveReload button:</p>
 
-<p><img src="http://media.tumblr.com/tumblr_lpzehwqgO41qfdxjm.png"></p>
-
-<p>Now when you change a file in your view, Safari / Chrome will load the new content automatically.</p>
-
-<h2>Notes on RubyCocoa</h2>
-
-<p>The notes on the <a href="https://github.com/mockko/livereload">livereload repo</a> are a little confusing. Livereload can also work via RubyCocoa (instead of guard- livereload). If you&#8217;re running ruby 1.9.2 you cannot install RubyCocoa on it. RubyCocoa is not 1.9.x compatible. So I opt to use the browser extension and guard.</p>
-
-<p>More info <a href="http://livereload.com/">here</a></p>
 </div>
 
 
@@ -167,12 +144,12 @@ gem 'guard-livereload'
   
 
 
-<time datetime="2011-08-15T00:00:00-04:00" pubdate data-updated="true">Aug 15<span>th</span>, 2011</time>
+<time datetime="2013-02-23T17:02:00-05:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/learn-emacs/'>learn-emacs</a>
   
 </span>
 
@@ -181,7 +158,7 @@ gem 'guard-livereload'
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/" >Tweet</a>
   
   
   
@@ -192,14 +169,18 @@ gem 'guard-livereload'
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/learn-bash-remove-commands-from-your-history/" title="Previous Post: Learn Bash: Remove Commands from your History">&laquo; Learn Bash: Remove Commands from your History</a>
+        <a class="basic-alignment left" href="/blog/heroku-and-conditionals-in-the-gemfile/" title="Previous Post: Heroku and Conditionals in the Gemfile">&laquo; Heroku and Conditionals in the Gemfile</a>
       
-      
-        <a class="basic-alignment right" href="/blog/learn-emacs-keyboard-macros/" title="Next Post: Learn Emacs: Keyboard Macros">Learn Emacs: Keyboard Macros &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -317,7 +298,10 @@ gem 'guard-livereload'
       var disqus_shortname = 'rawsyntax';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/';
+        var disqus_url = 'http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
