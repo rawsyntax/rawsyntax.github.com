@@ -246,68 +246,12 @@ slow code.  Whether I'm looking at a 100 line function or a 10 line
 controller action, sometimes I just need some quick print statements
 to determine which part of the code is slow.</p>
 
-<p>My original approach to doing this would be to mark off sections of
-the code with <code>Time.now</code> statements printing out how many seconds each
-section took.  This approach is messy because it requires altering the
-code a good deal.  And at the end I was left comparing sections of the
-code to figure out which part was slower than all the other parts --
-doing the math in my head.</p>
-
-<h2>Use Benchmark?</h2>
-
-<p>Ruby has a
-<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html">Benchmark</a>
-class built in.  I tried using it.  While it can be helpful in certain
-situations, if I'm measuring 5 sections of a function there's an awful
-lot of code rewriting that has to happen because of the Benchmark
-blocks messing with the scope of variables.  That was more work than
-it was worth.</p>
-
-<h2>Roll my Own</h2>
-
-<p>I'm hesitant to reinvent the wheel, but in this case I created a very
-simple gem to address my needs.  It's called
-<a href="https://github.com/rawsyntax/code_timer">CodeTimer</a>.  To use it first
-you instantiate it:</p>
-
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span> <span class="o">=</span> <span class="no">CodeTimer</span><span class="o">.</span><span class="n">new</span>
-</div></pre></td></tr></table></div></figure></p>
-
-<p>Then you insert markers for each part that you want to measure:</p>
-
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part1&quot;</span><span class="p">)</span>
-</div><div class='line'><span class="c1"># ... slow code here ...</span>
-</div><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part2&quot;</span><span class="p">)</span>
-</div><div class='line'><span class="c1"># ...</span>
-</div></pre></td></tr></table></div></figure></p>
-
-<p>And a marker for stopping measuring:</p>
-
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">end</span>
-</div></pre></td></tr></table></div></figure></p>
-
-<p>It returns a formatted string:</p>
-
-<pre><code>Total Time: 17s
-Part1:   11% / 2s
-Part2:   29% / 5s
-Part3:   47% / 8s
-Part4:   11% / 2s
-</code></pre>
-
-<p>And it's easy to see that Part3 is the slowest section.  Better start
-trying to speed up the code there.</p>
-
-<h2>What If This Doesn't Work?</h2>
-
-<p>This isn't the solution for every slow code problem.  If this approach
-doesn't yield meaningful results you will have to use a more serious
-tool.  However, I reach for this tool first because it's the simplest
-thing that could possibly work.</p>
 </div>
 
   <footer>
     
+    
+    <p><a rel="full-article" href="/blog/measuring-slow-code/">Read More &rarr;</a></p>
     
   </footer>
 
@@ -357,44 +301,12 @@ thing that could possibly work.</p>
 <div class="entry-content"><p>Certain servers I connect to on a regular basis are rather slow when
 connecting.  Here are some <code>~/.ssh/config</code> options to speed up ssh connections.</p>
 
-<p>I find this is useful for scripts that make multiple subsequent ssh
-connections.  Capistrano comes to mind as well as a couple of scripts
-I have that use scp.</p>
-
-<div><script src='https://gist.github.com/rawsyntax/3091626.js'></script>
-<noscript><pre><code>Host *
-    # don't try to authenticate with Kerberos
-    GSSAPIAuthentication no
-    GSSAPIKeyExchange no
-    # persist the ssh connection for 5 minutes
-    # subsequent ssh connections respond faster because its reusing an existing connection
-    ControlMaster auto
-    ControlPath ~/.ssh/master-%r@%h:%p
-    ControlPersist 5m</code></pre></noscript></div>
-
-
-<h2>Beware Strange Behavior</h2>
-
-<p>I have noticed occasionally that I get some error messages due
-to stale master connections.  I think this happens when my computer
-powers off without shutting down fully.</p>
-
-<pre><code>Control socket connect(/Users/eric/.ssh/master-user@example.com:22): Connection refused
-ControlSocket /Users/eric/.ssh/master-user@example.com:22 already exists, disabling multiplexing
-</code></pre>
-
-<p>The connection still works, but it is even slower to connect which
-defeats the purpose of using master control sockets.  You can go into
-<code>~/.ssh</code> and manually remove the connection files to clean it up.</p>
-
-<p>Furthermore, this behavior can get quite confusing when setting up
-ssh-key authentication.  You may think you have it set up correctly
-because of lack of a password prompt, but in my case it was reusing
-the connection (which is why it didn't prompt me).</p>
 </div>
 
   <footer>
     
+    
+    <p><a rel="full-article" href="/blog/faster-ssh-connections/">Read More &rarr;</a></p>
     
   </footer>
 
@@ -448,26 +360,12 @@ would get overwritten every once in a while with slow / unresponsive
 DNS servers.  I had manually set them to <code>8.8.8.8</code> and <code>8.8.4.4</code>, but
 to my suprise the file had been changed.</p>
 
-<p>I started digging and checking the usual suspects that might alter
-that file (<code>dhclient</code>, <code>resolvconf</code> ...).  I didn't find the problem.
-This is where <code>auditd</code> comes in handy.  Its a daemon that can be setup
-to watch a file and log what program changed it.</p>
-
-<p>I installed <code>auditd</code> and set it up to watch <code>/etc/resolv.conf</code> and log
-any write or append actions (as I don't care about who reads it):</p>
-
-<p><code>auditctl -w /etc/resolv.conf -p wa -k resolvconf</code></p>
-
-<p><code>-k</code> here is simply the key by which you can search the audit logs.  I edited the file a few times to test auditd and searched its logs:</p>
-
-<p><code>ausearch -f /etc/resolv.conf</code></p>
-
-<p>It logs all kinds of info.  user id, command run, working directory.
-I'm blogging it here mostly so don't forget about it.</p>
 </div>
 
   <footer>
     
+    
+    <p><a rel="full-article" href="/blog/who-changed-my-file/">Read More &rarr;</a></p>
     
   </footer>
 

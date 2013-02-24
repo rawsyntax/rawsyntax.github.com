@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2013-02-24T15:03:39-05:00</updated>
+  <updated>2013-02-24T15:10:39-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -119,6 +119,9 @@ slow code.  Whether I'm looking at a 100 line function or a 10 line
 controller action, sometimes I just need some quick print statements
 to determine which part of the code is slow.</p>
 
+<!--more-->
+
+
 <p>My original approach to doing this would be to mark off sections of
 the code with <code>Time.now</code> statements printing out how many seconds each
 section took.  This approach is messy because it requires altering the
@@ -195,6 +198,9 @@ thing that could possibly work.</p>
       <content type="html"><![CDATA[<p>Certain servers I connect to on a regular basis are rather slow when
 connecting.  Here are some <code>~/.ssh/config</code> options to speed up ssh connections.</p>
 
+<!--more-->
+
+
 <p>I find this is useful for scripts that make multiple subsequent ssh
 connections.  Capistrano comes to mind as well as a couple of scripts
 I have that use scp.</p>
@@ -250,6 +256,9 @@ problem with pageloads.  For whatever reason my <code>/etc/resolv.conf</code>
 would get overwritten every once in a while with slow / unresponsive
 DNS servers.  I had manually set them to <code>8.8.8.8</code> and <code>8.8.4.4</code>, but
 to my suprise the file had been changed.</p>
+
+<!--more-->
+
 
 <p>I started digging and checking the usual suspects that might alter
 that file (<code>dhclient</code>, <code>resolvconf</code> ...).  I didn't find the problem.

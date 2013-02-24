@@ -126,6 +126,9 @@ would get overwritten every once in a while with slow / unresponsive
 DNS servers.  I had manually set them to <code>8.8.8.8</code> and <code>8.8.4.4</code>, but
 to my suprise the file had been changed.</p>
 
+<!--more-->
+
+
 <p>I started digging and checking the usual suspects that might alter
 that file (<code>dhclient</code>, <code>resolvconf</code> ...).  I didn't find the problem.
 This is where <code>auditd</code> comes in handy.  Its a daemon that can be setup
