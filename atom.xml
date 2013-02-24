@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2013-02-24T14:34:02-05:00</updated>
+  <updated>2013-02-24T15:03:39-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -28,6 +28,9 @@
 
 
 <p>The visor I refer to is a feature of <a href="http://totalterminal.binaryage.com/">TotalTerminal</a>.</p>
+
+<!--more-->
+
 
 <p>The elisp code is below:</p>
 
@@ -68,6 +71,9 @@ keypress.  I have it set up to use the command key.</p>
 
 <p>Other tools like Alfred won't do this (though it does have the command
 key double tap).</p>
+
+<!--more-->
+
 
 <h2>The Problem</h2>
 

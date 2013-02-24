@@ -125,23 +125,12 @@
 
 <p>The visor I refer to is a feature of <a href="http://totalterminal.binaryage.com/">TotalTerminal</a>.</p>
 
-<p>The elisp code is below:</p>
-
-<div><script src='https://gist.github.com/rawsyntax/5021575.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-
-
-
-
-<div><script src='https://gist.github.com/rawsyntax/5021581.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-
-
-
 </div>
 
   <footer>
     
+    
+    <p><a rel="full-article" href="/blog/learn-emacs-fit-your-workflow/">Read More &rarr;</a></p>
     
   </footer>
 
@@ -200,34 +189,12 @@ keypress.  I have it set up to use the command key.</p>
 <p>Other tools like Alfred won't do this (though it does have the command
 key double tap).</p>
 
-<h2>The Problem</h2>
-
-<p>Right around a year ago I started experiencing issues with single
-modifier activation not working occasionally.  At first I didn't know
-if it was Quicksilver being buggy or what.  Eventually I noticed that
-if my cursor was inside a password field single modifier activation
-would not work.  This is apparently a restriction of the operating
-system, that doesn't allow Quicksilver (or other programs like it) to
-listen to text entry on secure fields.</p>
-
-<p>I also noticed that when I was in Terminal.app single modifier
-activation would not work, which was strange because it had worked in
-the past (on 10.5 for example).  As a stopgap measure I started using command+space, which seemed to work all the time.</p>
-
-<p>Using that new keybinding was annoying enough that I switched my
-terminal and started using iTerm2.app.  It did not have the same
-problem as Terminal.app oddly enough.  I finally figured out what
-Terminal.app's problem was.</p>
-
-<p><img src="/images/secure-keyboard-entry.png" class ="center"/></p>
-
-<p>This setting essentially makes all text input in Terminal.app act like
-a password field having the same single modifier activation problem as
-above.  Turning Secure Keyboard Entry off fixed the problem.</p>
 </div>
 
   <footer>
     
+    
+    <p><a rel="full-article" href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Read More &rarr;</a></p>
     
   </footer>
 
