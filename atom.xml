@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2013-02-23T18:05:30-05:00</updated>
+  <updated>2013-02-24T14:26:53-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -13,38 +12,52 @@
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: Fit your Workflow]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/"/>
-    <updated>2013-02-23T17:02:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-fit-your-workflow</id>
-    <content type="html"><![CDATA[<div class="embed video YouTube"><iframe width="480" height="270" src="http://www.youtube.com/embed/nQ0Q_6HZwwY?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Learn Emacs: Fit your Workflow]]></title>
+<link href="http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/"/>
+<updated>2013-02-23T17:02:00-05:00</updated>
+<id>http://rawsyntax.com/blog/learn-emacs-fit-your-workflow</id>
+<category term="learn-emacs" />
+
+      <content type="html"><![CDATA[<div class="embed video YouTube"><iframe width="480" height="270" src="http://www.youtube.com/embed/nQ0Q_6HZwwY?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
 
 
 <p>The visor I refer to is a feature of <a href="http://totalterminal.binaryage.com/">TotalTerminal</a>.</p>
 
 <p>The elisp code is below:</p>
 
-<div><script src='https://gist.github.com/5021575.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/5021575.js'></script>
 <noscript><pre><code></code></pre></noscript></div>
 
 
 
 
-<div><script src='https://gist.github.com/5021581.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/5021581.js'></script>
 <noscript><pre><code></code></pre></noscript></div>
 
 
 
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Quicksilver, Secure Keyboard Entry, and Single Modifier Activation]]></title>
-    <link href="http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/"/>
-    <updated>2012-11-08T10:55:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction</id>
-    <content type="html"><![CDATA[<p>I use <a href="http://qsapp.com">Quicksilver</a> all the time.  Despite its bugs,
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Quicksilver, Secure Keyboard Entry, and Single Modifier Activation]]></title>
+<link href="http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/"/>
+<updated>2012-11-08T10:55:00-05:00</updated>
+<id>http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction</id>
+<category term="tools" />
+
+      <content type="html"><![CDATA[<p>I use <a href="http://qsapp.com">Quicksilver</a> all the time.  Despite its bugs,
 I prefer it to any of the other launcher type programs that exist.
 Nevermind the fact that it is more powerful than most of those other
 programs (Alfred, LaunchBar, etc).  The single feature that got me
@@ -53,17 +66,17 @@ keypress.  I have it set up to use the command key.</p>
 
 <p><img src="http://rawsyntax.com/images/single-modifier-activation.png" class ="center"/></p>
 
-<p>Other tools like Alfred won&#8217;t do this (though it does have the command
+<p>Other tools like Alfred won't do this (though it does have the command
 key double tap).</p>
 
 <h2>The Problem</h2>
 
 <p>Right around a year ago I started experiencing issues with single
-modifier activation not working occasionally.  At first I didn&#8217;t know
+modifier activation not working occasionally.  At first I didn't know
 if it was Quicksilver being buggy or what.  Eventually I noticed that
 if my cursor was inside a password field single modifier activation
 would not work.  This is apparently a restriction of the operating
-system, that doesn&#8217;t allow Quicksilver (or other programs like it) to
+system, that doesn't allow Quicksilver (or other programs like it) to
 listen to text entry on secure fields.</p>
 
 <p>I also noticed that when I was in Terminal.app single modifier
@@ -73,7 +86,7 @@ the past (on 10.5 for example).  As a stopgap measure I started using command+sp
 <p>Using that new keybinding was annoying enough that I switched my
 terminal and started using iTerm2.app.  It did not have the same
 problem as Terminal.app oddly enough.  I finally figured out what
-Terminal.app&#8217;s problem was.</p>
+Terminal.app's problem was.</p>
 
 <p><img src="http://rawsyntax.com/images/secure-keyboard-entry.png" class ="center"/></p>
 
@@ -81,15 +94,22 @@ Terminal.app&#8217;s problem was.</p>
 a password field having the same single modifier activation problem as
 above.  Turning Secure Keyboard Entry off fixed the problem.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Measuring Slow Code]]></title>
-    <link href="http://rawsyntax.com/blog/measuring-slow-code/"/>
-    <updated>2012-09-02T15:59:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/measuring-slow-code</id>
-    <content type="html"><![CDATA[<p>Over the years I&#8217;ve found myself needing a quick way to measure some
-slow code.  Whether I&#8217;m looking at a 100 line function or a 10 line
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Measuring Slow Code]]></title>
+<link href="http://rawsyntax.com/blog/measuring-slow-code/"/>
+<updated>2012-09-02T15:59:00-04:00</updated>
+<id>http://rawsyntax.com/blog/measuring-slow-code</id>
+<category term="programming" /><category term="tools" />
+
+      <content type="html"><![CDATA[<p>Over the years I've found myself needing a quick way to measure some
+slow code.  Whether I'm looking at a 100 line function or a 10 line
 controller action, sometimes I just need some quick print statements
 to determine which part of the code is slow.</p>
 
@@ -97,7 +117,7 @@ to determine which part of the code is slow.</p>
 the code with <code>Time.now</code> statements printing out how many seconds each
 section took.  This approach is messy because it requires altering the
 code a good deal.  And at the end I was left comparing sections of the
-code to figure out which part was slower than all the other parts &#8211;
+code to figure out which part was slower than all the other parts --
 doing the math in my head.</p>
 
 <h2>Use Benchmark?</h2>
@@ -105,42 +125,33 @@ doing the math in my head.</p>
 <p>Ruby has a
 <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html">Benchmark</a>
 class built in.  I tried using it.  While it can be helpful in certain
-situations, if I&#8217;m measuring 5 sections of a function there&#8217;s an awful
+situations, if I'm measuring 5 sections of a function there's an awful
 lot of code rewriting that has to happen because of the Benchmark
 blocks messing with the scope of variables.  That was more work than
 it was worth.</p>
 
 <h2>Roll my Own</h2>
 
-<p>I&#8217;m hesitant to reinvent the wheel, but in this case I created a very
-simple gem to address my needs.  It&#8217;s called
+<p>I'm hesitant to reinvent the wheel, but in this case I created a very
+simple gem to address my needs.  It's called
 <a href="https://github.com/rawsyntax/code_timer">CodeTimer</a>.  To use it first
 you instantiate it:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span> <span class="o">=</span> <span class="no">CodeTimer</span><span class="o">.</span><span class="n">new</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span> <span class="o">=</span> <span class="no">CodeTimer</span><span class="o">.</span><span class="n">new</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Then you insert markers for each part that you want to measure:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part1&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1"># ... slow code here ...</span>
-</span><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part2&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1"># ...</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part1&quot;</span><span class="p">)</span>
+</div><div class='line'><span class="c1"># ... slow code here ...</span>
+</div><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part2&quot;</span><span class="p">)</span>
+</div><div class='line'><span class="c1"># ...</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>And a marker for stopping measuring:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>It returns a formatted string:</p>
 
@@ -151,31 +162,38 @@ Part3:   47% / 8s
 Part4:   11% / 2s
 </code></pre>
 
-<p>And it&#8217;s easy to see that Part3 is the slowest section.  Better start
+<p>And it's easy to see that Part3 is the slowest section.  Better start
 trying to speed up the code there.</p>
 
-<h2>What If This Doesn&#8217;t Work?</h2>
+<h2>What If This Doesn't Work?</h2>
 
-<p>This isn&#8217;t the solution for every slow code problem.  If this approach
-doesn&#8217;t yield meaningful results you will have to use a more serious
-tool.  However, I reach for this tool first because it&#8217;s the simplest
+<p>This isn't the solution for every slow code problem.  If this approach
+doesn't yield meaningful results you will have to use a more serious
+tool.  However, I reach for this tool first because it's the simplest
 thing that could possibly work.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Faster SSH Connections]]></title>
-    <link href="http://rawsyntax.com/blog/faster-ssh-connections/"/>
-    <updated>2012-07-11T12:34:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/faster-ssh-connections</id>
-    <content type="html"><![CDATA[<p>Certain servers I connect to on a regular basis are rather slow when
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Faster SSH Connections]]></title>
+<link href="http://rawsyntax.com/blog/faster-ssh-connections/"/>
+<updated>2012-07-11T12:34:00-04:00</updated>
+<id>http://rawsyntax.com/blog/faster-ssh-connections</id>
+<category term="tools" />
+
+      <content type="html"><![CDATA[<p>Certain servers I connect to on a regular basis are rather slow when
 connecting.  Here are some <code>~/.ssh/config</code> options to speed up ssh connections.</p>
 
 <p>I find this is useful for scripts that make multiple subsequent ssh
 connections.  Capistrano comes to mind as well as a couple of scripts
 I have that use scp.</p>
 
-<div><script src='https://gist.github.com/3091626.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/3091626.js'></script>
 <noscript><pre><code>Host *
     # don't try to authenticate with Kerberos
     GSSAPIAuthentication no
@@ -204,16 +222,23 @@ defeats the purpose of using master control sockets.  You can go into
 <p>Furthermore, this behavior can get quite confusing when setting up
 ssh-key authentication.  You may think you have it set up correctly
 because of lack of a password prompt, but in my case it was reusing
-the connection (which is why it didn&#8217;t prompt me).</p>
+the connection (which is why it didn't prompt me).</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Who Changed my File]]></title>
-    <link href="http://rawsyntax.com/blog/who-changed-my-file/"/>
-    <updated>2012-07-02T18:27:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/who-changed-my-file</id>
-    <content type="html"><![CDATA[<p>I was troubleshooting slow page loads on a server running rails
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Who Changed my File]]></title>
+<link href="http://rawsyntax.com/blog/who-changed-my-file/"/>
+<updated>2012-07-02T18:27:00-04:00</updated>
+<id>http://rawsyntax.com/blog/who-changed-my-file</id>
+<category term="programming" />
+
+      <content type="html"><![CDATA[<p>I was troubleshooting slow page loads on a server running rails
 recently.  I noticed that DNS was actually causing an occasional
 problem with pageloads.  For whatever reason my <code>/etc/resolv.conf</code>
 would get overwritten every once in a while with slow / unresponsive
@@ -221,12 +246,12 @@ DNS servers.  I had manually set them to <code>8.8.8.8</code> and <code>8.8.4.4<
 to my suprise the file had been changed.</p>
 
 <p>I started digging and checking the usual suspects that might alter
-that file (<code>dhclient</code>, <code>resolvconf</code> &#8230;).  I didn&#8217;t find the problem.
+that file (<code>dhclient</code>, <code>resolvconf</code> ...).  I didn't find the problem.
 This is where <code>auditd</code> comes in handy.  Its a daemon that can be setup
 to watch a file and log what program changed it.</p>
 
 <p>I installed <code>auditd</code> and set it up to watch <code>/etc/resolv.conf</code> and log
-any write or append actions (as I don&#8217;t care about who reads it):</p>
+any write or append actions (as I don't care about who reads it):</p>
 
 <p><code>auditctl -w /etc/resolv.conf -p wa -k resolvconf</code></p>
 
@@ -235,21 +260,28 @@ any write or append actions (as I don&#8217;t care about who reads it):</p>
 <p><code>ausearch -f /etc/resolv.conf</code></p>
 
 <p>It logs all kinds of info.  user id, command run, working directory.
-I&#8217;m blogging it here mostly so don&#8217;t forget about it.</p>
+I'm blogging it here mostly so don't forget about it.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Emacs 24.1 is Out]]></title>
-    <link href="http://rawsyntax.com/blog/emacs-24-dot-1-is-out/"/>
-    <updated>2012-06-11T16:55:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/emacs-24-dot-1-is-out</id>
-    <content type="html"><![CDATA[<p>Emacs 24.1 was
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Emacs 24.1 is Out]]></title>
+<link href="http://rawsyntax.com/blog/emacs-24-dot-1-is-out/"/>
+<updated>2012-06-11T16:55:00-04:00</updated>
+<id>http://rawsyntax.com/blog/emacs-24-dot-1-is-out</id>
+<category term="learn-emacs" />
+
+      <content type="html"><![CDATA[<p>Emacs 24.1 was
 <a href="http://lists.gnu.org/archive/html/emacs-devel/2012-06/msg00164.html">released</a>
 yesterday.</p>
 
-<p>Being the first release version of Emacs 24, I&#8217;d suggest trying it
-out.  I&#8217;ve been using Emacs 24 since the pretest version started
+<p>Being the first release version of Emacs 24, I'd suggest trying it
+out.  I've been using Emacs 24 since the pretest version started
 coming out, and even the recent pretests have been stable for me.</p>
 
 <!--more-->
@@ -259,16 +291,16 @@ coming out, and even the recent pretests have been stable for me.</p>
 
 <p>My favorite feature of Emacs 24 is the elisp package manager.  I find
 its an extremely convenient way to manage the packages you want your
-<code>~/.emacs.d</code> to utilize. It&#8217;s available via <code>M-x list-packages</code>.  The
+<code>~/.emacs.d</code> to utilize. It's available via <code>M-x list-packages</code>.  The
 canonical package manager is known as the
 <a href="http://tromey.com/elpa/">ELPA</a>, but there are other package
 managers, such as <a href="http://marmalade-repo.org/">marmalade</a> because the
-ELPA doesn&#8217;t include everything.</p>
+ELPA doesn't include everything.</p>
 
-<p>Getting the package manager setup is easy.  Here&#8217;s the minimal code
+<p>Getting the package manager setup is easy.  Here's the minimal code
 needed:</p>
 
-<div><script src='https://gist.github.com/2912673.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/2912673.js'></script>
 <noscript><pre><code>(require 'package)
 
 ;; optionally add the marmalade repo to list-packages
@@ -287,27 +319,34 @@ color-themes.</p>
 
 <p><img src="http://rawsyntax.com/images/customize-create-theme.jpg" class ="center"/></p>
 
-<p>There&#8217;s too much to cover in a blogpost, but here&#8217;s the entire
+<p>There's too much to cover in a blogpost, but here's the entire
 <a href="https://www.gnu.org/software/emacs/NEWS.24.1">NEWS file</a>, which you
 can also view inside emacs with  <code>M-x view-emacs-news</code>.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: Smex]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-smex/"/>
-    <updated>2012-06-06T12:24:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-smex</id>
-    <content type="html"><![CDATA[<p>Scroll down for code snippets and text.</p>
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Learn Emacs: Smex]]></title>
+<link href="http://rawsyntax.com/blog/learn-emacs-smex/"/>
+<updated>2012-06-06T12:24:00-04:00</updated>
+<id>http://rawsyntax.com/blog/learn-emacs-smex</id>
+<category term="learn-emacs" />
+
+      <content type="html"><![CDATA[<p>Scroll down for code snippets and text.</p>
 
 <div class="embed video YouTube"><iframe width="459" height="344" src="http://www.youtube.com/embed/18u_ieDpr1o?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
 
 
 <p>Smex is IDO style completion for M-x.  It is very customizable.  I
 recommend taking a look at the README for all the available options.
-Here&#8217;s the minimum setup required.</p>
+Here's the minimum setup required.</p>
 
-<div><script src='https://gist.github.com/2883010.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/2883010.js'></script>
 <noscript><pre><code>(require 'smex)
 (smex-initialize)
 
@@ -317,20 +356,27 @@ Here&#8217;s the minimum setup required.</p>
 (global-set-key (kbd &quot;C-c C-c M-x&quot;) 'execute-extended-command)</code></pre></noscript></div>
 
 
-<p>It&#8217;s available on the ELPA and the source is on github.</p>
+<p>It's available on the ELPA and the source is on github.</p>
 
 <p><a href="https://github.com/nonsequitur/smex/">Smex source on github</a><br />
 <a href="http://marmalade-repo.org/packages/smex">available on marmalade repo</a></p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: Editing Javascript]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-editing-javascript/"/>
-    <updated>2012-05-31T17:07:00-04:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-editing-javascript</id>
-    <content type="html"><![CDATA[<p>One of my favorite things about emacs is its javascript modes.  While
-there are a million options, I&#8217;m only going to talk about how I edit
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Learn Emacs: Editing Javascript]]></title>
+<link href="http://rawsyntax.com/blog/learn-emacs-editing-javascript/"/>
+<updated>2012-05-31T17:07:00-04:00</updated>
+<id>http://rawsyntax.com/blog/learn-emacs-editing-javascript</id>
+<category term="learn-emacs" />
+
+      <content type="html"><![CDATA[<p>One of my favorite things about emacs is its javascript modes.  While
+there are a million options, I'm only going to talk about how I edit
 javascript with emacs.</p>
 
 <!--more-->
@@ -340,7 +386,7 @@ javascript with emacs.</p>
 
 <p>I use <a href="http://code.google.com/p/js2-mode/">js2-mode</a>.  It provides
 syntax highlighting and underlines errors as you type.  This mode
-doesn&#8217;t come with emacs, it was built by Steve Yegge.  However it is
+doesn't come with emacs, it was built by Steve Yegge.  However it is
 installable through the ELPA.</p>
 
 <p>One problem I found with this mode is that it has some weird ideas
@@ -351,7 +397,7 @@ on fixing indentation in <code>js2-mode</code>.  Starting with that I then made 
 own modifications and have a <code>js2-mode</code> that works exactly the way I
 want it (code below).</p>
 
-<div><script src='https://gist.github.com/2846385.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/2846385.js'></script>
 <noscript><pre><code>(add-to-list 'auto-mode-alist '(&quot;\\.js$&quot; . js2-mode))
 (add-to-list 'auto-mode-alist '(&quot;\\.json$&quot; . js2-mode))
 
@@ -443,8 +489,8 @@ want it (code below).</p>
 
 <h2>Editing Javascript in HTML</h2>
 
-<p>In my experience I&#8217;m not always editing pure <code>.js</code> files.  Sometimes
-I&#8217;m editing javascript inside a <code>.haml</code>, <code>.erb</code>, or <code>.html</code> file.  The
+<p>In my experience I'm not always editing pure <code>.js</code> files.  Sometimes
+I'm editing javascript inside a <code>.haml</code>, <code>.erb</code>, or <code>.html</code> file.  The
 <code>haml-mode</code> I am using is supposed to have easy <code>js-mode</code> integration.
 However I tried to integrate <code>js2-mode</code>, and it was not simple.
 Furthermore, the built-in javascript highlighting seems to break on a
@@ -455,12 +501,12 @@ to quickly create a javascript scratch buffer.</p>
 <h2>Javascript Scratch Buffer</h2>
 
 <p>I use this to write javascript and copy / paste between buffers until
-I&#8217;m happy with the code.  It&#8217;s a very simple solution to the problem.
-It creates a buffer named scratch-js with <code>js2-mode</code>.  It&#8217;s not unlike
-the elisp scratch buffer that comes up on emacs start up.  I don&#8217;t
+I'm happy with the code.  It's a very simple solution to the problem.
+It creates a buffer named scratch-js with <code>js2-mode</code>.  It's not unlike
+the elisp scratch buffer that comes up on emacs start up.  I don't
 write javascript all the time, so this solution works pretty well for me.</p>
 
-<div><script src='https://gist.github.com/2846414.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/2846414.js'></script>
 <noscript><pre><code>(defun scratch-js ()
   &quot;Create or switch to a javascript mode scratch buffer&quot;
   (interactive)
@@ -476,14 +522,21 @@ write javascript all the time, so this solution works pretty well for me.</p>
 <code>js2-mode</code> integrated tightly with <code>haml-mode</code>.  If anyone else has
 actually done this, I would love to see the code.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Reload your app with Guard and Pow]]></title>
-    <link href="http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow/"/>
-    <updated>2012-02-22T15:06:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow</id>
-    <content type="html"><![CDATA[<p>About 6 months ago I started using <a href="http://pow.cx/">Pow</a> for serving
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Reload your app with Guard and Pow]]></title>
+<link href="http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow/"/>
+<updated>2012-02-22T15:06:00-05:00</updated>
+<id>http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow</id>
+<category term="programming" /><category term="ruby" />
+
+      <content type="html"><![CDATA[<p>About 6 months ago I started using <a href="http://pow.cx/">Pow</a> for serving
 my apps in development mode.  It loads any RACK compatible app, and
 allows you to access your projects via the <code>.dev</code> and named symlinks
 stored in <code>~/.pow</code> (for example <code>http://my_project.dev</code>).  No need to
@@ -492,10 +545,10 @@ specify a port either!</p>
 <!--more-->
 
 
-<p>Very shortly afterwards I ran into a problem.  When I&#8217;m working on a
+<p>Very shortly afterwards I ran into a problem.  When I'm working on a
 Sinatra app, normally I use the
 <a href="https://github.com/rtomayko/shotgun">shotgun</a> gem for automatic
-reloading. I can&#8217;t do that when I&#8217;m running Pow.  So I dug into Pow&#8217;s
+reloading. I can't do that when I'm running Pow.  So I dug into Pow's
 documentation.</p>
 
 <p>Pow supports passenger-style reloads via these commands:</p>
@@ -504,7 +557,7 @@ documentation.</p>
 touch tmp/always_restart.txt
 </code></pre>
 
-<p>That&#8217;s somewhat helpful.  However, remembering to run <code>touch tmp/restart.txt</code> every time I make a change is a pain.  Creating <code>tmp/always_restart.txt</code> reloads every time, but makes the app painfully slow.  I don&#8217;t need a reload for every css / image / js asset that is fetched.</p>
+<p>That's somewhat helpful.  However, remembering to run <code>touch tmp/restart.txt</code> every time I make a change is a pain.  Creating <code>tmp/always_restart.txt</code> reloads every time, but makes the app painfully slow.  I don't need a reload for every css / image / js asset that is fetched.</p>
 
 <p><a href="https://github.com/guard/guard">Guard</a> to the rescue!  Guard is a
 simple tool.  Watch files; run commands on change.  There is already a
@@ -515,7 +568,7 @@ simple tool.  Watch files; run commands on change.  There is already a
 telling it which files to watch.  Your specific files may differ, but
 this works for my needs.</p>
 
-<div><script src='https://gist.github.com/1886987.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/1886987.js'></script>
 <noscript><pre><code>guard 'pow' do
   watch('.rvmrc')
   watch('Gemfile')
@@ -528,22 +581,29 @@ end
 
 <p>Finally, run <code>bundle exec guard</code>.  It will print when it restarts pow.
 I like this approach because it can be adapted to any RACK compatible
-app by changing which files get watched.  Also, it doesn&#8217;t require you
-to change any application specific code; It&#8217;s only necessary to add
+app by changing which files get watched.  Also, it doesn't require you
+to change any application specific code; It's only necessary to add
 guard to the Gemfile.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: How to Break Bad Habits]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits/"/>
-    <updated>2012-02-14T10:10:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits</id>
-    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/arrow-keys.jpg" class ="center"/></p>
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Learn Emacs: How to Break Bad Habits]]></title>
+<link href="http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits/"/>
+<updated>2012-02-14T10:10:00-05:00</updated>
+<id>http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits</id>
+<category term="learn-emacs" />
+
+      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/arrow-keys.jpg" class ="center"/></p>
 
 <p>The best thing to do is never to form bad habits in the first place.
-However if you didn&#8217;t have any bad habits, you wouldn&#8217;t be reading
-this blog post.  Here&#8217;s what has worked for me.</p>
+However if you didn't have any bad habits, you wouldn't be reading
+this blog post.  Here's what has worked for me.</p>
 
 <!--more-->
 
@@ -551,15 +611,15 @@ this blog post.  Here&#8217;s what has worked for me.</p>
 <h3>Make a Note of It</h3>
 
 <p>One of my bad habits was using the arrow keys for navigation in emacs.
-It&#8217;s inefficient.  Emacs already has keybindings for next / previous
-and back / forward &#8211; and I don&#8217;t have to pick up my hands for those.
+It's inefficient.  Emacs already has keybindings for next / previous
+and back / forward -- and I don't have to pick up my hands for those.
 The first thing I did was start keeping a short list of bad emacs
 habits.</p>
 
-<p>Don&#8217;t think about fixing every bad habit immediately.  Just note them
-and move on with real work.  These also don&#8217;t have to be bad habits
+<p>Don't think about fixing every bad habit immediately.  Just note them
+and move on with real work.  These also don't have to be bad habits
 per say.  They can be inefficiencies as well.  Is there a better way to
-do that thing you do all the time, but you&#8217;ve been putting off putting
+do that thing you do all the time, but you've been putting off putting
 in the time to build it?</p>
 
 <h3>Fix One Bad Habit</h3>
@@ -570,7 +630,7 @@ that I decided to stop on <code>Fri Sep 16 10:53:49 2011 -0400</code>.  Work on
 fixing this one habit until its completely fixed.  My fix was pretty
 simple.</p>
 
-<div><script src='https://gist.github.com/1794878.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/1794878.js'></script>
 <noscript><pre><code>commit 11dce2502c111ff9ae73f95dde89f27d0f84416a
 Author: Eric Himmelreich &lt;eric@rawsyntax.com&gt;
 Date:   Fri Sep 16 10:53:49 2011 -0400
@@ -598,8 +658,8 @@ index 9915c7e..bb9d4fc 100644
 
 
 <p>Unbind the arrow keys and it becomes pretty tough to use them.  I
-don&#8217;t use the arrow keys any more.  Maybe your fix is more complicated.
-Maybe it&#8217;s writing an emacs macro for something you do frequently.</p>
+don't use the arrow keys any more.  Maybe your fix is more complicated.
+Maybe it's writing an emacs macro for something you do frequently.</p>
 
 <h3>Schedule Time for This</h3>
 
@@ -610,7 +670,7 @@ or an hour here and there.  Make that your emacs improvement time.</p>
 <p>Almost a year ago I found myself with an ever growing emacs problem.
 My config files had grown out of control.  They were a huge mess and
 impossible to manage.  Even though I was using version control my
-config still had lots of local changes and files that weren&#8217;t tracked
+config still had lots of local changes and files that weren't tracked
 at all.  And my github repo was never up to date. I was in need of a
 fresh emacs config.  I needed organization and simplicity.</p>
 
@@ -622,24 +682,31 @@ the marmalade-repo (for emacs-lisp packages).  I put in an n hour here
 and there over the course of a few months.  In mid September it was good
 enough to use as my full-time working config.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Learn Emacs: Swap Windows]]></title>
-    <link href="http://rawsyntax.com/blog/learn-emacs-swap-windows/"/>
-    <updated>2012-01-26T10:33:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/learn-emacs-swap-windows</id>
-    <content type="html"><![CDATA[<p>When I use Emacs in GUI mode, I set it up to have two 80 column
-windows side by side.  It&#8217;s extremely convention when you need to look
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Learn Emacs: Swap Windows]]></title>
+<link href="http://rawsyntax.com/blog/learn-emacs-swap-windows/"/>
+<updated>2012-01-26T10:33:00-05:00</updated>
+<id>http://rawsyntax.com/blog/learn-emacs-swap-windows</id>
+<category term="learn-emacs" />
+
+      <content type="html"><![CDATA[<p>When I use Emacs in GUI mode, I set it up to have two 80 column
+windows side by side.  It's extremely convention when you need to look
 at one section of the code while writing another.  For instance, you
 can have the spec file side by side with the code when doing TDD.
 Sometimes I want to swap the windows.  This kind of functionality does
 not come built in with emacs.  I found the <code>swap-windows</code> function
-that I use in Steve Yegge&#8217;s
+that I use in Steve Yegge's
 <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">.emacs</a>
 file.</p>
 
-<div><script src='https://gist.github.com/1683375.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/1683375.js'></script>
 <noscript><pre><code>(defun swap-windows ()
  &quot;If you have 2 windows, it swaps them.&quot;
  (interactive)
@@ -660,18 +727,25 @@ file.</p>
 
 
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Troubleshooting your Emacs Config]]></title>
-    <link href="http://rawsyntax.com/blog/troubleshooting-your-emacs-config/"/>
-    <updated>2012-01-22T22:26:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/troubleshooting-your-emacs-config</id>
-    <content type="html"><![CDATA[<p>Up to this point my <a href="http://rawsyntax.com/blog/categories/learn-emacs">Learn Emacs</a>
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Troubleshooting your Emacs Config]]></title>
+<link href="http://rawsyntax.com/blog/troubleshooting-your-emacs-config/"/>
+<updated>2012-01-22T22:26:00-05:00</updated>
+<id>http://rawsyntax.com/blog/troubleshooting-your-emacs-config</id>
+<category term="learn-emacs" /><category term="programming" />
+
+      <content type="html"><![CDATA[<p>Up to this point my <a href="http://rawsyntax.com/blog/categories/learn-emacs">Learn Emacs</a>
 series has been all about how to do cool stuff in emacs.  One of my
 personal favorites is <a href="http://rawsyntax.com/blog/learn-emacs-align-regexp/">align-regexp</a>.
 A while back that stopped working for me.  Now I get an error: <code>Wrong type
-argument: markerp, 0</code>.  Emacs doesn&#8217;t always do what I mean.</p>
+argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
 
 <!--more-->
 
@@ -699,11 +773,11 @@ what version you have.  In my case it was</p>
 
 <p>As I get my emacs builds from
 <a href="http://emacsformacosx.com/">EmacsForMacOSX</a> or <code>brew install</code> them
-myself.  At this point I&#8217;m fairly certain I&#8217;m getting the error as a
+myself.  At this point I'm fairly certain I'm getting the error as a
 result of running a nightly build.  A quick google leads me to
 <a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2011-12/msg00266.html">bug#10249: 24.0.92</a>.
 I installed a pretest version, and align-regexp works fine like it
-used to..  I would prefer to be running the stable version, but I&#8217;m using
+used to..  I would prefer to be running the stable version, but I'm using
 <a href="https://github.com/technomancy/emacs-starter-kit">emacs-starter-kit</a>
 for my config, which requires emacs 24.</p>
 
@@ -712,22 +786,29 @@ for my config, which requires emacs 24.</p>
 <p>When functionality like this breaks it is really awesome to have an
 emacs configuration that is under version control.  I can walk
 backwards through any recent changes to find what is causing breakage.
-So if your config isn&#8217;t already versioned, version it right now.</p>
+So if your config isn't already versioned, version it right now.</p>
 
-<p>PS: I&#8217;m interested to know any emacs topics you&#8217;d like to see a
-blogpost on.  I haven&#8217;t been hacking my emacs config much lately, so
-I&#8217;m short on ideas for emacs posts.</p>
+<p>PS: I'm interested to know any emacs topics you'd like to see a
+blogpost on.  I haven't been hacking my emacs config much lately, so
+I'm short on ideas for emacs posts.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Stop Programming]]></title>
-    <link href="http://rawsyntax.com/blog/stop-programming/"/>
-    <updated>2012-01-04T15:25:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/stop-programming</id>
-    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/stop-programming.jpg" alt="Stop Programming" class="center"/></p>
+    <entry>
+      
 
-<p>I&#8217;ve got some ideas on how you can improve your programming by not
+
+
+
+<title type="html"><![CDATA[Stop Programming]]></title>
+<link href="http://rawsyntax.com/blog/stop-programming/"/>
+<updated>2012-01-04T15:25:00-05:00</updated>
+<id>http://rawsyntax.com/blog/stop-programming</id>
+<category term="rants" />
+
+      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/stop-programming.jpg" alt="Stop Programming" class="center"/></p>
+
+<p>I've got some ideas on how you can improve your programming by not
 programming.  Try something new this year.</p>
 
 <!--more-->
@@ -735,41 +816,41 @@ programming.  Try something new this year.</p>
 
 <h3>Simplifying Too Much</h3>
 
-<p>About 4 years ago, I fell in love with minimalism and tried to get rid of most of my possessions.  I went as far as selling my saxophone, (3) bass guitars,  and bass rig.  This meant not playing music any more.  At the time I decided that playing music was nonessential since it did not relate to programming and didn&#8217;t make any money.  I also sold my bicycle (which meant no more cycling).</p>
+<p>About 4 years ago, I fell in love with minimalism and tried to get rid of most of my possessions.  I went as far as selling my saxophone, (3) bass guitars,  and bass rig.  This meant not playing music any more.  At the time I decided that playing music was nonessential since it did not relate to programming and didn't make any money.  I also sold my bicycle (which meant no more cycling).</p>
 
 <p>Pretty soon after that I was just a guy who programmed at work and
 worked on programming projects at home.  In other words, not very interesting.</p>
 
 <p>The great secret of minimalism (taken to an extreme), is that if you
 take away everything you are left with nothing.  In my case I realized
-I didn&#8217;t do anything for fun anymore.  I&#8217;ve since bought a bass,
+I didn't do anything for fun anymore.  I've since bought a bass,
 bass rig, and bicycle and started teaching myself classical / flamenco guitar.</p>
 
 <h3>Be a Beginner Again</h3>
 
-<p>I think there&#8217;s a problem lurking in many programming communities
+<p>I think there's a problem lurking in many programming communities
 (forums, IRC, mailing lists).  Every so often a beginner comes a long
-and asks a basic question in the wrong way.  He doesn&#8217;t follow the
+and asks a basic question in the wrong way.  He doesn't follow the
 rules of the community.  So a long-standing member of the community
-replies &#8220;use the search&#8221;, &#8220;read the FAQ&#8221;,  or a similar useless
+replies "use the search", "read the FAQ",  or a similar useless
 answer.  Go and search any forum you will find useless results like
 this.  This is not only unfriendly, but can pollute search results for
 others that visit later with the same questions, which eventually
-renders the &#8220;use the search&#8221; solution useless.</p>
+renders the "use the search" solution useless.</p>
 
-<p>While I agree that a community&#8217;s rules of etiquette should be
+<p>While I agree that a community's rules of etiquette should be
 followed, I think some members of these online communities have
-forgotten what it&#8217;s like to be a beginner.  Often newbie may not
+forgotten what it's like to be a beginner.  Often newbie may not
 know what to search or need some extra explanation regarding a common
 problem. I found this to be the case when starting out with <a href="http://rawsyntax.com/blog/categories/learn-emacs/">emacs</a>,
 wherein reading the manual and using the help system are actually part
-of emacs itself and can be confusing if you don&#8217;t even know how to use
+of emacs itself and can be confusing if you don't even know how to use
 the thing.</p>
 
-<p>That&#8217;s why I recommend trying something other than programming.  Go
+<p>That's why I recommend trying something other than programming.  Go
 for something unrelated.  Something where you will be a complete
 beginner.  Try learning a musical instrument, building a bike,
-woodworking, etc&#8230;  Next time you&#8217;re helping out a beginner you may
+woodworking, etc...  Next time you're helping out a beginner you may
 find yourself being more helpful and patient.</p>
 
 <h3>Expand Your Mind</h3>
@@ -777,21 +858,21 @@ find yourself being more helpful and patient.</p>
 <p>The other reason to try something new is that it may eventually lead
 you to approach programming problems in a different or unconvential
 way.  Much of what we do is done by way of analogy.  OOP works by
-making a model that approximates real situations.  Eventually you&#8217;ll
+making a model that approximates real situations.  Eventually you'll
 run into a real programming problem that can be solved using methods
 from the real world.</p>
 
 <p>Furthermore, programming is creative work.  It can be helpful to look
 elsewhere for inspiration.  Often I find myself thinking of
 programming as an art, as self-expression (albeit with many real world
-constraints; self-expression won&#8217;t necessarily create useful
+constraints; self-expression won't necessarily create useful
 programs).  To get a better idea of what I mean check out <a
 href="http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071">The Tao of Programming</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=0931137071" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />.  Though it is written in a somewhat joking
 manner, there is truth in it.</p>
 
 <p>My favorite section is <strong>2.4</strong>:</p>
 
-<blockquote><p>A novice asked the Master: &#8220;Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?&#8221;</p><p>The Master replies: &#8220;That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.&#8221;</p><footer><strong>The Tao of Programming</strong> <cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote>
+<blockquote><p>A novice asked the Master: ``Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?''</p><p>The Master replies: ``That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.''</p><footer><strong>The Tao of Programming</strong> <cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote>
 
 
 <p>Though this style of programming is totally impractical for designing
@@ -801,27 +882,34 @@ program that had the intuitive cohesion of a poem?</p>
 
 <h3>Now Go Do Something Else</h3>
 
-<p>That&#8217;s it.  Try something different and new this year.</p>
+<p>That's it.  Try something different and new this year.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Building a Gaming PC]]></title>
-    <link href="http://rawsyntax.com/blog/building-a-gaming-pc/"/>
-    <updated>2011-12-21T10:34:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/building-a-gaming-pc</id>
-    <content type="html"><![CDATA[<p>I recently built a gaming pc from parts, as my laptop was struggling
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Building a Gaming PC]]></title>
+<link href="http://rawsyntax.com/blog/building-a-gaming-pc/"/>
+<updated>2011-12-21T10:34:00-05:00</updated>
+<id>http://rawsyntax.com/blog/building-a-gaming-pc</id>
+<category term="gaming" />
+
+      <content type="html"><![CDATA[<p>I recently built a gaming pc from parts, as my laptop was struggling
 to run the latest games even on very low settings.  I did some
 googling and came to the obvious conclusion that building a desktop
 for gaming is way cheaper than trying to buy a new laptop, and the
 desktop gets way better performance.  In fact, this makes it so that I
-can stretch my laptop for a few more years, as it&#8217;s only used for web
-programming at the moment (and it&#8217;s plenty fast due to its SSD).</p>
+can stretch my laptop for a few more years, as it's only used for web
+programming at the moment (and it's plenty fast due to its SSD).</p>
 
 <!--more-->
 
 
-<p>At the end of this article I&#8217;ll be listing all the parts I used for my build.</p>
+<p>At the end of this article I'll be listing all the parts I used for my build.</p>
 
 <h3>Before Building a PC</h3>
 
@@ -837,13 +925,13 @@ for my PC build.</p>
 <a href="http://www.ultimatebootcd.com/">Ultimate Boot CD</a>.  This will come in
 handy if you have problems getting your system to boot or problems
 with it crashing.  It has diagnostic tools for CPU, memory, hard
-drive, etc&#8230;  I used it when
+drive, etc...  I used it when
 <a href="http://rawsyntax.com/blog/verify-your-assumptions/">troubleshooting my build</a> and I found
 that it was just a bad memory stick causing all my issues.</p>
 
 <h3>Plan your build</h3>
 
-<p>Next you&#8217;ll want to spec out exactly what parts you&#8217;ll be using and
+<p>Next you'll want to spec out exactly what parts you'll be using and
 ensure they are all compatible with each other.  A good site for
 finding parts and getting the best price is
 <a href="http://pcpartpicker.com/">PCPartPicker</a>.  If you need help deciding
@@ -872,7 +960,7 @@ troubleshooting: read more about
 
 <p><a href="http://www.amazon.com/gp/product/B002C9K3UO/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B002C9K3UO">LG Electronics GH22NS50 22X SATA Super Multi DVD+/-RW Internal Drive</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B002C9K3UO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 
-<p>So far I&#8217;ve only used it for running the UltimateBootCD.</p>
+<p>So far I've only used it for running the UltimateBootCD.</p>
 
 <p><a href="http://www.amazon.com/gp/product/B000H6AY6M/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B000H6AY6M"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B000H6AY6M&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B000H6AY6M" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 
@@ -890,8 +978,8 @@ troubleshooting: read more about
 
 <p><a href="http://www.amazon.com/gp/product/B004EBUXHQ/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B004EBUXHQ">Intel Core i5-2500K Processor</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B004EBUXHQ" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 
-<p>The important part here is that it&#8217;s the 2500k edition, which will
-allow overclocking if you&#8217;re into that.</p>
+<p>The important part here is that it's the 2500k edition, which will
+allow overclocking if you're into that.</p>
 
 <p><a href="http://www.amazon.com/gp/product/B004B1BAQ2/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B004B1BAQ2"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B004B1BAQ2&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B004B1BAQ2" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 
@@ -905,7 +993,7 @@ supports crossfire or SLI for your graphics card).</p>
 <p><a href="http://www.amazon.com/gp/product/B0055Y66A4/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B0055Y66A4">Sapphire DIRT 3 EDITION Radeon HD 6950 2 GB DDR5</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B0055Y66A4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 
 <p>This graphics card was said to be unlockable to a 6970, but my
-particular card was not.  However, it&#8217;s still a very powerful card.</p>
+particular card was not.  However, it's still a very powerful card.</p>
 
 <p><a href="http://www.newegg.com/Product/Product.aspx?Item=N82E16813157271">ASRock Z68 Gen3 Extreme3</a></p>
 
@@ -917,7 +1005,7 @@ particular card was not.  However, it&#8217;s still a very powerful card.</p>
 
 <p>This case has great cooling, and is relatively quiet in my opinion.
 If you need quieter, I would replace the hard drive fan with a quieter
-one.  It&#8217;s the loudest fan on this thing.</p>
+one.  It's the loudest fan on this thing.</p>
 
 <p><a href="http://www.amazon.com/gp/product/B005CT56R6/ref=as_li_qf_sp_asin_il?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B005CT56R6"><img border="0" src="http://ws.assoc-amazon.com/widgets/q?_encoding=UTF8&Format=_SL160_&ASIN=B005CT56R6&MarketPlace=US&ID=AsinImage&WS=1&tag=rawsyntax-20&ServiceVersion=20070822" ></a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B005CT56R6" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 
@@ -926,8 +1014,8 @@ one.  It&#8217;s the loudest fan on this thing.</p>
 <p>With hard drive prices the way they are now I wanted to save some
 money and 500GB is plenty of space for game files.  Some people
 recommend a SSD for gaming boxes, and while the performance will
-certainly be better, I haven&#8217;t noticed load times being much longer
-with this disk.  It&#8217;s fast enough.</p>
+certainly be better, I haven't noticed load times being much longer
+with this disk.  It's fast enough.</p>
 
 <h3>Parts I Had Already</h3>
 
@@ -936,8 +1024,8 @@ with this disk.  It&#8217;s fast enough.</p>
 <p><a href="http://www.amazon.com/gp/product/B00302DNZ4/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=B00302DNZ4">Dell UltraSharp U2410 24-inch Widescreen LCD High Performance Monitor with HDMI, DVI, DisplayPort and HDCP</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=B00302DNZ4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 
 <p>Though I already had this monitor at the time, as I use it for work,
-I&#8217;m listing it here because I highly recommend it.  The picture is
-great, it&#8217;s height-adjustable, rotatable, and can be mounted on a wall or
+I'm listing it here because I highly recommend it.  The picture is
+great, it's height-adjustable, rotatable, and can be mounted on a wall or
 monitor arm.  If the new price is too much for you, you can always
 find a refurbished one for about $300.  Most importantly the
 resolution is 1920x1200 not 1920x1080 like most monitors these days.</p>
@@ -952,7 +1040,7 @@ annoying thing about it is that the manufacturer switched the left and
 right click.  So out of the box left-click and right-click are
 switched.  Luckily this can be adjusted with the drivers.  There are
 surprisingly few options for left-handed gamers, and the symmetrical
-mice don&#8217;t do it for me.</p>
+mice don't do it for me.</p>
 
 <h3>Build Results</h3>
 
@@ -961,20 +1049,27 @@ on Ultra High settings, and has some room for overclocking or adding a
 second video card.  It is also said to support Ivy Bridge CPUs (when
 they come out).</p>
 
-<p>Interestingly, building this way allows me to buy a cheaper laptop next time I replace it (I don&#8217;t have to care about the graphics card in my laptop).  So overall it&#8217;ll work out cheaper, and I end up with a much better gaming experience.</p>
+<p>Interestingly, building this way allows me to buy a cheaper laptop next time I replace it (I don't have to care about the graphics card in my laptop).  So overall it'll work out cheaper, and I end up with a much better gaming experience.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Sometimes Side Projects Fail]]></title>
-    <link href="http://rawsyntax.com/blog/sometimes-side-projects-fail/"/>
-    <updated>2011-12-09T11:44:56-05:00</updated>
-    <id>http://rawsyntax.com/blog/sometimes-side-projects-fail</id>
-    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/side-projects-fail.jpg" alt="Sometimes Side Projects Fail" class="center"/></p>
+    <entry>
+      
 
-<p>I&#8217;ve worked on a few side projects over the years.  Sometimes they&#8217;ve
+
+
+
+<title type="html"><![CDATA[Sometimes Side Projects Fail]]></title>
+<link href="http://rawsyntax.com/blog/sometimes-side-projects-fail/"/>
+<updated>2011-12-09T11:44:56-05:00</updated>
+<id>http://rawsyntax.com/blog/sometimes-side-projects-fail</id>
+<category term="programming" /><category term="rants" />
+
+      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/side-projects-fail.jpg" alt="Sometimes Side Projects Fail" class="center"/></p>
+
+<p>I've worked on a few side projects over the years.  Sometimes they've
 turned out well, and other times I stopped working on them.  How do
-you know when it&#8217;s time to throw in the towel and when it&#8217;s time to
+you know when it's time to throw in the towel and when it's time to
 push through?</p>
 
 <!--more-->
@@ -985,14 +1080,14 @@ system.  It was supposed to solve the problem of splitting bills
 between friends.  More specifically, splitting regularly occuring or
 one time expenses between roommates.  Rather than worrying about
 having cash, or writing a check and waiting for it to cash, we built a
-system which piggybacked off of paypal&#8217;s API to send bill and payment
+system which piggybacked off of paypal's API to send bill and payment
 notifications via email, which would generate a web checkout page
 where the debt could be paid online through paypal.</p>
 
 <p>See how long the previous sentence is?  Sounds too complicated already
-and I&#8217;m the one who built it. The eventual idea was that we would wrap
-this in a native client wrapper, so that if you&#8217;re out to dinner with
-your friends you don&#8217;t have to worry about splitting the bill.  One
+and I'm the one who built it. The eventual idea was that we would wrap
+this in a native client wrapper, so that if you're out to dinner with
+your friends you don't have to worry about splitting the bill.  One
 person will pick up the entire bill, split it and send bill
 notifications via email to all the other people.  Then the others pull
 out their phones and enter their paypal accounts and send payment for
@@ -1003,29 +1098,29 @@ their portion of the bill.  The bill can be settled on the spot.</p>
 <p>In a perfect world every side-project would be a hit that turns into
 a business that generates lots of profit for little work.  In practice
 this actually can be quite difficult to pull off.  Furthermore
-sometimes those big hits aren&#8217;t actually big hits when they start.  It
+sometimes those big hits aren't actually big hits when they start.  It
 make take a couple of years of work to pull.  But how do you know if
 your idea is taking a couple of years to get started or simply not
 good at all?  Nobody wants to be a quitter, and worse nobody wants to
-quit a good idea that ends up making someone else rich.  But there&#8217;s
+quit a good idea that ends up making someone else rich.  But there's
 also more to life than money.</p>
 
 <p>After working on this idea for a few hours a week for a couple months
-we eventually decided to scrap it.  There really didn&#8217;t seem to be a simple
+we eventually decided to scrap it.  There really didn't seem to be a simple
 way to make money with this idea.  It may have been a useful service,
 but there are already similar free services out there for this.  Over
-the years, I&#8217;ve grown to have an affinity for ideas that have
+the years, I've grown to have an affinity for ideas that have
 monetization strategies that are simple to understand.  In my
 experience, the more complicated it is, the less the likelyhood of
 actually making money.</p>
 
-<p>Most importantly I wasn&#8217;t particularly passionate about the idea, and
-I didn&#8217;t like the idea of piggybacking off of Paypal because of their
+<p>Most importantly I wasn't particularly passionate about the idea, and
+I didn't like the idea of piggybacking off of Paypal because of their
 horrible customer service (I recently had my funds availability
-delayed for 3 weeks with no explanation, and I&#8217;ve had an account for 7
+delayed for 3 weeks with no explanation, and I've had an account for 7
 years and an ebay account with perfect feedback).  But using another
 online payment system made the idea less useful because other peer to
-peer payment systems simply aren&#8217;t as ubiquitous.</p>
+peer payment systems simply aren't as ubiquitous.</p>
 
 <h3>Benefits of Side Projects</h3>
 
@@ -1040,22 +1135,29 @@ one to do everything (or at least hire the contractors that will do
 the part outside your expertise, which is a skill in itself).</p>
 
 <p>The most important thing is to simplify your idea.  Then build the
-simplest thing that could possibly work.  Then keep at it and don&#8217;t be
-afraid to re-evaluate your idea.  It doesn&#8217;t make you a quitter to throw out a project that no longer seems reasonable.</p>
+simplest thing that could possibly work.  Then keep at it and don't be
+afraid to re-evaluate your idea.  It doesn't make you a quitter to throw out a project that no longer seems reasonable.</p>
 
 <p>Check out an older post of mine about <a href="http://rawsyntax.com/blog/importance-of-side-projects/">side projects</a>.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Verify your Assumptions]]></title>
-    <link href="http://rawsyntax.com/blog/verify-your-assumptions/"/>
-    <updated>2011-12-07T09:41:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/verify-your-assumptions</id>
-    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/ram.jpg" class ="center"/></p>
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Verify your Assumptions]]></title>
+<link href="http://rawsyntax.com/blog/verify-your-assumptions/"/>
+<updated>2011-12-07T09:41:00-05:00</updated>
+<id>http://rawsyntax.com/blog/verify-your-assumptions</id>
+
+
+      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/ram.jpg" class ="center"/></p>
 
 <p>Always verify your assumptions.  It will save you time and headache.
-I&#8217;ll explain now.</p>
+I'll explain now.</p>
 
 <!--more-->
 
@@ -1063,9 +1165,9 @@ I&#8217;ll explain now.</p>
 <h3>Building a PC</h3>
 
 <p>I recently built a PC from parts I bought online.  It had been 5 years
-since I&#8217;ve built a PC at the time so I&#8217;d forgotten my good habits.  I
-put everything together: RAM, CPU, HDD, GPU, motherboard etc&#8230;  and
-it booted up and POST&#8217;ed no problems.  I thought I was good to go at
+since I've built a PC at the time so I'd forgotten my good habits.  I
+put everything together: RAM, CPU, HDD, GPU, motherboard etc...  and
+it booted up and POST'ed no problems.  I thought I was good to go at
 this point.  I managed to install windows and a bunch of drivers, but
 then I started getting random freeze ups.</p>
 
@@ -1079,15 +1181,15 @@ for about 10 minutes, shortly thereafter the box would freeze up.</p>
 
 <p>It was at this point that I decided to get a boot CD with some
 troubleshooting utilities.  I chose
-<a href="http://www.ultimatebootcd.com/">Ultimate Boot CD</a> because it&#8217;s free
+<a href="http://www.ultimatebootcd.com/">Ultimate Boot CD</a> because it's free
 and has almost everything you could need for diagnostics.</p>
 
 <h3>Testing</h3>
 
 <p>For whatever reason, when I built the PC I did it wrong.  I skipped
-the testing phase.  I didn&#8217;t test first.  So now I was in a situation
+the testing phase.  I didn't test first.  So now I was in a situation
 where I was digging through everything to get to the root of the
-problem (and hopefully there&#8217;s only one!).  First I tested the HDD
+problem (and hopefully there's only one!).  First I tested the HDD
 using HDAT2.  Many hours later, it came back clean.  Then I tested
 using Memtest86.  Within a couple of minutes it detected an error.  So
 I pulled the 2 RAM sticks, and tested each individually, and
@@ -1098,23 +1200,30 @@ determined that I had 1 bad stick of RAM.</p>
 <p>If I had built my system right: plug in as little as possible to get
 it to boot and run diagnostics before installing software, I would
 have found my problem much faster and saved hours of time.  My problem
-here was that I assumed my RAM was good.  So even when you&#8217;re not
-programming it&#8217;s important to verify your assumptions and don&#8217;t forget to test.</p>
+here was that I assumed my RAM was good.  So even when you're not
+programming it's important to verify your assumptions and don't forget to test.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Purchasing Electronic Media]]></title>
-    <link href="http://rawsyntax.com/blog/purchasing-electronic-media/"/>
-    <updated>2011-11-30T19:11:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/purchasing-electronic-media</id>
-    <content type="html"><![CDATA[<pre><code>&lt;rant&gt;
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Purchasing Electronic Media]]></title>
+<link href="http://rawsyntax.com/blog/purchasing-electronic-media/"/>
+<updated>2011-11-30T19:11:00-05:00</updated>
+<id>http://rawsyntax.com/blog/purchasing-electronic-media</id>
+<category term="rants" />
+
+      <content type="html"><![CDATA[<pre><code>&lt;rant&gt;
 </code></pre>
 
 <p><img src="http://rawsyntax.com/images/20-bucks.jpg" class="center" alt="$20" /></p>
 
 <p>Recently I read
-<a href="http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense">Derek Webber&#8217;s post about Spotify</a>,
+<a href="http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense">Derek Webber's post about Spotify</a>,
 in which he says:</p>
 
 <blockquote><p>I am paid $0.00029 per stream of a song on Spotify, and even this amount depends on whether the song is being streamed by a paid user or someone using the service for free.  This means it will take upwards of 3,500 streams of a single song on Spotify to earn $1.00 versus that same revenue for one iTunes song purchase</p><footer><strong>Derek Webber</strong> <cite><a href='http://derekwebb.tumblr.com/post/13503899950/giving-it-away-how-free-music-makes-more-than-sense'>derekwebb.tumblr.com/post/&hellip;</a></cite></footer></blockquote>
@@ -1128,10 +1237,10 @@ music business.</p>
 
 <p>When I was about 12 or 13 I started playing bass guitar.  From then on
 I was enamored with music.  Playing it, listening to it, thinking
-about playing it etc&#8230;  Then when I was in 11th grade I had the
-opportunity to take an AP computer science course.  I took it, 5&#8217;ed
+about playing it etc...  Then when I was in 11th grade I had the
+opportunity to take an AP computer science course.  I took it, 5'ed
 the AP test, and promptly stopped programming at all.  By the time I
-was in 12th grade I was convinced I&#8217;d go to college as a music
+was in 12th grade I was convinced I'd go to college as a music
 business major.  Play music and get paid?  Sounds like a party right?  Why not?</p>
 
 <h3>Getting Paid (for Music) is Complicated</h3>
@@ -1145,17 +1254,17 @@ royalties in various situations and how little you get paid for them
 (even if you got a good deal).</p>
 
 <p>The gist of the class as I understood it was that most of the money is
-in publishing, and if you&#8217;re not at the top already it&#8217;s basically a
+in publishing, and if you're not at the top already it's basically a
 roll of the dice as far as making a comfortable living at it.</p>
 
-<h3>I Didn&#8217;t go to College to Roll the Dice</h3>
+<h3>I Didn't go to College to Roll the Dice</h3>
 
-<p>If being there wasn&#8217;t helping my chances of getting a good paying gig
+<p>If being there wasn't helping my chances of getting a good paying gig
 after graduating, then why was I there at all?  Furthermore, I
 apparently had already taken in highschool all the required math for
 my major.  I found that to be ridiculous because math is useful, and
-I&#8217;m a nerd at heart.  It&#8217;s just that some how programming has become
-cool, or at least that&#8217;s what I tell myself.</p>
+I'm a nerd at heart.  It's just that some how programming has become
+cool, or at least that's what I tell myself.</p>
 
 <p>While the music business classes were fun and pretty easy (admittedly
 these were only first year first semester courses), I got an eerie
@@ -1164,10 +1273,10 @@ because of all these issues that were outlined in that 0 credit hour
 class.</p>
 
 <p>Oops, I skipped a part.  I had a summer job at Kroger bagging groceries when I
-was 15.  It was then that I realized that bagging groceries doesn&#8217;t
-pay enough, and that if I didn&#8217;t do something about it I could be
-bagging groceries for the rest of my life.  There&#8217;s nothing wrong with that
-except for the fact that minimum wage isn&#8217;t a living wage (for me).</p>
+was 15.  It was then that I realized that bagging groceries doesn't
+pay enough, and that if I didn't do something about it I could be
+bagging groceries for the rest of my life.  There's nothing wrong with that
+except for the fact that minimum wage isn't a living wage (for me).</p>
 
 <h3>Ahh.. Back to Math!</h3>
 
@@ -1183,13 +1292,13 @@ Now on to the topic of this post.</p>
 
 <h3>About Media</h3>
 
-<p>Enough about me, Back to Derek Webber&#8217;s article.  He concludes his
+<p>Enough about me, Back to Derek Webber's article.  He concludes his
 article by telling his fans to buy or download his music for free, but
 he spends most of the words in his article demonizing Spotify.</p>
 
-<p>He&#8217;s mostly angry about how they pay him so little per streamed track,
-and how they don&#8217;t pay him the same as artists on big name labels.  It
-seems to me, if you don&#8217;t like Spotify&#8217;s deal, don&#8217;t take it.  His
+<p>He's mostly angry about how they pay him so little per streamed track,
+and how they don't pay him the same as artists on big name labels.  It
+seems to me, if you don't like Spotify's deal, don't take it.  His
 criticisms of Spotify seem to be at odds with his proclamation that
 record production costs are at an all time low (meaning the artist can
 produce and sell his/her own content independently).</p>
@@ -1197,21 +1306,21 @@ produce and sell his/her own content independently).</p>
 <p>Spotify is about adding another tool to the musicians toolbox.  Yet
 another way to make money off your music, if you so choose.  This is a
 huge difference from <code>back in the day</code> when musicians had to take the
-record label&#8217;s deal or not get any CDs pressed at all.  If anything,
+record label's deal or not get any CDs pressed at all.  If anything,
 these bad deals that Spotify is able to negotiate are evidence of
-musicians making bad deals.  It&#8217;s in Spotify&#8217;s best interest to pay as
+musicians making bad deals.  It's in Spotify's best interest to pay as
 little money as possible for music.</p>
 
 <p>Anything Spotify says about being good for the music business
 or any other <code>feel good talk</code> is simply marketing speak.  That is, it
-is their marketing department&#8217;s job to write up this kind of stuff.</p>
+is their marketing department's job to write up this kind of stuff.</p>
 
 <h3>The Problem Buying Media Legally</h3>
 
-<p>Now I&#8217;m not a Spotify fan even though it seems like I&#8217;m building them
+<p>Now I'm not a Spotify fan even though it seems like I'm building them
 up.  Spotify is part of the problem in a few ways.  Ever since digital
 distribution of media started, piracy and DRM have had a symbiotic relationship.
-If there were no piracy, there&#8217;d be no need for DRM, and the presence
+If there were no piracy, there'd be no need for DRM, and the presence
 of DRM punishes customers who try to do the right thing by not
 pirating media.</p>
 
@@ -1225,11 +1334,11 @@ want to record it to a cassette I should be able to.</p>
 
 <p>Arguments about piracy are pretty pointless.  On the one hand you have
 companies claiming that every act of piracy counts as a lost sale,
-when we know that&#8217;s not the case.  A lot of pirates don&#8217;t buy
+when we know that's not the case.  A lot of pirates don't buy
 anything, and then some pirates do make a purchase after trying it out for
 free (via a pirated copy).</p>
 
-<h3>It&#8217;s Not All Bad</h3>
+<h3>It's Not All Bad</h3>
 
 <p>There are a number of publishing companies that are doing this right.
 They give you an unencumbered copy of the media, and ask you to do the
@@ -1239,8 +1348,8 @@ to, and I have purchased a couple books from them.</p>
 
 <h3>Back to How Musicians Are Getting Screwed</h3>
 
-<p>I agree that generally musicians are getting a bad deal.  It&#8217;s one of
-the reasons I decided not to do that for a living.  I don&#8217;t agree with
+<p>I agree that generally musicians are getting a bad deal.  It's one of
+the reasons I decided not to do that for a living.  I don't agree with
 the idea that musicians deserve a better deal.  The way the economy
 has been for the past few years is evidence that nobody is guaranteed
 a good deal.  We are all taking our chances.</p>
@@ -1248,15 +1357,22 @@ a good deal.  We are all taking our chances.</p>
 <pre><code>&lt;/rant&gt;
 </code></pre>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Blogging on Jekyll: URL Redirects]]></title>
-    <link href="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/"/>
-    <updated>2011-11-29T14:32:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects</id>
-    <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted
-on github-pages.  I migrated because of Tumblr&#8217;s slow page loads and
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Blogging on Jekyll: URL Redirects]]></title>
+<link href="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/"/>
+<updated>2011-11-29T14:32:00-05:00</updated>
+<id>http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects</id>
+<category term="blogging" /><category term="programming" />
+
+      <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted
+on github-pages.  I migrated because of Tumblr's slow page loads and
 frequent downtime.  I picked Octopress because it is built on top of
 Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is
 a static site generator, which ensures I can deploy my blog on any old
@@ -1270,20 +1386,20 @@ server in the future, and continue to use these same old tools
 
 <p><img src="http://rawsyntax.com/images/urls_not_found.png" class ="center"/></p>
 
-<p>Running my site through Google&#8217;s Webmaster Tools showed that many sites are still linking to my old Tumblr blogpost urls.  Tumblr&#8217;s url structure is another reason I migrated away from it.  I should be in full control of the urls on my blog.  Never the less, I need to support redirects from the old URLs to my new URL structure <code>/blog/:post_title</code>.</p>
+<p>Running my site through Google's Webmaster Tools showed that many sites are still linking to my old Tumblr blogpost urls.  Tumblr's url structure is another reason I migrated away from it.  I should be in full control of the urls on my blog.  Never the less, I need to support redirects from the old URLs to my new URL structure <code>/blog/:post_title</code>.</p>
 
-<p>However Jekyll is just a static site, so there&#8217;s no ruby server to handle redirects.  Other Jekyll users deploy to Heroku and use a small Sinatra app to handle redirects, but I feel like that is complicating my simple setup.  If I were on a regular server I could setup an <code>.htaccess</code> file to handle the redirects, but github-pages does not support <code>.htaccess</code>.</p>
+<p>However Jekyll is just a static site, so there's no ruby server to handle redirects.  Other Jekyll users deploy to Heroku and use a small Sinatra app to handle redirects, but I feel like that is complicating my simple setup.  If I were on a regular server I could setup an <code>.htaccess</code> file to handle the redirects, but github-pages does not support <code>.htaccess</code>.</p>
 
 <h3>Jekyll Plugins to the Rescue</h3>
 
 <p>One of the great things about Jekyll is its simple plugin system.  On
-<a href="https://github.com/mojombo/jekyll/wiki/Plugins">Jekyll&#8217;s Wiki</a> I
+<a href="https://github.com/mojombo/jekyll/wiki/Plugins">Jekyll's Wiki</a> I
 found the
 <a href="https://github.com/tsmango/jekyll_alias_generator">Alias Generator</a>.
 It allows you to specify aliases on a per blogpost basis, in the YAML
 front matter.</p>
 
-<p>This post&#8217;s YAML is:</p>
+<p>This post's YAML is:</p>
 
 <pre><code>---
 layout: post
@@ -1316,41 +1432,48 @@ provided some of my old Tumblr urls. However, I
 and fixed it so it handles nested aliases properly now.  I also opened
 a <a href="https://github.com/tsmango/jekyll_alias_generator/pull/1">pull request</a> to the owner to get this change merged in.</p>
 
-<h3>Jekyll&#8217;s Strengths</h3>
+<h3>Jekyll's Strengths</h3>
 
-<p>That experience is Jekyll&#8217;s strength as a blogging platform.  The
-output is so simple any web server can serve it so it doesn&#8217;t matter
+<p>That experience is Jekyll's strength as a blogging platform.  The
+output is so simple any web server can serve it so it doesn't matter
 where you deploy to.  Its generation system is open source, hackable,
 and has a great plugin system.</p>
 
 <p>But most importantly, even if the Jekyll project implodes tomorrow.  I
-still have all my blog&#8217;s content versioned, and have all the tools
+still have all my blog's content versioned, and have all the tools
 necessary to maintain my blog.  I am not relying on a hosted service
-to back up my blog&#8217;s content, or maintain the tools I edit it with.</p>
+to back up my blog's content, or maintain the tools I edit it with.</p>
 
 <h3>Try Octopress</h3>
 
-<p>If you haven&#8217;t tried <a href="http://octopress.org">Octopress</a> yet, I highly
-recommend it.  It&#8217;s Jekyll based, but it has a decent default
-stylesheet, so it&#8217;s very easy to install and immediately start
+<p>If you haven't tried <a href="http://octopress.org">Octopress</a> yet, I highly
+recommend it.  It's Jekyll based, but it has a decent default
+stylesheet, so it's very easy to install and immediately start
 blogging.  No programming or tweaking CSS to get in the way of writing content.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Solving the General Case]]></title>
-    <link href="http://rawsyntax.com/blog/solving-the-general-case/"/>
-    <updated>2011-11-28T16:05:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/solving-the-general-case</id>
-    <content type="html"><![CDATA[<p><a href="http://xkcd.com/974">
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Solving the General Case]]></title>
+<link href="http://rawsyntax.com/blog/solving-the-general-case/"/>
+<updated>2011-11-28T16:05:00-05:00</updated>
+<id>http://rawsyntax.com/blog/solving-the-general-case</id>
+<category term="programming" />
+
+      <content type="html"><![CDATA[<p><a href="http://xkcd.com/974">
 <img src="http://rawsyntax.com/images/the_general_problem.png" class ="center"/>
 </a></p>
 
 <p>This XKCD comic struck a chord with me.  I feel that it presents a
 false dichotomy.  Either miss deadlines to design it right or go wild
-west cowboy coding and meet deadlines.  I think there&#8217;s a middle ground between
+west cowboy coding and meet deadlines.  I think there's a middle ground between
 those options.  Design it correctly, but deliver less functionality,
-and add the rest of the functionality at a later date.  While that&#8217;s a
+and add the rest of the functionality at a later date.  While that's a
 simple solution, this comic touches on other related issues.</p>
 
 <!--more-->
@@ -1374,14 +1497,14 @@ will emerge.  If not try something else.</p>
 
 <h3>Deadline is not a Bad Word</h3>
 
-<p>Growing up my dad would always tell me: &#8220;There is no time&#8221;, but I
-didn&#8217;t understand what he meant until I got a job at 15 years old.
+<p>Growing up my dad would always tell me: "There is no time", but I
+didn't understand what he meant until I got a job at 15 years old.
 Deadlines are part of life, and furthermore they are not bad.  A
 deadline is just a constraint.  Without deadlines we developers could
 work on software design forever and never actually get to
 implementation!  Deadlines can actually help cure analysis paralysis
 by reducing the number of options available to us.  Rewriting the
-whole project in python suddenly isn&#8217;t an option.  Deadlines force
+whole project in python suddenly isn't an option.  Deadlines force
 value judgements to be made.</p>
 
 <h3>Why the General Case Takes so Long</h3>
@@ -1394,12 +1517,12 @@ details.</p>
 
 <p>To paraphrase Albert Einstein:</p>
 
-<blockquote><p>&#8220;At design-time, design and implementation are the same.  At implementation-time, they are not.&#8221;</p></blockquote>
+<blockquote><p>"At design-time, design and implementation are the same.  At implementation-time, they are not."</p></blockquote>
 
 
 <p>The following quote is about ruby implementation, but it can be applied to any hard general case problem.</p>
 
-<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there&#8217;s some crazy stuff in that last 10% or 5% that totally blindsides you if you&#8217;re not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong> <cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
+<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there's some crazy stuff in that last 10% or 5% that totally blindsides you if you're not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong> <cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
 
 
 <p>When he talks about getting blindsided by that last 10%, that is
@@ -1410,36 +1533,43 @@ potentially a missed deadline.</p>
 <p>  Ask yourself if you can live with a 90% solution.  Do you really need to solve the general case?  If 90% is not enough, break the general
 case down into many smaller pieces of functionality and many smaller
 deadlines.  You may still run into missed deadlines and problems, but
-they will have smaller and more predictable impact.  This doesn&#8217;t
+they will have smaller and more predictable impact.  This doesn't
 really solve the overall problem of software that takes too long to
 develop, but it makes the problems easier to manage.</p>
 ]]></content>
-  </entry>
+    </entry>
   
-  <entry>
-    <title type="html"><![CDATA[The Problem with &#xb5;-Frameworks]]></title>
-    <link href="http://rawsyntax.com/blog/the-problem-with-micro-frameworks/"/>
-    <updated>2011-11-27T11:34:00-05:00</updated>
-    <id>http://rawsyntax.com/blog/the-problem-with-micro-frameworks</id>
-    <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/simple-spaghetti.jpg" class ="center"/></p>
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[The Problem with &#xb5;-Frameworks]]></title>
+<link href="http://rawsyntax.com/blog/the-problem-with-micro-frameworks/"/>
+<updated>2011-11-27T11:34:00-05:00</updated>
+<id>http://rawsyntax.com/blog/the-problem-with-micro-frameworks</id>
+<category term="rants" />
+
+      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/simple-spaghetti.jpg" class ="center"/></p>
 
 <p>There are plenty of micro-frameworks out there for web development.
-Some ruby based ones are Sinatra, Padrino, and Camping.  There&#8217;s also
+Some ruby based ones are Sinatra, Padrino, and Camping.  There's also
 Flask and web.py for python.  These frameworks promise quick ramp up
 time and simplicity.  They are small and do not provide much
-functionality, which is sold as &#8220;not getting in your way&#8221;.</p>
+functionality, which is sold as "not getting in your way".</p>
 
 <!--more-->
 
 
-<h3>Great! What&#8217;s not to like?</h3>
+<h3>Great! What's not to like?</h3>
 
 <p>In theory this sounds super, and if you have a project that has a very
-limited scope it works very well.  I&#8217;m not going to talk much about
+limited scope it works very well.  I'm not going to talk much about
 that case.  I find the more common case is that the project grows beyond its
 original specification.  Then suddenly you may need some of those
 features that were stripped out in order for the framework not to get
-in your way.  You&#8217;re left with two options: write the feature yourself
+in your way.  You're left with two options: write the feature yourself
 or find a plugin that implements it.</p>
 
 <h3>Missing Features for Managing Complexity</h3>
@@ -1458,7 +1588,7 @@ programming with sinatra harder.  Partial Rendering is a feature that helps redu
 
 <p>Pretty soon you find yourself managing a project on a micro-framework
 with 10 external plugins for the various functionality that was not
-included out of the box.  So now you&#8217;re using a micro-framework that
+included out of the box.  So now you're using a micro-framework that
 is no longer so simple.  Its intent to stay out of your way has
 actually made things harder now since your upgrade path is more
 complex.  When you upgrade the micro-framework how many of your
@@ -1470,8 +1600,8 @@ you are using do not conflict with eachother and cause unintended side-effects.<
 <h3>Thin App on Fat Framework</h3>
 
 <p>For the project that grows beyond its initial scope, I prefer to start
-with a thin application on top of a fat framework.  There&#8217;s just less
-for me to maintain and to test.  In the early days of the project its a really small app, and then when it grows larger it doesn&#8217;t
+with a thin application on top of a fat framework.  There's just less
+for me to maintain and to test.  In the early days of the project its a really small app, and then when it grows larger it doesn't
 start working against the framework.</p>
 
 <h3>Micro-Frameworks are Only Good for Micro-Projects</h3>
@@ -1483,6 +1613,6 @@ micro-framework really well is not a good excuse for not knowing a
 more powerful framework.  Sometimes the more powerful framework is
 what is needed.</p>
 ]]></content>
-  </entry>
+    </entry>
   
 </feed>

@@ -7,10 +7,10 @@
   <meta charset="utf-8">
   <title>Learn Bash: Remove Commands from your History - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
+  <link href="https://plus.google.com/101134845820398279714" rel="author">
+  <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
 
   
-  <meta name="description" content="Occasionally I type a password or other sensitive information into a shell
-prompt. Using bash history, the command can be removed. # say we start &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,11 +20,8 @@ prompt. Using bash history, the command can be removed. # say we start &hellip;"
 
   
   <link rel="canonical" href="http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history/">
-  <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/octopress.min.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/RawSyntax" rel="alternate" title="Raw Syntax" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -44,6 +41,10 @@ prompt. Using bash history, the command can be removed. # say we start &hellip;"
   </script>
 
 
+  
+
+   
+  <link href="/octopress-favicon.png" rel="icon">
 </head>
 
 <body   >
@@ -69,7 +70,7 @@ prompt. Using bash history, the command can be removed. # say we start &hellip;"
   
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/archives">Archives</a></li>
   <li><a href="/blog/categories/learn-emacs">Emacs</a></li>
   <li><a href="mailto:eric@rawsyntax.com">Contact</a></li>
 </ul>
@@ -78,12 +79,26 @@ prompt. Using bash history, the command can be removed. # say we start &hellip;"
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+
+
+
+
+
+
+
+
+
+
+
+<article class="hentry " role="article">
   
   <header>
-    
-      <h1 class="entry-title">Learn Bash: Remove Commands From Your History</h1>
-    
+    <h1 class="entry-title">
+
+Learn Bash: Remove Commands From Your History
+
+</h1>
+
     
       <p class="meta">
         
@@ -99,11 +114,10 @@ prompt. Using bash history, the command can be removed. # say we start &hellip;"
 
 
 <time datetime="2011-08-11T00:00:00-04:00" pubdate data-updated="true">Aug 11<span>th</span>, 2011</time>
-        
+         &bull; <a rel="bookmark" href="/blog/learn-bash-remove-commands-from-your-history/">Permalink</a>
       </p>
     
   </header>
-
 
 <div class="entry-content"><p>Occasionally I type a password or other sensitive information into a shell
 prompt. Using bash history, the command can be removed.</p>
@@ -113,7 +127,7 @@ prompt. Using bash history, the command can be removed.</p>
 
 
 
-<div><script src='https://gist.github.com/1330991.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/1330991.js'></script>
 <noscript><pre><code># say we start with an empty bash command history
 bash-3.2$ history
     1  history
@@ -177,7 +191,7 @@ bash-3.2$ history
 
 <span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
 
-      
+
 
 
 
@@ -190,7 +204,7 @@ bash-3.2$ history
 
 
 <time datetime="2011-08-11T00:00:00-04:00" pubdate data-updated="true">Aug 11<span>th</span>, 2011</time>
-      
+
 
 <span class="categories">
   
@@ -199,16 +213,25 @@ bash-3.2$ history
 </span>
 
 
+
+      
+
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history/" >Tweet</a>
+    
+      <a href="http://twitter.com/share" title="Tweet this" class="twitter-share" target="_blank">Tweet</a>
+    
   
   
   
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+    
+    <a title="Share on Facebook" class="facebook-share" href="http://www.facebook.com/sharer.php?u=http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history/" target="_blank">Share</a>
+    
   
+  
+
 </div>
 
     
@@ -223,15 +246,12 @@ bash-3.2$ history
   </footer>
 </article>
 
+
 </div>
 
 <aside class="sidebar">
   
-    <br />
-<section id="blog_links" class="section alpha">
-  <a href="http://feeds.feedburner.com/RawSyntax" title="subscribe via RSS" id="rss">Subscribe</a>
-</section>
-<section>
+    <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
@@ -258,68 +278,24 @@ bash-3.2$ history
   </ul>
 </section>
 
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  
-  <a href="https://github.com/rawsyntax">@rawsyntax</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'rawsyntax',
-            count: 1,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
 
 <section>
   <h1>Latest Tweets</h1>
-  <ul id="tweets">
+  <ul id="tweets" data-user="rawsyntax" data-count="0" data-replies="false">
     <li class="loading">Status updating...</li>
   </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("rawsyntax", 0, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
   
-    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-show-count="true">Follow @rawsyntax</a>
+    <a href="//twitter.com/rawsyntax" class="twitter-follow-button" data-show-count="true">Follow @rawsyntax</a>
   
 </section>
 
 
 
-<section class="googleplus googleplus-hidden">
-  <h1>
-    <a href="https://plus.google.com/101134845820398279714?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
 
 
-<section>
-  <h1>Disclaimer</h1>
-  <p>Some links on this blog are affiliate links, which pay small sales commissions.</p>
-</section>
+
+
+
 
   
 </aside>
@@ -337,6 +313,7 @@ bash-3.2$ history
 
 <script type="text/javascript">
       var disqus_shortname = 'rawsyntax';
+			var disqus_developer = '0';
       
         
         var disqus_script = 'count.js';
@@ -348,30 +325,6 @@ bash-3.2$ history
     }());
 </script>
 
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 

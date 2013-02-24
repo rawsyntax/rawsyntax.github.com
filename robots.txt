@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /blog/categories
 Disallow: /blog/archives
-Sitemap: http://rawsyntax.com/sitemap.xml
+
+Sitemap: http://rawsyntax.com/sitemap.xml 

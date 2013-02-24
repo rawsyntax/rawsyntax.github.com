@@ -7,10 +7,10 @@
   <meta charset="utf-8">
   <title>Measuring Slow Code - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
+  <link href="https://plus.google.com/101134845820398279714" rel="author">
+  <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
 
   
-  <meta name="description" content="Over the years I&#8217;ve found myself needing a quick way to measure some
-slow code. Whether I&#8217;m looking at a 100 line function or a 10 line &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,11 +20,8 @@ slow code. Whether I&#8217;m looking at a 100 line function or a 10 line &hellip
 
   
   <link rel="canonical" href="http://rawsyntax.com/blog/measuring-slow-code/">
-  <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/octopress.min.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/RawSyntax" rel="alternate" title="Raw Syntax" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -44,6 +41,10 @@ slow code. Whether I&#8217;m looking at a 100 line function or a 10 line &hellip
   </script>
 
 
+  
+
+   
+  <link href="/octopress-favicon.png" rel="icon">
 </head>
 
 <body   >
@@ -69,7 +70,7 @@ slow code. Whether I&#8217;m looking at a 100 line function or a 10 line &hellip
   
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/archives">Archives</a></li>
   <li><a href="/blog/categories/learn-emacs">Emacs</a></li>
   <li><a href="mailto:eric@rawsyntax.com">Contact</a></li>
 </ul>
@@ -78,12 +79,26 @@ slow code. Whether I&#8217;m looking at a 100 line function or a 10 line &hellip
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+
+
+
+
+
+
+
+
+
+
+
+<article class="hentry " role="article">
   
   <header>
-    
-      <h1 class="entry-title">Measuring Slow Code</h1>
-    
+    <h1 class="entry-title">
+
+Measuring Slow Code
+
+</h1>
+
     
       <p class="meta">
         
@@ -99,14 +114,13 @@ slow code. Whether I&#8217;m looking at a 100 line function or a 10 line &hellip
 
 
 <time datetime="2012-09-02T15:59:00-04:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2012</time>
-        
+         &bull; <a rel="bookmark" href="/blog/measuring-slow-code/">Permalink</a>
       </p>
     
   </header>
 
-
-<div class="entry-content"><p>Over the years I&#8217;ve found myself needing a quick way to measure some
-slow code.  Whether I&#8217;m looking at a 100 line function or a 10 line
+<div class="entry-content"><p>Over the years I've found myself needing a quick way to measure some
+slow code.  Whether I'm looking at a 100 line function or a 10 line
 controller action, sometimes I just need some quick print statements
 to determine which part of the code is slow.</p>
 
@@ -114,7 +128,7 @@ to determine which part of the code is slow.</p>
 the code with <code>Time.now</code> statements printing out how many seconds each
 section took.  This approach is messy because it requires altering the
 code a good deal.  And at the end I was left comparing sections of the
-code to figure out which part was slower than all the other parts &#8211;
+code to figure out which part was slower than all the other parts --
 doing the math in my head.</p>
 
 <h2>Use Benchmark?</h2>
@@ -122,42 +136,33 @@ doing the math in my head.</p>
 <p>Ruby has a
 <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html">Benchmark</a>
 class built in.  I tried using it.  While it can be helpful in certain
-situations, if I&#8217;m measuring 5 sections of a function there&#8217;s an awful
+situations, if I'm measuring 5 sections of a function there's an awful
 lot of code rewriting that has to happen because of the Benchmark
 blocks messing with the scope of variables.  That was more work than
 it was worth.</p>
 
 <h2>Roll my Own</h2>
 
-<p>I&#8217;m hesitant to reinvent the wheel, but in this case I created a very
-simple gem to address my needs.  It&#8217;s called
+<p>I'm hesitant to reinvent the wheel, but in this case I created a very
+simple gem to address my needs.  It's called
 <a href="https://github.com/rawsyntax/code_timer">CodeTimer</a>.  To use it first
 you instantiate it:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span> <span class="o">=</span> <span class="no">CodeTimer</span><span class="o">.</span><span class="n">new</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span> <span class="o">=</span> <span class="no">CodeTimer</span><span class="o">.</span><span class="n">new</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Then you insert markers for each part that you want to measure:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part1&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1"># ... slow code here ...</span>
-</span><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part2&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1"># ...</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part1&quot;</span><span class="p">)</span>
+</div><div class='line'><span class="c1"># ... slow code here ...</span>
+</div><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part2&quot;</span><span class="p">)</span>
+</div><div class='line'><span class="c1"># ...</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>And a marker for stopping measuring:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ct</span><span class="o">.</span><span class="n">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>It returns a formatted string:</p>
 
@@ -168,14 +173,14 @@ Part3:   47% / 8s
 Part4:   11% / 2s
 </code></pre>
 
-<p>And it&#8217;s easy to see that Part3 is the slowest section.  Better start
+<p>And it's easy to see that Part3 is the slowest section.  Better start
 trying to speed up the code there.</p>
 
-<h2>What If This Doesn&#8217;t Work?</h2>
+<h2>What If This Doesn't Work?</h2>
 
-<p>This isn&#8217;t the solution for every slow code problem.  If this approach
-doesn&#8217;t yield meaningful results you will have to use a more serious
-tool.  However, I reach for this tool first because it&#8217;s the simplest
+<p>This isn't the solution for every slow code problem.  If this approach
+doesn't yield meaningful results you will have to use a more serious
+tool.  However, I reach for this tool first because it's the simplest
 thing that could possibly work.</p>
 </div>
 
@@ -187,7 +192,7 @@ thing that could possibly work.</p>
 
 <span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
 
-      
+
 
 
 
@@ -200,7 +205,7 @@ thing that could possibly work.</p>
 
 
 <time datetime="2012-09-02T15:59:00-04:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2012</time>
-      
+
 
 <span class="categories">
   
@@ -209,16 +214,25 @@ thing that could possibly work.</p>
 </span>
 
 
+
+      
+
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/measuring-slow-code/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/measuring-slow-code/" >Tweet</a>
+    
+      <a href="http://twitter.com/share" title="Tweet this" class="twitter-share" target="_blank">Tweet</a>
+    
   
   
   
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+    
+    <a title="Share on Facebook" class="facebook-share" href="http://www.facebook.com/sharer.php?u=http://rawsyntax.com/blog/measuring-slow-code/" target="_blank">Share</a>
+    
   
+  
+
 </div>
 
     
@@ -233,21 +247,21 @@ thing that could possibly work.</p>
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
+<section>
+  <h1>Comments</h1>
+  
+
+  
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
+  
+</section>
 
 </div>
 
 <aside class="sidebar">
   
-    <br />
-<section id="blog_links" class="section alpha">
-  <a href="http://feeds.feedburner.com/RawSyntax" title="subscribe via RSS" id="rss">Subscribe</a>
-</section>
-<section>
+    <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
@@ -274,68 +288,24 @@ thing that could possibly work.</p>
   </ul>
 </section>
 
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  
-  <a href="https://github.com/rawsyntax">@rawsyntax</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'rawsyntax',
-            count: 1,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
 
 <section>
   <h1>Latest Tweets</h1>
-  <ul id="tweets">
+  <ul id="tweets" data-user="rawsyntax" data-count="0" data-replies="false">
     <li class="loading">Status updating...</li>
   </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("rawsyntax", 0, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
   
-    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-show-count="true">Follow @rawsyntax</a>
+    <a href="//twitter.com/rawsyntax" class="twitter-follow-button" data-show-count="true">Follow @rawsyntax</a>
   
 </section>
 
 
 
-<section class="googleplus googleplus-hidden">
-  <h1>
-    <a href="https://plus.google.com/101134845820398279714?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
 
 
-<section>
-  <h1>Disclaimer</h1>
-  <p>Some links on this blog are affiliate links, which pay small sales commissions.</p>
-</section>
+
+
+
 
   
 </aside>
@@ -353,6 +323,7 @@ thing that could possibly work.</p>
 
 <script type="text/javascript">
       var disqus_shortname = 'rawsyntax';
+			var disqus_developer = '0';
       
         
         // var disqus_developer = 1;
@@ -367,30 +338,6 @@ thing that could possibly work.</p>
     }());
 </script>
 
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 

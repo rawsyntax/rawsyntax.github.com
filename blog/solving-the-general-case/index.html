@@ -7,11 +7,10 @@
   <meta charset="utf-8">
   <title>Solving the General Case - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
+  <link href="https://plus.google.com/101134845820398279714" rel="author">
+  <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
 
   
-  <meta name="description" content="This XKCD comic struck a chord with me. I feel that it presents a
-false dichotomy. Either miss deadlines to design it right or go wild
-west cowboy &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,11 +20,8 @@ west cowboy &hellip;">
 
   
   <link rel="canonical" href="http://rawsyntax.com/blog/solving-the-general-case/">
-  <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/octopress.min.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/RawSyntax" rel="alternate" title="Raw Syntax" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -45,6 +41,10 @@ west cowboy &hellip;">
   </script>
 
 
+  
+
+   
+  <link href="/octopress-favicon.png" rel="icon">
 </head>
 
 <body   >
@@ -70,7 +70,7 @@ west cowboy &hellip;">
   
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/archives">Archives</a></li>
   <li><a href="/blog/categories/learn-emacs">Emacs</a></li>
   <li><a href="mailto:eric@rawsyntax.com">Contact</a></li>
 </ul>
@@ -79,12 +79,26 @@ west cowboy &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+
+
+
+
+
+
+
+
+
+
+
+<article class="hentry " role="article">
   
   <header>
-    
-      <h1 class="entry-title">Solving the General Case</h1>
-    
+    <h1 class="entry-title">
+
+Solving the General Case
+
+</h1>
+
     
       <p class="meta">
         
@@ -100,11 +114,10 @@ west cowboy &hellip;">
 
 
 <time datetime="2011-11-28T16:05:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2011</time>
-        
+         &bull; <a rel="bookmark" href="/blog/solving-the-general-case/">Permalink</a>
       </p>
     
   </header>
-
 
 <div class="entry-content"><p><a href="http://xkcd.com/974">
 <img src="/images/the_general_problem.png" class ="center"/>
@@ -112,9 +125,9 @@ west cowboy &hellip;">
 
 <p>This XKCD comic struck a chord with me.  I feel that it presents a
 false dichotomy.  Either miss deadlines to design it right or go wild
-west cowboy coding and meet deadlines.  I think there&#8217;s a middle ground between
+west cowboy coding and meet deadlines.  I think there's a middle ground between
 those options.  Design it correctly, but deliver less functionality,
-and add the rest of the functionality at a later date.  While that&#8217;s a
+and add the rest of the functionality at a later date.  While that's a
 simple solution, this comic touches on other related issues.</p>
 
 <!--more-->
@@ -138,14 +151,14 @@ will emerge.  If not try something else.</p>
 
 <h3>Deadline is not a Bad Word</h3>
 
-<p>Growing up my dad would always tell me: &#8220;There is no time&#8221;, but I
-didn&#8217;t understand what he meant until I got a job at 15 years old.
+<p>Growing up my dad would always tell me: "There is no time", but I
+didn't understand what he meant until I got a job at 15 years old.
 Deadlines are part of life, and furthermore they are not bad.  A
 deadline is just a constraint.  Without deadlines we developers could
 work on software design forever and never actually get to
 implementation!  Deadlines can actually help cure analysis paralysis
 by reducing the number of options available to us.  Rewriting the
-whole project in python suddenly isn&#8217;t an option.  Deadlines force
+whole project in python suddenly isn't an option.  Deadlines force
 value judgements to be made.</p>
 
 <h3>Why the General Case Takes so Long</h3>
@@ -158,12 +171,12 @@ details.</p>
 
 <p>To paraphrase Albert Einstein:</p>
 
-<blockquote><p>&#8220;At design-time, design and implementation are the same.  At implementation-time, they are not.&#8221;</p></blockquote>
+<blockquote><p>"At design-time, design and implementation are the same.  At implementation-time, they are not."</p></blockquote>
 
 
 <p>The following quote is about ruby implementation, but it can be applied to any hard general case problem.</p>
 
-<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there&#8217;s some crazy stuff in that last 10% or 5% that totally blindsides you if you&#8217;re not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong> <cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
+<blockquote><p>Listen, people: Ruby is hard to implement. Oh, it may look easy at a glance, and you can probably get 70, 80, or even 90% of the way pretty quickly. But there's some crazy stuff in that last 10% or 5% that totally blindsides you if you're not looking for it. An early Ruby implementation has not run that last mile of Ruby implementation, and it takes almost as much work to get there as it does to run the first 90%.</p><footer><strong>Charles Nutter</strong> <cite><a href='http://blog.headius.com/2009/03/on-benchmarking.html'>blog.headius.com/2009/03/&hellip;</a></cite></footer></blockquote>
 
 
 <p>When he talks about getting blindsided by that last 10%, that is
@@ -174,7 +187,7 @@ potentially a missed deadline.</p>
 <p>  Ask yourself if you can live with a 90% solution.  Do you really need to solve the general case?  If 90% is not enough, break the general
 case down into many smaller pieces of functionality and many smaller
 deadlines.  You may still run into missed deadlines and problems, but
-they will have smaller and more predictable impact.  This doesn&#8217;t
+they will have smaller and more predictable impact.  This doesn't
 really solve the overall problem of software that takes too long to
 develop, but it makes the problems easier to manage.</p>
 </div>
@@ -187,7 +200,7 @@ develop, but it makes the problems easier to manage.</p>
 
 <span class="byline author vcard">Posted by <span class="fn">Eric Himmelreich</span></span>
 
-      
+
 
 
 
@@ -200,7 +213,7 @@ develop, but it makes the problems easier to manage.</p>
 
 
 <time datetime="2011-11-28T16:05:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2011</time>
-      
+
 
 <span class="categories">
   
@@ -209,16 +222,25 @@ develop, but it makes the problems easier to manage.</p>
 </span>
 
 
+
+      
+
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rawsyntax.com/blog/solving-the-general-case/" data-via="rawsyntax" data-counturl="http://rawsyntax.com/blog/solving-the-general-case/" >Tweet</a>
+    
+      <a href="http://twitter.com/share" title="Tweet this" class="twitter-share" target="_blank">Tweet</a>
+    
   
   
   
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+    
+    <a title="Share on Facebook" class="facebook-share" href="http://www.facebook.com/sharer.php?u=http://rawsyntax.com/blog/solving-the-general-case/" target="_blank">Share</a>
+    
   
+  
+
 </div>
 
     
@@ -233,21 +255,21 @@ develop, but it makes the problems easier to manage.</p>
   </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
+<section>
+  <h1>Comments</h1>
+  
+
+  
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
+  
+</section>
 
 </div>
 
 <aside class="sidebar">
   
-    <br />
-<section id="blog_links" class="section alpha">
-  <a href="http://feeds.feedburner.com/RawSyntax" title="subscribe via RSS" id="rss">Subscribe</a>
-</section>
-<section>
+    <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
@@ -274,68 +296,24 @@ develop, but it makes the problems easier to manage.</p>
   </ul>
 </section>
 
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
-  
-  <a href="https://github.com/rawsyntax">@rawsyntax</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'rawsyntax',
-            count: 1,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
 
 <section>
   <h1>Latest Tweets</h1>
-  <ul id="tweets">
+  <ul id="tweets" data-user="rawsyntax" data-count="0" data-replies="false">
     <li class="loading">Status updating...</li>
   </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("rawsyntax", 0, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
   
-    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-show-count="true">Follow @rawsyntax</a>
+    <a href="//twitter.com/rawsyntax" class="twitter-follow-button" data-show-count="true">Follow @rawsyntax</a>
   
 </section>
 
 
 
-<section class="googleplus googleplus-hidden">
-  <h1>
-    <a href="https://plus.google.com/101134845820398279714?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
 
 
-<section>
-  <h1>Disclaimer</h1>
-  <p>Some links on this blog are affiliate links, which pay small sales commissions.</p>
-</section>
+
+
+
 
   
 </aside>
@@ -353,6 +331,7 @@ develop, but it makes the problems easier to manage.</p>
 
 <script type="text/javascript">
       var disqus_shortname = 'rawsyntax';
+			var disqus_developer = '0';
       
         
         // var disqus_developer = 1;
@@ -367,30 +346,6 @@ develop, but it makes the problems easier to manage.</p>
     }());
 </script>
 
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 

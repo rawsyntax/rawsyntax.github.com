@@ -7,11 +7,10 @@
   <meta charset="utf-8">
   <title>Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
+  <link href="https://plus.google.com/101134845820398279714" rel="author">
+  <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
 
   
-  <meta name="description" content="When I use Emacs in GUI mode, I set it up to have two 80 column
-windows side by side. It&#8217;s extremely convention when you need to look
-at one &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,11 +20,8 @@ at one &hellip;">
 
   
   <link rel="canonical" href="http://rawsyntax.com/blog/page/3/">
-  <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <script src="/javascripts/octopress.min.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/RawSyntax" rel="alternate" title="Raw Syntax" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -45,6 +41,10 @@ at one &hellip;">
   </script>
 
 
+  
+
+   
+  <link href="/octopress-favicon.png" rel="icon">
 </head>
 
 <body   >
@@ -70,7 +70,7 @@ at one &hellip;">
   
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/archives">Archives</a></li>
   <li><a href="/blog/categories/learn-emacs">Emacs</a></li>
   <li><a href="mailto:eric@rawsyntax.com">Contact</a></li>
 </ul>
@@ -80,14 +80,26 @@ at one &hellip;">
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
       
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/learn-emacs-swap-windows/">Learn Emacs: Swap Windows</a></h1>
-    
+    <h1 class="entry-title">
+
+<a href="/blog/learn-emacs-swap-windows/">Learn Emacs: Swap Windows</a>
+
+</h1>
+
     
       <p class="meta">
         
@@ -103,23 +115,22 @@ at one &hellip;">
 
 
 <time datetime="2012-01-26T10:33:00-05:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
-        
+         &bull; <a rel="bookmark" href="/blog/learn-emacs-swap-windows/">Permalink</a>
       </p>
     
   </header>
 
-
-  <div class="entry-content"><p>When I use Emacs in GUI mode, I set it up to have two 80 column
-windows side by side.  It&#8217;s extremely convention when you need to look
+<div class="entry-content"><p>When I use Emacs in GUI mode, I set it up to have two 80 column
+windows side by side.  It's extremely convention when you need to look
 at one section of the code while writing another.  For instance, you
 can have the spec file side by side with the code when doing TDD.
 Sometimes I want to swap the windows.  This kind of functionality does
 not come built in with emacs.  I found the <code>swap-windows</code> function
-that I use in Steve Yegge&#8217;s
+that I use in Steve Yegge's
 <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">.emacs</a>
 file.</p>
 
-<div><script src='https://gist.github.com/1683375.js?file='></script>
+<div><script src='https://gist.github.com/rawsyntax/1683375.js'></script>
 <noscript><pre><code>(defun swap-windows ()
  &quot;If you have 2 windows, it swaps them.&quot;
  (interactive)
@@ -140,19 +151,35 @@ file.</p>
 
 
 </div>
-  
-  
+
+  <footer>
+    
+    
+  </footer>
 
 
     </article>
   
-  
-    <article>
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
       
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting Your Emacs Config</a></h1>
-    
+    <h1 class="entry-title">
+
+<a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting Your Emacs Config</a>
+
+</h1>
+
     
       <p class="meta">
         
@@ -168,36 +195,49 @@ file.</p>
 
 
 <time datetime="2012-01-22T22:26:00-05:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2012</time>
-        
+         &bull; <a rel="bookmark" href="/blog/troubleshooting-your-emacs-config/">Permalink</a>
       </p>
     
   </header>
 
-
-  <div class="entry-content"><p>Up to this point my <a href="/blog/categories/learn-emacs">Learn Emacs</a>
+<div class="entry-content"><p>Up to this point my <a href="/blog/categories/learn-emacs">Learn Emacs</a>
 series has been all about how to do cool stuff in emacs.  One of my
 personal favorites is <a href="/blog/learn-emacs-align-regexp/">align-regexp</a>.
 A while back that stopped working for me.  Now I get an error: <code>Wrong type
-argument: markerp, 0</code>.  Emacs doesn&#8217;t always do what I mean.</p>
+argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/troubleshooting-your-emacs-config/">Read More &rarr;</a>
-    </footer>
-  
+
+  <footer>
+    
+    
+    <p><a rel="full-article" href="/blog/troubleshooting-your-emacs-config/">Read More &rarr;</a></p>
+    
+  </footer>
 
 
     </article>
   
-  
-    <article>
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
       
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/stop-programming/">Stop Programming</a></h1>
-    
+    <h1 class="entry-title">
+
+<a href="/blog/stop-programming/">Stop Programming</a>
+
+</h1>
+
     
       <p class="meta">
         
@@ -213,35 +253,48 @@ argument: markerp, 0</code>.  Emacs doesn&#8217;t always do what I mean.</p>
 
 
 <time datetime="2012-01-04T15:25:00-05:00" pubdate data-updated="true">Jan 4<span>th</span>, 2012</time>
-        
+         &bull; <a rel="bookmark" href="/blog/stop-programming/">Permalink</a>
       </p>
     
   </header>
 
+<div class="entry-content"><p><img src="/images/stop-programming.jpg" alt="Stop Programming" class="center"/></p>
 
-  <div class="entry-content"><p><img src="/images/stop-programming.jpg" alt="Stop Programming" class="center"/></p>
-
-<p>I&#8217;ve got some ideas on how you can improve your programming by not
+<p>I've got some ideas on how you can improve your programming by not
 programming.  Try something new this year.</p>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/stop-programming/">Read More &rarr;</a>
-    </footer>
-  
+
+  <footer>
+    
+    
+    <p><a rel="full-article" href="/blog/stop-programming/">Read More &rarr;</a></p>
+    
+  </footer>
 
 
     </article>
   
-  
-    <article>
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
       
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/building-a-gaming-pc/">Building a Gaming PC</a></h1>
-    
+    <h1 class="entry-title">
+
+<a href="/blog/building-a-gaming-pc/">Building a Gaming PC</a>
+
+</h1>
+
     
       <p class="meta">
         
@@ -257,38 +310,51 @@ programming.  Try something new this year.</p>
 
 
 <time datetime="2011-12-21T10:34:00-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2011</time>
-        
+         &bull; <a rel="bookmark" href="/blog/building-a-gaming-pc/">Permalink</a>
       </p>
     
   </header>
 
-
-  <div class="entry-content"><p>I recently built a gaming pc from parts, as my laptop was struggling
+<div class="entry-content"><p>I recently built a gaming pc from parts, as my laptop was struggling
 to run the latest games even on very low settings.  I did some
 googling and came to the obvious conclusion that building a desktop
 for gaming is way cheaper than trying to buy a new laptop, and the
 desktop gets way better performance.  In fact, this makes it so that I
-can stretch my laptop for a few more years, as it&#8217;s only used for web
-programming at the moment (and it&#8217;s plenty fast due to its SSD).</p>
+can stretch my laptop for a few more years, as it's only used for web
+programming at the moment (and it's plenty fast due to its SSD).</p>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/building-a-gaming-pc/">Read More &rarr;</a>
-    </footer>
-  
+
+  <footer>
+    
+    
+    <p><a rel="full-article" href="/blog/building-a-gaming-pc/">Read More &rarr;</a></p>
+    
+  </footer>
 
 
     </article>
   
-  
-    <article>
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
       
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a></h1>
-    
+    <h1 class="entry-title">
+
+<a href="/blog/sometimes-side-projects-fail/">Sometimes Side Projects Fail</a>
+
+</h1>
+
     
       <p class="meta">
         
@@ -304,26 +370,26 @@ programming at the moment (and it&#8217;s plenty fast due to its SSD).</p>
 
 
 <time datetime="2011-12-09T11:44:56-05:00" pubdate data-updated="true">Dec 9<span>th</span>, 2011</time>
-        
+         &bull; <a rel="bookmark" href="/blog/sometimes-side-projects-fail/">Permalink</a>
       </p>
     
   </header>
 
+<div class="entry-content"><p><img src="/images/side-projects-fail.jpg" alt="Sometimes Side Projects Fail" class="center"/></p>
 
-  <div class="entry-content"><p><img src="/images/side-projects-fail.jpg" alt="Sometimes Side Projects Fail" class="center"/></p>
-
-<p>I&#8217;ve worked on a few side projects over the years.  Sometimes they&#8217;ve
+<p>I've worked on a few side projects over the years.  Sometimes they've
 turned out well, and other times I stopped working on them.  How do
-you know when it&#8217;s time to throw in the towel and when it&#8217;s time to
+you know when it's time to throw in the towel and when it's time to
 push through?</p>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/sometimes-side-projects-fail/">Read More &rarr;</a>
-    </footer>
-  
+
+  <footer>
+    
+    
+    <p><a rel="full-article" href="/blog/sometimes-side-projects-fail/">Read More &rarr;</a></p>
+    
+  </footer>
 
 
     </article>
@@ -332,110 +398,37 @@ push through?</p>
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
     
-    <a href="/blog/archives">Blog Archives</a>
+    <a href="/archives/">Blog Archives</a>
     
     <a class="next" href="/blog/page/2/">Newer &rarr;</a>
     
   </div>
 </div>
+
 <aside class="sidebar">
   
-    <br />
-<section id="blog_links" class="section alpha">
-  <a href="http://feeds.feedburner.com/RawSyntax" title="subscribe via RSS" id="rss">Subscribe</a>
-</section>
-<section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
     
-      <li class="post">
-        <a href="/blog/learn-emacs-fit-your-workflow/">Learn Emacs: Fit your Workflow</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Quicksilver, Secure Keyboard Entry, and Single Modifier Activation</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/measuring-slow-code/">Measuring Slow Code</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/faster-ssh-connections/">Faster SSH Connections</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/who-changed-my-file/">Who Changed my File</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/rawsyntax">@rawsyntax</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'rawsyntax',
-            count: 1,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
 <section>
   <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+  <ul id="tweets" data-user="rawsyntax" data-count="0" data-replies="false">
+    <li class="loading">Status updating...</li>
   </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("rawsyntax", 0, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
   
-    <a href="http://twitter.com/rawsyntax" class="twitter-follow-button" data-show-count="true">Follow @rawsyntax</a>
+    <a href="//twitter.com/rawsyntax" class="twitter-follow-button" data-show-count="true">Follow @rawsyntax</a>
   
 </section>
 
 
 
-<section class="googleplus googleplus-hidden">
-  <h1>
-    <a href="https://plus.google.com/101134845820398279714?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
 
 
-<section>
-  <h1>Disclaimer</h1>
-  <p>Some links on this blog are affiliate links, which pay small sales commissions.</p>
-</section>
+
+
+
 
   
 </aside>
+
 
     </div>
   </div>
@@ -449,6 +442,7 @@ push through?</p>
 
 <script type="text/javascript">
       var disqus_shortname = 'rawsyntax';
+			var disqus_developer = '0';
       
         
         var disqus_script = 'count.js';
@@ -460,30 +454,6 @@ push through?</p>
     }());
 </script>
 
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 
