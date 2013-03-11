@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2013-02-24T15:10:39-05:00</updated>
+  <updated>2013-03-11T15:42:37-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Learn Emacs: 24.3 released and NEWS]]></title>
+<link href="http://rawsyntax.com/blog/learn-emacs-24-dot-3-released-and-news/"/>
+<updated>2013-03-11T15:29:00-04:00</updated>
+<id>http://rawsyntax.com/blog/learn-emacs-24-dot-3-released-and-news</id>
+<category term="learn-emacs" />
+
+      <content type="html"><![CDATA[<p>Emacs 24.3 was released today.  If you're on OS X, the easiest way to check it out is by downloading a build from <a href="http://emacsformacosx.com/">EmacsForMacOSX</a>.</p>
+
+<p>As for what's new in Emacs 24.3, in true Emacs fashion, we can ask it directly.</p>
+
+<pre><code>M-x view-emacs-news
+</code></pre>
+
+<p>If you're using <a href="http://rawsyntax.com/blog/learn-emacs-smex/">Smex</a> M-x will suggest other view-emacs-* commands.</p>
+
+<p>So next time you're wondering about how to do something in Emacs try asking it directly.</p>
+
+<pre><code>M-x info-emacs-manual
+</code></pre>
+
+<p>Will view the Emacs manual as <a href="http://en.wikipedia.org/wiki/Info_(Unix)">info pages</a>.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -1551,82 +1581,6 @@ deadlines.  You may still run into missed deadlines and problems, but
 they will have smaller and more predictable impact.  This doesn't
 really solve the overall problem of software that takes too long to
 develop, but it makes the problems easier to manage.</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[The Problem with &#xb5;-Frameworks]]></title>
-<link href="http://rawsyntax.com/blog/the-problem-with-micro-frameworks/"/>
-<updated>2011-11-27T11:34:00-05:00</updated>
-<id>http://rawsyntax.com/blog/the-problem-with-micro-frameworks</id>
-<category term="rants" />
-
-      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/simple-spaghetti.jpg" class ="center"/></p>
-
-<p>There are plenty of micro-frameworks out there for web development.
-Some ruby based ones are Sinatra, Padrino, and Camping.  There's also
-Flask and web.py for python.  These frameworks promise quick ramp up
-time and simplicity.  They are small and do not provide much
-functionality, which is sold as "not getting in your way".</p>
-
-<!--more-->
-
-
-<h3>Great! What's not to like?</h3>
-
-<p>In theory this sounds super, and if you have a project that has a very
-limited scope it works very well.  I'm not going to talk much about
-that case.  I find the more common case is that the project grows beyond its
-original specification.  Then suddenly you may need some of those
-features that were stripped out in order for the framework not to get
-in your way.  You're left with two options: write the feature yourself
-or find a plugin that implements it.</p>
-
-<h3>Missing Features for Managing Complexity</h3>
-
-<p>It can be argued that software development is all about managing
-complexity.  Often micro-frameworks strip out useful features in the name
-of simplicity.  For example, Sinatra does not come with an acceptable
-partials implementation.  Its implementation allows you to render
-partials so long as there are no instance variables to be passed in.
-It is only useful for static html partials.  This omission just makes
-programming with sinatra harder.  Partial Rendering is a feature that helps reduce complexity.  It serves to break up large complex views into smaller manageable pieces and also DRY up the code.</p>
-
-<h3>Fat App on a Thin Framework</h3>
-
-<p><img src="http://rawsyntax.com/images/complex-spaghetti.jpg" class ="center"/></p>
-
-<p>Pretty soon you find yourself managing a project on a micro-framework
-with 10 external plugins for the various functionality that was not
-included out of the box.  So now you're using a micro-framework that
-is no longer so simple.  Its intent to stay out of your way has
-actually made things harder now since your upgrade path is more
-complex.  When you upgrade the micro-framework how many of your
-plugins will still work?  How does the complexity of a micro-framework
-and 10 plugins compare to a regular framework (rails in the case of
-sinatra)?  You also have to be sure that the combination of plugins
-you are using do not conflict with eachother and cause unintended side-effects.</p>
-
-<h3>Thin App on Fat Framework</h3>
-
-<p>For the project that grows beyond its initial scope, I prefer to start
-with a thin application on top of a fat framework.  There's just less
-for me to maintain and to test.  In the early days of the project its a really small app, and then when it grows larger it doesn't
-start working against the framework.</p>
-
-<h3>Micro-Frameworks are Only Good for Micro-Projects</h3>
-
-<p>This is not meant to disparage all the micro-frameworks out there.  I
-believe they solve a specific problem.  I use micro-frameworks when
-the project is a good fit for them.  However, knowing a
-micro-framework really well is not a good excuse for not knowing a
-more powerful framework.  Sometimes the more powerful framework is
-what is needed.</p>
 ]]></content>
     </entry>
   
