@@ -96,6 +96,97 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/living-with-boxen/">Living With Boxen</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-06T03:23:44-04:00" pubdate data-updated="true">Jul 6<span>th</span>, 2013</time>
+         &bull; <a rel="bookmark" href="/blog/living-with-boxen/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>About 3 months ago I switched to a new 15" retina macbook pro.  My previous OS X install was nearly 4 years old.  I did not want to clone the data over because too much cruft had built up.  I was left with the question of how to quickly and easily setup a laptop for programming work.  I chose <a href="http://boxen.github.com/">Boxen</a> because it was new, and I wanted a repeatable process for machine setup.</p>
+
+<h2>Promises</h2>
+
+<p>By and large boxen delivers on its promises.  I was able to setup a system for ruby / web development in about 20 minutes (most of that was spent waiting). Simply</p>
+
+<ul>
+<li>Download and install XCode and CLI tools</li>
+<li>Setup and run boxen.</li>
+</ul>
+
+
+<p>You get a system with rbenv and ruby installed and a bunch of other useful programs.</p>
+
+<h2>Problems</h2>
+
+<p>However, Boxen isn't perfect. It will require some customization sooner or later as you begin to use it for more tasks. This isn't a bad thing, but it requires you to get used to describing your machine configuration with code (Puppet).</p>
+
+<h3>Default packages are for github</h3>
+
+<div><script src='https://gist.github.com/rawsyntax/5940971.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>The above section in the Puppetfile will install <a href="https://github.com/boxen/puppet-nginx">https://github.com/boxen/puppet-nginx</a> .  However this includes custom sites for the folks who work at github, which is not what I wanted. I elected to install nginx the old way <code>brew install nginx</code>, which gives me a vanilla nginx install.</p>
+
+<h3>Homebrew location</h3>
+
+<p>Boxen has its own homebrew installation at <code>/opt/boxen/homebrew/bin/brew</code>. This can be problematic for other tools that look for stuff installed into <code>/usr/local</code>.</p>
+
+<h3>Separation</h3>
+
+<p>Boxen keeps everything under <code>/opt/boxen</code>, which can cause problems with other tools. For example, Rails 2.3 looks for mysql sockets at <code>/tmp/mysql.sock</code> by default, whereas boxen creates the socket at <code>/opt/boxen/data/mysql/socket</code>.  These problems are easy to remedy (specify the socket path), but are stumbling blocks none the less.  Boxen's mysql also runs on an alternate port: <code>13306</code> not <code>3306</code>.</p>
+
+<h2>Thinking in Boxen</h2>
+
+<p>Boxen requires a change in user behavior. Now, when you make a change to your machine's configuration it should be done within boxen. It should be done in an idempotent way. The benefit here is that your customizations end up codified and versioned. So if you had to you could install your boxen on another machine and be ready to work in about 20 minutes.</p>
+
+<h2>Peace of Mind</h2>
+
+<p>Compute peacefully knowing your setup is versioned and repeatable. I now have scripts for setting up nearly every aspect of my machine. Furthermore, these steps now run faster than doing it manually.</p>
+</div>
+
+  <footer>
+    
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/learn-emacs-store-window-configuration/">Learn Emacs: Store Window Configuration</a>
 
 </h1>
@@ -319,63 +410,6 @@ key double tap).</p>
     
     
     <p><a rel="full-article" href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Read More &rarr;</a></p>
-    
-  </footer>
-
-
-    </article>
-  
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/measuring-slow-code/">Measuring Slow Code</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-02T15:59:00-04:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2012</time>
-         &bull; <a rel="bookmark" href="/blog/measuring-slow-code/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><p>Over the years I've found myself needing a quick way to measure some
-slow code.  Whether I'm looking at a 100 line function or a 10 line
-controller action, sometimes I just need some quick print statements
-to determine which part of the code is slow.</p>
-
-</div>
-
-  <footer>
-    
-    
-    <p><a rel="full-article" href="/blog/measuring-slow-code/">Read More &rarr;</a></p>
     
   </footer>
 

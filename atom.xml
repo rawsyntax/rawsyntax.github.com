@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2013-04-16T19:50:06-04:00</updated>
+  <updated>2013-07-06T19:47:40-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Living with Boxen]]></title>
+<link href="http://rawsyntax.com/blog/living-with-boxen/"/>
+<updated>2013-07-06T03:23:44-04:00</updated>
+<id>http://rawsyntax.com/blog/living-with-boxen</id>
+<category term="automation" />
+
+      <content type="html"><![CDATA[<p>About 3 months ago I switched to a new 15" retina macbook pro.  My previous OS X install was nearly 4 years old.  I did not want to clone the data over because too much cruft had built up.  I was left with the question of how to quickly and easily setup a laptop for programming work.  I chose <a href="http://boxen.github.com/">Boxen</a> because it was new, and I wanted a repeatable process for machine setup.</p>
+
+<h2>Promises</h2>
+
+<p>By and large boxen delivers on its promises.  I was able to setup a system for ruby / web development in about 20 minutes (most of that was spent waiting). Simply</p>
+
+<ul>
+<li>Download and install XCode and CLI tools</li>
+<li>Setup and run boxen.</li>
+</ul>
+
+
+<p>You get a system with rbenv and ruby installed and a bunch of other useful programs.</p>
+
+<h2>Problems</h2>
+
+<p>However, Boxen isn't perfect. It will require some customization sooner or later as you begin to use it for more tasks. This isn't a bad thing, but it requires you to get used to describing your machine configuration with code (Puppet).</p>
+
+<h3>Default packages are for github</h3>
+
+<div><script src='https://gist.github.com/rawsyntax/5940971.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>The above section in the Puppetfile will install <a href="https://github.com/boxen/puppet-nginx">https://github.com/boxen/puppet-nginx</a> .  However this includes custom sites for the folks who work at github, which is not what I wanted. I elected to install nginx the old way <code>brew install nginx</code>, which gives me a vanilla nginx install.</p>
+
+<h3>Homebrew location</h3>
+
+<p>Boxen has its own homebrew installation at <code>/opt/boxen/homebrew/bin/brew</code>. This can be problematic for other tools that look for stuff installed into <code>/usr/local</code>.</p>
+
+<h3>Separation</h3>
+
+<p>Boxen keeps everything under <code>/opt/boxen</code>, which can cause problems with other tools. For example, Rails 2.3 looks for mysql sockets at <code>/tmp/mysql.sock</code> by default, whereas boxen creates the socket at <code>/opt/boxen/data/mysql/socket</code>.  These problems are easy to remedy (specify the socket path), but are stumbling blocks none the less.  Boxen's mysql also runs on an alternate port: <code>13306</code> not <code>3306</code>.</p>
+
+<h2>Thinking in Boxen</h2>
+
+<p>Boxen requires a change in user behavior. Now, when you make a change to your machine's configuration it should be done within boxen. It should be done in an idempotent way. The benefit here is that your customizations end up codified and versioned. So if you had to you could install your boxen on another machine and be ready to work in about 20 minutes.</p>
+
+<h2>Peace of Mind</h2>
+
+<p>Compute peacefully knowing your setup is versioned and repeatable. I now have scripts for setting up nearly every aspect of my machine. Furthermore, these steps now run faster than doing it manually.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -1425,100 +1481,6 @@ a good deal.  We are all taking our chances.</p>
 
 <pre><code>&lt;/rant&gt;
 </code></pre>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Blogging on Jekyll: URL Redirects]]></title>
-<link href="http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/"/>
-<updated>2011-11-29T14:32:00-05:00</updated>
-<id>http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects</id>
-<category term="blogging" /><category term="programming" />
-
-      <content type="html"><![CDATA[<p>About a month ago I migrated my blog from Tumblr to Octopress hosted
-on github-pages.  I migrated because of Tumblr's slow page loads and
-frequent downtime.  I picked Octopress because it is built on top of
-Jekyll, and it comes with a reasonable default stylesheet.  Jekyll is
-a static site generator, which ensures I can deploy my blog on any old
-server in the future, and continue to use these same old tools
-(because I have them, rather than tumblr having them).</p>
-
-<!--more-->
-
-
-<h3>Migrating broke my URL Structure</h3>
-
-<p><img src="http://rawsyntax.com/images/urls_not_found.png" class ="center"/></p>
-
-<p>Running my site through Google's Webmaster Tools showed that many sites are still linking to my old Tumblr blogpost urls.  Tumblr's url structure is another reason I migrated away from it.  I should be in full control of the urls on my blog.  Never the less, I need to support redirects from the old URLs to my new URL structure <code>/blog/:post_title</code>.</p>
-
-<p>However Jekyll is just a static site, so there's no ruby server to handle redirects.  Other Jekyll users deploy to Heroku and use a small Sinatra app to handle redirects, but I feel like that is complicating my simple setup.  If I were on a regular server I could setup an <code>.htaccess</code> file to handle the redirects, but github-pages does not support <code>.htaccess</code>.</p>
-
-<h3>Jekyll Plugins to the Rescue</h3>
-
-<p>One of the great things about Jekyll is its simple plugin system.  On
-<a href="https://github.com/mojombo/jekyll/wiki/Plugins">Jekyll's Wiki</a> I
-found the
-<a href="https://github.com/tsmango/jekyll_alias_generator">Alias Generator</a>.
-It allows you to specify aliases on a per blogpost basis, in the YAML
-front matter.</p>
-
-<p>This post's YAML is:</p>
-
-<pre><code>---
-layout: post
-title: "Blogging on Jekyll: URL Redirects"
-date: 2011-11-29 14:32
-comments: true
-categories: ["programming", "blogging"]
-alias: [/blog/blogging-on-redirects]
----
-</code></pre>
-
-<p>Now when I <code>rake generate</code> my site, the Alias Generator will create
-another static html file for this post at
-<code>/blog/blogging-on-redirects/index.html</code>:</p>
-
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8" /&gt;
-&lt;meta http-equiv="refresh" content="0;url=/blog/blogging-on-jekyll-url-redirects/" /&gt;
-&lt;/head&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>Which will redirect here. Try it: <a href="http://rawsyntax.com/blog/blogging-on-redirects">/blog/blogging-on-redirects</a></p>
-
-<p>It was almost that simple.  The Alias Generator actually broke when I
-provided some of my old Tumblr urls. However, I
-<a href="https://github.com/rawsyntax/jekyll_alias_generator">forked it here</a>
-and fixed it so it handles nested aliases properly now.  I also opened
-a <a href="https://github.com/tsmango/jekyll_alias_generator/pull/1">pull request</a> to the owner to get this change merged in.</p>
-
-<h3>Jekyll's Strengths</h3>
-
-<p>That experience is Jekyll's strength as a blogging platform.  The
-output is so simple any web server can serve it so it doesn't matter
-where you deploy to.  Its generation system is open source, hackable,
-and has a great plugin system.</p>
-
-<p>But most importantly, even if the Jekyll project implodes tomorrow.  I
-still have all my blog's content versioned, and have all the tools
-necessary to maintain my blog.  I am not relying on a hosted service
-to back up my blog's content, or maintain the tools I edit it with.</p>
-
-<h3>Try Octopress</h3>
-
-<p>If you haven't tried <a href="http://octopress.org">Octopress</a> yet, I highly
-recommend it.  It's Jekyll based, but it has a decent default
-stylesheet, so it's very easy to install and immediately start
-blogging.  No programming or tweaking CSS to get in the way of writing content.</p>
 ]]></content>
     </entry>
   

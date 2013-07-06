@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Measuring Slow Code - Raw Syntax</title>
+  <title>Living with Boxen - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
   <link href="https://plus.google.com/101134845820398279714" rel="author">
   <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/measuring-slow-code/">
+  <link rel="canonical" href="http://rawsyntax.com/blog/living-with-boxen/">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/octopress.min.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/RawSyntax" rel="alternate" title="Raw Syntax" type="application/atom+xml">
@@ -95,7 +95,7 @@
   <header>
     <h1 class="entry-title">
 
-Measuring Slow Code
+Living With Boxen
 
 </h1>
 
@@ -113,78 +113,53 @@ Measuring Slow Code
   
 
 
-<time datetime="2012-09-02T15:59:00-04:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2012</time>
-         &bull; <a rel="bookmark" href="/blog/measuring-slow-code/">Permalink</a>
+<time datetime="2013-07-06T03:23:44-04:00" pubdate data-updated="true">Jul 6<span>th</span>, 2013</time>
+         &bull; <a rel="bookmark" href="/blog/living-with-boxen/">Permalink</a>
       </p>
     
   </header>
 
-<div class="entry-content"><p>Over the years I've found myself needing a quick way to measure some
-slow code.  Whether I'm looking at a 100 line function or a 10 line
-controller action, sometimes I just need some quick print statements
-to determine which part of the code is slow.</p>
+<div class="entry-content"><p>About 3 months ago I switched to a new 15" retina macbook pro.  My previous OS X install was nearly 4 years old.  I did not want to clone the data over because too much cruft had built up.  I was left with the question of how to quickly and easily setup a laptop for programming work.  I chose <a href="http://boxen.github.com/">Boxen</a> because it was new, and I wanted a repeatable process for machine setup.</p>
 
-<!--more-->
+<h2>Promises</h2>
+
+<p>By and large boxen delivers on its promises.  I was able to setup a system for ruby / web development in about 20 minutes (most of that was spent waiting). Simply</p>
+
+<ul>
+<li>Download and install XCode and CLI tools</li>
+<li>Setup and run boxen.</li>
+</ul>
 
 
-<p>My original approach to doing this would be to mark off sections of
-the code with <code>Time.now</code> statements printing out how many seconds each
-section took.  This approach is messy because it requires altering the
-code a good deal.  And at the end I was left comparing sections of the
-code to figure out which part was slower than all the other parts --
-doing the math in my head.</p>
+<p>You get a system with rbenv and ruby installed and a bunch of other useful programs.</p>
 
-<h2>Use Benchmark?</h2>
+<h2>Problems</h2>
 
-<p>Ruby has a
-<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html">Benchmark</a>
-class built in.  I tried using it.  While it can be helpful in certain
-situations, if I'm measuring 5 sections of a function there's an awful
-lot of code rewriting that has to happen because of the Benchmark
-blocks messing with the scope of variables.  That was more work than
-it was worth.</p>
+<p>However, Boxen isn't perfect. It will require some customization sooner or later as you begin to use it for more tasks. This isn't a bad thing, but it requires you to get used to describing your machine configuration with code (Puppet).</p>
 
-<h2>Roll my Own</h2>
+<h3>Default packages are for github</h3>
 
-<p>I'm hesitant to reinvent the wheel, but in this case I created a very
-simple gem to address my needs.  It's called
-<a href="https://github.com/rawsyntax/code_timer">CodeTimer</a>.  To use it first
-you instantiate it:</p>
+<div><script src='https://gist.github.com/rawsyntax/5940971.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span> <span class="o">=</span> <span class="no">CodeTimer</span><span class="o">.</span><span class="n">new</span>
-</div></pre></td></tr></table></div></figure></p>
 
-<p>Then you insert markers for each part that you want to measure:</p>
+<p>The above section in the Puppetfile will install <a href="https://github.com/boxen/puppet-nginx">https://github.com/boxen/puppet-nginx</a> .  However this includes custom sites for the folks who work at github, which is not what I wanted. I elected to install nginx the old way <code>brew install nginx</code>, which gives me a vanilla nginx install.</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part1&quot;</span><span class="p">)</span>
-</div><div class='line'><span class="c1"># ... slow code here ...</span>
-</div><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part2&quot;</span><span class="p">)</span>
-</div><div class='line'><span class="c1"># ...</span>
-</div></pre></td></tr></table></div></figure></p>
+<h3>Homebrew location</h3>
 
-<p>And a marker for stopping measuring:</p>
+<p>Boxen has its own homebrew installation at <code>/opt/boxen/homebrew/bin/brew</code>. This can be problematic for other tools that look for stuff installed into <code>/usr/local</code>.</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">end</span>
-</div></pre></td></tr></table></div></figure></p>
+<h3>Separation</h3>
 
-<p>It returns a formatted string:</p>
+<p>Boxen keeps everything under <code>/opt/boxen</code>, which can cause problems with other tools. For example, Rails 2.3 looks for mysql sockets at <code>/tmp/mysql.sock</code> by default, whereas boxen creates the socket at <code>/opt/boxen/data/mysql/socket</code>.  These problems are easy to remedy (specify the socket path), but are stumbling blocks none the less.  Boxen's mysql also runs on an alternate port: <code>13306</code> not <code>3306</code>.</p>
 
-<pre><code>Total Time: 17s
-Part1:   11% / 2s
-Part2:   29% / 5s
-Part3:   47% / 8s
-Part4:   11% / 2s
-</code></pre>
+<h2>Thinking in Boxen</h2>
 
-<p>And it's easy to see that Part3 is the slowest section.  Better start
-trying to speed up the code there.</p>
+<p>Boxen requires a change in user behavior. Now, when you make a change to your machine's configuration it should be done within boxen. It should be done in an idempotent way. The benefit here is that your customizations end up codified and versioned. So if you had to you could install your boxen on another machine and be ready to work in about 20 minutes.</p>
 
-<h2>What If This Doesn't Work?</h2>
+<h2>Peace of Mind</h2>
 
-<p>This isn't the solution for every slow code problem.  If this approach
-doesn't yield meaningful results you will have to use a more serious
-tool.  However, I reach for this tool first because it's the simplest
-thing that could possibly work.</p>
+<p>Compute peacefully knowing your setup is versioned and repeatable. I now have scripts for setting up nearly every aspect of my machine. Furthermore, these steps now run faster than doing it manually.</p>
 </div>
 
 
@@ -207,12 +182,12 @@ thing that could possibly work.</p>
   
 
 
-<time datetime="2012-09-02T15:59:00-04:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2012</time>
+<time datetime="2013-07-06T03:23:44-04:00" pubdate data-updated="true">Jul 6<span>th</span>, 2013</time>
 
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/programming/'>programming</a>, <a class='category' href='/blog/categories/tools/'>tools</a>
+    <a class='category' href='/blog/categories/automation/'>automation</a>
   
 </span>
 
@@ -231,7 +206,7 @@ thing that could possibly work.</p>
   
   
     
-    <a title="Share on Facebook" class="facebook-share" href="http://www.facebook.com/sharer.php?u=http://rawsyntax.com/blog/measuring-slow-code/" target="_blank">Share</a>
+    <a title="Share on Facebook" class="facebook-share" href="http://www.facebook.com/sharer.php?u=http://rawsyntax.com/blog/living-with-boxen/" target="_blank">Share</a>
     
   
   
@@ -241,10 +216,8 @@ thing that could possibly work.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/faster-ssh-connections/" title="Previous Post: Faster SSH Connections">&laquo; Faster SSH Connections</a>
+        <a class="basic-alignment left" href="/blog/learn-emacs-store-window-configuration/" title="Previous Post: Learn Emacs: Store Window Configuration">&laquo; Learn Emacs: Store Window Configuration</a>
       
-      
-        <a class="basic-alignment right" href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/" title="Next Post: Quicksilver, Secure Keyboard Entry, and Single Modifier Activation">Quicksilver, Secure Keyboard Entry, and Single Modifier Activation &raquo;</a>
       
     </p>
   </footer>
@@ -330,8 +303,8 @@ thing that could possibly work.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://rawsyntax.com/blog/measuring-slow-code/';
-        var disqus_url = 'http://rawsyntax.com/blog/measuring-slow-code/';
+        var disqus_identifier = 'http://rawsyntax.com/blog/living-with-boxen/';
+        var disqus_url = 'http://rawsyntax.com/blog/living-with-boxen/';
         var disqus_script = 'embed.js';
       
     (function () {
