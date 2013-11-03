@@ -96,6 +96,60 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/learn-emacs-zsh-and-multi-term/">Learn Emacs: Zsh and Multi-Term</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-03T15:12:27-05:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2013</time>
+         &bull; <a rel="bookmark" href="/blog/learn-emacs-zsh-and-multi-term/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>I've been experimenting with running <code>multi-term</code> in emacs instead of using an external program like iTerm2.  While <code>multi-term</code> is good, it can have some show-stopping  problems out of the box.  As usual, <a href="http://emacswiki.org">EmacsWiki</a> has some good tips, but there isn't a comprehensive setup all on one page.</p>
+
+</div>
+
+  <footer>
+    
+    
+    <p><a rel="full-article" href="/blog/learn-emacs-zsh-and-multi-term/">Read More &rarr;</a></p>
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/living-with-boxen/">Living With Boxen</a>
 
 </h1>
@@ -122,49 +176,12 @@
 
 <div class="entry-content"><p>About 3 months ago I switched to a new 15" retina macbook pro.  My previous OS X install was nearly 4 years old.  I did not want to clone the data over because too much cruft had built up.  I was left with the question of how to quickly and easily setup a laptop for programming work.  I chose <a href="http://boxen.github.com/">Boxen</a> because it was new, and I wanted a repeatable process for machine setup.</p>
 
-<h2>Promises</h2>
-
-<p>By and large boxen delivers on its promises.  I was able to setup a system for ruby / web development in about 20 minutes (most of that was spent waiting). Simply</p>
-
-<ul>
-<li>Download and install XCode and CLI tools</li>
-<li>Setup and run boxen.</li>
-</ul>
-
-
-<p>You get a system with rbenv and ruby installed and a bunch of other useful programs.</p>
-
-<h2>Problems</h2>
-
-<p>However, Boxen isn't perfect. It will require some customization sooner or later as you begin to use it for more tasks. This isn't a bad thing, but it requires you to get used to describing your machine configuration with code (Puppet).</p>
-
-<h3>Default packages are for github</h3>
-
-<div><script src='https://gist.github.com/rawsyntax/5940971.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-
-
-<p>The above section in the Puppetfile will install <a href="https://github.com/boxen/puppet-nginx">https://github.com/boxen/puppet-nginx</a> .  However this includes custom sites for the folks who work at github, which is not what I wanted. I elected to install nginx the old way <code>brew install nginx</code>, which gives me a vanilla nginx install.</p>
-
-<h3>Homebrew location</h3>
-
-<p>Boxen has its own homebrew installation at <code>/opt/boxen/homebrew/bin/brew</code>. This can be problematic for other tools that look for stuff installed into <code>/usr/local</code>.</p>
-
-<h3>Separation</h3>
-
-<p>Boxen keeps everything under <code>/opt/boxen</code>, which can cause problems with other tools. For example, Rails 2.3 looks for mysql sockets at <code>/tmp/mysql.sock</code> by default, whereas boxen creates the socket at <code>/opt/boxen/data/mysql/socket</code>.  These problems are easy to remedy (specify the socket path), but are stumbling blocks none the less.  Boxen's mysql also runs on an alternate port: <code>13306</code> not <code>3306</code>.</p>
-
-<h2>Thinking in Boxen</h2>
-
-<p>Boxen requires a change in user behavior. Now, when you make a change to your machine's configuration it should be done within boxen. It should be done in an idempotent way. The benefit here is that your customizations end up codified and versioned. So if you had to you could install your boxen on another machine and be ready to work in about 20 minutes.</p>
-
-<h2>Peace of Mind</h2>
-
-<p>Compute peacefully knowing your setup is versioned and repeatable. I now have scripts for setting up nearly every aspect of my machine. Furthermore, these steps now run faster than doing it manually.</p>
 </div>
 
   <footer>
     
+    
+    <p><a rel="full-article" href="/blog/living-with-boxen/">Read More &rarr;</a></p>
     
   </footer>
 
@@ -346,70 +363,6 @@
     
     
     <p><a rel="full-article" href="/blog/learn-emacs-fit-your-workflow/">Read More &rarr;</a></p>
-    
-  </footer>
-
-
-    </article>
-  
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Quicksilver, Secure Keyboard Entry, and Single Modifier Activation</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-08T10:55:00-05:00" pubdate data-updated="true">Nov 8<span>th</span>, 2012</time>
-         &bull; <a rel="bookmark" href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><p>I use <a href="http://qsapp.com">Quicksilver</a> all the time.  Despite its bugs,
-I prefer it to any of the other launcher type programs that exist.
-Nevermind the fact that it is more powerful than most of those other
-programs (Alfred, LaunchBar, etc).  The single feature that got me
-hooked is the ability to bring up the Quicksilver prompt with a single
-keypress.  I have it set up to use the command key.</p>
-
-<p><img src="/images/single-modifier-activation.png" class ="center"/></p>
-
-<p>Other tools like Alfred won't do this (though it does have the command
-key double tap).</p>
-
-</div>
-
-  <footer>
-    
-    
-    <p><a rel="full-article" href="/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/">Read More &rarr;</a></p>
     
   </footer>
 
