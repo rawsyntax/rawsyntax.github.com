@@ -210,4 +210,8 @@
         <loc>http://rawsyntax.com/robots.txt</loc>
         <lastmod>2013-02-24T14:26:40-05:00</lastmod>
     </url>
+    <url>
+        <loc>http://rawsyntax.com/screencasts/</loc>
+        <lastmod>2013-11-03T16:46:33-05:00</lastmod>
+    </url>
 </urlset>
