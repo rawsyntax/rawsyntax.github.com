@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2013-11-03T16:49:25-05:00</updated>
+  <updated>2013-11-17T10:52:51-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Learn Emacs: The Extensible Editor]]></title>
+<link href="http://rawsyntax.com/blog/learn-emacs-the-extensible-editor/"/>
+<updated>2013-11-17T10:34:23-05:00</updated>
+<id>http://rawsyntax.com/blog/learn-emacs-the-extensible-editor</id>
+<category term="learn-emacs" />
+
+      <content type="html"><![CDATA[<p>Emacs bills itself as being the extensible self-documenting editor.  When I first started using it I was suspicious that not many people take advantage of the extensible part.  I could not have been more wrong.  What follows is a short story of a hack to get Emacs to do what I want.</p>
+
+<h2>Making Emacs Work for Me</h2>
+
+<p>I use <a href="https://github.com/jhelwig/ack-and-a-half">ack-and-a-half</a> to interact with ack (instead of grep) via Emacs.  Some time ago I read about <a href="https://github.com/ggreer/the_silver_searcher">ag</a>, but there wasn't an Emacs mode for it available.  I checked again last week, and found that there is now <a href="https://github.com/Wilfred/ag.el">ag.el</a>.  After trying it, I found that it doesn't work exactly like ack-and-a-half.  I wanted to switch to ag, but did not want to give up ack-and-a-half's behavior.</p>
+
+<p>So I did the emacs thing and had a look at ag.el's source to assess how much effort changing it would be. It was too much effort.  I then realized due to the close compatibility between ack and ag, I could probably quickly hack up ack-and-a-half to change the backend to ag.</p>
+
+<p>After an hour of work <a href="https://github.com/rawsyntax/ag-and-a-half">ag-and-a-half</a> was born. The result is that my former ack-and-a-half frontend now runs 3x-5x faster (ag's performance promise).  The work that I did was largely a wholesale find and replace.  The right thing to do would be to make the backend swappable between ack and ag.  However, the quick hack works great for now.</p>
+
+<p>I find this is a good example of Emacs' extensibility and an example actually taking advantage of it.  If you're using Emacs without customizing or extending it, you're missing out.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -779,15 +805,8 @@ simple tool.  Watch files; run commands on change.  There is already a
 telling it which files to watch.  Your specific files may differ, but
 this works for my needs.</p>
 
-<div><script src='https://gist.github.com/rawsyntax/1886987.js'></script>
-<noscript><pre><code>guard 'pow' do
-  watch('.rvmrc')
-  watch('Gemfile')
-  watch('Gemfile.lock')
-  watch(%r{^lib/*/.*\.rb$})
-  watch(%r{^app/*/.*\.rb$})
-end
-</code></pre></noscript></div>
+<div><script src='https://gist.github.com/rawsyntax/7297149.js'></script>
+<noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://github.com/gist/7297149&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript></div>
 
 
 <p>Finally, run <code>bundle exec guard</code>.  It will print when it restarts pow.
@@ -1350,69 +1369,6 @@ simplest thing that could possibly work.  Then keep at it and don't be
 afraid to re-evaluate your idea.  It doesn't make you a quitter to throw out a project that no longer seems reasonable.</p>
 
 <p>Check out an older post of mine about <a href="http://rawsyntax.com/blog/importance-of-side-projects/">side projects</a>.</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Verify your Assumptions]]></title>
-<link href="http://rawsyntax.com/blog/verify-your-assumptions/"/>
-<updated>2011-12-07T09:41:00-05:00</updated>
-<id>http://rawsyntax.com/blog/verify-your-assumptions</id>
-
-
-      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/ram.jpg" class ="center"/></p>
-
-<p>Always verify your assumptions.  It will save you time and headache.
-I'll explain now.</p>
-
-<!--more-->
-
-
-<h3>Building a PC</h3>
-
-<p>I recently built a PC from parts I bought online.  It had been 5 years
-since I've built a PC at the time so I'd forgotten my good habits.  I
-put everything together: RAM, CPU, HDD, GPU, motherboard etc...  and
-it booted up and POST'ed no problems.  I thought I was good to go at
-this point.  I managed to install windows and a bunch of drivers, but
-then I started getting random freeze ups.</p>
-
-<h3>Troubleshooting</h3>
-
-<p>I thought perhaps it was one of the drivers or something specific to
-windows 7 (this is a gaming box, not for work).  So I did a little
-digging and actually ended up reinstalling windows bare to rule out
-any driver issues.  Long story short, while the box would work fine
-for about 10 minutes, shortly thereafter the box would freeze up.</p>
-
-<p>It was at this point that I decided to get a boot CD with some
-troubleshooting utilities.  I chose
-<a href="http://www.ultimatebootcd.com/">Ultimate Boot CD</a> because it's free
-and has almost everything you could need for diagnostics.</p>
-
-<h3>Testing</h3>
-
-<p>For whatever reason, when I built the PC I did it wrong.  I skipped
-the testing phase.  I didn't test first.  So now I was in a situation
-where I was digging through everything to get to the root of the
-problem (and hopefully there's only one!).  First I tested the HDD
-using HDAT2.  Many hours later, it came back clean.  Then I tested
-using Memtest86.  Within a couple of minutes it detected an error.  So
-I pulled the 2 RAM sticks, and tested each individually, and
-determined that I had 1 bad stick of RAM.</p>
-
-<h3>The Point is</h3>
-
-<p>If I had built my system right: plug in as little as possible to get
-it to boot and run diagnostics before installing software, I would
-have found my problem much faster and saved hours of time.  My problem
-here was that I assumed my RAM was good.  So even when you're not
-programming it's important to verify your assumptions and don't forget to test.</p>
 ]]></content>
     </entry>
   
