@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2014-01-13T14:47:15-05:00</updated>
+  <updated>2014-01-13T14:48:26-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -24,7 +24,7 @@
 <id>http://rawsyntax.com/blog/keep-your-api-documentation-honest</id>
 <category term="documentation" />
 
-      <content type="html"><![CDATA[<p>I've written a post about API documentation on <a href="http://www.intridea.com/blog/2014/1/13/keep-your-api-documentation-honest">intridea's blog</a>.  Please have a look.</p>
+      <content type="html"><![CDATA[<p>I've written a post about API documentation on <a href="http://www.intridea.com/blog/2014/1/13/keep-your-api-documentation-honest">Intridea's blog</a>.  Please have a look.</p>
 ]]></content>
     </entry>
   
