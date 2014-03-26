@@ -203,8 +203,12 @@
         <lastmod>2014-02-11T21:05:18-05:00</lastmod>
     </url>
     <url>
+        <loc>http://rawsyntax.com/blog/getting-started-with-raspberry-pi/</loc>
+        <lastmod>2014-03-26T17:29:58-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://rawsyntax.com/archives/</loc>
-        <lastmod>2014-03-26T16:27:24-04:00</lastmod>
+        <lastmod>2014-03-26T17:29:58-04:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/open-source-contributions/</loc>
@@ -216,7 +220,7 @@
     </url>
     <url>
         <loc>http://rawsyntax.com/</loc>
-        <lastmod>2014-03-26T16:27:24-04:00</lastmod>
+        <lastmod>2014-03-26T17:29:58-04:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/robots.txt</loc>

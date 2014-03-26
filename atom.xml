@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2014-03-26T17:28:46-04:00</updated>
+  <updated>2014-03-26T17:30:25-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,204 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Getting started with Raspberry Pi]]></title>
+<link href="http://rawsyntax.com/blog/getting-started-with-raspberry-pi/"/>
+<updated>2014-03-26T17:29:00-04:00</updated>
+<id>http://rawsyntax.com/blog/getting-started-with-raspberry-pi</id>
+<category term="raspberry-pi" />
+
+      <content type="html"><![CDATA[<p>In this post I'm going to  go over each step to get your Raspberry Pi
+ready for ruby development.  In setting up my RPi I've found that
+there is a lot of outdated information on the web. I've created an up
+to date list of steps here.</p>
+
+<p>Note: Be ready to step away from the computer during the setup
+process. The RPi is cool, but quite slow.</p>
+
+<h2>Supplies</h2>
+
+<p>At a minimum you will need (these are the parts I bought):</p>
+
+<ul>
+<li><a href="http://amzn.to/1mvnFFs">RPi Model B</a></li>
+<li><a href="http://amzn.to/1ht8zJo">Class 10 SD Card</a></li>
+<li><a href="http://amzn.to/NVdgDN">Ethernet cable</a></li>
+<li><a href="http://amzn.to/NVe8Io">Power Supply</a></li>
+<li><a href="http://amzn.to/1gD5mvr">Charging Cable</a></li>
+</ul>
+
+
+<p>Note about power supplies: There are cheaper ones, but you have to
+weigh that risk against setting your home on fire. In particular, you
+want to verify that the power supply is UL-certified.</p>
+
+<p>This cost me about $67, but could be cheaper if you already have some
+of these parts.</p>
+
+<h2>Pick an OS</h2>
+
+<p>The first step is to pick which distribution to run on your RPi.
+Looking at the
+<a href="http://elinux.org/RPi_Distributions#Comparison">comparison table</a> I
+decided to go with <a href="http://www.raspbian.org/">Raspbian</a>.  This was
+chiefly because I've used Debian and Ubuntu in the past. That being
+said, there are many other distrubtions available for RPi.</p>
+
+<p>The next step is to download the image
+<a href="http://www.raspberrypi.org/downloads">here</a>.  I downloaded the
+<code>2014-01-07-wheezy-raspbian.zip</code> version and unzipped it.</p>
+
+<h2>Set up the SD Card</h2>
+
+<p>You will need an SD card for storage on the RPi. I went with
+<a href="http://amzn.to/1ht8zJo">Transcend 32 GB Class 10 SDHC</a>.  Class 10 is
+the recommended speed for use with RPi. Any faster would be limited by
+the RPi's bus.</p>
+
+<p>Plug the SD card into your Mac and determine disk name by running
+<code>diskutil list</code>.</p>
+
+<p>The output will be similar to this:</p>
+
+<pre><code>/dev/disk0
+   #:                       TYPE NAME                    SIZE        IDENTIFIER
+   0:      GUID_partition_scheme                        *500.3 GB   disk0
+   1:                        EFI EFI                     209.7 MB   disk0s1
+   2:                  Apple_HFS Macintosh HD            499.4 GB   disk0s2
+   3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
+/dev/disk2
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *998.6 GB   disk2
+   1:                        EFI EFI                     209.7 MB   disk2s1
+   2:                  Apple_HFS Time Machine Backups    998.2 GB   disk2s2
+/dev/disk5
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *32.1 GB    disk5
+   1:             Windows_FAT_32 boot                    58.7 MB    disk5s1
+   2:                      Linux                         32.1 GB    disk5s2
+</code></pre>
+
+<p>You can determine which <code>/dev/disk</code> your RPi is by matching up the
+Volume name with the value in the NAME column.  Here my RPi is
+<code>/dev/disk5</code>, and the volume name is <code>boot</code>.</p>
+
+<p>Next, unmount the volume with <code>sudo diskutil umount /Volumes/boot</code>.
+If you don't unmount the SD card first, you will receive an error about the
+device being busy when trying to image it.</p>
+
+<p>Finally, copy the OS image to the SD card with <code>dd if=2014-01-07-wheezy-raspbian.img of=/dev/disk5 bs=1</code></p>
+
+<p>Go have some non-computer time.  This took roughly an hour when I did it.</p>
+
+<h2>Boot the OS on your RPi</h2>
+
+<p>Once <code>dd</code> has completed:</p>
+
+<ul>
+<li>Remove the SD card from your Mac</li>
+<li>Plug the SD card into the RPi</li>
+<li>Plug your RPi into your network with an ethernet cable</li>
+<li>Power the RPi on by plugging it in and wait a couple minutes for it
+to boot</li>
+<li>Look up the address via your router</li>
+</ul>
+
+
+<p><img class="" src="http://rawsyntax.com/images/raspi-network.png"></p>
+
+<p>Here, my RPi is listed as <code>192.168.1.229</code></p>
+
+<p>Login via ssh with default user (pi) and default password (raspberry)
+<code>ssh pi@192.168.1.229</code></p>
+
+<p>If you run <code>df -h</code> you will see that your install isn't using all of
+the available storage on the SD card. You need to expand the SD card
+by running:</p>
+
+<p><code>sudo raspi-config</code> and selecting the expand option.</p>
+
+<p><img class="" src="http://rawsyntax.com/images/raspi-config.png"></p>
+
+<p>I also recommend selecting option 2 and changing the default password.</p>
+
+<p>Out of the box my RPi was set to the <code>en_GB</code> locale. You can set the
+correct locale and timezone by running:</p>
+
+<pre><code>sudo dpkg-reconfigure locales
+sudo dpkg-reconfigure tzdata
+</code></pre>
+
+<p>Next, make sure the latest packages are available before you get to
+installing software:</p>
+
+<p><code>sudo apt-get update</code></p>
+
+<h2>Set your Shell (optional)</h2>
+
+<p>Raspbian comes with bash as the default shell.  If that's fine for
+you, skip this section.</p>
+
+<p>Zsh can be installed by running:</p>
+
+<pre><code>sudo apt-get install zsh
+chsh
+</code></pre>
+
+<p>Then enter <code>/usr/bin/zsh</code> for the new shell.</p>
+
+<h2>Set up Ruby</h2>
+
+<p>I found the following dependency was missing out of the box:
+<code>sudo apt-get install libssl-dev</code></p>
+
+<p>Get rbenv with:</p>
+
+<pre><code>git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+</code></pre>
+
+<p>Add the following to your <code>.bash_profile</code> or <code>.zshrc</code></p>
+
+<p><code>eval "$(rbenv init -)"</code>
+Reload your shell (or simply login again) and run:</p>
+
+<pre><code>rbenv install 2.1.1
+rbenv global 2.1.1
+</code></pre>
+
+<p>Or whatever version you prefer.  To confirm everything is set up run:</p>
+
+<pre><code>ruby -v
+ruby 2.1.1p76 (2014-02-24 revision 45161) [armv6l-linux-eabihf]
+</code></pre>
+
+<h2>Set up Node.js</h2>
+
+<p>I set up node because some ruby gems require a javascript runtime.
+Installing node looked easier than getting v8 to work on RPi. Simply run:</p>
+
+<pre><code>wget http://node-arm.herokuapp.com/node_latest_armhf.deb
+sudo dpkg -i node_latest_armhf.deb`
+</code></pre>
+
+<h2>On the Next RPi Post</h2>
+
+<p>I've noticed some flakiness on my laptop's Internet
+connection, but I'm unclear what the cause is -- is it Comcast or some
+of the servers I hit actually being down from time to time?</p>
+
+<p>In my next post, I'll go over how I set up my first RPi project. It
+will run a basic dashboard displaying various network connectivity metrics.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -1058,98 +1256,6 @@ So if your config isn't already versioned, version it right now.</p>
 <p>PS: I'm interested to know any emacs topics you'd like to see a
 blogpost on.  I haven't been hacking my emacs config much lately, so
 I'm short on ideas for emacs posts.</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Stop Programming]]></title>
-<link href="http://rawsyntax.com/blog/stop-programming/"/>
-<updated>2012-01-04T15:25:00-05:00</updated>
-<id>http://rawsyntax.com/blog/stop-programming</id>
-<category term="rants" />
-
-      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/stop-programming.jpg" alt="Stop Programming" class="center"/></p>
-
-<p>I've got some ideas on how you can improve your programming by not
-programming.  Try something new this year.</p>
-
-<!--more-->
-
-
-<h3>Simplifying Too Much</h3>
-
-<p>About 4 years ago, I fell in love with minimalism and tried to get rid of most of my possessions.  I went as far as selling my saxophone, (3) bass guitars,  and bass rig.  This meant not playing music any more.  At the time I decided that playing music was nonessential since it did not relate to programming and didn't make any money.  I also sold my bicycle (which meant no more cycling).</p>
-
-<p>Pretty soon after that I was just a guy who programmed at work and
-worked on programming projects at home.  In other words, not very interesting.</p>
-
-<p>The great secret of minimalism (taken to an extreme), is that if you
-take away everything you are left with nothing.  In my case I realized
-I didn't do anything for fun anymore.  I've since bought a bass,
-bass rig, and bicycle and started teaching myself classical / flamenco guitar.</p>
-
-<h3>Be a Beginner Again</h3>
-
-<p>I think there's a problem lurking in many programming communities
-(forums, IRC, mailing lists).  Every so often a beginner comes a long
-and asks a basic question in the wrong way.  He doesn't follow the
-rules of the community.  So a long-standing member of the community
-replies "use the search", "read the FAQ",  or a similar useless
-answer.  Go and search any forum you will find useless results like
-this.  This is not only unfriendly, but can pollute search results for
-others that visit later with the same questions, which eventually
-renders the "use the search" solution useless.</p>
-
-<p>While I agree that a community's rules of etiquette should be
-followed, I think some members of these online communities have
-forgotten what it's like to be a beginner.  Often newbie may not
-know what to search or need some extra explanation regarding a common
-problem. I found this to be the case when starting out with <a href="http://rawsyntax.com/blog/categories/learn-emacs/">emacs</a>,
-wherein reading the manual and using the help system are actually part
-of emacs itself and can be confusing if you don't even know how to use
-the thing.</p>
-
-<p>That's why I recommend trying something other than programming.  Go
-for something unrelated.  Something where you will be a complete
-beginner.  Try learning a musical instrument, building a bike,
-woodworking, etc...  Next time you're helping out a beginner you may
-find yourself being more helpful and patient.</p>
-
-<h3>Expand Your Mind</h3>
-
-<p>The other reason to try something new is that it may eventually lead
-you to approach programming problems in a different or unconvential
-way.  Much of what we do is done by way of analogy.  OOP works by
-making a model that approximates real situations.  Eventually you'll
-run into a real programming problem that can be solved using methods
-from the real world.</p>
-
-<p>Furthermore, programming is creative work.  It can be helpful to look
-elsewhere for inspiration.  Often I find myself thinking of
-programming as an art, as self-expression (albeit with many real world
-constraints; self-expression won't necessarily create useful
-programs).  To get a better idea of what I mean check out <a
-href="http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071">The Tao of Programming</a><img src="http://www.assoc-amazon.com/e/ir?t=rawsyntax-20&l=as2&o=1&a=0931137071" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />.  Though it is written in a somewhat joking
-manner, there is truth in it.</p>
-
-<p>My favorite section is <strong>2.4</strong>:</p>
-
-<blockquote><p>A novice asked the Master: ``Here is a programmer that never designs, documents or tests his programs. Yet all who know him consider him one of the best programmers in the world. Why is this?''</p><p>The Master replies: ``That programmer has mastered the Tao. He has<br/>gone beyond the need for design; he does not become angry when the<br/>system crashes, but accepts the universe without concern. He has gone<br/>beyond the need for documentation; he no longer cares if anyone else<br/>sees his code. He has gone beyond the need for testing; each of his<br/>programs are perfect within themselves, serene and elegant, their<br/>purpose self-evident. Truly, he has entered the mystery of Tao.''</p><footer><strong>The Tao of Programming</strong> <cite><a href='http://www.amazon.com/gp/product/0931137071/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=rawsyntax-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0931137071'>www.amazon.com/gp/product/&hellip;</a></cite></footer></blockquote>
-
-
-<p>Though this style of programming is totally impractical for designing
-reliable extensible software, I ponder it every few months because
-it is such a different perspective.  What if you were able to write a
-program that had the intuitive cohesion of a poem?</p>
-
-<h3>Now Go Do Something Else</h3>
-
-<p>That's it.  Try something different and new this year.</p>
 ]]></content>
     </entry>
   

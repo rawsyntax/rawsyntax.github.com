@@ -97,6 +97,62 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/learn-emacs-keyboard-macros/">Learn Emacs: Keyboard Macros</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-28T00:00:00-04:00" pubdate data-updated="true">Aug 28<span>th</span>, 2011</time>
+         &bull; <a rel="bookmark" href="/blog/learn-emacs-keyboard-macros/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>An emacs keyboard macro is just a recording of user input into emacs,
+which means that most anything you can do in emacs can be recorded as
+a macro. Read that again. Pretty powerful.</p>
+
+</div>
+
+  <footer>
+    
+    
+    <p><a rel="full-article" href="/blog/learn-emacs-keyboard-macros/">Read More &rarr;</a></p>
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/use-livereload-with-rails-for-faster-development/">Use LiveReload With Rails for Faster Development</a>
 
 </h1>
@@ -307,69 +363,6 @@ recommendations.</p>
 
     </article>
   
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/learn-emacs-use-defadvice-modify-functions/">Learn Emacs: Use Defadvice to Modify Functions</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-22T00:00:00-04:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2011</time>
-         &bull; <a rel="bookmark" href="/blog/learn-emacs-use-defadvice-modify-functions/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><p>I use defadvice to change the behavior of zap-to-char. In it’s original form, zap-to-char deletes all characters up to and including the matching character. I prefer it to behave more like zap-up-to-but-not-including-char. It’s more intuitive to me.</p>
-
-<div><script src='https://gist.github.com/rawsyntax/1038120.js'></script>
-<noscript><pre><code>;; make zap-to-char act like zap-up-to-char
-(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
-  &quot;Kill up to the ARG'th occurence of CHAR, and leave CHAR.
-  The CHAR is replaced and the point is put before CHAR.&quot;
-  (insert char)
-  (forward-char -1))
-</code></pre></noscript></div>
-
-
-<p>More on defadvice <a href="http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html">here</a></p>
-</div>
-
-  <footer>
-    
-    
-  </footer>
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -388,6 +381,10 @@ recommendations.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/getting-started-with-raspberry-pi/">Getting started with Raspberry Pi</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/learn-emacs-birthday-easter-egg/">Learn Emacs: Birthday Easter Egg</a>
       </li>
     
@@ -401,10 +398,6 @@ recommendations.</p>
     
       <li class="post">
         <a href="/blog/learn-emacs-zsh-and-multi-term/">Learn Emacs: Zsh and Multi-Term</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/living-with-boxen/">Living with Boxen</a>
       </li>
     
   </ul>
