@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2014-03-26T17:30:25-04:00</updated>
+  <updated>2014-05-18T15:59:13-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Learn Emacs: Term, Ansi Term]]></title>
+<link href="http://rawsyntax.com/blog/learn-emacs-term/"/>
+<updated>2014-05-18T15:43:47-04:00</updated>
+<id>http://rawsyntax.com/blog/learn-emacs-term</id>
+<category term="code" /><category term="learn-emacs" /><category term="terminal" /><category term="tools" />
+
+      <content type="html"><![CDATA[<p>When I first started using Multi-Term to run my
+<a href="http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/">terminal in emacs</a>,
+much of the documentation I saw on the
+<a href="http://www.emacswiki.org/emacs/AnsiTerm">EmacsWiki</a> referenced both
+<code>ansi-term</code> and <code>term</code>. This left me somewhat confused as to which I
+should be using and what the difference was. I ignored this for some
+time while I got my Multi-Term setup working correctly.</p>
+
+<h2>Look It Up</h2>
+
+<p>When the time came to find out the truth, I knew I could just ask
+emacs.  I used <code>C-h a</code> to invoke <code>apropros</code> and fed it both
+<code>ansi-term</code> and <code>term</code>.  The output linked me to <code>term.el</code> and I read
+the source for both methods. It turns out that both methods work
+similarly, but simply use different buffer names.  As
+<a href="http://www.emacswiki.org/emacs/AnsiTerm">EmacsWiki</a> explains, the
+difference is largely historical at this point. Previously, plain
+<code>term-mode</code> was less able to display colors than <code>ansi-term</code>.</p>
+
+<p>This is one of the features I like best about emacs. It has a built-in
+help system that allowed me to search for term related documentation,
+and eventually led me to the source code implementation of the method
+in question. All without leaving the editor!</p>
+
+<p>I have some enhancements to my previous post
+<a href="http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/">zsh and multi-term in emacs</a>,
+and the fixes and changes that I implemented all came from reading the
+source of <code>term.el</code> and referring to <a href="http://emacswiki.org">EmacsWiki</a>
+as needed.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -283,7 +327,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 <link href="http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/"/>
 <updated>2013-11-03T15:12:27-05:00</updated>
 <id>http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term</id>
-<category term="code" /><category term="tools" />
+<category term="code" /><category term="learn-emacs" /><category term="terminal" /><category term="tools" />
 
       <content type="html"><![CDATA[<p>I've been experimenting with running <code>multi-term</code> in emacs instead of using an external program like iTerm2.  While <code>multi-term</code> is good, it can have some show-stopping  problems out of the box.  As usual, <a href="http://emacswiki.org">EmacsWiki</a> has some good tips, but there isn't a comprehensive setup all on one page.</p>
 
@@ -1191,71 +1235,6 @@ file.</p>
 
 
 
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Troubleshooting your Emacs Config]]></title>
-<link href="http://rawsyntax.com/blog/troubleshooting-your-emacs-config/"/>
-<updated>2012-01-22T22:26:00-05:00</updated>
-<id>http://rawsyntax.com/blog/troubleshooting-your-emacs-config</id>
-<category term="learn-emacs" /><category term="programming" />
-
-      <content type="html"><![CDATA[<p>Up to this point my <a href="http://rawsyntax.com/blog/categories/learn-emacs">Learn Emacs</a>
-series has been all about how to do cool stuff in emacs.  One of my
-personal favorites is <a href="http://rawsyntax.com/blog/learn-emacs-align-regexp/">align-regexp</a>.
-A while back that stopped working for me.  Now I get an error: <code>Wrong type
-argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
-
-<!--more-->
-
-
-<h3>First Remove your Config</h3>
-
-<p>Whether you use a single <code>.emacs</code> file or a <code>~/.emacs.d/</code> directory
-it is time to remove it.  Personally I keep <code>~/.emacs.d/</code> symlinked to
-my <a href="https://github.com/rawsyntax/emacs.d">emacs.d github repo</a> so it iss
-quite easy to remove the symlink.  Alternatively you can start emacs
-with the <code>--no-init-file</code> option, to skip loading your files. The
-rationale for removing your config is simply that it reduces the
-number of variables you are dealing with.  Is the problem with your
-config or with emacs itself?</p>
-
-<h3>Then Check your Emacs Version</h3>
-
-<p>After I removed my config and tried <code>M-x align-regexp</code> again, I got
-the same error.  So its not my config.  If you find you have a problem
-with a particular version of emacs <code>M-x emacs-version</code> will tell you
-what version you have.  In my case it was</p>
-
-<pre><code>GNU Emacs 24.0.92.1 (x86_64-apple-darwin, NS apple-appkit-1038.36) of 2011-12-02 on bob.porkrind.org
-</code></pre>
-
-<p>As I get my emacs builds from
-<a href="http://emacsformacosx.com/">EmacsForMacOSX</a> or <code>brew install</code> them
-myself.  At this point I'm fairly certain I'm getting the error as a
-result of running a nightly build.  A quick google leads me to
-<a href="http://lists.gnu.org/archive/html/bug-gnu-emacs/2011-12/msg00266.html">bug#10249: 24.0.92</a>.
-I installed a pretest version, and align-regexp works fine like it
-used to..  I would prefer to be running the stable version, but I'm using
-<a href="https://github.com/technomancy/emacs-starter-kit">emacs-starter-kit</a>
-for my config, which requires emacs 24.</p>
-
-<h3>Version your Config</h3>
-
-<p>When functionality like this breaks it is really awesome to have an
-emacs configuration that is under version control.  I can walk
-backwards through any recent changes to find what is causing breakage.
-So if your config isn't already versioned, version it right now.</p>
-
-<p>PS: I'm interested to know any emacs topics you'd like to see a
-blogpost on.  I haven't been hacking my emacs config much lately, so
-I'm short on ideas for emacs posts.</p>
 ]]></content>
     </entry>
   
