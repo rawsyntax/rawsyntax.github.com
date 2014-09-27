@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2014-05-18T15:59:13-04:00</updated>
+  <updated>2014-09-26T22:11:00-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[How to Set Up Angular With Rails]]></title>
+<link href="http://rawsyntax.com/blog/how-to-set-up-angular-with-rails/"/>
+<updated>2014-09-26T22:06:48-04:00</updated>
+<id>http://rawsyntax.com/blog/how-to-set-up-angular-with-rails</id>
+<category term="programming" />
+
+      <content type="html"><![CDATA[<p>I've written a post about using Angular with Rails on
+<a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">Intridea's Blog</a>.
+Please have a look.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -1190,51 +1208,6 @@ about <code>emacs-starter-kit (v2)</code>.  Its basis was emacs-24 paired with
 the marmalade-repo (for emacs-lisp packages).  I put in an n hour here
 and there over the course of a few months.  In mid September it was good
 enough to use as my full-time working config.</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Learn Emacs: Swap Windows]]></title>
-<link href="http://rawsyntax.com/blog/learn-emacs-swap-windows/"/>
-<updated>2012-01-26T10:33:00-05:00</updated>
-<id>http://rawsyntax.com/blog/learn-emacs-swap-windows</id>
-<category term="learn-emacs" />
-
-      <content type="html"><![CDATA[<p>When I use Emacs in GUI mode, I set it up to have two 80 column
-windows side by side.  It's extremely convention when you need to look
-at one section of the code while writing another.  For instance, you
-can have the spec file side by side with the code when doing TDD.
-Sometimes I want to swap the windows.  This kind of functionality does
-not come built in with emacs.  I found the <code>swap-windows</code> function
-that I use in Steve Yegge's
-<a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">.emacs</a>
-file.</p>
-
-<div><script src='https://gist.github.com/rawsyntax/1683375.js'></script>
-<noscript><pre><code>(defun swap-windows ()
- &quot;If you have 2 windows, it swaps them.&quot;
- (interactive)
- (cond ((not (= (count-windows) 2))
-        (message &quot;You need exactly 2 windows to do this.&quot;))
-       (t
-        (let* ((w1 (first (window-list)))
-               (w2 (second (window-list)))
-               (b1 (window-buffer w1))
-               (b2 (window-buffer w2))
-               (s1 (window-start w1))
-               (s2 (window-start w2)))
-          (set-window-buffer w1 b2)
-          (set-window-buffer w2 b1)
-          (set-window-start w1 s2)
-          (set-window-start w2 s1)))))</code></pre></noscript></div>
-
-
-
 ]]></content>
     </entry>
   
