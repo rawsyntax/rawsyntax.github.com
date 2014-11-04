@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2014-09-26T22:11:00-04:00</updated>
+  <updated>2014-11-04T10:29:51-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[How to Set Up Angular with Rails Part 2]]></title>
+<link href="http://rawsyntax.com/blog/how-to-set-up-angular-with-rails-part-2/"/>
+<updated>2014-11-04T09:51:14-05:00</updated>
+<id>http://rawsyntax.com/blog/how-to-set-up-angular-with-rails-part-2</id>
+<category term="programming" />
+
+      <content type="html"><![CDATA[<p>I've written a part 2 about using Angular with Rails on <a href="http://www.intridea.com/blog/2014/10/14/how-to-set-up-angular-with-rails-part-2">Intridea's Blog</a>. Please have a look.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -1111,103 +1127,6 @@ I like this approach because it can be adapted to any RACK compatible
 app by changing which files get watched.  Also, it doesn't require you
 to change any application specific code; It's only necessary to add
 guard to the Gemfile.</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Learn Emacs: How to Break Bad Habits]]></title>
-<link href="http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits/"/>
-<updated>2012-02-14T10:10:00-05:00</updated>
-<id>http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits</id>
-<category term="learn-emacs" />
-
-      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/arrow-keys.jpg" class ="center"/></p>
-
-<p>The best thing to do is never to form bad habits in the first place.
-However if you didn't have any bad habits, you wouldn't be reading
-this blog post.  Here's what has worked for me.</p>
-
-<!--more-->
-
-
-<h3>Make a Note of It</h3>
-
-<p>One of my bad habits was using the arrow keys for navigation in emacs.
-It's inefficient.  Emacs already has keybindings for next / previous
-and back / forward -- and I don't have to pick up my hands for those.
-The first thing I did was start keeping a short list of bad emacs
-habits.</p>
-
-<p>Don't think about fixing every bad habit immediately.  Just note them
-and move on with real work.  These also don't have to be bad habits
-per say.  They can be inefficiencies as well.  Is there a better way to
-do that thing you do all the time, but you've been putting off putting
-in the time to build it?</p>
-
-<h3>Fix One Bad Habit</h3>
-
-<p>After years of using the arrow keys in emacs, I decided it was time
-for that to stop.  Because my emacs config is versioned.  I can see
-that I decided to stop on <code>Fri Sep 16 10:53:49 2011 -0400</code>.  Work on
-fixing this one habit until its completely fixed.  My fix was pretty
-simple.</p>
-
-<div><script src='https://gist.github.com/rawsyntax/1794878.js'></script>
-<noscript><pre><code>commit 11dce2502c111ff9ae73f95dde89f27d0f84416a
-Author: Eric Himmelreich &lt;eric@rawsyntax.com&gt;
-Date:   Fri Sep 16 10:53:49 2011 -0400
-
-    break arrow keys habit, I already know the emacs bindings for moving
-
-    Modified   eric/bindings.el
-diff --git a/eric/bindings.el b/eric/bindings.el
-index 9915c7e..bb9d4fc 100644
---- a/eric/bindings.el
-+++ b/eric/bindings.el
-@@ -8,3 +8,9 @@
- 
- (global-set-key (kbd &quot;C-w&quot;) 'backward-kill-word)
- (global-set-key (kbd &quot;C-x C-k&quot;) 'kill-region)
-+
-+;; stop using the arrow keys
-+(global-unset-key [left])
-+(global-unset-key [up])
-+(global-unset-key [right])
-+(global-unset-key [down])
-
-[back] 
-</code></pre></noscript></div>
-
-
-<p>Unbind the arrow keys and it becomes pretty tough to use them.  I
-don't use the arrow keys any more.  Maybe your fix is more complicated.
-Maybe it's writing an emacs macro for something you do frequently.</p>
-
-<h3>Schedule Time for This</h3>
-
-<p>Its a bad idea to try to fix emacs problems while on a tight deadline
-for a project.  However you will find yourself with a spare 30 minutes
-or an hour here and there.  Make that your emacs improvement time.</p>
-
-<p>Almost a year ago I found myself with an ever growing emacs problem.
-My config files had grown out of control.  They were a huge mess and
-impossible to manage.  Even though I was using version control my
-config still had lots of local changes and files that weren't tracked
-at all.  And my github repo was never up to date. I was in need of a
-fresh emacs config.  I needed organization and simplicity.</p>
-
-<p>When would I ever have time to rewrite my entire emacs config?</p>
-
-<p>I started making time on <code>Tue Jun 21 18:18:41 2011 -0400</code> as I had read
-about <code>emacs-starter-kit (v2)</code>.  Its basis was emacs-24 paired with
-the marmalade-repo (for emacs-lisp packages).  I put in an n hour here
-and there over the course of a few months.  In mid September it was good
-enough to use as my full-time working config.</p>
 ]]></content>
     </entry>
   
