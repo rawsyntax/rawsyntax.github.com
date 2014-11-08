@@ -98,6 +98,68 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/learn-emacs-delete-file-and-buffer/">Learn Emacs: Delete-file-and-buffer</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-21T00:00:00-04:00" pubdate data-updated="true">Jun 21<span>st</span>, 2011</time>
+         &bull; <a rel="bookmark" href="/blog/learn-emacs-delete-file-and-buffer/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>From my ~/.emacs.d</p>
+
+<div><script src='https://gist.github.com/rawsyntax/1035862.js'></script>
+<noscript><pre><code>(defun delete-file-and-buffer ()
+  &quot;Deletes the current file and buffer, assumes file exists&quot;
+  (interactive)
+  (delete-file buffer-file-name)
+  (kill-buffer (buffer-name)))
+</code></pre></noscript></div>
+
+
+<p>Inspired by <a href="https://sites.google.com/site/steveyegge2/my-dot-emacs-file">Steve Yegge's .emacs file (rename-file-and-buffer)</a></p>
+</div>
+
+  <footer>
+    
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/make-your-rails-3-app-run-faster/">Make Your Rails 3 App Run Faster</a>
 
 </h1>
@@ -313,60 +375,6 @@ anyway.</p>
 
     </article>
   
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/importance-of-side-projects/">Importance of Side Projects</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-29T00:00:00-04:00" pubdate data-updated="true">May 29<span>th</span>, 2011</time>
-         &bull; <a rel="bookmark" href="/blog/importance-of-side-projects/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><p>Side projects are important for a few reasons. Programming is a creative process. Side projects allow programming without deadlines or restraints. Side projects allow programming in an exploratory way.</p>
-
-</div>
-
-  <footer>
-    
-    
-    <p><a rel="full-article" href="/blog/importance-of-side-projects/">Read More &rarr;</a></p>
-    
-  </footer>
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -385,6 +393,10 @@ anyway.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/k750-a-solid-wireless-keyboard/">K750: a Solid Wireless Keyboard</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/how-to-set-up-angular-with-rails-part-2/">How to Set Up Angular with Rails Part 2</a>
       </li>
     
@@ -398,10 +410,6 @@ anyway.</p>
     
       <li class="post">
         <a href="/blog/getting-started-with-raspberry-pi/">Getting started with Raspberry Pi</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/learn-emacs-birthday-easter-egg/">Learn Emacs: Birthday Easter Egg</a>
       </li>
     
   </ul>
