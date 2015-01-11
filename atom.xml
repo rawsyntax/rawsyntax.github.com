@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2014-12-08T14:08:49-05:00</updated>
+  <updated>2015-01-11T13:37:25-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[On API Security]]></title>
+<link href="http://rawsyntax.com/blog/on-api-security/"/>
+<updated>2015-01-11T13:23:37-05:00</updated>
+<id>http://rawsyntax.com/blog/on-api-security</id>
+<category term="programming" /><category term="security" />
+
+      <content type="html"><![CDATA[<p>I was asked recently about designing a secure API.  There are 2 basic steps:</p>
+
+<ol>
+<li>Encrypt the connection (HTTPS)</li>
+<li>Encrypt the paylod (HMAC-SHA1 for example)</li>
+</ol>
+
+
+<p>You could think up ways to go further but these are the basics that need to be covered.</p>
+
+<!--more-->
+
+
+<h2>Pitfalls to avoid</h2>
+
+<p>While the above two steps are pretty straight forward and easy to read about and learn, there is one problem to watch out for. When an app developer starts learning about how to secure an API or a website, there is a possibility that that developer will start to consider him or herself an expert in security. This can lead to developing your own security libraries and using them.</p>
+
+<p>This is a problem because that homebrewed library is going to have more bugs than the community vetted library that is out there. And you can remain blissfully unaware of these bugs because there's no public mailing list to notify you of vulnerabilities as they are discovered and patched.</p>
+
+<p>When I work with security related code, I repeat to myself:</p>
+
+<blockquote><p>I am not a security expert</p></blockquote>
+
+<p>Then I go read about libraries used by the community and choose the ones that have been well vetted and around for a while.  It is not an area I choose to go with the new hotness in.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -908,44 +947,6 @@ color-themes.</p>
 <p>There's too much to cover in a blogpost, but here's the entire
 <a href="https://www.gnu.org/software/emacs/NEWS.24.1">NEWS file</a>, which you
 can also view inside emacs with  <code>M-x view-emacs-news</code>.</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Learn Emacs: Smex]]></title>
-<link href="http://rawsyntax.com/blog/learn-emacs-smex/"/>
-<updated>2012-06-06T12:24:00-04:00</updated>
-<id>http://rawsyntax.com/blog/learn-emacs-smex</id>
-<category term="learn-emacs" />
-
-      <content type="html"><![CDATA[<p>Scroll down for code snippets and text.</p>
-
-<div class="embed video YouTube"><iframe width="459" height="344" src="http://www.youtube.com/embed/18u_ieDpr1o?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
-
-
-<p>Smex is IDO style completion for M-x.  It is very customizable.  I
-recommend taking a look at the README for all the available options.
-Here's the minimum setup required.</p>
-
-<div><script src='https://gist.github.com/rawsyntax/2883010.js'></script>
-<noscript><pre><code>(require 'smex)
-(smex-initialize)
-
-(global-set-key (kbd &quot;M-x&quot;) 'smex)
-(global-set-key (kbd &quot;M-X&quot;) 'smex-major-mode-commands)
-(global-set-key (kbd &quot;C-c M-x&quot;) 'smex-update)
-(global-set-key (kbd &quot;C-c C-c M-x&quot;) 'execute-extended-command)</code></pre></noscript></div>
-
-
-<p>It's available on the ELPA and the source is on github.</p>
-
-<p><a href="https://github.com/nonsequitur/smex/">Smex source on github</a><br />
-<a href="http://marmalade-repo.org/packages/smex">available on marmalade repo</a></p>
 ]]></content>
     </entry>
   
