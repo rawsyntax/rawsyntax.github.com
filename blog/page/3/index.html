@@ -97,6 +97,67 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/learn-emacs-the-extensible-editor/">Learn Emacs: The Extensible Editor</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-17T10:34:23-05:00" pubdate data-updated="true">Nov 17<span>th</span>, 2013</time>
+         &bull; <a rel="bookmark" href="/blog/learn-emacs-the-extensible-editor/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>Emacs bills itself as being the extensible self-documenting editor.  When I first started using it I was suspicious that not many people take advantage of the extensible part.  I could not have been more wrong.  What follows is a short story of a hack to get Emacs to do what I want.</p>
+
+<h2>Making Emacs Work for Me</h2>
+
+<p>I use <a href="https://github.com/jhelwig/ack-and-a-half">ack-and-a-half</a> to interact with ack (instead of grep) via Emacs.  Some time ago I read about <a href="https://github.com/ggreer/the_silver_searcher">ag</a>, but there wasn't an Emacs mode for it available.  I checked again last week, and found that there is now <a href="https://github.com/Wilfred/ag.el">ag.el</a>.  After trying it, I found that it doesn't work exactly like ack-and-a-half.  I wanted to switch to ag, but did not want to give up ack-and-a-half's behavior.</p>
+
+<p>So I did the emacs thing and had a look at ag.el's source to assess how much effort changing it would be. It was too much effort.  I then realized due to the close compatibility between ack and ag, I could probably quickly hack up ack-and-a-half to change the backend to ag.</p>
+
+<p>After an hour of work <a href="https://github.com/rawsyntax/ag-and-a-half">ag-and-a-half</a> was born. The result is that my former ack-and-a-half frontend now runs 3x-5x faster (ag's performance promise).  The work that I did was largely a wholesale find and replace.  The right thing to do would be to make the backend swappable between ack and ag.  However, the quick hack works great for now.</p>
+
+<p>I find this is a good example of Emacs' extensibility and an example actually taking advantage of it.  If you're using Emacs without customizing or extending it, you're missing out.</p>
+</div>
+
+  <footer>
+    
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/learn-emacs-zsh-and-multi-term/">Learn Emacs: Zsh and Multi-Term</a>
 
 </h1>
@@ -315,63 +376,6 @@
 
     </article>
   
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/learn-emacs-fit-your-workflow/">Learn Emacs: Fit Your Workflow</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-23T17:02:00-05:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2013</time>
-         &bull; <a rel="bookmark" href="/blog/learn-emacs-fit-your-workflow/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><div class="embed video YouTube"><iframe width="480" height="270" src="http://www.youtube.com/embed/nQ0Q_6HZwwY?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
-
-
-<p>The visor I refer to is a feature of <a href="http://totalterminal.binaryage.com/">TotalTerminal</a>.</p>
-
-</div>
-
-  <footer>
-    
-    
-    <p><a rel="full-article" href="/blog/learn-emacs-fit-your-workflow/">Read More &rarr;</a></p>
-    
-  </footer>
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -390,6 +394,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/rspec-suite-runs-twice/">RSpec Suite Runs Twice?</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/on-api-security/">On API Security</a>
       </li>
     
@@ -403,10 +411,6 @@
     
       <li class="post">
         <a href="/blog/how-to-set-up-angular-with-rails-part-2/">How to Set Up Angular with Rails Part 2</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/how-to-set-up-angular-with-rails/">How to Set Up Angular With Rails</a>
       </li>
     
   </ul>

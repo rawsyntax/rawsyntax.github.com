@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2015-01-11T13:37:25-05:00</updated>
+  <updated>2015-01-19T09:15:44-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[RSpec Suite Runs Twice?]]></title>
+<link href="http://rawsyntax.com/blog/rspec-suite-runs-twice/"/>
+<updated>2015-01-19T09:09:45-05:00</updated>
+<id>http://rawsyntax.com/blog/rspec-suite-runs-twice</id>
+<category term="programming" /><category term="ruby" />
+
+      <content type="html"><![CDATA[<p>I worked on a rails project recently that had a peculiar problem. When running the specs via <code>rake spec</code> or <code>rspec</code> the whole suite would run twice. I began digging around in <code>spec/spec_helper.rb</code> to try to figure out how RSpec could be configured to run twice instead of once. I also went to google and stack overflow and didn't find much.</p>
+
+<p>Eventually I saw that there was both a <code>.rspec</code> file with configuration options and a few of the same configuration options repeated in the spec_helper. Once I removed the duplication (in particular the format documentation option was specified in both places), the RSpec suite only ran once.</p>
+
+<p>The easiest way to avoid this kind of problem is to decide on a project level to keep RSpec options in <code>spec/spec_helper.rb</code> or <code>.rspec</code>, but not both.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -886,67 +906,6 @@ any write or append actions (as I don't care about who reads it):</p>
 
 <p>It logs all kinds of info.  user id, command run, working directory.
 I'm blogging it here mostly so don't forget about it.</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Emacs 24.1 is Out]]></title>
-<link href="http://rawsyntax.com/blog/emacs-24-dot-1-is-out/"/>
-<updated>2012-06-11T16:55:00-04:00</updated>
-<id>http://rawsyntax.com/blog/emacs-24-dot-1-is-out</id>
-<category term="learn-emacs" />
-
-      <content type="html"><![CDATA[<p>Emacs 24.1 was
-<a href="http://lists.gnu.org/archive/html/emacs-devel/2012-06/msg00164.html">released</a>
-yesterday.</p>
-
-<p>Being the first release version of Emacs 24, I'd suggest trying it
-out.  I've been using Emacs 24 since the pretest version started
-coming out, and even the recent pretests have been stable for me.</p>
-
-<!--more-->
-
-
-<h2>Some New Features</h2>
-
-<p>My favorite feature of Emacs 24 is the elisp package manager.  I find
-its an extremely convenient way to manage the packages you want your
-<code>~/.emacs.d</code> to utilize. It's available via <code>M-x list-packages</code>.  The
-canonical package manager is known as the
-<a href="http://tromey.com/elpa/">ELPA</a>, but there are other package
-managers, such as <a href="http://marmalade-repo.org/">marmalade</a> because the
-ELPA doesn't include everything.</p>
-
-<p>Getting the package manager setup is easy.  Here's the minimal code
-needed:</p>
-
-<div><script src='https://gist.github.com/rawsyntax/2912673.js'></script>
-<noscript><pre><code>(require 'package)
-
-;; optionally add the marmalade repo to list-packages
-(add-to-list 'package-archives
-         '(&quot;marmalade&quot; . &quot;http://marmalade-repo.org/packages/&quot;))
-
-(package-initialize)
-(package-refresh-contents)</code></pre></noscript></div>
-
-
-<p>Another new feature is the built-in color-theme facility.  Prior to
-Emacs 24 color themes could be created through the
-<a href="http://www.emacswiki.org/cgi-bin/wiki?ColorTheme">color-theme</a>
-package.  Instead you can now use <code>customize-create-theme</code> to create
-color-themes.</p>
-
-<p><img src="http://rawsyntax.com/images/customize-create-theme.jpg" class ="center"/></p>
-
-<p>There's too much to cover in a blogpost, but here's the entire
-<a href="https://www.gnu.org/software/emacs/NEWS.24.1">NEWS file</a>, which you
-can also view inside emacs with  <code>M-x view-emacs-news</code>.</p>
 ]]></content>
     </entry>
   
