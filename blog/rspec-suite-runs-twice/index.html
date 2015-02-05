@@ -120,9 +120,9 @@ RSpec Suite Runs Twice?
     
   </header>
 
-<div class="entry-content"><p>I worked on a rails project recently that had a peculiar problem. When running the specs via <code>rake spec</code> or <code>rspec</code> the whole suite would run twice. I began digging around in <code>spec/spec_helper.rb</code> to try to figure out how RSpec could be configured to run twice instead of once. I also went to google and stack overflow and didn't find much.</p>
+<div class="entry-content"><p>I worked on a rails project recently that had a peculiar problem. When running the specs via <code>rake spec</code> or <code>rspec</code> the whole suite would appear to run twice. I began digging around in <code>spec/spec_helper.rb</code> to try to figure out how RSpec could be configured to run twice instead of once. I also went to google and stack overflow and didn't find much.</p>
 
-<p>Eventually I saw that there was both a <code>.rspec</code> file with configuration options and a few of the same configuration options repeated in the spec_helper. Once I removed the duplication (in particular the format documentation option was specified in both places), the RSpec suite only ran once.</p>
+<p>Eventually I saw that there was both a <code>.rspec</code> file with configuration options and a few of the same configuration options repeated in the spec_helper. Once I removed the duplication (in particular the format documentation option was specified in both places), the RSpec suite output only appeared once. I did a little more digging and found that the test suite was not running twice, but rather the output was getting printed twice.</p>
 
 <p>The easiest way to avoid this kind of problem is to decide on a project level to keep RSpec options in <code>spec/spec_helper.rb</code> or <code>.rspec</code>, but not both.</p>
 </div>
