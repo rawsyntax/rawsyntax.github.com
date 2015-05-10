@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2015-03-29T14:18:15-04:00</updated>
+  <updated>2015-05-10T12:13:11-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Comparing plist files on OSX]]></title>
+<link href="http://rawsyntax.com/blog/comparing-plist-files-on-osx/"/>
+<updated>2015-05-10T11:56:56-04:00</updated>
+<id>http://rawsyntax.com/blog/comparing-plist-files-on-osx</id>
+<category term="tools" />
+
+      <content type="html"><![CDATA[<p><img class="" src="http://rawsyntax.com/images/xcode-plist-export.png"></p>
+
+<p>I recently had a problem with some of my keyboard shortcuts not working on OS X. I ended up moving the original plist (Property List) file, rebooting, and configuring the settings manually. This fixed the problem but left me wondering why the keyboard shortcut broke in the first place. Computers don't just break. There has to be a reason.</p>
+
+<p>I tried to diff the two plist files and I got an unhelpful message similar to <code>binary files differ</code>. Having been on OS X a while, I know that plists can be saved as text or binary. In this case I simply used the <code>open</code> command to load the files into XCode, export them as Property List XML, and then was able to diff them as normal text files.</p>
+
+<h2>Why Binary?</h2>
+
+<p>As an Emacs user, I was still confused as to why plists would ever be saved as binary. This just means I can't edit them with Emacs (out of the box anyway). Referring to the man page for plist it turns out the reason is performance:</p>
+
+<blockquote><p>The property list programming interface allows you to convert hierarchically structured combinations of these basic types to and from two formats: standard XML and an optimized, opaque binary format.</p><footer><strong>man plist</strong> <cite><a href='https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/plist.5.html'>developer.apple.com/library/mac/&hellip;</a></cite></footer></blockquote>
+
+]]></content>
+    </entry>
   
     <entry>
       
@@ -654,7 +681,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 <id>http://rawsyntax.com/blog/learn-emacs-fit-your-workflow</id>
 <category term="learn-emacs" />
 
-      <content type="html"><![CDATA[<div class="embed video YouTube"><iframe width="480" height="270" src="http://www.youtube.com/embed/nQ0Q_6HZwwY?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
+      <content type="html"><![CDATA[<div class="embed video YouTube"><iframe width="480" height="270" src="https://www.youtube.com/embed/nQ0Q_6HZwwY?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
 
 
 <p>The visor I refer to is a feature of <a href="http://totalterminal.binaryage.com/">TotalTerminal</a>.</p>
@@ -865,47 +892,6 @@ defeats the purpose of using master control sockets.  You can go into
 ssh-key authentication.  You may think you have it set up correctly
 because of lack of a password prompt, but in my case it was reusing
 the connection (which is why it didn't prompt me).</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Who Changed my File]]></title>
-<link href="http://rawsyntax.com/blog/who-changed-my-file/"/>
-<updated>2012-07-02T18:27:00-04:00</updated>
-<id>http://rawsyntax.com/blog/who-changed-my-file</id>
-<category term="programming" />
-
-      <content type="html"><![CDATA[<p>I was troubleshooting slow page loads on a server running rails
-recently.  I noticed that DNS was actually causing an occasional
-problem with pageloads.  For whatever reason my <code>/etc/resolv.conf</code>
-would get overwritten every once in a while with slow / unresponsive
-DNS servers.  I had manually set them to <code>8.8.8.8</code> and <code>8.8.4.4</code>, but
-to my suprise the file had been changed.</p>
-
-<!--more-->
-
-
-<p>I started digging and checking the usual suspects that might alter
-that file (<code>dhclient</code>, <code>resolvconf</code> ...).  I didn't find the problem.
-This is where <code>auditd</code> comes in handy.  Its a daemon that can be setup
-to watch a file and log what program changed it.</p>
-
-<p>I installed <code>auditd</code> and set it up to watch <code>/etc/resolv.conf</code> and log
-any write or append actions (as I don't care about who reads it):</p>
-
-<p><code>auditctl -w /etc/resolv.conf -p wa -k resolvconf</code></p>
-
-<p><code>-k</code> here is simply the key by which you can search the audit logs.  I edited the file a few times to test auditd and searched its logs:</p>
-
-<p><code>ausearch -f /etc/resolv.conf</code></p>
-
-<p>It logs all kinds of info.  user id, command run, working directory.
-I'm blogging it here mostly so don't forget about it.</p>
 ]]></content>
     </entry>
   
