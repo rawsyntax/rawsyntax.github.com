@@ -133,6 +133,12 @@
 
 <blockquote><p>The property list programming interface allows you to convert hierarchically structured combinations of these basic types to and from two formats: standard XML and an optimized, opaque binary format.</p><footer><strong>man plist</strong> <cite><a href='https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/plist.5.html'>developer.apple.com/library/mac/&hellip;</a></cite></footer></blockquote>
 
+
+<p>You can also use <code>plutil</code> to convert between binary and text. For example:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>plutil -convert xml1 com.apple.symbolichotkeys.plist</div></pre></td></tr></table></div></figure></p>
+
+<p>Which converts the file to another format in place.</p>
 </div>
 
   <footer>
