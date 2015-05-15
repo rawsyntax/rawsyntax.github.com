@@ -142,58 +142,64 @@
 
 <p>First, remove the <code>test/</code> directory. This is left over from our initial app setup in Part 1: How to Set Up Angular with Rails. Then add RSpec and factory_girl_rails to the Gemfile:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>group :development, :test do
-</div><div class='line'>  gem 'rspec-rails', '~> 3.1.0'
-</div><div class='line'>end
-</div><div class='line'> </div><div class='line'>group :test do
-</div><div class='line'>  gem 'database_cleaner'
-</div><div class='line'>  gem 'factory_girl_rails'
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+</div><div class='line'>  <span class="n">gem</span> <span class="s1">&#39;rspec-rails&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 3.1.0&#39;</span>
+</div><div class='line'><span class="k">end</span>
+</div><div class='line'> </div><div class='line'><span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
+</div><div class='line'>  <span class="n">gem</span> <span class="s1">&#39;database_cleaner&#39;</span>
+</div><div class='line'>  <span class="n">gem</span> <span class="s1">&#39;factory_girl_rails&#39;</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Next, bundle and install it.</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>bundle install
-</div><div class='line'>rails generate rspec:install</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  sh'><pre><div class='line'>bundle install
+</div><div class='line'>rails generate rspec:install
+</div></pre></td></tr></table></div></figure></p>
 
 <p>And edit your spec/spec_helper.rb to match:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>ENV["RAILS_ENV"] ||= 'test'
-</div><div class='line'>require File.expand_path("../../config/environment", <strong>FILE</strong>)
-</div><div class='line'>require 'rspec/rails'
-</div><div class='line'>require 'rspec/autorun'
-</div><div class='line'>require 'database_cleaner'
-</div><div class='line'> </div><div class='line'>ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
-</div><div class='line'>RSpec.configure do |config|
-</div><div class='line'>  config.include FactoryGirl::Syntax::Methods
-</div><div class='line'>  config.infer_spec_type_from_file_location!
-</div><div class='line'> </div><div class='line'>  config.expect_with :rspec do |expectations|
-</div><div class='line'>    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-</div><div class='line'>  end
-</div><div class='line'> </div><div class='line'>  config.mock_with :rspec do |mocks|
-</div><div class='line'>    mocks.verify_partial_doubles = true
-</div><div class='line'>  end
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;RAILS_ENV&quot;</span><span class="o">]</span> <span class="o">||=</span> <span class="s1">&#39;test&#39;</span>
+</div><div class='line'><span class="nb">require</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s2">&quot;../../config/environment&quot;</span><span class="p">,</span> <span class="bp"><strong>FILE</strong></span><span class="p">)</span>
+</div><div class='line'><span class="nb">require</span> <span class="s1">&#39;rspec/rails&#39;</span>
+</div><div class='line'><span class="nb">require</span> <span class="s1">&#39;rspec/autorun&#39;</span>
+</div><div class='line'><span class="nb">require</span> <span class="s1">&#39;database_cleaner&#39;</span>
+</div><div class='line'> </div><div class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="o">.</span><span class="n">check_pending!</span> <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="p">)</span>
+</div><div class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</div><div class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">include</span> <span class="ss">FactoryGirl</span><span class="p">:</span><span class="ss">:Syntax</span><span class="o">::</span><span class="no">Methods</span>
+</div><div class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">infer_spec_type_from_file_location!</span>
+</div><div class='line'> </div><div class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">expect_with</span> <span class="ss">:rspec</span> <span class="k">do</span> <span class="o">|</span><span class="n">expectations</span><span class="o">|</span>
+</div><div class='line'>    <span class="n">expectations</span><span class="o">.</span><span class="n">include_chain_clauses_in_custom_matcher_descriptions</span> <span class="o">=</span> <span class="kp">true</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'> </div><div class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">mock_with</span> <span class="ss">:rspec</span> <span class="k">do</span> <span class="o">|</span><span class="n">mocks</span><span class="o">|</span>
+</div><div class='line'>    <span class="n">mocks</span><span class="o">.</span><span class="n">verify_partial_doubles</span> <span class="o">=</span> <span class="kp">true</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <h2>Create the Employee Model</h2>
 
 <p>Let's create the Employee model with a few fields:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>bundle exec rails generate model Employee name:string email:string ssn:string salary:integer
-</div><div class='line'>bundle exec rake db:migrate</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  sh'><pre><div class='line'>bundle <span class="nb">exec </span>rails generate model Employee name:string email:string ssn:string salary:integer
+</div><div class='line'>bundle <span class="nb">exec </span>rake db:migrate
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Next, we'll add some validations in app/models/employee.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>class Employee &lt; ActiveRecord::Base
-</div><div class='line'>  # regex taken from Devise gem
-</div><div class='line'>  validates_format_of :email, with: /\A[<sup>@\s]+@([<sup>@\s]+.)+[<sup>@\s]+\z/</sup></sup></sup>
-</div><div class='line'>  validates_format_of :ssn, with: /\d{3}-\d{2}-\d{4}/
-</div><div class='line'>  validates_presence_of :name
-</div><div class='line'>  validates :salary, numericality: { only_integer: true }
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="k">class</span> <span class="nc">Employee</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</div><div class='line'>  <span class="c1"># regex taken from Devise gem</span>
+</div><div class='line'>  <span class="n">validates_format_of</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">with</span><span class="p">:</span> <span class="sr">/\A[<sup>@\s]+@([<sup>@\s]+.)+[<sup>@\s]+\z/</span></sup></sup></sup>
+</div><div class='line'>  <span class="n">validates_format_of</span> <span class="ss">:ssn</span><span class="p">,</span> <span class="ss">with</span><span class="p">:</span> <span class="sr">/\d{3}-\d{2}-\d{4}/</span>
+</div><div class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:name</span>
+</div><div class='line'>  <span class="n">validates</span> <span class="ss">:salary</span><span class="p">,</span> <span class="ss">numericality</span><span class="p">:</span> <span class="p">{</span> <span class="n">only_integer</span><span class="p">:</span> <span class="kp">true</span> <span class="p">}</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Before creating the API interface for Angular, let's create a serializer for our Employee model.  This will allow our API to expose only those fields that are necessary to Angular frontend. Add ActiveModel Serializers to the Gemfile</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>gem 'active_model_serializers'</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">gem</span> <span class="s1">&#39;active_model_serializers&#39;</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>And <code>bundle install</code></p>
 
@@ -201,88 +207,96 @@
 
 <p>In order to support the Angular frontend, we'll need to create an API controller at app/controllers/api/employees_controller.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>class Api::EmployeesController &lt; ApplicationController
-</div><div class='line'>  respond_to :json
-</div><div class='line'> </div><div class='line'>  def index
-</div><div class='line'>    serialized_employees =
-</div><div class='line'>      ActiveModel::ArraySerializer
-</div><div class='line'>               .new(Employee.all, each_serializer: EmployeeSerializer)
-</div><div class='line'> </div><div class='line'>    render json: serialized_employees
-</div><div class='line'>  end
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="k">class</span> <span class="nc">Api</span><span class="o">::</span><span class="no">EmployeesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</div><div class='line'>  <span class="n">respond_to</span> <span class="ss">:json</span>
+</div><div class='line'> </div><div class='line'>  <span class="k">def</span> <span class="nf">index</span>
+</div><div class='line'>    <span class="n">serialized_employees</span> <span class="o">=</span>
+</div><div class='line'>      <span class="ss">ActiveModel</span><span class="p">:</span><span class="ss">:ArraySerializer</span>
+</div><div class='line'>               <span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">Employee</span><span class="o">.</span><span class="n">all</span><span class="p">,</span> <span class="n">each_serializer</span><span class="p">:</span> <span class="no">EmployeeSerializer</span><span class="p">)</span>
+</div><div class='line'> </div><div class='line'>    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="n">serialized_employees</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Now we need to define that EmployeeSerializer in app/serializers/employee_serializer.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>class EmployeeSerializer &lt; ActiveModel::Serializer
-</div><div class='line'>  attributes :id, :name, :email, :ssn, :salary
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="k">class</span> <span class="nc">EmployeeSerializer</span> <span class="o">&lt;</span> <span class="ss">ActiveModel</span><span class="p">:</span><span class="ss">:Serializer</span>
+</div><div class='line'>  <span class="n">attributes</span> <span class="ss">:id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:ssn</span><span class="p">,</span> <span class="ss">:salary</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>And expose this API to the frontend in config/routes.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>Rails.application.routes.draw do
-</div><div class='line'>  get 'example' => 'example#index'
-</div><div class='line'> </div><div class='line'>  namespace :api do
-</div><div class='line'>    resources :employees, defaults: { format: :json }
-</div><div class='line'>  end
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
+</div><div class='line'>  <span class="n">get</span> <span class="s1">&#39;example&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;example#index&#39;</span>
+</div><div class='line'> </div><div class='line'>  <span class="n">namespace</span> <span class="ss">:api</span> <span class="k">do</span>
+</div><div class='line'>    <span class="n">resources</span> <span class="ss">:employees</span><span class="p">,</span> <span class="ss">defaults</span><span class="p">:</span> <span class="p">{</span> <span class="nb">format</span><span class="p">:</span> <span class="ss">:json</span> <span class="p">}</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Finally we'll add some Employee data to db/seeds.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>Employee.create(name: "MacGyver", email: "test@example.com", ssn: "555-55-5555", salary: 50000)
-</div><div class='line'>Employee.create(name: "Calhoun Tubbs", email: "test2@example.com", ssn: "123-45-6789", salary: 60000)</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="no">Employee</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;MacGyver&quot;</span><span class="p">,</span> <span class="ss">email</span><span class="p">:</span> <span class="s2">&quot;test@example.com&quot;</span><span class="p">,</span> <span class="ss">ssn</span><span class="p">:</span> <span class="s2">&quot;555-55-5555&quot;</span><span class="p">,</span> <span class="ss">salary</span><span class="p">:</span> <span class="mi">50000</span><span class="p">)</span>
+</div><div class='line'><span class="no">Employee</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="nb">name</span><span class="p">:</span> <span class="s2">&quot;Calhoun Tubbs&quot;</span><span class="p">,</span> <span class="ss">email</span><span class="p">:</span> <span class="s2">&quot;test2@example.com&quot;</span><span class="p">,</span> <span class="ss">ssn</span><span class="p">:</span> <span class="s2">&quot;123-45-6789&quot;</span><span class="p">,</span> <span class="ss">salary</span><span class="p">:</span> <span class="mi">60000</span><span class="p">)</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Seed the database and start the Rails server:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>bundle exec rake db:seed
-</div><div class='line'>rails s</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  sh'><pre><div class='line'>bundle <span class="nb">exec </span>rake db:seed
+</div><div class='line'>rails s
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Then we can open http://localhost:3000/api/employees in the browser which will return:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>[
-</div><div class='line'>  {
-</div><div class='line'>    "id": 1,
-</div><div class='line'>    "name": "MacGyver",
-</div><div class='line'>    "email": "test@example.com",
-</div><div class='line'>    "ssn": "555-55-5555",
-</div><div class='line'>    "salary": 50000
-</div><div class='line'>  },
-</div><div class='line'>  {
-</div><div class='line'>    "id": 2,
-</div><div class='line'>    "name": "Calhoun Tubbs",
-</div><div class='line'>    "email": "test2@example.com",
-</div><div class='line'>    "ssn": "123-45-6789",
-</div><div class='line'>    "salary": 60000
-</div><div class='line'>  }
-</div><div class='line'>]</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div></pre></td><td class='main  javascript'><pre><div class='line'><span class="p">[</span>
+</div><div class='line'>  <span class="p">{</span>
+</div><div class='line'>    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MacGyver&quot;</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;test@example.com&quot;</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;ssn&quot;</span><span class="o">:</span> <span class="s2">&quot;555-55-5555&quot;</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;salary&quot;</span><span class="o">:</span> <span class="mi">50000</span>
+</div><div class='line'>  <span class="p">},</span>
+</div><div class='line'>  <span class="p">{</span>
+</div><div class='line'>    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Calhoun Tubbs&quot;</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;test2@example.com&quot;</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;ssn&quot;</span><span class="o">:</span> <span class="s2">&quot;123-45-6789&quot;</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;salary&quot;</span><span class="o">:</span> <span class="mi">60000</span>
+</div><div class='line'>  <span class="p">}</span>
+</div><div class='line'><span class="p">]</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <h2>Test the API</h2>
 
 <p>Now that we've verified this action is set-up correctly, let's add a factory at spec/factories/employees.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>FactoryGirl.define do
-</div><div class='line'>  factory :employee do
-</div><div class='line'>    name 'Test Employee'
-</div><div class='line'>    email 'test@example.com'
-</div><div class='line'>    salary 50000
-</div><div class='line'>    ssn '123-45-6789'
-</div><div class='line'>  end
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</div><div class='line'>  <span class="n">factory</span> <span class="ss">:employee</span> <span class="k">do</span>
+</div><div class='line'>    <span class="nb">name</span> <span class="s1">&#39;Test Employee&#39;</span>
+</div><div class='line'>    <span class="n">email</span> <span class="s1">&#39;test@example.com&#39;</span>
+</div><div class='line'>    <span class="n">salary</span> <span class="mi">50000</span>
+</div><div class='line'>    <span class="n">ssn</span> <span class="s1">&#39;123-45-6789&#39;</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Next, add a test at spec/controllers/api/employees_controller_spec.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>require 'spec_helper'
-</div><div class='line'> </div><div class='line'>describe Api::EmployeesController do
-</div><div class='line'>  before(:each) do
-</div><div class='line'>    create(:employee, name: 'Calhoun Tubbs')
-</div><div class='line'>  end
-</div><div class='line'> </div><div class='line'>  describe '#index' do
-</div><div class='line'>    it 'should return a json array of users' do
-</div><div class='line'>      get :index
-</div><div class='line'>      result = JSON.parse(response.body)
-</div><div class='line'> </div><div class='line'>      expect(result[0]['name']).to eq('Calhoun Tubbs')
-</div><div class='line'>    end
-</div><div class='line'>  end
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="nb">require</span> <span class="s1">&#39;spec_helper&#39;</span>
+</div><div class='line'> </div><div class='line'><span class="n">describe</span> <span class="ss">Api</span><span class="p">:</span><span class="ss">:EmployeesController</span> <span class="k">do</span>
+</div><div class='line'>  <span class="n">before</span><span class="p">(</span><span class="ss">:each</span><span class="p">)</span> <span class="k">do</span>
+</div><div class='line'>    <span class="n">create</span><span class="p">(</span><span class="ss">:employee</span><span class="p">,</span> <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;Calhoun Tubbs&#39;</span><span class="p">)</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'> </div><div class='line'>  <span class="n">describe</span> <span class="s1">&#39;#index&#39;</span> <span class="k">do</span>
+</div><div class='line'>    <span class="n">it</span> <span class="s1">&#39;should return a json array of users&#39;</span> <span class="k">do</span>
+</div><div class='line'>      <span class="n">get</span> <span class="ss">:index</span>
+</div><div class='line'>      <span class="n">result</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+</div><div class='line'> </div><div class='line'>      <span class="n">expect</span><span class="p">(</span><span class="n">result</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="s1">&#39;name&#39;</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="s1">&#39;Calhoun Tubbs&#39;</span><span class="p">)</span>
+</div><div class='line'>    <span class="k">end</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>While the above test is somewhat trivial, this set up is great for verifying more complex logic in real world applications. In addition, the reason for adding an API spec prior to the Angular portion is to avoid playing the guessing game if/when problems arise; waiting to add the Angular framework helps to ease the deciphering process. If your Angular app isn't working correctly, its important to verify that the Rails backend is also behaving correctly -- the problem may not be an Angular issue.</p>
 
@@ -290,101 +304,111 @@
 
 <p>You may want to take a look back at <a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">Part 1: How to Set Up Angular with Rails</a> to review how we setup the AngularJS frontend with Rails. Let's start by defining an app in app/assets/javascripts/angular-app/modules/employee.js.coffee.erb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>@employeeApp = angular
-</div><div class='line'>  .module('app.employeeApp', [
-</div><div class='line'>    'restangular'
-</div><div class='line'>  ])
-</div><div class='line'>  .run(->
-</div><div class='line'>    console.log 'employeeApp running'
-</div><div class='line'>  )</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  coffeescript'><pre><div class='line'><span class="vi">@employeeApp = </span><span class="nx">angular</span>
+</div><div class='line'>  <span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s">&#39;app.employeeApp&#39;</span><span class="p">,</span> <span class="p">[</span>
+</div><div class='line'>    <span class="s">&#39;restangular&#39;</span>
+</div><div class='line'>  <span class="p">])</span>
+</div><div class='line'>  <span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nf">-&gt;</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;employeeApp running&#39;</span>
+</div><div class='line'>  <span class="p">)</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Next, we'll define the Employees controller in app/controllers/employees.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>bundle exec rails g controller Employees index</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">bundle</span> <span class="nb">exec</span> <span class="n">rails</span> <span class="n">g</span> <span class="n">controller</span> <span class="no">Employees</span> <span class="n">index</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Then, we'll add to the beginning of config/routes.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>root 'employees#index'</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">root</span> <span class="s1">&#39;employees#index&#39;</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Finally, let's start the Angular app in app/views/employees/index.html.erb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>&lt;div ng-app='app.employeeApp' ng-controller='EmployeeListCtrl'>
-</div><div class='line'>&lt;/div></div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  html'><pre><div class='line'><span class="nt">&lt;div</span> <span class="na">ng-app=</span><span class="s">&#39;app.employeeApp&#39;</span> <span class="na">ng-controller=</span><span class="s">&#39;EmployeeListCtrl&#39;</span><span class="nt">&gt;</span>
+</div><div class='line'><span class="nt">&lt;/div&gt;</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>If you run the Rails server and hit http://localhost:3000/ you'll get an error about the controller not being defined yet in the javascript console. Before we create the controller, let's setup a Employee model and service to handle fetching Employee records from the Rails API.</p>
 
 <p>The Employee model is defined at app/assets/javascripts/angular-app/models/employee/Employee.js.coffee:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>angular.module('app.employeeApp').factory('Employee',[() ->
-</div><div class='line'>  Employee = () ->
-</div><div class='line'> </div><div class='line'>  return new Employee()
-</div><div class='line'>])</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">angular</span><span class="o">.</span><span class="n">module</span><span class="p">(</span><span class="s1">&#39;app.employeeApp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">factory</span><span class="p">(</span><span class="s1">&#39;Employee&#39;</span><span class="p">,</span><span class="o">[</span><span class="p">()</span> <span class="o">-&gt;</span>
+</div><div class='line'>  <span class="no">Employee</span> <span class="o">=</span> <span class="p">()</span> <span class="o">-&gt;</span>
+</div><div class='line'> </div><div class='line'>  <span class="k">return</span> <span class="kp">new</span> <span class="no">Employee</span><span class="p">()</span>
+</div><div class='line'><span class="o">]</span><span class="p">)</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>There is no special behavior here yet.  It is only returning the data that comes from the API.</p>
 
 <p>To ease the process of working with APIs in Angular, let's add the restangular library to our project. In bower.json add restangular:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>  "lib": {
-</div><div class='line'>    "name": "bower-rails generated lib assets",
-</div><div class='line'>    "dependencies": {
-</div><div class='line'>      "angular": "v1.2.25",
-</div><div class='line'>      "restangular": "v1.4.0"
-</div><div class='line'>    }
-</div><div class='line'>  },</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  javascript'><pre><div class='line'>  <span class="s2">&quot;lib&quot;</span><span class="o">:</span> <span class="p">{</span>
+</div><div class='line'>    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;bower-rails generated lib assets&quot;</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
+</div><div class='line'>      <span class="s2">&quot;angular&quot;</span><span class="o">:</span> <span class="s2">&quot;v1.2.25&quot;</span><span class="p">,</span>
+</div><div class='line'>      <span class="s2">&quot;restangular&quot;</span><span class="o">:</span> <span class="s2">&quot;v1.4.0&quot;</span>
+</div><div class='line'>    <span class="p">}</span>
+</div><div class='line'>  <span class="p">},</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Then run <code>bundle exec rake bower:install</code>. Next, we need to add restangular and its dependency lodash to app/assets/javascripts/application.js:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>//= require jquery
-</div><div class='line'>//= require jquery_ujs
-</div><div class='line'>//= require angular
-</div><div class='line'>//= require angular-rails-templates
-</div><div class='line'>//= require lodash
-</div><div class='line'>//= require restangular</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div></pre></td><td class='main  javascript'><pre><div class='line'><span class="c1">//= require jquery</span>
+</div><div class='line'><span class="c1">//= require jquery_ujs</span>
+</div><div class='line'><span class="c1">//= require angular</span>
+</div><div class='line'><span class="c1">//= require angular-rails-templates</span>
+</div><div class='line'><span class="c1">//= require lodash</span>
+</div><div class='line'><span class="c1">//= require restangular</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Afterwards, we'll create the Employee service at app/assets/javascripts/angular-app/services/employee/EmployeeService.js.coffee:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>angular.module('app.employeeApp')
-</div><div class='line'>  .factory('EmployeeService', [
-</div><div class='line'>    'Restangular', 'Employee',
-</div><div class='line'>    (Restangular, Employee)->
-</div><div class='line'> </div><div class='line'>      model = 'employees'
-</div><div class='line'> </div><div class='line'>      Restangular.extendModel(model, (obj)->
-</div><div class='line'>        angular.extend(obj, Employee)
-</div><div class='line'>      )
-</div><div class='line'> </div><div class='line'>      list: ()     -> Restangular.all(model).getList()
-</div><div class='line'>  ])</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  coffeescript'><pre><div class='line'><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s">&#39;app.employeeApp&#39;</span><span class="p">)</span>
+</div><div class='line'>  <span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s">&#39;EmployeeService&#39;</span><span class="p">,</span> <span class="p">[</span>
+</div><div class='line'>    <span class="s">&#39;Restangular&#39;</span><span class="p">,</span> <span class="s">&#39;Employee&#39;</span><span class="p">,</span>
+</div><div class='line'>    <span class="nf">(Restangular, Employee)-&gt;</span>
+</div><div class='line'> </div><div class='line'>      <span class="nv">model = </span><span class="s">&#39;employees&#39;</span>
+</div><div class='line'> </div><div class='line'>      <span class="nx">Restangular</span><span class="p">.</span><span class="nx">extendModel</span><span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nf">(obj)-&gt;</span>
+</div><div class='line'>        <span class="nx">angular</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">Employee</span><span class="p">)</span>
+</div><div class='line'>      <span class="p">)</span>
+</div><div class='line'> </div><div class='line'>      <span class="nv">list: </span><span class="p">()</span>     <span class="nf">-&gt;</span> <span class="nx">Restangular</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">model</span><span class="p">).</span><span class="nx">getList</span><span class="p">()</span>
+</div><div class='line'>  <span class="p">])</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Finally, let's create the controller at app/assets/javascripts/angular-app/controllers/employee/EmployeeListCtrl.js.coffee:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>angular.module('app.employeeApp').controller("EmployeeListCtrl", [
-</div><div class='line'>  '$scope', 'EmployeeService',
-</div><div class='line'>  ($scope, EmployeeService)->
-</div><div class='line'> </div><div class='line'>    EmployeeService.list().then((employees) ->
-</div><div class='line'>      $scope.employees = employees
-</div><div class='line'>      console.dir employees
-</div><div class='line'>    )
-</div><div class='line'>])</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div></pre></td><td class='main  coffeescript'><pre><div class='line'><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s">&#39;app.employeeApp&#39;</span><span class="p">).</span><span class="nx">controller</span><span class="p">(</span><span class="s">&quot;EmployeeListCtrl&quot;</span><span class="p">,</span> <span class="p">[</span>
+</div><div class='line'>  <span class="s">&#39;$scope&#39;</span><span class="p">,</span> <span class="s">&#39;EmployeeService&#39;</span><span class="p">,</span>
+</div><div class='line'>  <span class="nf">($scope, EmployeeService)-&gt;</span>
+</div><div class='line'> </div><div class='line'>    <span class="nx">EmployeeService</span><span class="p">.</span><span class="nx">list</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nf">(employees) -&gt;</span>
+</div><div class='line'>      <span class="nv">$scope.employees = </span><span class="nx">employees</span>
+</div><div class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">dir</span> <span class="nx">employees</span>
+</div><div class='line'>    <span class="p">)</span>
+</div><div class='line'><span class="p">])</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>If you run the Rails server and visit http://localhost:3000/ in the javascript console you'll see a print out of the Employee objects previously seeded to the database.  Next, let's add to the template code to show our Employee objects.  In app/views/employees/index.html.erb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>&lt;div ng-app='app.employeeApp' ng-controller='EmployeeListCtrl'>
-</div><div class='line'>  &lt;table ng-if="employees">
-</div><div class='line'>    &lt;thead>
-</div><div class='line'>      &lt;th>Name&lt;/th>
-</div><div class='line'>      &lt;th>Email&lt;/th>
-</div><div class='line'>      &lt;th>SSN&lt;/th>
-</div><div class='line'>      &lt;th>Salary&lt;/th>
-</div><div class='line'>    &lt;/thead>
-</div><div class='line'>    &lt;tbody>
-</div><div class='line'>      &lt;tr ng-repeat="employee in employees">
-</div><div class='line'>        &lt;td>&lt;/td>
-</div><div class='line'>        &lt;td>&lt;/td>
-</div><div class='line'>        &lt;td>&lt;/td>
-</div><div class='line'>        &lt;td>&lt;/td>
-</div><div class='line'>      &lt;/tr>
-</div><div class='line'>    &lt;/tbody>
-</div><div class='line'>  &lt;/table>
-</div><div class='line'>&lt;/div></div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div></pre></td><td class='main  html'><pre><div class='line'><span class="nt">&lt;div</span> <span class="na">ng-app=</span><span class="s">&#39;app.employeeApp&#39;</span> <span class="na">ng-controller=</span><span class="s">&#39;EmployeeListCtrl&#39;</span><span class="nt">&gt;</span>
+</div><div class='line'>  <span class="nt">&lt;table</span> <span class="na">ng-if=</span><span class="s">&quot;employees&quot;</span><span class="nt">&gt;</span>
+</div><div class='line'>    <span class="nt">&lt;thead&gt;</span>
+</div><div class='line'>      <span class="nt">&lt;th&gt;</span>Name<span class="nt">&lt;/th&gt;</span>
+</div><div class='line'>      <span class="nt">&lt;th&gt;</span>Email<span class="nt">&lt;/th&gt;</span>
+</div><div class='line'>      <span class="nt">&lt;th&gt;</span>SSN<span class="nt">&lt;/th&gt;</span>
+</div><div class='line'>      <span class="nt">&lt;th&gt;</span>Salary<span class="nt">&lt;/th&gt;</span>
+</div><div class='line'>    <span class="nt">&lt;/thead&gt;</span>
+</div><div class='line'>    <span class="nt">&lt;tbody&gt;</span>
+</div><div class='line'>      <span class="nt">&lt;tr</span> <span class="na">ng-repeat=</span><span class="s">&quot;employee in employees&quot;</span><span class="nt">&gt;</span>
+</div><div class='line'>        <span class="nt">&lt;td&gt;</span>&#x7b;&#x7b;employee.name}}<span class="nt">&lt;/td&gt;</span>
+</div><div class='line'>        <span class="nt">&lt;td&gt;</span>&#x7b;&#x7b;employee.email}}<span class="nt">&lt;/td&gt;</span>
+</div><div class='line'>        <span class="nt">&lt;td&gt;</span>&#x7b;&#x7b;employee.ssn}}<span class="nt">&lt;/td&gt;</span>
+</div><div class='line'>        <span class="nt">&lt;td&gt;</span>&#x7b;&#x7b;employee.salary | currency}}<span class="nt">&lt;/td&gt;</span>
+</div><div class='line'>      <span class="nt">&lt;/tr&gt;</span>
+</div><div class='line'>    <span class="nt">&lt;/tbody&gt;</span>
+</div><div class='line'>  <span class="nt">&lt;/table&gt;</span>
+</div><div class='line'><span class="nt">&lt;/div&gt;</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Open http://localhost:3000 and notice the salary field. We used the currency filter to handle formatting that data. Salary comes back from the API as a plain integer value. Angular has a number of useful filters that are included by default.</p>
 
@@ -449,8 +473,9 @@
 
 <p>To get started lets create a new rails app.</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>gem install rails -v 4.1
-</div><div class='line'>rails new angular_example</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  sh'><pre><div class='line'>gem install rails -v 4.1
+</div><div class='line'>rails new angular_example
+</div></pre></td></tr></table></div></figure></p>
 
 <p>In this app, I chose not to use turbolinks. It's possible to use Angular with Rails and turbolinks, but the Angular app bootstrap process is more complex. I find that turbolinks and Angular serve the same purpose, which is to make the app respond faster.  Adding turbolinks, in addition to Angular, adds a lot of complexity and not much benefit.</p>
 
@@ -458,138 +483,153 @@
 
 <p>Removing turbolinks requires removing it from the Gemfile.</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>gem 'turbolinks'</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">gem</span> <span class="s1">&#39;turbolinks&#39;</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Remove the require from app/assets/javascripts/application.js</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>//= require turbolinks</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  javascript'><pre><div class='line'><span class="c1">//= require turbolinks</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <h2>Add AngularJS to the Asset Pipeline</h2>
 
 <p>In order to get Angular to work with the Rails asset pipeline we need to add to the Gemfile:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>gem 'angular-rails-templates'
-</div><div class='line'>gem 'bower-rails'</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">gem</span> <span class="s1">&#39;angular-rails-templates&#39;</span>
+</div><div class='line'><span class="n">gem</span> <span class="s1">&#39;bower-rails&#39;</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Next, we can install these gems into our bundle.</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>bundle install</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  sh'><pre><div class='line'>bundle install
+</div></pre></td></tr></table></div></figure></p>
 
 <p>We added bower so that we can install the AngularJS dependency.</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>rails g bower_rails:initialize json</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  sh'><pre><div class='line'>rails g bower_rails:initialize json
+</div></pre></td></tr></table></div></figure></p>
 
 <p>When adding Angular to bower.json, I prefer to specify the most recent version rather than going with the "latest". This avoids having your app randomly break when a new version is released and your bower installs again.</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>{
-</div><div class='line'>  "lib": {
-</div><div class='line'>    "name": "bower-rails generated lib assets",
-</div><div class='line'>    "dependencies": {
-</div><div class='line'>      "angular": "v1.2.25"
-</div><div class='line'>    }
-</div><div class='line'>  },
-</div><div class='line'>  "vendor": {
-</div><div class='line'>    "name": "bower-rails generated vendor assets",
-</div><div class='line'>    "dependencies": {
-</div><div class='line'>    }
-</div><div class='line'>  }
-</div><div class='line'>}</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  javascript'><pre><div class='line'><span class="p">{</span>
+</div><div class='line'>  <span class="s2">&quot;lib&quot;</span><span class="o">:</span> <span class="p">{</span>
+</div><div class='line'>    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;bower-rails generated lib assets&quot;</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
+</div><div class='line'>      <span class="s2">&quot;angular&quot;</span><span class="o">:</span> <span class="s2">&quot;v1.2.25&quot;</span>
+</div><div class='line'>    <span class="p">}</span>
+</div><div class='line'>  <span class="p">},</span>
+</div><div class='line'>  <span class="s2">&quot;vendor&quot;</span><span class="o">:</span> <span class="p">{</span>
+</div><div class='line'>    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;bower-rails generated vendor assets&quot;</span><span class="p">,</span>
+</div><div class='line'>    <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
+</div><div class='line'>    <span class="p">}</span>
+</div><div class='line'>  <span class="p">}</span>
+</div><div class='line'><span class="p">}</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Now that bower.json is setup with the right dependencies, let's install them:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>bundle exec rake bower:install</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  sh'><pre><div class='line'>bundle <span class="nb">exec </span>rake bower:install
+</div></pre></td></tr></table></div></figure></p>
 
 <h2>Organize the Angular App</h2>
 
 <p>At this point we'll create the following folder structure in app/assets/javascript/angular-app:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>templates/
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  sh'><pre><div class='line'>templates/
 </div><div class='line'>modules/
 </div><div class='line'>filters/
 </div><div class='line'>directives/
 </div><div class='line'>models/
 </div><div class='line'>services/
-</div><div class='line'>controllers/</div></pre></td></tr></table></div></figure></p>
+</div><div class='line'>controllers/
+</div></pre></td></tr></table></div></figure></p>
 
 <p>This structure is only a convention and is not enforced by Angular (unlike file naming and organization in Rails). This project structure allows for a single web app to be easily composed of multiple smaller Angular modules rather than one giant Angular app for the whole site.</p>
 
 <p>In app/assets/javascripts/application.js add Angular, the template helper, and the Angular app file structure. That file should now read like this:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>//= require jquery
-</div><div class='line'>//= require jquery_ujs
-</div><div class='line'>//= require angular
-</div><div class='line'>//= require angular-rails-templates
-</div><div class='line'> </div><div class='line'>//= require angular-app/app
-</div><div class='line'>//= require_tree ./angular-app/templates
-</div><div class='line'>//= require_tree ./angular-app/modules
-</div><div class='line'>//= require_tree ./angular-app/filters
-</div><div class='line'>//= require_tree ./angular-app/directives
-</div><div class='line'>//= require_tree ./angular-app/models
-</div><div class='line'>//= require_tree ./angular-app/services
-</div><div class='line'>//= require_tree ./angular-app/controllers</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  javascript'><pre><div class='line'><span class="c1">//= require jquery</span>
+</div><div class='line'><span class="c1">//= require jquery_ujs</span>
+</div><div class='line'><span class="c1">//= require angular</span>
+</div><div class='line'><span class="c1">//= require angular-rails-templates</span>
+</div><div class='line'> </div><div class='line'><span class="c1">//= require angular-app/app</span>
+</div><div class='line'><span class="c1">//= require_tree ./angular-app/templates</span>
+</div><div class='line'><span class="c1">//= require_tree ./angular-app/modules</span>
+</div><div class='line'><span class="c1">//= require_tree ./angular-app/filters</span>
+</div><div class='line'><span class="c1">//= require_tree ./angular-app/directives</span>
+</div><div class='line'><span class="c1">//= require_tree ./angular-app/models</span>
+</div><div class='line'><span class="c1">//= require_tree ./angular-app/services</span>
+</div><div class='line'><span class="c1">//= require_tree ./angular-app/controllers</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <h2>Bootstrap the Angular App</h2>
 
 <p>Next, we'll setup the Angular app bootstrapping. Create app/assets/javascripts/angular-app/app.js.coffee:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>@app = angular.module('app', [
-</div><div class='line'>  # additional dependencies here, such as restangular
-</div><div class='line'>  'templates'
-</div><div class='line'>])
-</div><div class='line'> </div><div class='line'># for compatibility with Rails CSRF protection
-</div><div class='line'> </div><div class='line'>@app.config([
-</div><div class='line'>  '$httpProvider', ($httpProvider)->
-</div><div class='line'>    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
-</div><div class='line'>])
-</div><div class='line'> </div><div class='line'>@app.run(->
-</div><div class='line'>  console.log 'angular app running'
-</div><div class='line'>)
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div></pre></td><td class='main  coffeescript'><pre><div class='line'><span class="vi">@app = </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s">&#39;app&#39;</span><span class="p">,</span> <span class="p">[</span>
+</div><div class='line'>  <span class="c1"># additional dependencies here, such as restangular</span>
+</div><div class='line'>  <span class="s">&#39;templates&#39;</span>
+</div><div class='line'><span class="p">])</span>
+</div><div class='line'> </div><div class='line'><span class="c1"># for compatibility with Rails CSRF protection</span>
+</div><div class='line'> </div><div class='line'><span class="nx">@app</span><span class="p">.</span><span class="nx">config</span><span class="p">([</span>
+</div><div class='line'>  <span class="s">&#39;$httpProvider&#39;</span><span class="p">,</span> <span class="nf">($httpProvider)-&gt;</span>
+</div><div class='line'>    <span class="nx">$httpProvider</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">common</span><span class="p">[</span><span class="s">&#39;X-CSRF-Token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s">&#39;meta[name=csrf-token]&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s">&#39;content&#39;</span><span class="p">)</span>
+</div><div class='line'><span class="p">])</span>
+</div><div class='line'> </div><div class='line'><span class="nx">@app</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nf">-&gt;</span>
+</div><div class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;angular app running&#39;</span>
+</div><div class='line'><span class="p">)</span>
 </div></pre></td></tr></table></div></figure></p>
 
 <p>Then, we'll create an Angular module at app/assets/javascripts/angular-app/modules/example.js.coffee.erb</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>@exampleApp = angular
-</div><div class='line'>  .module('app.exampleApp', [
-</div><div class='line'>    # additional dependencies here
-</div><div class='line'>  ])
-</div><div class='line'>  .run(->
-</div><div class='line'>    console.log 'exampleApp running'
-</div><div class='line'>  )</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  coffeescript'><pre><div class='line'><span class="vi">@exampleApp = </span><span class="nx">angular</span>
+</div><div class='line'>  <span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s">&#39;app.exampleApp&#39;</span><span class="p">,</span> <span class="p">[</span>
+</div><div class='line'>    <span class="c1"># additional dependencies here</span>
+</div><div class='line'>  <span class="p">])</span>
+</div><div class='line'>  <span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nf">-&gt;</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;exampleApp running&#39;</span>
+</div><div class='line'>  <span class="p">)</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Following the Angular module, we'll create an Angular controller for this app at app/assets/javascripts/angular-app/controllers/exampleCtrl.js.coffee</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>angular.module('app.exampleApp').controller("ExampleCtrl", [
-</div><div class='line'>  '$scope',
-</div><div class='line'>  ($scope)->
-</div><div class='line'>    console.log 'ExampleCtrl running'
-</div><div class='line'> </div><div class='line'>    $scope.exampleValue = "Hello angular and rails"
-</div><div class='line'> </div><div class='line'>])</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div></pre></td><td class='main  coffeescript'><pre><div class='line'><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s">&#39;app.exampleApp&#39;</span><span class="p">).</span><span class="nx">controller</span><span class="p">(</span><span class="s">&quot;ExampleCtrl&quot;</span><span class="p">,</span> <span class="p">[</span>
+</div><div class='line'>  <span class="s">&#39;$scope&#39;</span><span class="p">,</span>
+</div><div class='line'>  <span class="nf">($scope)-&gt;</span>
+</div><div class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;ExampleCtrl running&#39;</span>
+</div><div class='line'> </div><div class='line'>    <span class="nv">$scope.exampleValue = </span><span class="s">&quot;Hello angular and rails&quot;</span>
+</div><div class='line'> </div><div class='line'><span class="p">])</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Now we need to add a route to Rails to pass control over to Angular. In config/routes.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>Rails.application.routes.draw do
-</div><div class='line'>  get 'example' => 'example#index'
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
+</div><div class='line'>  <span class="n">get</span> <span class="s1">&#39;example&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;example#index&#39;</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>Next, we'll generate the Rails controller to respond to that route:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>rails g controller Example</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  sh'><pre><div class='line'>rails g controller Example
+</div></pre></td></tr></table></div></figure></p>
 
 <p>In app/controllers/example_controller.rb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>class ExampleController &lt; ApplicationController
-</div><div class='line'>  def index
-</div><div class='line'>  end
-</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="k">class</span> <span class="nc">ExampleController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</div><div class='line'>  <span class="k">def</span> <span class="nf">index</span>
+</div><div class='line'>  <span class="k">end</span>
+</div><div class='line'><span class="k">end</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>In the view we need to specify which Angular app, and which Angular controller will drive this page.</p>
 
 <p>In app/views/example/index.html.erb:</p>
 
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>&lt;div ng-app='app.exampleApp' ng-controller='ExampleCtrl'>
-</div><div class='line'>  &lt;p>Value from ExampleCtrl:&lt;/p>
-</div><div class='line'>  &lt;p>&lt;/p>
-</div><div class='line'>&lt;/div></div></pre></td></tr></table></div></figure></p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  html'><pre><div class='line'><span class="nt">&lt;div</span> <span class="na">ng-app=</span><span class="s">&#39;app.exampleApp&#39;</span> <span class="na">ng-controller=</span><span class="s">&#39;ExampleCtrl&#39;</span><span class="nt">&gt;</span>
+</div><div class='line'>  <span class="nt">&lt;p&gt;</span>Value from ExampleCtrl:<span class="nt">&lt;/p&gt;</span>
+</div><div class='line'>  <span class="nt">&lt;p&gt;</span>&#x7b;&#x7b; exampleValue }}<span class="nt">&lt;/p&gt;</span>
+</div><div class='line'><span class="nt">&lt;/div&gt;</span>
+</div></pre></td></tr></table></div></figure></p>
 
 <p>To view the app, start your Rails server and visit http://localhost:3000/example</p>
 
