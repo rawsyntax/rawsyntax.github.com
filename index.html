@@ -306,7 +306,409 @@
     
   </header>
 
-<div class="entry-content"><p>I've written a part 3 about using Angular with Rails on <a href="http://www.intridea.com/blog/2014/11/18/angular-with-rails-part-iii">Intridea's Blog</a>. Please have a look.</p>
+<div class="entry-content"><p><em>originally posted on the Intridea blog here: <a href="http://www.intridea.com/blog/2014/11/18/angular-with-rails-part-iii">http://www.intridea.com/blog/2014/11/18/angular-with-rails-part-iii</a></em></p>
+
+<p><img class="" src="/images/rails-angularjs.jpg"></p>
+
+<p>In Part 2 of Angular with Rails series, we covered creating a Rails API with tests in RSpec and setting up an AngularJS app that reads from the API.</p>
+
+<p>In Part 3 we will cover:</p>
+
+<ul>
+<li>Adding CSS</li>
+<li>Adding editing functionality</li>
+<li>Creating a custom filter</li>
+<li>Setting up JavaScript tests</li>
+</ul>
+
+
+<h2>Setup Bootstrap Sass</h2>
+
+<p>In order to support editing functionality we'll add some CSS to the UI. Following the README at <a href="https://github.com/twbs/bootstrap-sass">bootstrap-sass</a>, we'll add to our Gemfile:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>gem 'bootstrap-sass', '~> 3.3.0'</div></pre></td></tr></table></div></figure></p>
+
+<p>Add to our app/assets/javascripts/application.js:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>//= require bootstrap-sprockets</div></pre></td></tr></table></div></figure></p>
+
+<p>Rename app/assets/stylesheets/application.css to application.css.sass (if you prefer sass over scss) and add:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>@import "bootstrap-sprockets"
+</div><div class='line'>@import "bootstrap"</div></pre></td></tr></table></div></figure></p>
+
+<p>Then we'll add some classes to our employee index in app/views/employees/index.html.erb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>&lt;div ng-app='app.employeeApp' ng-controller='EmployeeListCtrl' class="col-xs-8">
+</div><div class='line'>  &lt;h1>Employees List&lt;/h1>
+</div><div class='line'>  &lt;table ng-if="employees" class="table table-hover table-striped">
+</div><div class='line'>    &lt;thead>
+</div><div class='line'>      &lt;th>Name&lt;/th>
+</div><div class='line'>      &lt;th>Email&lt;/th>
+</div><div class='line'>      &lt;th>SSN&lt;/th>
+</div><div class='line'>      &lt;th>Salary&lt;/th>
+</div><div class='line'>    &lt;/thead>
+</div><div class='line'>    &lt;tbody>
+</div><div class='line'>      &lt;tr ng-repeat="employee in employees">
+</div><div class='line'>        &lt;td>&lt;/td>
+</div><div class='line'>        &lt;td>&lt;/td>
+</div><div class='line'>        &lt;td>&lt;/td>
+</div><div class='line'>        &lt;td>&lt;/td>
+</div><div class='line'>      &lt;/tr>
+</div><div class='line'>    &lt;/tbody>
+</div><div class='line'>  &lt;/table>
+</div><div class='line'>&lt;/div></div></pre></td></tr></table></div></figure></p>
+
+<h2>Add the Edit API</h2>
+
+<p>Next, we'll update our Rails API to support editing of employee records.  Let's start by adding some tests for the update method in spec/controllers/api/employees_controller_spec.rb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div><div data-line='20' class='line-number'></div><div data-line='21' class='line-number'></div><div data-line='22' class='line-number'></div><div data-line='23' class='line-number'></div><div data-line='24' class='line-number'></div><div data-line='25' class='line-number'></div><div data-line='26' class='line-number'></div><div data-line='27' class='line-number'></div><div data-line='28' class='line-number'></div><div data-line='29' class='line-number'></div><div data-line='30' class='line-number'></div><div data-line='31' class='line-number'></div><div data-line='32' class='line-number'></div><div data-line='33' class='line-number'></div><div data-line='34' class='line-number'></div><div data-line='35' class='line-number'></div><div data-line='36' class='line-number'></div><div data-line='37' class='line-number'></div><div data-line='38' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>require 'spec_helper'
+</div><div class='line'> </div><div class='line'>describe Api::EmployeesController do
+</div><div class='line'>  before(:each) do
+</div><div class='line'>    @employee = create(:employee, name: 'Calhoun Tubbs', salary: 50000)
+</div><div class='line'>  end
+</div><div class='line'> </div><div class='line'>  describe '#index' do
+</div><div class='line'>    it 'should return a json array of users' do
+</div><div class='line'>      get :index
+</div><div class='line'>      result = JSON.parse(response.body)
+</div><div class='line'> </div><div class='line'>      expect(result[0]['name']).to eq('Calhoun Tubbs')
+</div><div class='line'>    end
+</div><div class='line'>  end
+</div><div class='line'> </div><div class='line'>  describe "#update" do
+</div><div class='line'>    it 'should successfully respond to edits' do
+</div><div class='line'>      put :update, id: @employee.id, employee: {
+</div><div class='line'>            id: @employee.id,
+</div><div class='line'>            salary: 60000
+</div><div class='line'>          }
+</div><div class='line'> </div><div class='line'>      expect(response).to be_success
+</div><div class='line'>    end
+</div><div class='line'> </div><div class='line'>    it "should change the employee's salary" do
+</div><div class='line'>      @employee.update_attribute(:salary, 50000)
+</div><div class='line'> </div><div class='line'>      put :update, id: @employee.id, employee: {
+</div><div class='line'>            id: @employee.id,
+</div><div class='line'>            salary: 60000
+</div><div class='line'>          }
+</div><div class='line'> </div><div class='line'>      expect(@employee.reload.salary).to eq(60000)
+</div><div class='line'>    end
+</div><div class='line'>  end
+</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+
+<p>At this point, these tests will fail. We need to create an update method in our API controller, but first we must specify what params are allowed on update (Rails' strong parameters) at app/controllers/api/employees_controller.rb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>class Api::EmployeesController &lt; ApplicationController
+</div><div class='line'># section omitted
+</div><div class='line'>  private
+</div><div class='line'> </div><div class='line'>  def employee_params
+</div><div class='line'>    attributes = [
+</div><div class='line'>      :salary,
+</div><div class='line'>      :name,
+</div><div class='line'>      :email,
+</div><div class='line'>      :ssn
+</div><div class='line'>    ]
+</div><div class='line'> </div><div class='line'>    params.require(:employee).permit(attributes)
+</div><div class='line'>  end
+</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+
+<p>Now, our update action is simple. The code will try to update the employee object and render the errors if there's a problem.</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>class Api::EmployeesController &lt; ApplicationController
+</div><div class='line'>  # section omitted
+</div><div class='line'>  def update
+</div><div class='line'>    employee = Employee.find(params[:id])
+</div><div class='line'> </div><div class='line'>    if employee.update(employee_params)
+</div><div class='line'>      render json: employee
+</div><div class='line'>    else
+</div><div class='line'>      render json: employee.errors.messages, status: :bad_request
+</div><div class='line'>    end
+</div><div class='line'>  end
+</div><div class='line'>  # section omitted
+</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+
+<p>Next run the tests to make sure they pass. For a more complex application there would be more tests, but in our example these will suffice.</p>
+
+<h2>Add the Edit Front End</h2>
+
+<p>For our employee edit functionality we'll define a modal dialog containing a form and a submit button. The Angular-bootstrap package contains a modal dialog tool. We'll add the angular-bootstrap package to our bower.json:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>{
+</div><div class='line'>  "lib": {
+</div><div class='line'>    "name": "bower-rails generated lib assets",
+</div><div class='line'>    "dependencies": {
+</div><div class='line'>      "angular": "v1.2.25",
+</div><div class='line'>      "restangular": "v1.4.0",
+</div><div class='line'>      "angular-bootstrap": "v0.11.0"
+</div><div class='line'>    }
+</div><div class='line'>  },
+</div><div class='line'>  "vendor": {
+</div><div class='line'>    "name": "bower-rails generated vendor assets",
+</div><div class='line'>    "dependencies": {
+</div><div class='line'>    }
+</div><div class='line'>  }
+</div><div class='line'>}</div></pre></td></tr></table></div></figure></p>
+
+<p>And <code>bundle exec rake bower:install</code></p>
+
+<p>Next, require angular-bootstrap in app/assets/javascripts/application.js:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>//= require jquery
+</div><div class='line'>//= require jquery_ujs
+</div><div class='line'>//= require angular
+</div><div class='line'>//= require angular-rails-templates
+</div><div class='line'>//= require lodash
+</div><div class='line'>//= require restangular
+</div><div class='line'> </div><div class='line'>//= require angular-bootstrap
+</div><div class='line'>//= require bootstrap-sprockets
+</div><div class='line'> </div><div class='line'>//= require angular-app/app
+</div><div class='line'>// rest of the file omitted</div></pre></td></tr></table></div></figure></p>
+
+<p>Finally, we'll add it as a dependency to our angular app in app/assets/javascripts/angular-app/modules/employee.js.coffee.erb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>@employeeApp = angular
+</div><div class='line'>  .module('app.employeeApp', [
+</div><div class='line'>    'restangular',
+</div><div class='line'>    'ui.bootstrap'
+</div><div class='line'>    'templates'
+</div><div class='line'>  ])
+</div><div class='line'>  .run(->
+</div><div class='line'>    console.log 'employeeApp running'
+</div><div class='line'>  )</div></pre></td></tr></table></div></figure></p>
+
+<p>Now, we need to add a modal controller to our AngularJS app. This controller will handle popping up a modal editable form and submitting it to our Rails API. In app/assets/javascripts/angular-app/controllers/employee/EmployeeListCtrl.js.coffee:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>angular.module('app.employeeApp').controller("EmployeeListCtrl", [
+</div><div class='line'>  '$scope', 'EmployeeService', '$modal',
+</div><div class='line'>  ($scope, EmployeeService, $modal)->
+</div><div class='line'> </div><div class='line'>    $scope.editEmployee = (employee) ->
+</div><div class='line'>      modalInstance = $modal.open({
+</div><div class='line'>        templateUrl: 'employee/edit.html',
+</div><div class='line'>        controller: 'EmployeeEditModalCtrl'
+</div><div class='line'>        size: 'lg'
+</div><div class='line'>        resolve:
+</div><div class='line'>          employee: ->
+</div><div class='line'>            employee
+</div><div class='line'>      })
+</div><div class='line'> </div><div class='line'>      modalInstance.result.then(->
+</div><div class='line'>        console.log 'edit closed'
+</div><div class='line'>      )
+</div><div class='line'># rest of file omitted</div></pre></td></tr></table></div></figure></p>
+
+<p>Next, we'll create the modal controller at app/assets/javascripts/angular-app/controllers/employee/EmployeeEditModalCtrl.js.coffee:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>angular.module('app.employeeApp').controller('EmployeeEditModalCtrl', [
+</div><div class='line'>  '$scope', '$modalInstance', 'employee', ($scope, $modalInstance, employee)->
+</div><div class='line'>    $scope.submitEmployee = ->
+</div><div class='line'>      console.log 'submit employee'
+</div><div class='line'> </div><div class='line'>    $scope.cancel = ->
+</div><div class='line'>      $modalInstance.dismiss('cancel')
+</div><div class='line'> </div><div class='line'>])</div></pre></td></tr></table></div></figure></p>
+
+<p>In the above code we're defining a modal controller that receives the employee object we passed in the prior controller, along with function stubs for the save / cancel buttons in the dialog. Next, we need to define the edit form template in app/assets/javascripts/angular-app/templates/employee/edit.html.erb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div><div data-line='20' class='line-number'></div><div data-line='21' class='line-number'></div><div data-line='22' class='line-number'></div><div data-line='23' class='line-number'></div><div data-line='24' class='line-number'></div><div data-line='25' class='line-number'></div><div data-line='26' class='line-number'></div><div data-line='27' class='line-number'></div><div data-line='28' class='line-number'></div><div data-line='29' class='line-number'></div><div data-line='30' class='line-number'></div><div data-line='31' class='line-number'></div><div data-line='32' class='line-number'></div><div data-line='33' class='line-number'></div><div data-line='34' class='line-number'></div><div data-line='35' class='line-number'></div><div data-line='36' class='line-number'></div><div data-line='37' class='line-number'></div><div data-line='38' class='line-number'></div><div data-line='39' class='line-number'></div><div data-line='40' class='line-number'></div><div data-line='41' class='line-number'></div><div data-line='42' class='line-number'></div><div data-line='43' class='line-number'></div><div data-line='44' class='line-number'></div><div data-line='45' class='line-number'></div><div data-line='46' class='line-number'></div><div data-line='47' class='line-number'></div><div data-line='48' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>&lt;div class="modal-header">
+</div><div class='line'>  &lt;h4 class="modal-title">Edit Employee&lt;/h4>
+</div><div class='line'>&lt;/div>
+</div><div class='line'> </div><div class='line'>&lt;div class="modal-body">
+</div><div class='line'>  &lt;form name="" ng-submit="submitEmployee(employee)">
+</div><div class='line'>    &lt;div class="form-group">
+</div><div class='line'>      &lt;div class="row">
+</div><div class='line'>        &lt;div class="col-xs-12">
+</div><div class='line'>          &lt;label>Name&lt;span class="required"> required&lt;/span>&lt;/label>
+</div><div class='line'>          &lt;input class="form-control" ng-model="employee.name">
+</div><div class='line'>        &lt;/div>
+</div><div class='line'>      &lt;/div>
+</div><div class='line'>    &lt;/div>
+</div><div class='line'> </div><div class='line'>    &lt;div class="form-group">
+</div><div class='line'>      &lt;div class="row">
+</div><div class='line'>        &lt;div class="col-xs-12">
+</div><div class='line'>          &lt;label>Email&lt;span class="required"> required&lt;/span>&lt;/label>
+</div><div class='line'>          &lt;input class="form-control" ng-model="employee.email">
+</div><div class='line'>        &lt;/div>
+</div><div class='line'>      &lt;/div>
+</div><div class='line'>    &lt;/div>
+</div><div class='line'> </div><div class='line'>    &lt;div class="form-group">
+</div><div class='line'>      &lt;div class="row">
+</div><div class='line'>        &lt;div class="col-xs-12">
+</div><div class='line'>          &lt;label>SSN&lt;span class="required"> required&lt;/span>&lt;/label>
+</div><div class='line'>          &lt;input class="form-control" ng-model="employee.ssn">
+</div><div class='line'>        &lt;/div>
+</div><div class='line'>      &lt;/div>
+</div><div class='line'>    &lt;/div>
+</div><div class='line'> </div><div class='line'>    &lt;div class="form-group">
+</div><div class='line'>      &lt;div class="row">
+</div><div class='line'>        &lt;div class="col-xs-12">
+</div><div class='line'>          &lt;label>Salary&lt;span class="required"> required&lt;/span>&lt;/label>
+</div><div class='line'>          &lt;input class="form-control" ng-model="employee.salary">
+</div><div class='line'>        &lt;/div>
+</div><div class='line'>      &lt;/div>
+</div><div class='line'>    &lt;/div>
+</div><div class='line'> </div><div class='line'>    &lt;div class="modal-footer">
+</div><div class='line'>      &lt;button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Cancel&lt;/button>
+</div><div class='line'>      &lt;button type="submit" class="btn btn-primary">Save Changes&lt;/button>
+</div><div class='line'>    &lt;/div>
+</div><div class='line'>  &lt;/form>
+</div><div class='line'>&lt;/div></div></pre></td></tr></table></div></figure></p>
+
+<p>Finally, if you run the code now you'll get an error loading the template. We need to tell our <code>angular-rails-templates</code> gem what the base path for our templates is. This is necessary because we are using the rails asset pipeline to combine our javascript files.  In config/application.rb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>require File.expand_path('../boot', <strong>FILE</strong>)
+</div><div class='line'>require 'rails/all'
+</div><div class='line'> </div><div class='line'>Bundler.require(*Rails.groups)
+</div><div class='line'> </div><div class='line'>module AngularExample
+</div><div class='line'>  class Application &lt; Rails::Application
+</div><div class='line'>    # the path relative to app/assets/javascripts
+</div><div class='line'>    config.angular_templates.ignore_prefix  = 'angular-app/templates/'
+</div><div class='line'>  end
+</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+
+<p>Next, we can return to our employees index and provide an ng-click attribute to launch the edit form. We'll add this link on the employee name cell in the table in app/views/employees/index.html.erb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'># rest of the file omitted
+</div><div class='line'>&lt;td>&lt;a ng-click="editEmployee(employee)">&lt;/a>&lt;/td></div></pre></td></tr></table></div></figure></p>
+
+<p>Now, clicking an employee's name will launch a modal form with fields containing that employee's data. However, we still need to hook up the Save Changes button to our Rails API. In app/assets/javascripts/angular-app/controllers/employee/EmployeeEditModalCtrl.js.coffee:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>angular.module('app.employeeApp').controller('EmployeeEditModalCtrl', [
+</div><div class='line'>  '$scope', '$modalInstance', 'employee', ($scope, $modalInstance, employee)->
+</div><div class='line'>    $scope.employee = employee
+</div><div class='line'> </div><div class='line'>    $scope.submitEmployee = (employee)->
+</div><div class='line'>      employee.put().then(
+</div><div class='line'>        $modalInstance.close('saved')
+</div><div class='line'>      )
+</div><div class='line'>    # section omitted
+</div><div class='line'>])</div></pre></td></tr></table></div></figure></p>
+
+<p>We can simply say <code>put()</code> above because we are using Restangular to manage that object.</p>
+
+<p>One problem with the above code is that while the server is applying validation to the object, the client side AngularJS portion is not. One downside of using client-side MVC is the fact that validation from the server must often be duplicated on the client. The subject of AngularJS form validation could be a blog post on its own. I'll leave that as an exercise for the reader.</p>
+
+<h2>Secure the UI</h2>
+
+<p>Though the editing functionality now works, notice the page still shows each employee's social security number. In order to mask the SSN and only reveal it in edit form, we can create an AngularJS filter. In app/assets/javascripts/angular-app/filters/employee/empMaskNumber.js.coffee</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>angular.module('app.employeeApp').filter('empMaskNumber', ()->
+</div><div class='line'>  (value, nonMaskLength) ->
+</div><div class='line'>    if value?
+</div><div class='line'>      maskLength = value.length - nonMaskLength - 1
+</div><div class='line'>      if maskLength > 0
+</div><div class='line'>        v = value.split("")
+</div><div class='line'>        for i in [0..maskLength] by 1
+</div><div class='line'>          if v[i] != '-'
+</div><div class='line'>            v[i] = '*'
+</div><div class='line'>        v = v.join('')
+</div><div class='line'>      else
+</div><div class='line'>        value
+</div><div class='line'>    else
+</div><div class='line'>      value
+</div><div class='line'>)</div></pre></td></tr></table></div></figure></p>
+
+<p>It's recommended that you name filters with an app prefix to avoid colliding with AngularJS's built-in filters. Let's edit our employee table to make use of the filter in app/views/employees/index.html.erb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'># section omitted
+</div><div class='line'>&lt;tr ng-repeat="employee in employees">
+</div><div class='line'>  &lt;td>&lt;a ng-click="editEmployee(employee)">&lt;/a>&lt;/td>
+</div><div class='line'>  &lt;td>&lt;/td>
+</div><div class='line'>  &lt;td>&lt;/td>
+</div><div class='line'>  &lt;td>&lt;/td>
+</div><div class='line'>&lt;/tr>
+</div><div class='line'># section omitted</div></pre></td></tr></table></div></figure></p>
+
+<p>Viewing the employee table again you should see the SSN field being masked with asterisks except the last 4 digits. While this filter is simple and apparently works, when building more complex filters we will need javascript tests.</p>
+
+<h2>Setup JavaScript Tests</h2>
+
+<p>Next, we'll setup jasmine-rails. Add jasmine-rails to the Gemfile:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>group :test, :development do
+</div><div class='line'>  gem 'jasmine-rails'
+</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+
+<p>And add angular-mocks to the bower.json:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>{
+</div><div class='line'>  "lib": {
+</div><div class='line'>    "name": "bower-rails generated lib assets",
+</div><div class='line'>    "dependencies": {
+</div><div class='line'>      "angular": "v1.2.25",
+</div><div class='line'>      "restangular": "v1.4.0",
+</div><div class='line'>      "angular-bootstrap": "v0.11.0",
+</div><div class='line'>      "angular-mocks": "v1.3.2"
+</div><div class='line'>    }
+</div><div class='line'>  },
+</div><div class='line'>  "vendor": {
+</div><div class='line'>    "name": "bower-rails generated vendor assets",
+</div><div class='line'>    "dependencies": {
+</div><div class='line'>    }
+</div><div class='line'>  }
+</div><div class='line'>}</div></pre></td></tr></table></div></figure></p>
+
+<p>Then run:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>bundle install
+</div><div class='line'>rails generate jasmine_rails:install
+</div><div class='line'>bundle exec rake bower:install</div></pre></td></tr></table></div></figure></p>
+
+<p>Next, we need to setup our spec_helper. In app/assets/javascripts/spec_helper.coffee:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div><div data-line='16' class='line-number'></div><div data-line='17' class='line-number'></div><div data-line='18' class='line-number'></div><div data-line='19' class='line-number'></div><div data-line='20' class='line-number'></div><div data-line='21' class='line-number'></div><div data-line='22' class='line-number'></div><div data-line='23' class='line-number'></div><div data-line='24' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>#= require application
+</div><div class='line'>#= require angular-mocks
+</div><div class='line'>#= require sinon
+</div><div class='line'> </div><div class='line'>beforeEach(module('app', 'app.employeeApp'))
+</div><div class='line'> </div><div class='line'>beforeEach inject (<em>$httpBackend</em>, <em>$compile</em>, $rootScope, $controller, $location, $injector, $timeout, $filter) ->
+</div><div class='line'>  @scope = $rootScope.$new()
+</div><div class='line'>  @compile = <em>$compile</em>
+</div><div class='line'>  @location = $location
+</div><div class='line'>  @controller = $controller
+</div><div class='line'>  @injector = $injector
+</div><div class='line'>  @http = @injector.get('$httpBackend')
+</div><div class='line'>  @timeout = $timeout
+</div><div class='line'>  @model = (name) =>
+</div><div class='line'>    @injector.get(name)
+</div><div class='line'>  @filter = $filter
+</div><div class='line'>  @eventLoop =
+</div><div class='line'>    flush: =>
+</div><div class='line'>      @scope.$digest()
+</div><div class='line'> </div><div class='line'>afterEach ->
+</div><div class='line'>  @http.resetExpectations()
+</div><div class='line'>  @http.verifyNoOutstandingExpectation()</div></pre></td></tr></table></div></figure></p>
+
+<p><strong>Note</strong> the beforeEach line above. As your application grows and more angular apps are added, they must also be added here to be available for testing. The above spec helper also requires <a href="http://sinonjs.org/">SinonJS</a>. Download the file and place it at vendor/assets/javascripts/sinon.js .</p>
+
+<p>Now you should be able to run an empty test suite:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>RAILS_ENV=test bundle exec rake spec:javascript</div></pre></td></tr></table></div></figure></p>
+
+<p>Which should return 0 specs and 0 failures. We are now ready to write our test for our filter defined above. In spec/javascripts/filters/emp_mask_number_spec.js.coffee:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>#= require spec_helper
+</div><div class='line'> </div><div class='line'>describe 'Filters', ->
+</div><div class='line'>  describe 'EmpMaskNumber', ->
+</div><div class='line'>    beforeEach ->
+</div><div class='line'>      @maskFilter = @filter('empMaskNumber')
+</div><div class='line'> </div><div class='line'>    it 'should mask the value with asterisks', ->
+</div><div class='line'>      @value = "123"
+</div><div class='line'>      @nonMaskLength = 0
+</div><div class='line'> </div><div class='line'>      expect(@maskFilter(@value, @nonMaskLength)).toEqual "***"</div></pre></td></tr></table></div></figure></p>
+
+<p>In a real application expect to have more specs than just the above. At this point though, you have everything you need to continue building your application and expanding.  You can find the code for this example on <a href="https://github.com/rawsyntax/rails-angular-api-example-edit">Github</a>.</br></p>
+
+<p>Need to catch up on the Angular with Rails series?  Check these out:</p>
+
+<ul>
+<li><a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">Angular with Rails Part I</a></li>
+<li><a href="http://www.intridea.com/blog/2014/10/14/how-to-set-up-angular-with-rails-part-2">Angular with Rails, Part II</a></li>
+</ul>
+
+
+<p>Resources:</p>
+
+<ul>
+<li><a href="https://github.com/rawsyntax/rails-angular-api-example-edit">Example App</a></li>
+<li><a href="http://angular-ui.github.io/">AngularUI</a></li>
+<li><a href="http://blog.zerosum.org/2014/01/17/rails-angular-jasmine.html">Jasmine spec_helper</a></li>
+<li><a href="http://sinonjs.org/">SinonJS</a></li>
+</ul>
+
 </div>
 
   <footer>

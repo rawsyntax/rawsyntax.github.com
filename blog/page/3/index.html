@@ -121,7 +121,30 @@
     
   </header>
 
-<div class="entry-content"><p>I've written a post about API documentation on <a href="http://www.intridea.com/blog/2014/1/22/keepin-your-api-honest">Intridea's blog</a>.  Please have a look.</p>
+<div class="entry-content"><p><em>originally posted on the Intridea blog here: <a href="http://www.intridea.com/blog/2014/1/22/keepin-your-api-honest">http://www.intridea.com/blog/2014/1/22/keepin-your-api-honest</a></em></p>
+
+<p>We've all come across API documentation that is out of date, lacking details, or just plain wrong!  Often times an API’s documentation is entirely separate from the code itself, and there is no verification of the documentation's accuracy.</p>
+
+<p>So how do we overcome this?  Well, one solution for this problem is to generate the documentation as a result of passing <em>acceptance tests</em>.</p>
+
+<p>The <a href="https://github.com/zipmark/rspec_api_documentation">rspec_api_documentation</a> gem allows you to write specs that generate HTML formatted documentation.  The rake task included for running your doc specs is <code>rake docs:generate</code>, which puts the HTML files in the project's <code>./doc</code> directory. If any specs fail, the documentation doesn't generate.</p>
+
+<p>Once the documentation is generated, it’s time to add a documentation viewer to your API server.</p>
+
+<p>There are two gems for serving API documentation:</p>
+
+<ul>
+<li>For rails use <a href="https://github.com/modeset/apitome">apitome</a></li>
+<li>For rack applications (like <a href="https://github.com/intridea/grape">grape</a>) use <a href="https://github.com/smartlogic/raddocs/">raddocs</a></li>
+</ul>
+
+
+<p>Mounting the API documentation server as part of your API server and running <code>rake docs:generate</code> as part of the deployment process ensures your documentation is up to date and available.</p>
+
+<p>So, if you're going to create an API, use <a href="https://github.com/intridea/grape">grape</a>,
+<a href="https://github.com/zipmark/rspec_api_documentation">rspec_api_documentation</a>, and <a href="https://github.com/smartlogic/raddocs/">raddocs</a> to ensure testable, accurate, and up to date documentation. Your API users will thank you.</p>
+
+<p>Included is an example repository using these tools here: <a href="https://github.com/rawsyntax/api_documentation_template">api_documentation_template</a>.</p>
 </div>
 
   <footer>

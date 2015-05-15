@@ -120,9 +120,157 @@ How to Set Up Angular With Rails
     
   </header>
 
-<div class="entry-content"><p>I've written a post about using Angular with Rails on
-<a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">Intridea's Blog</a>.
-Please have a look.</p>
+<div class="entry-content"><p><em>originally posted on the Intridea blog here: <a href="http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails">http://www.intridea.com/blog/2014/9/25/how-to-set-up-angular-with-rails</a></em></p>
+
+<p><img class="" src="/images/rails-angularjs.jpg"></p>
+
+<p>To get started lets create a new rails app.</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>gem install rails -v 4.1
+</div><div class='line'>rails new angular_example</div></pre></td></tr></table></div></figure></p>
+
+<p>In this app, I chose not to use turbolinks. It's possible to use Angular with Rails and turbolinks, but the Angular app bootstrap process is more complex. I find that turbolinks and Angular serve the same purpose, which is to make the app respond faster.  Adding turbolinks, in addition to Angular, adds a lot of complexity and not much benefit.</p>
+
+<h2>Remove Turbolinks</h2>
+
+<p>Removing turbolinks requires removing it from the Gemfile.</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>gem 'turbolinks'</div></pre></td></tr></table></div></figure></p>
+
+<p>Remove the require from app/assets/javascripts/application.js</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>//= require turbolinks</div></pre></td></tr></table></div></figure></p>
+
+<h2>Add AngularJS to the Asset Pipeline</h2>
+
+<p>In order to get Angular to work with the Rails asset pipeline we need to add to the Gemfile:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>gem 'angular-rails-templates'
+</div><div class='line'>gem 'bower-rails'</div></pre></td></tr></table></div></figure></p>
+
+<p>Next, we can install these gems into our bundle.</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>bundle install</div></pre></td></tr></table></div></figure></p>
+
+<p>We added bower so that we can install the AngularJS dependency.</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>rails g bower_rails:initialize json</div></pre></td></tr></table></div></figure></p>
+
+<p>When adding Angular to bower.json, I prefer to specify the most recent version rather than going with the "latest". This avoids having your app randomly break when a new version is released and your bower installs again.</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>{
+</div><div class='line'>  "lib": {
+</div><div class='line'>    "name": "bower-rails generated lib assets",
+</div><div class='line'>    "dependencies": {
+</div><div class='line'>      "angular": "v1.2.25"
+</div><div class='line'>    }
+</div><div class='line'>  },
+</div><div class='line'>  "vendor": {
+</div><div class='line'>    "name": "bower-rails generated vendor assets",
+</div><div class='line'>    "dependencies": {
+</div><div class='line'>    }
+</div><div class='line'>  }
+</div><div class='line'>}</div></pre></td></tr></table></div></figure></p>
+
+<p>Now that bower.json is setup with the right dependencies, let's install them:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>bundle exec rake bower:install</div></pre></td></tr></table></div></figure></p>
+
+<h2>Organize the Angular App</h2>
+
+<p>At this point we'll create the following folder structure in app/assets/javascript/angular-app:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>templates/
+</div><div class='line'>modules/
+</div><div class='line'>filters/
+</div><div class='line'>directives/
+</div><div class='line'>models/
+</div><div class='line'>services/
+</div><div class='line'>controllers/</div></pre></td></tr></table></div></figure></p>
+
+<p>This structure is only a convention and is not enforced by Angular (unlike file naming and organization in Rails). This project structure allows for a single web app to be easily composed of multiple smaller Angular modules rather than one giant Angular app for the whole site.</p>
+
+<p>In app/assets/javascripts/application.js add Angular, the template helper, and the Angular app file structure. That file should now read like this:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>//= require jquery
+</div><div class='line'>//= require jquery_ujs
+</div><div class='line'>//= require angular
+</div><div class='line'>//= require angular-rails-templates
+</div><div class='line'> </div><div class='line'>//= require angular-app/app
+</div><div class='line'>//= require_tree ./angular-app/templates
+</div><div class='line'>//= require_tree ./angular-app/modules
+</div><div class='line'>//= require_tree ./angular-app/filters
+</div><div class='line'>//= require_tree ./angular-app/directives
+</div><div class='line'>//= require_tree ./angular-app/models
+</div><div class='line'>//= require_tree ./angular-app/services
+</div><div class='line'>//= require_tree ./angular-app/controllers</div></pre></td></tr></table></div></figure></p>
+
+<h2>Bootstrap the Angular App</h2>
+
+<p>Next, we'll setup the Angular app bootstrapping. Create app/assets/javascripts/angular-app/app.js.coffee:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div><div data-line='9' class='line-number'></div><div data-line='10' class='line-number'></div><div data-line='11' class='line-number'></div><div data-line='12' class='line-number'></div><div data-line='13' class='line-number'></div><div data-line='14' class='line-number'></div><div data-line='15' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>@app = angular.module('app', [
+</div><div class='line'>  # additional dependencies here, such as restangular
+</div><div class='line'>  'templates'
+</div><div class='line'>])
+</div><div class='line'> </div><div class='line'># for compatibility with Rails CSRF protection
+</div><div class='line'> </div><div class='line'>@app.config([
+</div><div class='line'>  '$httpProvider', ($httpProvider)->
+</div><div class='line'>    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+</div><div class='line'>])
+</div><div class='line'> </div><div class='line'>@app.run(->
+</div><div class='line'>  console.log 'angular app running'
+</div><div class='line'>)
+</div></pre></td></tr></table></div></figure></p>
+
+<p>Then, we'll create an Angular module at app/assets/javascripts/angular-app/modules/example.js.coffee.erb</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>@exampleApp = angular
+</div><div class='line'>  .module('app.exampleApp', [
+</div><div class='line'>    # additional dependencies here
+</div><div class='line'>  ])
+</div><div class='line'>  .run(->
+</div><div class='line'>    console.log 'exampleApp running'
+</div><div class='line'>  )</div></pre></td></tr></table></div></figure></p>
+
+<p>Following the Angular module, we'll create an Angular controller for this app at app/assets/javascripts/angular-app/controllers/exampleCtrl.js.coffee</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div><div data-line='5' class='line-number'></div><div data-line='6' class='line-number'></div><div data-line='7' class='line-number'></div><div data-line='8' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>angular.module('app.exampleApp').controller("ExampleCtrl", [
+</div><div class='line'>  '$scope',
+</div><div class='line'>  ($scope)->
+</div><div class='line'>    console.log 'ExampleCtrl running'
+</div><div class='line'> </div><div class='line'>    $scope.exampleValue = "Hello angular and rails"
+</div><div class='line'> </div><div class='line'>])</div></pre></td></tr></table></div></figure></p>
+
+<p>Now we need to add a route to Rails to pass control over to Angular. In config/routes.rb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>Rails.application.routes.draw do
+</div><div class='line'>  get 'example' => 'example#index'
+</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+
+<p>Next, we'll generate the Rails controller to respond to that route:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>rails g controller Example</div></pre></td></tr></table></div></figure></p>
+
+<p>In app/controllers/example_controller.rb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>class ExampleController &lt; ApplicationController
+</div><div class='line'>  def index
+</div><div class='line'>  end
+</div><div class='line'>end</div></pre></td></tr></table></div></figure></p>
+
+<p>In the view we need to specify which Angular app, and which Angular controller will drive this page.</p>
+
+<p>In app/views/example/index.html.erb:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  plain'><pre><div class='line'>&lt;div ng-app='app.exampleApp' ng-controller='ExampleCtrl'>
+</div><div class='line'>  &lt;p>Value from ExampleCtrl:&lt;/p>
+</div><div class='line'>  &lt;p>&lt;/p>
+</div><div class='line'>&lt;/div></div></pre></td></tr></table></div></figure></p>
+
+<p>To view the app, start your Rails server and visit http://localhost:3000/example</p>
+
+<p>You can find the code generated here <a href="https://github.com/rawsyntax/rails-angular-example">https://github.com/rawsyntax/rails-angular-example</a></p>
 </div>
 
 
@@ -150,7 +298,7 @@ Please have a look.</p>
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/programming/'>programming</a>
+    <a class='category' href='/blog/categories/angularjs/'>angularjs</a>, <a class='category' href='/blog/categories/programming/'>programming</a>
   
 </span>
 
