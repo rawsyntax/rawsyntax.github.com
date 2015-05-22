@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2015-05-14T23:03:17-04:00</updated>
+  <updated>2015-05-21T20:52:23-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -121,6 +121,9 @@
 <p><img class="" src="http://rawsyntax.com/images/rails-angularjs.jpg"></p>
 
 <p>In Part 2 of Angular with Rails series, we covered creating a Rails API with tests in RSpec and setting up an AngularJS app that reads from the API.</p>
+
+<!--more-->
+
 
 <p>In Part 3 we will cover:</p>
 
@@ -586,6 +589,9 @@
 
 <p>In Part 2 of this series, we'll be creating a basic HR app. This app will allow us to view employee information through an Angular app (edits and updates to be explained in Part 3 of this series). For more details, see code in Github link at the end of post.</p>
 
+<!--more-->
+
+
 <p>Here's a quick snapshot of what we'll be creating for our HR app:</p>
 
 <ul>
@@ -900,6 +906,9 @@
 </div></pre></td></tr></table></div></figure></p>
 
 <p>In this app, I chose not to use turbolinks. It's possible to use Angular with Rails and turbolinks, but the Angular app bootstrap process is more complex. I find that turbolinks and Angular serve the same purpose, which is to make the app respond faster.  Adding turbolinks, in addition to Angular, adds a lot of complexity and not much benefit.</p>
+
+<!--more-->
+
 
 <h2>Remove Turbolinks</h2>
 
