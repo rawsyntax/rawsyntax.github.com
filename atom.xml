@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2015-05-21T20:52:23-04:00</updated>
+  <updated>2015-06-21T23:26:25-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,40 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[Compatible .ruby-version with Rbenv Aliases]]></title>
+<link href="http://rawsyntax.com/blog/compatible-ruby-version-with-rbenv-aliases/"/>
+<updated>2015-06-21T23:11:36-04:00</updated>
+<id>http://rawsyntax.com/blog/compatible-ruby-version-with-rbenv-aliases</id>
+<category term="programming" /><category term="ruby" />
+
+      <content type="html"><![CDATA[<p>In the past I've worked on projects where the <code>.ruby-version</code> checked into git specifies a ruby version not recognized by rbenv. Typically this can happen when the ruby version is specified with patch version while rbenv omits it.</p>
+
+<p>Consider a <code>.ruby-version</code> file containing <code>2.1.3p242</code>. This version is listed as <code>2.1.3</code> by rbenv (while RVM and others may list it differently), and it isn't recognized due to the patch version (though the version in rbenv is actually <code>2.1.3p242</code>).  There's a plugin called <a href="https://github.com/tpope/rbenv-aliases">rbenv-aliases</a> that addresses this problem.</p>
+
+<p>You can install the plugin with the following commands:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  bash'><pre><div class='line'>mkdir -p ~/.rbenv/plugins
+</div><div class='line'>git clone git://github.com/tpope/rbenv-aliases.git <span class="se">\</span>
+</div><div class='line'>  ~/.rbenv/plugins/rbenv-aliases
+</div></pre></td></tr></table></div></figure></p>
+
+<p>Then, running the command:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  bash'><pre><div class='line'>rbenv <span class="nb">alias </span>2.1.3p242 2.1.3
+</div></pre></td></tr></table></div></figure></p>
+
+<p>will cause rbenv to recognize <code>2.1.3p242</code> and set the ruby version to 2.1.3.</p>
+
+<p>However, this plugin must be used with caution. You could say <code>rbenv alias 2.1.3 1.8.7</code>, which is a lie! The plugin comes with a command for removing any incorrect aliases <code>rbenv unalias 2.1.3</code>.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -1760,61 +1794,6 @@ trying to speed up the code there.</p>
 doesn't yield meaningful results you will have to use a more serious
 tool.  However, I reach for this tool first because it's the simplest
 thing that could possibly work.</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Faster SSH Connections]]></title>
-<link href="http://rawsyntax.com/blog/faster-ssh-connections/"/>
-<updated>2012-07-11T12:34:00-04:00</updated>
-<id>http://rawsyntax.com/blog/faster-ssh-connections</id>
-<category term="tools" />
-
-      <content type="html"><![CDATA[<p>Certain servers I connect to on a regular basis are rather slow when
-connecting.  Here are some <code>~/.ssh/config</code> options to speed up ssh connections.</p>
-
-<!--more-->
-
-
-<p>I find this is useful for scripts that make multiple subsequent ssh
-connections.  Capistrano comes to mind as well as a couple of scripts
-I have that use scp.</p>
-
-<div><script src='https://gist.github.com/rawsyntax/3091626.js'></script>
-<noscript><pre><code>Host *
-    # don't try to authenticate with Kerberos
-    GSSAPIAuthentication no
-    GSSAPIKeyExchange no
-    # persist the ssh connection for 5 minutes
-    # subsequent ssh connections respond faster because its reusing an existing connection
-    ControlMaster auto
-    ControlPath ~/.ssh/master-%r@%h:%p
-    ControlPersist 5m</code></pre></noscript></div>
-
-
-<h2>Beware Strange Behavior</h2>
-
-<p>I have noticed occasionally that I get some error messages due
-to stale master connections.  I think this happens when my computer
-powers off without shutting down fully.</p>
-
-<pre><code>Control socket connect(/Users/eric/.ssh/master-user@example.com:22): Connection refused
-ControlSocket /Users/eric/.ssh/master-user@example.com:22 already exists, disabling multiplexing
-</code></pre>
-
-<p>The connection still works, but it is even slower to connect which
-defeats the purpose of using master control sockets.  You can go into
-<code>~/.ssh</code> and manually remove the connection files to clean it up.</p>
-
-<p>Furthermore, this behavior can get quite confusing when setting up
-ssh-key authentication.  You may think you have it set up correctly
-because of lack of a password prompt, but in my case it was reusing
-the connection (which is why it didn't prompt me).</p>
 ]]></content>
     </entry>
   

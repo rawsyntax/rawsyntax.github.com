@@ -97,6 +97,75 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/compatible-ruby-version-with-rbenv-aliases/">Compatible .ruby-version With Rbenv Aliases</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-06-21T23:11:36-04:00" pubdate data-updated="true">Jun 21<span>st</span>, 2015</time>
+         &bull; <a rel="bookmark" href="/blog/compatible-ruby-version-with-rbenv-aliases/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>In the past I've worked on projects where the <code>.ruby-version</code> checked into git specifies a ruby version not recognized by rbenv. Typically this can happen when the ruby version is specified with patch version while rbenv omits it.</p>
+
+<p>Consider a <code>.ruby-version</code> file containing <code>2.1.3p242</code>. This version is listed as <code>2.1.3</code> by rbenv (while RVM and others may list it differently), and it isn't recognized due to the patch version (though the version in rbenv is actually <code>2.1.3p242</code>).  There's a plugin called <a href="https://github.com/tpope/rbenv-aliases">rbenv-aliases</a> that addresses this problem.</p>
+
+<p>You can install the plugin with the following commands:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  bash'><pre><div class='line'>mkdir -p ~/.rbenv/plugins
+</div><div class='line'>git clone git://github.com/tpope/rbenv-aliases.git <span class="se">\</span>
+</div><div class='line'>  ~/.rbenv/plugins/rbenv-aliases
+</div></pre></td></tr></table></div></figure></p>
+
+<p>Then, running the command:</p>
+
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  bash'><pre><div class='line'>rbenv <span class="nb">alias </span>2.1.3p242 2.1.3
+</div></pre></td></tr></table></div></figure></p>
+
+<p>will cause rbenv to recognize <code>2.1.3p242</code> and set the ruby version to 2.1.3.</p>
+
+<p>However, this plugin must be used with caution. You could say <code>rbenv alias 2.1.3 1.8.7</code>, which is a lie! The plugin comes with a command for removing any incorrect aliases <code>rbenv unalias 2.1.3</code>.</p>
+</div>
+
+  <footer>
+    
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/comparing-plist-files-on-osx/">Comparing Plist Files on OSX</a>
 
 </h1>
@@ -324,61 +393,6 @@
 
     </article>
   
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/k750-a-solid-wireless-keyboard/">K750: A Solid Wireless Keyboard</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-11-07T18:41:25-05:00" pubdate data-updated="true">Nov 7<span>th</span>, 2014</time>
-         &bull; <a rel="bookmark" href="/blog/k750-a-solid-wireless-keyboard/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><p>I don't normally talk about computer equipment here, but I recently purchased the <a href="http://www.amazon.com/gp/product/B004MF11MU/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B004MF11MU&amp;linkCode=as2&amp;tag=rawsyntax-20&amp;linkId=3FQGUQDZRA46YYYF">K750 wireless keyboard</a> by Logitech. It's amazing because it is solar powered and therefore requires no batteries. Their manual says it can remain powered for 3 months in total darkness. I believe they tested this in my office. Also of note, I bought the mac version of the keyboard.  However, it also works with my PC, though I had to fool with their software a bit for the function keys to work.</p>
-
-<p>The K750 is also a good deal cheaper than the official Apple wireless keyboard.</p>
-
-<p>Previously I had an older version of the <a href="http://www.amazon.com/gp/product/B009SJR28W/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B009SJR28W&amp;linkCode=as2&amp;tag=rawsyntax-20&amp;linkId=DJMWCALTWWVT6ERX">Razer Deathstalker</a>. It was nice, but there were wires everywhere. The K750 is nice and clean, and I haven't noticed any perceptible input lag / delay.</p>
-</div>
-
-  <footer>
-    
-    
-  </footer>
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -395,6 +409,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/compatible-ruby-version-with-rbenv-aliases/">Compatible .ruby-version with Rbenv Aliases</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/comparing-plist-files-on-osx/">Comparing plist files on OSX</a>
       </li>
     
@@ -408,10 +426,6 @@
     
       <li class="post">
         <a href="/blog/how-to-set-up-angular-with-rails-part-3/">How to Set Up Angular with Rails Part 3</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/k750-a-solid-wireless-keyboard/">K750: a Solid Wireless Keyboard</a>
       </li>
     
   </ul>

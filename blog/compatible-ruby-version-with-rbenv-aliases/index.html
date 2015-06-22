@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rails 3 Email Validation - Raw Syntax</title>
+  <title>Compatible .ruby-version with Rbenv Aliases - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
   <link href="https://plus.google.com/101134845820398279714" rel="author">
   <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/rails-3-email-validation/">
+  <link rel="canonical" href="http://rawsyntax.com/blog/compatible-ruby-version-with-rbenv-aliases/">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/octopress.min.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/RawSyntax" rel="alternate" title="Raw Syntax" type="application/atom+xml">
@@ -96,7 +96,7 @@
   <header>
     <h1 class="entry-title">
 
-Rails 3 Email Validation
+Compatible .ruby-version With Rbenv Aliases
 
 </h1>
 
@@ -114,46 +114,31 @@ Rails 3 Email Validation
   
 
 
-<time datetime="2011-04-21T00:00:00-04:00" pubdate data-updated="true">Apr 21<span>st</span>, 2011</time>
-         &bull; <a rel="bookmark" href="/blog/rails-3-email-validation/">Permalink</a>
+<time datetime="2015-06-21T23:11:36-04:00" pubdate data-updated="true">Jun 21<span>st</span>, 2015</time>
+         &bull; <a rel="bookmark" href="/blog/compatible-ruby-version-with-rbenv-aliases/">Permalink</a>
       </p>
     
   </header>
 
-<div class="entry-content"><p>Most email validation I've encountered goes bananas with regards to
-regexes. The programmer tries to strictly adhere to the spec
-(<a href="http://www.ietf.org/rfc/rfc0822.txt">rfc 822</a>) in a regex. Not only
-is this task difficult and error prone, but there are functional email
-addresses out there that do not conform to the spec. Not to mention
-the resulting regex often looks like
-<a href="http://www.ex-parrot.com/pdw/Mail-RFC822-Address.html">this</a>.</p>
+<div class="entry-content"><p>In the past I've worked on projects where the <code>.ruby-version</code> checked into git specifies a ruby version not recognized by rbenv. Typically this can happen when the ruby version is specified with patch version while rbenv omits it.</p>
 
-<!--more-->
+<p>Consider a <code>.ruby-version</code> file containing <code>2.1.3p242</code>. This version is listed as <code>2.1.3</code> by rbenv (while RVM and others may list it differently), and it isn't recognized due to the patch version (though the version in rbenv is actually <code>2.1.3p242</code>).  There's a plugin called <a href="https://github.com/tpope/rbenv-aliases">rbenv-aliases</a> that addresses this problem.</p>
 
+<p>You can install the plugin with the following commands:</p>
 
-<p>When I do email validation I use a simple regex:</p>
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div></pre></td><td class='main  bash'><pre><div class='line'>mkdir -p ~/.rbenv/plugins
+</div><div class='line'>git clone git://github.com/tpope/rbenv-aliases.git <span class="se">\</span>
+</div><div class='line'>  ~/.rbenv/plugins/rbenv-aliases
+</div></pre></td></tr></table></div></figure></p>
 
-<div><script src='https://gist.github.com/rawsyntax/934791.js'></script>
-<noscript><pre><code>/^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
-</code></pre></noscript></div>
+<p>Then, running the command:</p>
 
+<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  bash'><pre><div class='line'>rbenv <span class="nb">alias </span>2.1.3p242 2.1.3
+</div></pre></td></tr></table></div></figure></p>
 
-<p>Which I took from the <a href="http://github.com/platformatec/devise">Devise</a> codebase. It means:</p>
+<p>will cause rbenv to recognize <code>2.1.3p242</code> and set the ruby version to 2.1.3.</p>
 
-<ul>
-<li>begins with one or more word characters, period, percent, plus, or dashes</li>
-<li>then one at symbol</li>
-<li>then one or more word characters, dashes, and then a period</li>
-<li>ends with 2 or more word characters</li>
-<li>case-insensitive</li>
-</ul>
-
-
-<p>This regex ensures a reasonably close to valid email address, without enumerating and worrying about .com vs .co.uk vs .musem and a host of other issues.</p>
-
-<p>At this point, I have the application send an email to the address, and require the user to click a confirmation link. That's good enough, and very simple to implement.</p>
-
-<p><a href="http://rubular.com/r/YTzbCkatJy">Try this regex out on Rubular</a> it's an interactive web based ruby regex engine.</p>
+<p>However, this plugin must be used with caution. You could say <code>rbenv alias 2.1.3 1.8.7</code>, which is a lie! The plugin comes with a command for removing any incorrect aliases <code>rbenv unalias 2.1.3</code>.</p>
 </div>
 
 
@@ -176,12 +161,12 @@ the resulting regex often looks like
   
 
 
-<time datetime="2011-04-21T00:00:00-04:00" pubdate data-updated="true">Apr 21<span>st</span>, 2011</time>
+<time datetime="2015-06-21T23:11:36-04:00" pubdate data-updated="true">Jun 21<span>st</span>, 2015</time>
 
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/programming/'>programming</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
   
 </span>
 
@@ -199,7 +184,7 @@ the resulting regex often looks like
   
   
     
-      <a title="+1 on Google Plus" class="googleplus-share" href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://rawsyntax.com/blog/rails-3-email-validation/" target="_blank">+1</a>
+      <a title="+1 on Google Plus" class="googleplus-share" href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://rawsyntax.com/blog/compatible-ruby-version-with-rbenv-aliases/" target="_blank">+1</a>
     
   
   
@@ -210,10 +195,8 @@ the resulting regex often looks like
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/quicksilver-lockscreen/" title="Previous Post: Quicksilver Lockscreen">&laquo; Quicksilver Lockscreen</a>
+        <a class="basic-alignment left" href="/blog/comparing-plist-files-on-osx/" title="Previous Post: Comparing plist files on OSX">&laquo; Comparing plist files on OSX</a>
       
-      
-        <a class="basic-alignment right" href="/blog/generating-available-domain-names/" title="Next Post: Generating Available Domain Names">Generating Available Domain Names &raquo;</a>
       
     </p>
   </footer>
@@ -299,8 +282,8 @@ the resulting regex often looks like
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://rawsyntax.com/blog/rails-3-email-validation/';
-        var disqus_url = 'http://rawsyntax.com/blog/rails-3-email-validation/';
+        var disqus_identifier = 'http://rawsyntax.com/blog/compatible-ruby-version-with-rbenv-aliases/';
+        var disqus_url = 'http://rawsyntax.com/blog/compatible-ruby-version-with-rbenv-aliases/';
         var disqus_script = 'embed.js';
       
     (function () {
