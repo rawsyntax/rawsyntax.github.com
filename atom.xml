@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2015-06-29T18:13:27-04:00</updated>
+  <updated>2015-08-10T22:26:21-04:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -11,6 +11,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+    <entry>
+      
+
+
+
+
+<title type="html"><![CDATA[App Store Adventures]]></title>
+<link href="http://rawsyntax.com/blog/app-store-adventures/"/>
+<updated>2015-08-08T11:14:21-04:00</updated>
+<id>http://rawsyntax.com/blog/app-store-adventures</id>
+<category term="angularjs" /><category term="ionic" /><category term="programming" />
+
+      <content type="html"><![CDATA[<p><img src="http://rawsyntax.com/images/log-encounter.png" class ="center"/></p>
+
+<p>Recently (in March) I took on a side project. My wife is nearing the end of her Family Medicine residency, however in talking with her I learned about a need for an app. The <a href="https://www.acgme.org/acgmeweb/tabid/132/ProgramandInstitutionalAccreditation/MedicalSpecialties/FamilyMedicine.aspx">ACGME</a> has requirements that residents in Family Medicine must have a certain number and type of patient visits completed to finish residency. For example one such requirement is performing 40 deliveries.</p>
+
+<p>Where the app comes in is that it provides a simple way to log patient encounters and keep track of these metrics. After doing a quick search on the App Store and finding that such an app didn't already exist, I figured I could write one pretty easily. Though I don't have native app dev skills (Obj-C, Java) there are quite a few frameworks that allow developers to write JavaScript instead: <a href="http://www.appcelerator.com/product/">Appcelerator</a>, <a href="http://ionicframework.com/">Ionic Framework</a>, <a href="http://phonegap.com/">Phonegap</a> etc.</p>
+
+<!--more-->
+
+
+<h2>Building the App</h2>
+
+<p>Ionic uses AngularJS and Cordova to handle building apps for phones. I chose Ionic because I'm already familiar with AngularJS. The actual app development was quite simple:</p>
+
+<ul>
+<li>setup a form in AngularJS</li>
+<li>write form data to a sqlite database</li>
+<li>query the database to display statistics</li>
+<li>export the database to a CSV file and attach via email</li>
+</ul>
+
+
+<p>I only had to add a couple of cordova plugins, and write some straight forward JavaScript. The hardest part by far was signing up for the App Store and Google Play and building / submitting the app to each store.</p>
+
+<p>Another user wrote a tutorial on how to <a href="http://forum.ionicframework.com/t/ionic-toturial-for-building-a-release-apk/15758">build and sign apps</a> for Android. This was extremely helpful since I'm less familiar with the Android submission process. To top it off I lost my app's keystore (which is required to make app updates) and had to dig through my Time Machine backups to find the file. I now have it more thoroughly backed up.</p>
+
+<h2>App Design</h2>
+
+<p>Once I reached a point where the app worked on my iPhone, I still needed an app icon. Instead of trying to make one myself I used <a href="http://99designs.com/">99designs</a>. After about a week of commenting back and forth with designers, I picked an app icon. What I actually received was a 1024x1024 PNG file.</p>
+
+<p>Taking this file and creating all the various image sizes could have been a pain, but Ionic comes with the <code>ionic resources</code> <a href="http://ionicframework.com/docs/cli/icon-splashscreen.html">command</a>, which automates this process.</p>
+
+<p>However it became clear that I didn't think this process entirely through, as I was missing a splash screen (for when the app is loading). I found a template and made a simple "Log Encounter" text splash screen. It is boring, but it gets the job done.</p>
+
+<h2>Mission Accomplished</h2>
+
+<p>So now the app is available for both Android and iOS:</p>
+
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.rawsyntax.logencounter">Log Encounter for Android</a></li>
+<li><a href="https://itunes.apple.com/us/app/log-encounter/id980902840?mt=8">Log Encounter for iOS</a></li>
+</ul>
+
+
+<p>I've had a few sales (10?) on iOS and none on Android. Now that the app is done and works, figuring out how to increase sales is an entirely separate process. Mission accomplished but not finished. I've also received plenty of (unsolicited) email spam for app promotion services. I can only assume those services comb through the new app listings and email everyone.</p>
+]]></content>
+    </entry>
   
     <entry>
       
@@ -1713,87 +1772,6 @@ Terminal.app's problem was.</p>
 <p>This setting essentially makes all text input in Terminal.app act like
 a password field having the same single modifier activation problem as
 above.  Turning Secure Keyboard Entry off fixed the problem.</p>
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Measuring Slow Code]]></title>
-<link href="http://rawsyntax.com/blog/measuring-slow-code/"/>
-<updated>2012-09-02T15:59:00-04:00</updated>
-<id>http://rawsyntax.com/blog/measuring-slow-code</id>
-<category term="programming" /><category term="tools" />
-
-      <content type="html"><![CDATA[<p>Over the years I've found myself needing a quick way to measure some
-slow code.  Whether I'm looking at a 100 line function or a 10 line
-controller action, sometimes I just need some quick print statements
-to determine which part of the code is slow.</p>
-
-<!--more-->
-
-
-<p>My original approach to doing this would be to mark off sections of
-the code with <code>Time.now</code> statements printing out how many seconds each
-section took.  This approach is messy because it requires altering the
-code a good deal.  And at the end I was left comparing sections of the
-code to figure out which part was slower than all the other parts --
-doing the math in my head.</p>
-
-<h2>Use Benchmark?</h2>
-
-<p>Ruby has a
-<a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html">Benchmark</a>
-class built in.  I tried using it.  While it can be helpful in certain
-situations, if I'm measuring 5 sections of a function there's an awful
-lot of code rewriting that has to happen because of the Benchmark
-blocks messing with the scope of variables.  That was more work than
-it was worth.</p>
-
-<h2>Roll my Own</h2>
-
-<p>I'm hesitant to reinvent the wheel, but in this case I created a very
-simple gem to address my needs.  It's called
-<a href="https://github.com/rawsyntax/code_timer">CodeTimer</a>.  To use it first
-you instantiate it:</p>
-
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span> <span class="o">=</span> <span class="no">CodeTimer</span><span class="o">.</span><span class="n">new</span>
-</div></pre></td></tr></table></div></figure></p>
-
-<p>Then you insert markers for each part that you want to measure:</p>
-
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div><div data-line='2' class='line-number'></div><div data-line='3' class='line-number'></div><div data-line='4' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part1&quot;</span><span class="p">)</span>
-</div><div class='line'><span class="c1"># ... slow code here ...</span>
-</div><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;Part2&quot;</span><span class="p">)</span>
-</div><div class='line'><span class="c1"># ...</span>
-</div></pre></td></tr></table></div></figure></p>
-
-<p>And a marker for stopping measuring:</p>
-
-<p><figure class='code'><div class='highlight'><table><td class='line-numbers' aria-hidden='true'><pre><div data-line='1' class='line-number'></div></pre></td><td class='main  ruby'><pre><div class='line'><span class="n">ct</span><span class="o">.</span><span class="n">end</span>
-</div></pre></td></tr></table></div></figure></p>
-
-<p>It returns a formatted string:</p>
-
-<pre><code>Total Time: 17s
-Part1:   11% / 2s
-Part2:   29% / 5s
-Part3:   47% / 8s
-Part4:   11% / 2s
-</code></pre>
-
-<p>And it's easy to see that Part3 is the slowest section.  Better start
-trying to speed up the code there.</p>
-
-<h2>What If This Doesn't Work?</h2>
-
-<p>This isn't the solution for every slow code problem.  If this approach
-doesn't yield meaningful results you will have to use a more serious
-tool.  However, I reach for this tool first because it's the simplest
-thing that could possibly work.</p>
 ]]></content>
     </entry>
   

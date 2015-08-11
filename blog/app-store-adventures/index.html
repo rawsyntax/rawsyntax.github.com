@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to get a Programming Interview - Raw Syntax</title>
+  <title>App Store Adventures - Raw Syntax</title>
   <meta name="author" content="Eric Himmelreich">
   <link href="https://plus.google.com/101134845820398279714" rel="author">
   <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rawsyntax.com/blog/how-to-get-a-programming-interview/">
+  <link rel="canonical" href="http://rawsyntax.com/blog/app-store-adventures/">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/octopress.min.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/RawSyntax" rel="alternate" title="Raw Syntax" type="application/atom+xml">
@@ -96,7 +96,7 @@
   <header>
     <h1 class="entry-title">
 
-How to Get a Programming Interview
+App Store Adventures
 
 </h1>
 
@@ -114,53 +114,56 @@ How to Get a Programming Interview
   
 
 
-<time datetime="2011-06-06T00:00:00-04:00" pubdate data-updated="true">Jun 6<span>th</span>, 2011</time>
-         &bull; <a rel="bookmark" href="/blog/how-to-get-a-programming-interview/">Permalink</a>
+<time datetime="2015-08-08T11:14:21-04:00" pubdate data-updated="true">Aug 8<span>th</span>, 2015</time>
+         &bull; <a rel="bookmark" href="/blog/app-store-adventures/">Permalink</a>
       </p>
     
   </header>
 
-<div class="entry-content"><p>Before I get into the details, remember that persistence is critical
-in this. In my last job search, I lost count how many jobs I applied
-to. I also had one where I was sure I got the job, and they called to
-tell me why I didn't get it. I got really discouraged for a couple
-days, and then resumed the job search. Keep at it. Remember, you only
-need one big hit.</p>
+<div class="entry-content"><p><img src="/images/log-encounter.png" class ="center"/></p>
+
+<p>Recently (in March) I took on a side project. My wife is nearing the end of her Family Medicine residency, however in talking with her I learned about a need for an app. The <a href="https://www.acgme.org/acgmeweb/tabid/132/ProgramandInstitutionalAccreditation/MedicalSpecialties/FamilyMedicine.aspx">ACGME</a> has requirements that residents in Family Medicine must have a certain number and type of patient visits completed to finish residency. For example one such requirement is performing 40 deliveries.</p>
+
+<p>Where the app comes in is that it provides a simple way to log patient encounters and keep track of these metrics. After doing a quick search on the App Store and finding that such an app didn't already exist, I figured I could write one pretty easily. Though I don't have native app dev skills (Obj-C, Java) there are quite a few frameworks that allow developers to write JavaScript instead: <a href="http://www.appcelerator.com/product/">Appcelerator</a>, <a href="http://ionicframework.com/">Ionic Framework</a>, <a href="http://phonegap.com/">Phonegap</a> etc.</p>
 
 <!--more-->
 
 
-<h2>Figure out what your ideal job is</h2>
+<h2>Building the App</h2>
 
-<p>Make a list of the qualities you want in a job. For me these qualities were telecommuting, ruby web development, small company. It's not necessarily important to find the ideal job, but you need to come up with a way of scoring job opportunities.</p>
+<p>Ionic uses AngularJS and Cordova to handle building apps for phones. I chose Ionic because I'm already familiar with AngularJS. The actual app development was quite simple:</p>
 
-<h2>Ask friends / colleagues</h2>
+<ul>
+<li>setup a form in AngularJS</li>
+<li>write form data to a sqlite database</li>
+<li>query the database to display statistics</li>
+<li>export the database to a CSV file and attach via email</li>
+</ul>
 
-<p>The easiest way to get a new job is through a friend. So exhaust those resources first. However, when you get the interview don't assume you have the job in the bag because you've got a friend at the company. Still give it your best shot.</p>
 
-<h2>Use the right job sites</h2>
+<p>I only had to add a couple of cordova plugins, and write some straight forward JavaScript. The hardest part by far was signing up for the App Store and Google Play and building / submitting the app to each store.</p>
 
-<p>Figure out where the good jobs are getting posted. Personally, I was looking for a telecommute ruby job with a small company. The best sites for me were <a href="http://jobs.rubynow.com/">http://jobs.rubynow.com/</a>, <a href="http://toprubyjobs.com/,">http://toprubyjobs.com/,</a> and craigslist.</p>
+<p>Another user wrote a tutorial on how to <a href="http://forum.ionicframework.com/t/ionic-toturial-for-building-a-release-apk/15758">build and sign apps</a> for Android. This was extremely helpful since I'm less familiar with the Android submission process. To top it off I lost my app's keystore (which is required to make app updates) and had to dig through my Time Machine backups to find the file. I now have it more thoroughly backed up.</p>
 
-<h2>Sell yourself in your cover letter</h2>
+<h2>App Design</h2>
 
-<p>I know a few developers that hate writing cover letters. This is more common in experienced developers. The more they know about programming, the more they realize they don't know, and that can lead to a situation where they have a hard time selling themselves to companies. If you have trouble with this, start making an objective list of your accomplishments. Flesh them out a bit and you've got a good start.</p>
+<p>Once I reached a point where the app worked on my iPhone, I still needed an app icon. Instead of trying to make one myself I used <a href="http://99designs.com/">99designs</a>. After about a week of commenting back and forth with designers, I picked an app icon. What I actually received was a 1024x1024 PNG file.</p>
 
-<h2>Tailor your cover letter for each job</h2>
+<p>Taking this file and creating all the various image sizes could have been a pain, but Ionic comes with the <code>ionic resources</code> <a href="http://ionicframework.com/docs/cli/icon-splashscreen.html">command</a>, which automates this process.</p>
 
-<p>I keep a standard cover letter targeting ruby web developer jobs in my email. I then edit and tailor it specifically to the job ad. This saves a lot of time, as opposed to writing a cover letter from scratch every time. Saving time means you can apply for more jobs, and get more interviews.</p>
+<p>However it became clear that I didn't think this process entirely through, as I was missing a splash screen (for when the app is loading). I found a template and made a simple "Log Encounter" text splash screen. It is boring, but it gets the job done.</p>
 
-<h2>What to put in a cover letter</h2>
+<h2>Mission Accomplished</h2>
 
-<p>I write about how my experience has made me a good candidate for the job listing, and I link to source code and running websites that I've built. It's important to signal to the employer ASAP that you are not bullshitting, and you really can code.</p>
+<p>So now the app is available for both Android and iOS:</p>
 
-<h2>Tailor your resumé</h2>
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.rawsyntax.logencounter">Log Encounter for Android</a></li>
+<li><a href="https://itunes.apple.com/us/app/log-encounter/id980902840?mt=8">Log Encounter for iOS</a></li>
+</ul>
 
-<p>I also keep a standard detailed resume on my computer. For each job I may highlight some experience or detail certain areas more than others. Be careful here. Be sure that everything you write on there is rock solid, and that you can back it up. I spend less time on tweaking the resume and more time tweaking the cover letter.</p>
 
-<h2>I got the interview, what now?</h2>
-
-<p><a href="/blog/interviewing-for-programmers">Read my earlier post on interviewing for a programming job</a></p>
+<p>I've had a few sales (10?) on iOS and none on Android. Now that the app is done and works, figuring out how to increase sales is an entirely separate process. Mission accomplished but not finished. I've also received plenty of (unsolicited) email spam for app promotion services. I can only assume those services comb through the new app listings and email everyone.</p>
 </div>
 
 
@@ -183,8 +186,14 @@ need one big hit.</p>
   
 
 
-<time datetime="2011-06-06T00:00:00-04:00" pubdate data-updated="true">Jun 6<span>th</span>, 2011</time>
+<time datetime="2015-08-08T11:14:21-04:00" pubdate data-updated="true">Aug 8<span>th</span>, 2015</time>
 
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/angularjs/'>angularjs</a>, <a class='category' href='/blog/categories/ionic/'>ionic</a>, <a class='category' href='/blog/categories/programming/'>programming</a>
+  
+</span>
 
 
 
@@ -200,7 +209,7 @@ need one big hit.</p>
   
   
     
-      <a title="+1 on Google Plus" class="googleplus-share" href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://rawsyntax.com/blog/how-to-get-a-programming-interview/" target="_blank">+1</a>
+      <a title="+1 on Google Plus" class="googleplus-share" href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://rawsyntax.com/blog/app-store-adventures/" target="_blank">+1</a>
     
   
   
@@ -211,10 +220,8 @@ need one big hit.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/interviewing-for-programmers/" title="Previous Post: Interviewing for Programmers">&laquo; Interviewing for Programmers</a>
+        <a class="basic-alignment left" href="/blog/compatible-ruby-version-with-rbenv-aliases/" title="Previous Post: Compatible .ruby-version with Rbenv Aliases">&laquo; Compatible .ruby-version with Rbenv Aliases</a>
       
-      
-        <a class="basic-alignment right" href="/blog/learn-emacs-align-regexp/" title="Next Post: Learn Emacs: align-regexp">Learn Emacs: align-regexp &raquo;</a>
       
     </p>
   </footer>
@@ -300,8 +307,8 @@ need one big hit.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://rawsyntax.com/blog/how-to-get-a-programming-interview/';
-        var disqus_url = 'http://rawsyntax.com/blog/how-to-get-a-programming-interview/';
+        var disqus_identifier = 'http://rawsyntax.com/blog/app-store-adventures/';
+        var disqus_url = 'http://rawsyntax.com/blog/app-store-adventures/';
         var disqus_script = 'embed.js';
       
     (function () {
