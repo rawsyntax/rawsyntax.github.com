@@ -3,7 +3,7 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2017-07-18T21:22:17-05:00</updated>
+  <updated>2017-07-18T21:23:23-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
@@ -22,7 +22,7 @@
 <link href="http://rawsyntax.com/blog/elixir-from-a-ruby-point-of-view/"/>
 <updated>2017-07-18T20:53:21-05:00</updated>
 <id>http://rawsyntax.com/blog/elixir-from-a-ruby-point-of-view</id>
-
+<category term="elixir" /><category term="ruby" />
 
       <content type="html"><![CDATA[<p>There has been plenty already written about Elixir, but I'm not yet convinced it is a silver bullet. However, I do think it is a useful tool when used in conjuction with existing ruby applications. In particular it can be used when speed or scaling ability is of critical importance.</p>
 
