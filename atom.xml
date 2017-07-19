@@ -3,11 +3,11 @@
   <title><![CDATA[Raw Syntax]]></title>
   <link href="http://rawsyntax.com/atom.xml" rel="self"/>
   <link href="http://rawsyntax.com/"/>
-  <updated>2015-08-10T22:26:21-04:00</updated>
+  <updated>2017-07-18T21:22:17-05:00</updated>
   <id>http://rawsyntax.com/</id>
   <author>
     <name><![CDATA[Eric Himmelreich]]></name>
-    <email><![CDATA[ericthehimm@gmail.com]]></email>
+    <email><![CDATA[eric@rawsyntax.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
@@ -18,9 +18,48 @@
 
 
 
+<title type="html"><![CDATA[Elixir from a Ruby Point of View]]></title>
+<link href="http://rawsyntax.com/blog/elixir-from-a-ruby-point-of-view/"/>
+<updated>2017-07-18T20:53:21-05:00</updated>
+<id>http://rawsyntax.com/blog/elixir-from-a-ruby-point-of-view</id>
+
+
+      <content type="html"><![CDATA[<p>There has been plenty already written about Elixir, but I'm not yet convinced it is a silver bullet. However, I do think it is a useful tool when used in conjuction with existing ruby applications. In particular it can be used when speed or scaling ability is of critical importance.</p>
+
+<p>What follows are a few examples of where Elixir could be used in a pre-existing ruby codebase.</p>
+
+<h3>API</h3>
+
+<p>Given an existing application such as an API written in Ruby, an Elixir backend can be proxied in and used for certain routes where speed or scaling is critical. An easy way to get started would be to replace a simple read only Ruby endpoint with Elixir.</p>
+
+<p>Over time the entire Ruby based API could be replaced entirely with Elixir.</p>
+
+<h3>Background Workers</h3>
+
+<p>It is arguable that Rails' strength lies in its easy use of gems and wrangling the web tier with relative ease. Background workers aren't necessarily a reason to pick Rails over another framework. In some codebases background workers are separated entirely from the web tier application code.</p>
+
+<p>One way to try out Elixir is having background jobs that get queued in Ruby, but then get executed by Elixir based workers. In fact, Elixir has a <a href="https://github.com/akira/exq">sidekiq compatible worker library</a>, which would allow each worker to be ported over to Elixir one by one, while existing Ruby workers peacefully coexist along side Elixir workers.</p>
+
+<h3>Slides</h3>
+
+<p>These two use cases allow for a trial of Elixir without having to build an entire application in it. I recently gave a talk on using Elixir from a Ruby point of view. The slides are below.</p>
+
+<p><a href="http://rawsyntax.com//slides.com/rawsyntax/elixir">Elixir with Ruby</a></p>
+
+<iframe src="http://rawsyntax.com//slides.com/rawsyntax/elixir/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+]]></content>
+    </entry>
+  
+    <entry>
+      
+
+
+
+
 <title type="html"><![CDATA[App Store Adventures]]></title>
 <link href="http://rawsyntax.com/blog/app-store-adventures/"/>
-<updated>2015-08-08T11:14:21-04:00</updated>
+<updated>2015-08-08T10:14:21-05:00</updated>
 <id>http://rawsyntax.com/blog/app-store-adventures</id>
 <category term="angularjs" /><category term="ionic" /><category term="programming" />
 
@@ -79,7 +118,7 @@
 
 <title type="html"><![CDATA[Compatible .ruby-version with Rbenv Aliases]]></title>
 <link href="http://rawsyntax.com/blog/compatible-ruby-version-with-rbenv-aliases/"/>
-<updated>2015-06-21T23:11:36-04:00</updated>
+<updated>2015-06-21T22:11:36-05:00</updated>
 <id>http://rawsyntax.com/blog/compatible-ruby-version-with-rbenv-aliases</id>
 <category term="programming" /><category term="ruby" />
 
@@ -113,7 +152,7 @@
 
 <title type="html"><![CDATA[Comparing plist files on OSX]]></title>
 <link href="http://rawsyntax.com/blog/comparing-plist-files-on-osx/"/>
-<updated>2015-05-10T11:56:56-04:00</updated>
+<updated>2015-05-10T10:56:56-05:00</updated>
 <id>http://rawsyntax.com/blog/comparing-plist-files-on-osx</id>
 <category term="tools" />
 
@@ -146,7 +185,7 @@
 
 <title type="html"><![CDATA[RSpec Suite Runs Twice?]]></title>
 <link href="http://rawsyntax.com/blog/rspec-suite-runs-twice/"/>
-<updated>2015-01-19T09:09:45-05:00</updated>
+<updated>2015-01-19T08:09:45-06:00</updated>
 <id>http://rawsyntax.com/blog/rspec-suite-runs-twice</id>
 <category term="programming" /><category term="ruby" />
 
@@ -166,7 +205,7 @@
 
 <title type="html"><![CDATA[On API Security]]></title>
 <link href="http://rawsyntax.com/blog/on-api-security/"/>
-<updated>2015-01-11T13:23:37-05:00</updated>
+<updated>2015-01-11T12:23:37-06:00</updated>
 <id>http://rawsyntax.com/blog/on-api-security</id>
 <category term="programming" /><category term="security" />
 
@@ -205,7 +244,7 @@
 
 <title type="html"><![CDATA[How to Set Up Angular with Rails Part 3]]></title>
 <link href="http://rawsyntax.com/blog/how-to-set-up-angular-with-rails-part-3/"/>
-<updated>2014-12-08T14:07:27-05:00</updated>
+<updated>2014-12-08T13:07:27-06:00</updated>
 <id>http://rawsyntax.com/blog/how-to-set-up-angular-with-rails-part-3</id>
 <category term="angularjs" /><category term="programming" />
 
@@ -650,7 +689,7 @@
 
 <title type="html"><![CDATA[K750: a Solid Wireless Keyboard]]></title>
 <link href="http://rawsyntax.com/blog/k750-a-solid-wireless-keyboard/"/>
-<updated>2014-11-07T18:41:25-05:00</updated>
+<updated>2014-11-07T17:41:25-06:00</updated>
 <id>http://rawsyntax.com/blog/k750-a-solid-wireless-keyboard</id>
 <category term="equipment" />
 
@@ -670,7 +709,7 @@
 
 <title type="html"><![CDATA[How to Set Up Angular with Rails Part 2]]></title>
 <link href="http://rawsyntax.com/blog/how-to-set-up-angular-with-rails-part-2/"/>
-<updated>2014-11-04T09:51:14-05:00</updated>
+<updated>2014-11-04T08:51:14-06:00</updated>
 <id>http://rawsyntax.com/blog/how-to-set-up-angular-with-rails-part-2</id>
 <category term="angularjs" /><category term="programming" />
 
@@ -984,7 +1023,7 @@
 
 <title type="html"><![CDATA[How to Set Up Angular With Rails]]></title>
 <link href="http://rawsyntax.com/blog/how-to-set-up-angular-with-rails/"/>
-<updated>2014-09-26T22:06:48-04:00</updated>
+<updated>2014-09-26T21:06:48-05:00</updated>
 <id>http://rawsyntax.com/blog/how-to-set-up-angular-with-rails</id>
 <category term="angularjs" /><category term="programming" />
 
@@ -1169,7 +1208,7 @@
 
 <title type="html"><![CDATA[Learn Emacs: Term, Ansi Term]]></title>
 <link href="http://rawsyntax.com/blog/learn-emacs-term/"/>
-<updated>2014-05-18T15:43:47-04:00</updated>
+<updated>2014-05-18T14:43:47-05:00</updated>
 <id>http://rawsyntax.com/blog/learn-emacs-term</id>
 <category term="code" /><category term="learn-emacs" /><category term="terminal" /><category term="tools" />
 
@@ -1213,7 +1252,7 @@ as needed.</p>
 
 <title type="html"><![CDATA[Getting started with Raspberry Pi]]></title>
 <link href="http://rawsyntax.com/blog/getting-started-with-raspberry-pi/"/>
-<updated>2014-03-26T17:29:00-04:00</updated>
+<updated>2014-03-26T16:29:00-05:00</updated>
 <id>http://rawsyntax.com/blog/getting-started-with-raspberry-pi</id>
 <category term="raspberry-pi" />
 
@@ -1411,7 +1450,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 
 <title type="html"><![CDATA[Learn Emacs: Birthday Easter Egg]]></title>
 <link href="http://rawsyntax.com/blog/learn-emacs-birthday-easter-egg/"/>
-<updated>2014-02-11T20:51:24-05:00</updated>
+<updated>2014-02-11T19:51:24-06:00</updated>
 <id>http://rawsyntax.com/blog/learn-emacs-birthday-easter-egg</id>
 <category term="learn-emacs" />
 
@@ -1432,7 +1471,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 
 <title type="html"><![CDATA[Keep your API Documentation Honest]]></title>
 <link href="http://rawsyntax.com/blog/keep-your-api-documentation-honest/"/>
-<updated>2014-01-13T14:41:41-05:00</updated>
+<updated>2014-01-13T13:41:41-06:00</updated>
 <id>http://rawsyntax.com/blog/keep-your-api-documentation-honest</id>
 <category term="documentation" />
 
@@ -1471,7 +1510,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 
 <title type="html"><![CDATA[Learn Emacs: The Extensible Editor]]></title>
 <link href="http://rawsyntax.com/blog/learn-emacs-the-extensible-editor/"/>
-<updated>2013-11-17T10:34:23-05:00</updated>
+<updated>2013-11-17T09:34:23-06:00</updated>
 <id>http://rawsyntax.com/blog/learn-emacs-the-extensible-editor</id>
 <category term="learn-emacs" />
 
@@ -1497,7 +1536,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 
 <title type="html"><![CDATA[Learn Emacs: Zsh and Multi-Term]]></title>
 <link href="http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/"/>
-<updated>2013-11-03T15:12:27-05:00</updated>
+<updated>2013-11-03T14:12:27-06:00</updated>
 <id>http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term</id>
 <category term="code" /><category term="learn-emacs" /><category term="terminal" /><category term="tools" />
 
@@ -1639,7 +1678,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 
 <title type="html"><![CDATA[Learn Emacs: Store Window Configuration]]></title>
 <link href="http://rawsyntax.com/blog/learn-emacs-store-window-configuration/"/>
-<updated>2013-04-16T19:40:23-04:00</updated>
+<updated>2013-04-16T18:40:23-05:00</updated>
 <id>http://rawsyntax.com/blog/learn-emacs-store-window-configuration</id>
 <category term="learn-emacs" />
 
@@ -1663,7 +1702,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 
 <title type="html"><![CDATA[Learn Emacs: 24.3 released and NEWS]]></title>
 <link href="http://rawsyntax.com/blog/learn-emacs-24-dot-3-released-and-news/"/>
-<updated>2013-03-11T15:29:00-04:00</updated>
+<updated>2013-03-11T14:29:00-05:00</updated>
 <id>http://rawsyntax.com/blog/learn-emacs-24-dot-3-released-and-news</id>
 <category term="learn-emacs" />
 
@@ -1693,7 +1732,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 
 <title type="html"><![CDATA[Learn Emacs: Fit your Workflow]]></title>
 <link href="http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/"/>
-<updated>2013-02-23T17:02:00-05:00</updated>
+<updated>2013-02-23T17:02:00-06:00</updated>
 <id>http://rawsyntax.com/blog/learn-emacs-fit-your-workflow</id>
 <category term="learn-emacs" />
 
@@ -1718,60 +1757,6 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 
 
 
-]]></content>
-    </entry>
-  
-    <entry>
-      
-
-
-
-
-<title type="html"><![CDATA[Quicksilver, Secure Keyboard Entry, and Single Modifier Activation]]></title>
-<link href="http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/"/>
-<updated>2012-11-08T10:55:00-05:00</updated>
-<id>http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction</id>
-<category term="tools" />
-
-      <content type="html"><![CDATA[<p>I use <a href="http://qsapp.com">Quicksilver</a> all the time.  Despite its bugs,
-I prefer it to any of the other launcher type programs that exist.
-Nevermind the fact that it is more powerful than most of those other
-programs (Alfred, LaunchBar, etc).  The single feature that got me
-hooked is the ability to bring up the Quicksilver prompt with a single
-keypress.  I have it set up to use the command key.</p>
-
-<p><img src="http://rawsyntax.com/images/single-modifier-activation.png" class ="center"/></p>
-
-<p>Other tools like Alfred won't do this (though it does have the command
-key double tap).</p>
-
-<!--more-->
-
-
-<h2>The Problem</h2>
-
-<p>Right around a year ago I started experiencing issues with single
-modifier activation not working occasionally.  At first I didn't know
-if it was Quicksilver being buggy or what.  Eventually I noticed that
-if my cursor was inside a password field single modifier activation
-would not work.  This is apparently a restriction of the operating
-system, that doesn't allow Quicksilver (or other programs like it) to
-listen to text entry on secure fields.</p>
-
-<p>I also noticed that when I was in Terminal.app single modifier
-activation would not work, which was strange because it had worked in
-the past (on 10.5 for example).  As a stopgap measure I started using command+space, which seemed to work all the time.</p>
-
-<p>Using that new keybinding was annoying enough that I switched my
-terminal and started using iTerm2.app.  It did not have the same
-problem as Terminal.app oddly enough.  I finally figured out what
-Terminal.app's problem was.</p>
-
-<p><img src="http://rawsyntax.com/images/secure-keyboard-entry.png" class ="center"/></p>
-
-<p>This setting essentially makes all text input in Terminal.app act like
-a password field having the same single modifier activation problem as
-above.  Turning Secure Keyboard Entry off fixed the problem.</p>
 ]]></content>
     </entry>
   

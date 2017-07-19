@@ -114,7 +114,7 @@ Learn Emacs: How to Break Bad Habits
   
 
 
-<time datetime="2012-02-14T10:10:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2012</time>
+<time datetime="2012-02-14T10:10:00-06:00" pubdate data-updated="true">Feb 14<span>th</span>, 2012</time>
          &bull; <a rel="bookmark" href="/blog/learn-emacs-how-to-break-bad-habits/">Permalink</a>
       </p>
     
@@ -165,8 +165,8 @@ index 9915c7e..bb9d4fc 100644
 +++ b/eric/bindings.el
 @@ -8,3 +8,9 @@
  
- (global-set-key (kbd &quot;C-w&quot;) 'backward-kill-word)
- (global-set-key (kbd &quot;C-x C-k&quot;) 'kill-region)
+ (global-set-key (kbd &quot;C-w&quot;) &#39;backward-kill-word)
+ (global-set-key (kbd &quot;C-x C-k&quot;) &#39;kill-region)
 +
 +;; stop using the arrow keys
 +(global-unset-key [left])
@@ -224,7 +224,7 @@ enough to use as my full-time working config.</p>
   
 
 
-<time datetime="2012-02-14T10:10:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2012</time>
+<time datetime="2012-02-14T10:10:00-06:00" pubdate data-updated="true">Feb 14<span>th</span>, 2012</time>
 
 
 <span class="categories">
@@ -286,6 +286,10 @@ enough to use as my full-time working config.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/elixir-from-a-ruby-point-of-view/">Elixir from a Ruby Point of View</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/app-store-adventures/">App Store Adventures</a>
       </li>
     
@@ -299,10 +303,6 @@ enough to use as my full-time working config.</p>
     
       <li class="post">
         <a href="/blog/rspec-suite-runs-twice/">RSpec Suite Runs Twice?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/on-api-security/">On API Security</a>
       </li>
     
   </ul>
@@ -334,7 +334,7 @@ enough to use as my full-time working config.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Eric Himmelreich -
+  Copyright &copy; 2017 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

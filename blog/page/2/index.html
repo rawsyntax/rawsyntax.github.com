@@ -97,6 +97,68 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/on-api-security/">On API Security</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-11T12:23:37-06:00" pubdate data-updated="true">Jan 11<span>th</span>, 2015</time>
+         &bull; <a rel="bookmark" href="/blog/on-api-security/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>I was asked recently about designing a secure API.  There are 2 basic steps:</p>
+
+<ol>
+<li>Encrypt the connection (HTTPS)</li>
+<li>Encrypt the paylod (HMAC-SHA1 for example)</li>
+</ol>
+
+
+<p>You could think up ways to go further but these are the basics that need to be covered.</p>
+
+</div>
+
+  <footer>
+    
+    
+    <p><a rel="full-article" href="/blog/on-api-security/">Read More &rarr;</a></p>
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/how-to-set-up-angular-with-rails-part-3/">How to Set Up Angular With Rails Part 3</a>
 
 </h1>
@@ -115,7 +177,7 @@
   
 
 
-<time datetime="2014-12-08T14:07:27-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2014</time>
+<time datetime="2014-12-08T13:07:27-06:00" pubdate data-updated="true">Dec 8<span>th</span>, 2014</time>
          &bull; <a rel="bookmark" href="/blog/how-to-set-up-angular-with-rails-part-3/">Permalink</a>
       </p>
     
@@ -173,7 +235,7 @@
   
 
 
-<time datetime="2014-11-07T18:41:25-05:00" pubdate data-updated="true">Nov 7<span>th</span>, 2014</time>
+<time datetime="2014-11-07T17:41:25-06:00" pubdate data-updated="true">Nov 7<span>th</span>, 2014</time>
          &bull; <a rel="bookmark" href="/blog/k750-a-solid-wireless-keyboard/">Permalink</a>
       </p>
     
@@ -228,7 +290,7 @@
   
 
 
-<time datetime="2014-11-04T09:51:14-05:00" pubdate data-updated="true">Nov 4<span>th</span>, 2014</time>
+<time datetime="2014-11-04T08:51:14-06:00" pubdate data-updated="true">Nov 4<span>th</span>, 2014</time>
          &bull; <a rel="bookmark" href="/blog/how-to-set-up-angular-with-rails-part-2/">Permalink</a>
       </p>
     
@@ -288,7 +350,7 @@
   
 
 
-<time datetime="2014-09-26T22:06:48-04:00" pubdate data-updated="true">Sep 26<span>th</span>, 2014</time>
+<time datetime="2014-09-26T21:06:48-05:00" pubdate data-updated="true">Sep 26<span>th</span>, 2014</time>
          &bull; <a rel="bookmark" href="/blog/how-to-set-up-angular-with-rails/">Permalink</a>
       </p>
     
@@ -318,85 +380,6 @@
 
     </article>
   
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/learn-emacs-term/">Learn Emacs: Term, Ansi Term</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-05-18T15:43:47-04:00" pubdate data-updated="true">May 18<span>th</span>, 2014</time>
-         &bull; <a rel="bookmark" href="/blog/learn-emacs-term/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><p>When I first started using Multi-Term to run my
-<a href="http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/">terminal in emacs</a>,
-much of the documentation I saw on the
-<a href="http://www.emacswiki.org/emacs/AnsiTerm">EmacsWiki</a> referenced both
-<code>ansi-term</code> and <code>term</code>. This left me somewhat confused as to which I
-should be using and what the difference was. I ignored this for some
-time while I got my Multi-Term setup working correctly.</p>
-
-<h2>Look It Up</h2>
-
-<p>When the time came to find out the truth, I knew I could just ask
-emacs.  I used <code>C-h a</code> to invoke <code>apropros</code> and fed it both
-<code>ansi-term</code> and <code>term</code>.  The output linked me to <code>term.el</code> and I read
-the source for both methods. It turns out that both methods work
-similarly, but simply use different buffer names.  As
-<a href="http://www.emacswiki.org/emacs/AnsiTerm">EmacsWiki</a> explains, the
-difference is largely historical at this point. Previously, plain
-<code>term-mode</code> was less able to display colors than <code>ansi-term</code>.</p>
-
-<p>This is one of the features I like best about emacs. It has a built-in
-help system that allowed me to search for term related documentation,
-and eventually led me to the source code implementation of the method
-in question. All without leaving the editor!</p>
-
-<p>I have some enhancements to my previous post
-<a href="http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/">zsh and multi-term in emacs</a>,
-and the fixes and changes that I implemented all came from reading the
-source of <code>term.el</code> and referring to <a href="http://emacswiki.org">EmacsWiki</a>
-as needed.</p>
-</div>
-
-  <footer>
-    
-    
-  </footer>
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -415,6 +398,10 @@ as needed.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/elixir-from-a-ruby-point-of-view/">Elixir from a Ruby Point of View</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/app-store-adventures/">App Store Adventures</a>
       </li>
     
@@ -428,10 +415,6 @@ as needed.</p>
     
       <li class="post">
         <a href="/blog/rspec-suite-runs-twice/">RSpec Suite Runs Twice?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/on-api-security/">On API Security</a>
       </li>
     
   </ul>
@@ -463,7 +446,7 @@ as needed.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Eric Himmelreich -
+  Copyright &copy; 2017 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

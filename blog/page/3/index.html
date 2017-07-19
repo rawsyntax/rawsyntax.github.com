@@ -97,6 +97,85 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/learn-emacs-term/">Learn Emacs: Term, Ansi Term</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-18T14:43:47-05:00" pubdate data-updated="true">May 18<span>th</span>, 2014</time>
+         &bull; <a rel="bookmark" href="/blog/learn-emacs-term/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>When I first started using Multi-Term to run my
+<a href="http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/">terminal in emacs</a>,
+much of the documentation I saw on the
+<a href="http://www.emacswiki.org/emacs/AnsiTerm">EmacsWiki</a> referenced both
+<code>ansi-term</code> and <code>term</code>. This left me somewhat confused as to which I
+should be using and what the difference was. I ignored this for some
+time while I got my Multi-Term setup working correctly.</p>
+
+<h2>Look It Up</h2>
+
+<p>When the time came to find out the truth, I knew I could just ask
+emacs.  I used <code>C-h a</code> to invoke <code>apropros</code> and fed it both
+<code>ansi-term</code> and <code>term</code>.  The output linked me to <code>term.el</code> and I read
+the source for both methods. It turns out that both methods work
+similarly, but simply use different buffer names.  As
+<a href="http://www.emacswiki.org/emacs/AnsiTerm">EmacsWiki</a> explains, the
+difference is largely historical at this point. Previously, plain
+<code>term-mode</code> was less able to display colors than <code>ansi-term</code>.</p>
+
+<p>This is one of the features I like best about emacs. It has a built-in
+help system that allowed me to search for term related documentation,
+and eventually led me to the source code implementation of the method
+in question. All without leaving the editor!</p>
+
+<p>I have some enhancements to my previous post
+<a href="http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/">zsh and multi-term in emacs</a>,
+and the fixes and changes that I implemented all came from reading the
+source of <code>term.el</code> and referring to <a href="http://emacswiki.org">EmacsWiki</a>
+as needed.</p>
+</div>
+
+  <footer>
+    
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/getting-started-with-raspberry-pi/">Getting Started With Raspberry Pi</a>
 
 </h1>
@@ -115,7 +194,7 @@
   
 
 
-<time datetime="2014-03-26T17:29:00-04:00" pubdate data-updated="true">Mar 26<span>th</span>, 2014</time>
+<time datetime="2014-03-26T16:29:00-05:00" pubdate data-updated="true">Mar 26<span>th</span>, 2014</time>
          &bull; <a rel="bookmark" href="/blog/getting-started-with-raspberry-pi/">Permalink</a>
       </p>
     
@@ -348,7 +427,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
   
 
 
-<time datetime="2014-02-11T20:51:24-05:00" pubdate data-updated="true">Feb 11<span>th</span>, 2014</time>
+<time datetime="2014-02-11T19:51:24-06:00" pubdate data-updated="true">Feb 11<span>th</span>, 2014</time>
          &bull; <a rel="bookmark" href="/blog/learn-emacs-birthday-easter-egg/">Permalink</a>
       </p>
     
@@ -404,7 +483,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
   
 
 
-<time datetime="2014-01-13T14:41:41-05:00" pubdate data-updated="true">Jan 13<span>th</span>, 2014</time>
+<time datetime="2014-01-13T13:41:41-06:00" pubdate data-updated="true">Jan 13<span>th</span>, 2014</time>
          &bull; <a rel="bookmark" href="/blog/keep-your-api-documentation-honest/">Permalink</a>
       </p>
     
@@ -478,7 +557,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
   
 
 
-<time datetime="2013-11-17T10:34:23-05:00" pubdate data-updated="true">Nov 17<span>th</span>, 2013</time>
+<time datetime="2013-11-17T09:34:23-06:00" pubdate data-updated="true">Nov 17<span>th</span>, 2013</time>
          &bull; <a rel="bookmark" href="/blog/learn-emacs-the-extensible-editor/">Permalink</a>
       </p>
     
@@ -505,62 +584,6 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
 
     </article>
   
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/learn-emacs-zsh-and-multi-term/">Learn Emacs: Zsh and Multi-Term</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-03T15:12:27-05:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2013</time>
-         &bull; <a rel="bookmark" href="/blog/learn-emacs-zsh-and-multi-term/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><p>I've been experimenting with running <code>multi-term</code> in emacs instead of using an external program like iTerm2.  While <code>multi-term</code> is good, it can have some show-stopping  problems out of the box.  As usual, <a href="http://emacswiki.org">EmacsWiki</a> has some good tips, but there isn't a comprehensive setup all on one page.</p>
-
-<p>View a short demo of this integration <a href="http://www.youtube.com/watch?v=G76ONy6YAPQ">on youtube</a>.</p>
-
-</div>
-
-  <footer>
-    
-    
-    <p><a rel="full-article" href="/blog/learn-emacs-zsh-and-multi-term/">Read More &rarr;</a></p>
-    
-  </footer>
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -579,6 +602,10 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/elixir-from-a-ruby-point-of-view/">Elixir from a Ruby Point of View</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/app-store-adventures/">App Store Adventures</a>
       </li>
     
@@ -592,10 +619,6 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
     
       <li class="post">
         <a href="/blog/rspec-suite-runs-twice/">RSpec Suite Runs Twice?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/on-api-security/">On API Security</a>
       </li>
     
   </ul>
@@ -627,7 +650,7 @@ will run a basic dashboard displaying various network connectivity metrics.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Eric Himmelreich -
+  Copyright &copy; 2017 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

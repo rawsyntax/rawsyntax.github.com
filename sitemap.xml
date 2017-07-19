@@ -2,276 +2,280 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://rawsyntax.com/blog/rewriting-github-badges/</loc>
-        <lastmod>2015-05-14T22:09:53-04:00</lastmod>
+        <lastmod>2015-05-14T21:09:53-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/start-using-html5/</loc>
-        <lastmod>2015-05-14T22:10:03-04:00</lastmod>
+        <lastmod>2015-05-14T21:10:03-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/puncher-the-simple-file-watcher-for-os-x/</loc>
-        <lastmod>2015-05-14T22:10:12-04:00</lastmod>
+        <lastmod>2015-05-14T21:10:12-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/freelancing-on-odesk/</loc>
-        <lastmod>2015-05-14T22:10:17-04:00</lastmod>
+        <lastmod>2015-05-14T21:10:17-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/url-validation-in-rails-3-and-ruby-in-general/</loc>
-        <lastmod>2015-05-14T22:10:27-04:00</lastmod>
+        <lastmod>2015-05-14T21:10:27-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/how-to-negotiate-salary/</loc>
-        <lastmod>2015-05-14T22:11:07-04:00</lastmod>
+        <lastmod>2015-05-14T21:11:07-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/quicksilver-lockscreen/</loc>
-        <lastmod>2015-05-14T22:11:17-04:00</lastmod>
+        <lastmod>2015-05-14T21:11:17-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/rails-3-email-validation/</loc>
-        <lastmod>2015-05-14T22:11:29-04:00</lastmod>
+        <lastmod>2015-05-14T21:11:29-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/generating-available-domain-names/</loc>
-        <lastmod>2015-05-14T22:11:38-04:00</lastmod>
+        <lastmod>2015-05-14T21:11:38-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/importance-of-side-projects/</loc>
-        <lastmod>2015-05-14T22:11:44-04:00</lastmod>
+        <lastmod>2015-05-14T21:11:44-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/interviewing-for-programmers/</loc>
-        <lastmod>2015-05-14T22:11:50-04:00</lastmod>
+        <lastmod>2015-05-14T21:11:50-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/how-to-get-a-programming-interview/</loc>
-        <lastmod>2015-05-14T22:11:57-04:00</lastmod>
+        <lastmod>2015-05-14T21:11:57-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-align-regexp/</loc>
-        <lastmod>2015-05-14T22:12:03-04:00</lastmod>
+        <lastmod>2015-05-14T21:12:03-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/make-your-rails-3-app-run-faster/</loc>
-        <lastmod>2015-05-14T22:12:09-04:00</lastmod>
+        <lastmod>2015-05-14T21:12:09-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-delete-file-and-buffer/</loc>
-        <lastmod>2015-05-14T22:12:15-04:00</lastmod>
+        <lastmod>2015-05-14T21:12:15-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-use-defadvice-modify-functions/</loc>
-        <lastmod>2015-05-14T22:12:22-04:00</lastmod>
+        <lastmod>2015-05-14T21:12:22-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/rails-authentication-plugins/</loc>
-        <lastmod>2015-05-14T22:12:40-04:00</lastmod>
+        <lastmod>2015-05-14T21:12:40-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/host-your-side-project-for-free/</loc>
-        <lastmod>2015-05-14T22:12:45-04:00</lastmod>
+        <lastmod>2015-05-14T21:12:45-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-bash-remove-commands-from-your-history/</loc>
-        <lastmod>2015-05-14T22:12:50-04:00</lastmod>
+        <lastmod>2015-05-14T21:12:50-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/use-livereload-with-rails-for-faster-development/</loc>
-        <lastmod>2015-05-14T22:12:55-04:00</lastmod>
+        <lastmod>2015-05-14T21:12:55-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-keyboard-macros/</loc>
-        <lastmod>2015-05-14T22:13:00-04:00</lastmod>
+        <lastmod>2015-05-14T21:13:00-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/os-x-lion-new-tab-in-terminal-changes-directory/</loc>
-        <lastmod>2015-05-14T22:13:05-04:00</lastmod>
+        <lastmod>2015-05-14T21:13:05-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-useful-links/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/the-problem-with-micro-frameworks/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/solving-the-general-case/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/blogging-on-jekyll-url-redirects/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/purchasing-electronic-media/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/verify-your-assumptions/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/sometimes-side-projects-fail/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/building-a-gaming-pc/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/stop-programming/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/troubleshooting-your-emacs-config/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-swap-windows/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-how-to-break-bad-habits/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/reload-your-app-with-guard-and-pow/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-editing-javascript/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-smex/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/emacs-24-dot-1-is-out/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/who-changed-my-file/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/faster-ssh-connections/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/measuring-slow-code/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>
             http://rawsyntax.com/blog/quicksilver-secure-keyboard-entry-and-single-modified-activaction/
         </loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-fit-your-workflow/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-24-dot-3-released-and-news/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-store-window-configuration/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/living-with-boxen/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-zsh-and-multi-term/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-the-extensible-editor/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/keep-your-api-documentation-honest/</loc>
-        <lastmod>2015-05-14T22:28:36-04:00</lastmod>
+        <lastmod>2015-05-14T21:28:36-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-birthday-easter-egg/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/getting-started-with-raspberry-pi/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/learn-emacs-term/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/how-to-set-up-angular-with-rails/</loc>
-        <lastmod>2015-05-21T20:49:43-04:00</lastmod>
+        <lastmod>2015-05-21T19:49:43-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/how-to-set-up-angular-with-rails-part-2/</loc>
-        <lastmod>2015-05-21T20:49:57-04:00</lastmod>
+        <lastmod>2015-05-21T19:49:57-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/k750-a-solid-wireless-keyboard/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/how-to-set-up-angular-with-rails-part-3/</loc>
-        <lastmod>2015-05-21T20:50:10-04:00</lastmod>
+        <lastmod>2015-05-21T19:50:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/on-api-security/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/rspec-suite-runs-twice/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/comparing-plist-files-on-osx/</loc>
-        <lastmod>2015-05-11T18:24:24-04:00</lastmod>
+        <lastmod>2015-05-11T17:24:24-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/compatible-ruby-version-with-rbenv-aliases/</loc>
-        <lastmod>2015-06-21T23:25:51-04:00</lastmod>
+        <lastmod>2015-06-21T22:25:51-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/app-store-adventures/</loc>
-        <lastmod>2015-08-10T22:26:02-04:00</lastmod>
+        <lastmod>2015-08-10T21:26:02-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rawsyntax.com/blog/elixir-from-a-ruby-point-of-view/</loc>
+        <lastmod>2017-07-18T21:21:32-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/archives/</loc>
-        <lastmod>2015-08-10T22:26:02-04:00</lastmod>
+        <lastmod>2017-07-18T21:21:32-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/blog/open-source-contributions/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/books/</loc>
-        <lastmod>2015-05-10T12:34:10-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:10-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/contact/</loc>
-        <lastmod>2015-06-29T18:11:00-04:00</lastmod>
+        <lastmod>2017-01-24T10:45:00-06:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/</loc>
-        <lastmod>2015-08-10T22:26:02-04:00</lastmod>
+        <lastmod>2017-07-18T21:21:32-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/robots.txt</loc>
-        <lastmod>2015-05-10T12:34:11-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:11-05:00</lastmod>
     </url>
     <url>
         <loc>http://rawsyntax.com/screencasts/</loc>
-        <lastmod>2015-05-10T12:34:11-04:00</lastmod>
+        <lastmod>2015-05-10T11:34:11-05:00</lastmod>
     </url>
 </urlset>

@@ -97,6 +97,80 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/elixir-from-a-ruby-point-of-view/">Elixir From a Ruby Point of View</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-07-18T20:53:21-05:00" pubdate data-updated="true">Jul 18<span>th</span>, 2017</time>
+         &bull; <a rel="bookmark" href="/blog/elixir-from-a-ruby-point-of-view/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>There has been plenty already written about Elixir, but I'm not yet convinced it is a silver bullet. However, I do think it is a useful tool when used in conjuction with existing ruby applications. In particular it can be used when speed or scaling ability is of critical importance.</p>
+
+<p>What follows are a few examples of where Elixir could be used in a pre-existing ruby codebase.</p>
+
+<h3>API</h3>
+
+<p>Given an existing application such as an API written in Ruby, an Elixir backend can be proxied in and used for certain routes where speed or scaling is critical. An easy way to get started would be to replace a simple read only Ruby endpoint with Elixir.</p>
+
+<p>Over time the entire Ruby based API could be replaced entirely with Elixir.</p>
+
+<h3>Background Workers</h3>
+
+<p>It is arguable that Rails' strength lies in its easy use of gems and wrangling the web tier with relative ease. Background workers aren't necessarily a reason to pick Rails over another framework. In some codebases background workers are separated entirely from the web tier application code.</p>
+
+<p>One way to try out Elixir is having background jobs that get queued in Ruby, but then get executed by Elixir based workers. In fact, Elixir has a <a href="https://github.com/akira/exq">sidekiq compatible worker library</a>, which would allow each worker to be ported over to Elixir one by one, while existing Ruby workers peacefully coexist along side Elixir workers.</p>
+
+<h3>Slides</h3>
+
+<p>These two use cases allow for a trial of Elixir without having to build an entire application in it. I recently gave a talk on using Elixir from a Ruby point of view. The slides are below.</p>
+
+<p><a href="//slides.com/rawsyntax/elixir">Elixir with Ruby</a></p>
+
+<iframe src="//slides.com/rawsyntax/elixir/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+</div>
+
+  <footer>
+    
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/app-store-adventures/">App Store Adventures</a>
 
 </h1>
@@ -115,7 +189,7 @@
   
 
 
-<time datetime="2015-08-08T11:14:21-04:00" pubdate data-updated="true">Aug 8<span>th</span>, 2015</time>
+<time datetime="2015-08-08T10:14:21-05:00" pubdate data-updated="true">Aug 8<span>th</span>, 2015</time>
          &bull; <a rel="bookmark" href="/blog/app-store-adventures/">Permalink</a>
       </p>
     
@@ -173,7 +247,7 @@
   
 
 
-<time datetime="2015-06-21T23:11:36-04:00" pubdate data-updated="true">Jun 21<span>st</span>, 2015</time>
+<time datetime="2015-06-21T22:11:36-05:00" pubdate data-updated="true">Jun 21<span>st</span>, 2015</time>
          &bull; <a rel="bookmark" href="/blog/compatible-ruby-version-with-rbenv-aliases/">Permalink</a>
       </p>
     
@@ -242,7 +316,7 @@
   
 
 
-<time datetime="2015-05-10T11:56:56-04:00" pubdate data-updated="true">May 10<span>th</span>, 2015</time>
+<time datetime="2015-05-10T10:56:56-05:00" pubdate data-updated="true">May 10<span>th</span>, 2015</time>
          &bull; <a rel="bookmark" href="/blog/comparing-plist-files-on-osx/">Permalink</a>
       </p>
     
@@ -310,7 +384,7 @@
   
 
 
-<time datetime="2015-01-19T09:09:45-05:00" pubdate data-updated="true">Jan 19<span>th</span>, 2015</time>
+<time datetime="2015-01-19T08:09:45-06:00" pubdate data-updated="true">Jan 19<span>th</span>, 2015</time>
          &bull; <a rel="bookmark" href="/blog/rspec-suite-runs-twice/">Permalink</a>
       </p>
     
@@ -325,68 +399,6 @@
 
   <footer>
     
-    
-  </footer>
-
-
-    </article>
-  
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/on-api-security/">On API Security</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-01-11T13:23:37-05:00" pubdate data-updated="true">Jan 11<span>th</span>, 2015</time>
-         &bull; <a rel="bookmark" href="/blog/on-api-security/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><p>I was asked recently about designing a secure API.  There are 2 basic steps:</p>
-
-<ol>
-<li>Encrypt the connection (HTTPS)</li>
-<li>Encrypt the paylod (HMAC-SHA1 for example)</li>
-</ol>
-
-
-<p>You could think up ways to go further but these are the basics that need to be covered.</p>
-
-</div>
-
-  <footer>
-    
-    
-    <p><a rel="full-article" href="/blog/on-api-security/">Read More &rarr;</a></p>
     
   </footer>
 
@@ -409,6 +421,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/elixir-from-a-ruby-point-of-view/">Elixir from a Ruby Point of View</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/app-store-adventures/">App Store Adventures</a>
       </li>
     
@@ -422,10 +438,6 @@
     
       <li class="post">
         <a href="/blog/rspec-suite-runs-twice/">RSpec Suite Runs Twice?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/on-api-security/">On API Security</a>
       </li>
     
   </ul>
@@ -457,7 +469,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Eric Himmelreich -
+  Copyright &copy; 2017 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

@@ -114,7 +114,7 @@ Learn Emacs: Editing Javascript
   
 
 
-<time datetime="2012-05-31T17:07:00-04:00" pubdate data-updated="true">May 31<span>st</span>, 2012</time>
+<time datetime="2012-05-31T17:07:00-05:00" pubdate data-updated="true">May 31<span>st</span>, 2012</time>
          &bull; <a rel="bookmark" href="/blog/learn-emacs-editing-javascript/">Permalink</a>
       </p>
     
@@ -143,11 +143,11 @@ own modifications and have a <code>js2-mode</code> that works exactly the way I
 want it (code below).</p>
 
 <div><script src='https://gist.github.com/rawsyntax/2846385.js'></script>
-<noscript><pre><code>(add-to-list 'auto-mode-alist '(&quot;\\.js$&quot; . js2-mode))
-(add-to-list 'auto-mode-alist '(&quot;\\.json$&quot; . js2-mode))
+<noscript><pre><code>(add-to-list &#39;auto-mode-alist &#39;(&quot;\\.js$&quot; . js2-mode))
+(add-to-list &#39;auto-mode-alist &#39;(&quot;\\.json$&quot; . js2-mode))
 
 
-;; Use js-mode indentation in js2-mode, I don't like js2-mode's indentation
+;; Use js-mode indentation in js2-mode, I don&#39;t like js2-mode&#39;s indentation
 ;;
 ;; thanks http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
 ;; with my own modifications
@@ -191,43 +191,43 @@ want it (code below).</p>
              (end (progn (goto-char beg) (forward-list) (point)))
              (ovl (make-overlay beg end)))
         (set-marker end-marker end)
-        (overlay-put ovl 'face 'highlight)
+        (overlay-put ovl &#39;face &#39;highlight)
         (goto-char beg)
         (while (&lt; (point) (marker-position end-marker))
-          ;; don't reindent blank lines so we don't set the &quot;buffer
+          ;; don&#39;t reindent blank lines so we don&#39;t set the &quot;buffer
           ;; modified&quot; property for nothing
           (beginning-of-line)
           (unless (looking-at &quot;\\s-*$&quot;)
             (indent-according-to-mode))
           (forward-line))
-        (run-with-timer 0.5 nil '(lambda(ovl)
+        (run-with-timer 0.5 nil &#39;(lambda(ovl)
                                    (delete-overlay ovl)) ovl)))))
 
 (defun my-js2-mode-hook ()
-  (require 'js)
+  (require &#39;js)
   (setq js-indent-level 2
         indent-tabs-mode nil
         c-basic-offset 2)
   (c-toggle-auto-state 0)
   (c-toggle-hungry-state 1)
-  (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
-  (define-key js2-mode-map [(meta control |)] 'cperl-lineup)
+  (set (make-local-variable &#39;indent-line-function) &#39;my-js2-indent-function)
+  (define-key js2-mode-map [(meta control |)] &#39;cperl-lineup)
   (define-key js2-mode-map [(meta control \;)] 
-    '(lambda()
+    &#39;(lambda()
        (interactive)
        (insert &quot;/* -----[ &quot;)
        (save-excursion
          (insert &quot; ]----- */&quot;))
        ))
-  (define-key js2-mode-map [(return)] 'newline-and-indent)
-  (define-key js2-mode-map [(backspace)] 'c-electric-backspace)
-  (define-key js2-mode-map [(control d)] 'c-electric-delete-forward)
-  (define-key js2-mode-map [(control meta q)] 'my-indent-sexp)
-  (if (featurep 'js2-highlight-vars)
+  (define-key js2-mode-map [(return)] &#39;newline-and-indent)
+  (define-key js2-mode-map [(backspace)] &#39;c-electric-backspace)
+  (define-key js2-mode-map [(control d)] &#39;c-electric-delete-forward)
+  (define-key js2-mode-map [(control meta q)] &#39;my-indent-sexp)
+  (if (featurep &#39;js2-highlight-vars)
     (js2-highlight-vars-mode))
   (message &quot;My JS2 hook&quot;))
 
-(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+(add-hook &#39;js2-mode-hook &#39;my-js2-mode-hook)
 
 </code></pre></noscript></div>
 
@@ -288,7 +288,7 @@ actually done this, I would love to see the code.</p>
   
 
 
-<time datetime="2012-05-31T17:07:00-04:00" pubdate data-updated="true">May 31<span>st</span>, 2012</time>
+<time datetime="2012-05-31T17:07:00-05:00" pubdate data-updated="true">May 31<span>st</span>, 2012</time>
 
 
 <span class="categories">
@@ -350,6 +350,10 @@ actually done this, I would love to see the code.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/elixir-from-a-ruby-point-of-view/">Elixir from a Ruby Point of View</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/app-store-adventures/">App Store Adventures</a>
       </li>
     
@@ -363,10 +367,6 @@ actually done this, I would love to see the code.</p>
     
       <li class="post">
         <a href="/blog/rspec-suite-runs-twice/">RSpec Suite Runs Twice?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/on-api-security/">On API Security</a>
       </li>
     
   </ul>
@@ -398,7 +398,7 @@ actually done this, I would love to see the code.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Eric Himmelreich -
+  Copyright &copy; 2017 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

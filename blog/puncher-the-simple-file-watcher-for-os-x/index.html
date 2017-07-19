@@ -114,7 +114,7 @@ Puncher the Simple File Watcher for OS X
   
 
 
-<time datetime="2010-09-29T00:00:00-04:00" pubdate data-updated="true">Sep 29<span>th</span>, 2010</time>
+<time datetime="2010-09-29T00:00:00-05:00" pubdate data-updated="true">Sep 29<span>th</span>, 2010</time>
          &bull; <a rel="bookmark" href="/blog/puncher-the-simple-file-watcher-for-os-x/">Permalink</a>
       </p>
     
@@ -136,7 +136,7 @@ Puncher the Simple File Watcher for OS X
 <p>Typically the code to fix this problem goes something like this</p>
 
 <div><script src='https://gist.github.com/rawsyntax/289868.js'></script>
-<noscript><pre><code>~$ ARCHFLAGS='-arch i386 -arch x86_64'
+<noscript><pre><code>~$ ARCHFLAGS=&#39;-arch i386 -arch x86_64&#39;
 ~$ rvm install 1.8.7 --debug --reconfigure -C --enable-shared=yes
 ~$ wget http://sourceforge.net/projects/rubycocoa/files/RubyCocoa/1.0.0/RubyCocoa-1.0.0.tar.gz/download
 ~$ tar xzf RubyCocoa-1.0.0.tar.gz &amp;&amp; rm RubyCocoa-1.0.0.tar.gz &amp;&amp; cd RubyCocoa-1.0.0
@@ -155,10 +155,10 @@ Puncher the Simple File Watcher for OS X
 
 <div><script src='https://gist.github.com/rawsyntax/603206.js'></script>
 <noscript><pre><code>begin
-  require 'fsevent'
+  require &#39;fsevent&#39;
 rescue LoadError
-  require 'rubygems'
-  require 'fsevent'
+  require &#39;rubygems&#39;
+  require &#39;fsevent&#39;
 end
 
 class Puncher &lt; FSEvent
@@ -219,7 +219,7 @@ end
   
 
 
-<time datetime="2010-09-29T00:00:00-04:00" pubdate data-updated="true">Sep 29<span>th</span>, 2010</time>
+<time datetime="2010-09-29T00:00:00-05:00" pubdate data-updated="true">Sep 29<span>th</span>, 2010</time>
 
 
 <span class="categories">
@@ -281,6 +281,10 @@ end
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/elixir-from-a-ruby-point-of-view/">Elixir from a Ruby Point of View</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/app-store-adventures/">App Store Adventures</a>
       </li>
     
@@ -294,10 +298,6 @@ end
     
       <li class="post">
         <a href="/blog/rspec-suite-runs-twice/">RSpec Suite Runs Twice?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/on-api-security/">On API Security</a>
       </li>
     
   </ul>
@@ -329,7 +329,7 @@ end
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Eric Himmelreich -
+  Copyright &copy; 2017 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

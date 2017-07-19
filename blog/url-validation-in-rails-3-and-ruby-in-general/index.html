@@ -114,7 +114,7 @@ URL Validation in Rails 3 (and Ruby in General)
   
 
 
-<time datetime="2011-01-20T00:00:00-05:00" pubdate data-updated="true">Jan 20<span>th</span>, 2011</time>
+<time datetime="2011-01-20T00:00:00-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2011</time>
          &bull; <a rel="bookmark" href="/blog/url-validation-in-rails-3-and-ruby-in-general/">Permalink</a>
       </p>
     
@@ -137,17 +137,17 @@ scheme seems reasonably valid, good enough.</p>
 <noscript><pre><code>#!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
-require 'uri'
+require &#39;uri&#39;
 
 URI.parse(&quot;кц.рф&quot;)
 
 # fails with the following error
 #
-#/Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:156:in `split': bad URI(is not
+#/Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:156:in `split&#39;: bad URI(is not
 # URI?): кц.рф (URI::InvalidURIError)
-#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:174:in `parse'
-#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:628:in `parse'
-#   from ./uri-parse.rb:6:in `&lt;main&gt;'
+#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:174:in `parse&#39;
+#   from /Users/eric/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/uri/common.rb:628:in `parse&#39;
+#   from ./uri-parse.rb:6:in `&lt;main&gt;&#39;
 </code></pre></noscript></div>
 
 
@@ -161,7 +161,7 @@ URI.parse(&quot;кц.рф&quot;)
 <noscript><pre><code>#!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
-require 'addressable/uri'
+require &#39;addressable/uri&#39;
 
 Addressable::URI.parse(&quot;кц.рф&quot;)
 
@@ -221,7 +221,7 @@ end</code></pre></noscript></div>
   
 
 
-<time datetime="2011-01-20T00:00:00-05:00" pubdate data-updated="true">Jan 20<span>th</span>, 2011</time>
+<time datetime="2011-01-20T00:00:00-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2011</time>
 
 
 <span class="categories">
@@ -283,6 +283,10 @@ end</code></pre></noscript></div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/elixir-from-a-ruby-point-of-view/">Elixir from a Ruby Point of View</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/app-store-adventures/">App Store Adventures</a>
       </li>
     
@@ -296,10 +300,6 @@ end</code></pre></noscript></div>
     
       <li class="post">
         <a href="/blog/rspec-suite-runs-twice/">RSpec Suite Runs Twice?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/on-api-security/">On API Security</a>
       </li>
     
   </ul>
@@ -331,7 +331,7 @@ end</code></pre></noscript></div>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Eric Himmelreich -
+  Copyright &copy; 2017 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

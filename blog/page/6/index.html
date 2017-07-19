@@ -97,6 +97,79 @@
   <header>
     <h1 class="entry-title">
 
+<a href="/blog/learn-emacs-smex/">Learn Emacs: Smex</a>
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-06T12:24:00-05:00" pubdate data-updated="true">Jun 6<span>th</span>, 2012</time>
+         &bull; <a rel="bookmark" href="/blog/learn-emacs-smex/">Permalink</a>
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>Scroll down for code snippets and text.</p>
+
+<div class="embed video YouTube"><iframe width="459" height="344" src="https://www.youtube.com/embed/18u_ieDpr1o?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
+
+
+<p>Smex is IDO style completion for M-x.  It is very customizable.  I
+recommend taking a look at the README for all the available options.
+Here's the minimum setup required.</p>
+
+<div><script src='https://gist.github.com/rawsyntax/2883010.js'></script>
+<noscript><pre><code>(require &#39;smex)
+(smex-initialize)
+
+(global-set-key (kbd &quot;M-x&quot;) &#39;smex)
+(global-set-key (kbd &quot;M-X&quot;) &#39;smex-major-mode-commands)
+(global-set-key (kbd &quot;C-c M-x&quot;) &#39;smex-update)
+(global-set-key (kbd &quot;C-c C-c M-x&quot;) &#39;execute-extended-command)</code></pre></noscript></div>
+
+
+<p>It's available on the ELPA and the source is on github.</p>
+
+<p><a href="https://github.com/nonsequitur/smex/">Smex source on github</a><br />
+<a href="http://marmalade-repo.org/packages/smex">available on marmalade repo</a></p>
+</div>
+
+  <footer>
+    
+    
+  </footer>
+
+
+    </article>
+  
+    
+
+
+
+
+
+
+
+
+
+
+    <article >
+      
+  <header>
+    <h1 class="entry-title">
+
 <a href="/blog/learn-emacs-editing-javascript/">Learn Emacs: Editing Javascript</a>
 
 </h1>
@@ -115,7 +188,7 @@
   
 
 
-<time datetime="2012-05-31T17:07:00-04:00" pubdate data-updated="true">May 31<span>st</span>, 2012</time>
+<time datetime="2012-05-31T17:07:00-05:00" pubdate data-updated="true">May 31<span>st</span>, 2012</time>
          &bull; <a rel="bookmark" href="/blog/learn-emacs-editing-javascript/">Permalink</a>
       </p>
     
@@ -171,7 +244,7 @@ javascript with emacs.</p>
   
 
 
-<time datetime="2012-02-22T15:06:00-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2012</time>
+<time datetime="2012-02-22T15:06:00-06:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2012</time>
          &bull; <a rel="bookmark" href="/blog/reload-your-app-with-guard-and-pow/">Permalink</a>
       </p>
     
@@ -229,7 +302,7 @@ specify a port either!</p>
   
 
 
-<time datetime="2012-02-14T10:10:00-05:00" pubdate data-updated="true">Feb 14<span>th</span>, 2012</time>
+<time datetime="2012-02-14T10:10:00-06:00" pubdate data-updated="true">Feb 14<span>th</span>, 2012</time>
          &bull; <a rel="bookmark" href="/blog/learn-emacs-how-to-break-bad-habits/">Permalink</a>
       </p>
     
@@ -287,7 +360,7 @@ this blog post.  Here's what has worked for me.</p>
   
 
 
-<time datetime="2012-01-26T10:33:00-05:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
+<time datetime="2012-01-26T10:33:00-06:00" pubdate data-updated="true">Jan 26<span>th</span>, 2012</time>
          &bull; <a rel="bookmark" href="/blog/learn-emacs-swap-windows/">Permalink</a>
       </p>
     
@@ -333,64 +406,6 @@ file.</p>
 
     </article>
   
-    
-
-
-
-
-
-
-
-
-
-
-    <article >
-      
-  <header>
-    <h1 class="entry-title">
-
-<a href="/blog/troubleshooting-your-emacs-config/">Troubleshooting Your Emacs Config</a>
-
-</h1>
-
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-01-22T22:26:00-05:00" pubdate data-updated="true">Jan 22<span>nd</span>, 2012</time>
-         &bull; <a rel="bookmark" href="/blog/troubleshooting-your-emacs-config/">Permalink</a>
-      </p>
-    
-  </header>
-
-<div class="entry-content"><p>Up to this point my <a href="/blog/categories/learn-emacs">Learn Emacs</a>
-series has been all about how to do cool stuff in emacs.  One of my
-personal favorites is <a href="/blog/learn-emacs-align-regexp/">align-regexp</a>.
-A while back that stopped working for me.  Now I get an error: <code>Wrong type
-argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
-
-</div>
-
-  <footer>
-    
-    
-    <p><a rel="full-article" href="/blog/troubleshooting-your-emacs-config/">Read More &rarr;</a></p>
-    
-  </footer>
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -409,6 +424,10 @@ argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/elixir-from-a-ruby-point-of-view/">Elixir from a Ruby Point of View</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/app-store-adventures/">App Store Adventures</a>
       </li>
     
@@ -422,10 +441,6 @@ argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
     
       <li class="post">
         <a href="/blog/rspec-suite-runs-twice/">RSpec Suite Runs Twice?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/on-api-security/">On API Security</a>
       </li>
     
   </ul>
@@ -457,7 +472,7 @@ argument: markerp, 0</code>.  Emacs doesn't always do what I mean.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Eric Himmelreich -
+  Copyright &copy; 2017 - Eric Himmelreich -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
